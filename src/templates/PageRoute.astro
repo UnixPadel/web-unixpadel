@@ -1,0 +1,76 @@
+---
+// One content page in either language: picks the template, builds breadcrumbs and JSON-LD.
+// Used by src/pages/[...slug].astro (English) and src/pages/[lang]/[...slug].astro (tr, de, fr, ar, ru).
+import { render } from 'astro:content';
+import type { Crumb } from '../components/Breadcrumbs.astro';
+import { allPages, labelOf, childrenOf, type Page } from '../lib/collection';
+import { pageTypeOf, isProductLike } from '../lib/pageType';
+import { breadcrumbList, faqPage, product, article, service, collectionPage, webPage } from '../lib/jsonld';
+import { localizePath, stripLang, t, type Lang } from '../i18n';
+import HubPage from './HubPage.astro';
+import ProductPage from './ProductPage.astro';
+import ServicePage from './ServicePage.astro';
+import ArticlePage from './ArticlePage.astro';
+import ReferencePage from './ReferencePage.astro';
+import ContactPage from './ContactPage.astro';
+import AboutPage from './AboutPage.astro';
+import GenericPage from './GenericPage.astro';
+
+interface Props {
+  page: Page;
+  lang: Lang;
+}
+
+const { page, lang } = Astro.props;
+const { data } = page;
+const ui = t(lang);
+const { Content, headings } = await render(page);
+
+const byUrl = new Map((await allPages(lang)).map((p) => [p.data.url, p]));
+const crumbs: Crumb[] = [];
+for (let p: Page | undefined = page; p; p = p.data.parent ? byUrl.get(p.data.parent) : undefined) {
+  // Ancestors use the short menu label; the current page repeats its H1 so "you are here" matches the title.
+  crumbs.unshift({ label: p === page ? labelOf(p) : (p.data.navLabel ?? labelOf(p)), url: p.data.url });
+  if (crumbs.length > 6) break; // guard against parent cycles
+}
+if (crumbs[0]?.url !== '/') crumbs.unshift({ label: ui.home, url: '/' });
+crumbs[0].label = ui.home;
+for (const c of crumbs) c.url = localizePath(c.url, lang);
+
+const type = pageTypeOf(data);
+const Template =
+  {
+    hub: HubPage,
+    product: ProductPage,
+    service: ServicePage,
+    article: ArticlePage,
+    reference: ReferencePage,
+    contact: ContactPage,
+    about: AboutPage,
+  }[type as string] ?? (isProductLike(data) ? ProductPage : GenericPage);
+
+const jsonLd: Record<string, unknown>[] = [];
+if (data.faq?.length) jsonLd.push(faqPage(data.faq));
+if (crumbs.length > 1) jsonLd.push(breadcrumbList(crumbs, Astro.site));
+// Product category from the hub the page sits under, rather than a fixed "Padel court" for canopies and turf too.
+const CATEGORY: Record<Lang, Record<string, string>> = {
+  en: { canopy: 'Padel court canopy', turf: 'Artificial turf for padel courts', padbol: 'Padbol court', pickleball: 'Pickleball court', padel: 'Padel court' },
+  tr: { canopy: 'Padel kortu kanopisi', turf: 'Padel kortu için sentetik çim', padbol: 'Padbol sahası', pickleball: 'Pickleball kortu', padel: 'Padel kortu' },
+  de: { canopy: 'Padelplatz-Überdachung', turf: 'Kunstrasen für Padelplätze', padbol: 'Padbol-Platz', pickleball: 'Pickleball-Platz', padel: 'Padelplatz' },
+  fr: { canopy: 'Couverture de terrain de padel', turf: 'Gazon synthétique pour terrains de padel', padbol: 'Terrain de padbol', pickleball: 'Terrain de pickleball', padel: 'Terrain de padel' },
+  ar: { canopy: 'مظلة ملعب بادل', turf: 'عشب صناعي لملاعب البادل', padbol: 'ملعب Padbol', pickleball: 'ملعب Pickleball', padel: 'ملعب بادل' },
+  ru: { canopy: 'Навес для падел-корта', turf: 'Искусственный газон для падел-кортов', padbol: 'Корт для Padbol', pickleball: 'Корт для Pickleball', padel: 'Падел-корт' },
+};
+const HUB_CATEGORY: Record<string, string> = { '/canopy/': 'canopy', '/innovative-canopy/': 'canopy', '/turfs/': 'turf', '/padbols/': 'padbol' };
+const categoryKey = crumbs.map((c) => stripLang(c.url)).map((u) => HUB_CATEGORY[u]).findLast(Boolean) ?? (/pickleball/.test(data.url) ? 'pickleball' : 'padel');
+const category = CATEGORY[lang][categoryKey];
+const ld = { ...data, url: localizePath(data.url, lang) };
+if (Template === ProductPage) jsonLd.push(product(ld, category));
+if (type === 'article' || type === 'reference') jsonLd.push(article(ld));
+if (type === 'service') jsonLd.push(service(ld));
+if (type === 'contact') jsonLd.push(webPage('ContactPage', ld));
+if (type === 'about') jsonLd.push(webPage('AboutPage', ld));
+if (type === 'hub') jsonLd.push(collectionPage(ld, (await childrenOf(data.url, lang)).map((c) => ({ name: labelOf(c), url: localizePath(c.data.url, lang) }))));
+---
+
+<Template page={page} crumbs={crumbs} Content={Content} headings={headings} jsonLd={jsonLd} />

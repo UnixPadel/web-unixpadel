@@ -1,0 +1,357 @@
+---
+// Interactive project globe for the /references/ hero. Data is aggregated at build time (lib/referenceMap.ts) and
+// inlined; lib/globe.ts draws it on a canvas once the page is idle. Until then a disc of the same size holds the space.
+import Icon from './Icon.astro';
+import type { GlobeData } from '../lib/referenceMap';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  data: GlobeData;
+}
+const { data } = Astro.props;
+const ui = t(langOf(Astro.url));
+---
+
+<figure class="globe" data-globe>
+  <div class="globe__stage" data-stage>
+    <div class="globe__disc" aria-hidden="true"></div>
+    <canvas class="globe__canvas" role="img" aria-label={data.label} data-canvas></canvas>
+    <p class="globe__hint" aria-hidden="true">{ui.globeHint}</p>
+    <div class="globe__tooltip" aria-hidden="true" hidden data-tooltip></div>
+    <div class="globe__card" role="group" aria-labelledby="globe-card-title" hidden data-card>
+      <button class="globe__close" type="button" aria-label={ui.globeClose} data-close><Icon name="close" /></button>
+      <p class="globe__place">
+        <strong id="globe-card-title" data-card-title></strong>
+        <span data-card-country></span>
+      </p>
+      <p class="globe__count" data-card-count></p>
+      <ul class="globe__mix" aria-label={ui.courtType} data-card-mix></ul>
+      <div class="globe__nearby" data-card-nearby-wrap hidden>
+        <span class="globe__nearby-label">{ui.globeNearby}</span>
+        <span class="globe__nearby-list" data-card-nearby></span>
+      </div>
+      <button class="globe__show" type="button" hidden data-card-show></button>
+    </div>
+  </div>
+  <div class="globe__controls">
+    <label class="visually-hidden" for="globe-jump">{ui.globeJump}</label>
+    <select class="globe__select" id="globe-jump" data-jump>
+      <option value="">{ui.globeJump}</option>
+      {data.options.map((o) => <option value={o.group}>{o.label}</option>)}
+    </select>
+    <button class="globe__btn" type="button" aria-label={ui.globeZoomOut} data-zoom="-1"><Icon name="minus" /></button>
+    <button class="globe__btn" type="button" aria-label={ui.globeZoomIn} data-zoom="1"><Icon name="plus" /></button>
+    <button class="globe__btn globe__spin" type="button" aria-label={ui.globeRotate} aria-pressed="false" data-rotate>
+      <Icon name="pause" class="globe__spin-on" />
+      <Icon name="play" class="globe__spin-off" />
+    </button>
+  </div>
+  <p class="visually-hidden" role="status" data-globe-status></p>
+  <script type="application/json" data-globe-data set:html={data.json} />
+</figure>
+
+<style>
+  .globe {
+    --globe-ocean: #0c1834;
+    --globe-land: #2b3f69;
+    --globe-edge: rgb(255 255 255 / 22%);
+    --globe-grid: rgb(255 255 255 / 7%);
+    --globe-rim: rgb(157 196 59 / 55%);
+    --globe-pin: #9dc43b;
+    --globe-pick: #f36f24;
+    --globe-halo: rgb(243 111 36 / 55%);
+    margin: 0;
+    display: grid;
+    gap: var(--sp-3);
+    color: var(--text-on-inverse);
+  }
+  :global([data-theme='dark']) .globe {
+    --globe-ocean: #101d3b;
+    --globe-land: #2a3b62;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .globe {
+      --globe-ocean: #101d3b;
+      --globe-land: #2a3b62;
+    }
+  }
+  @media (forced-colors: active) {
+    .globe {
+      --globe-ocean: Canvas;
+      --globe-land: GrayText;
+      --globe-edge: CanvasText;
+      --globe-grid: transparent;
+      --globe-rim: CanvasText;
+      --globe-pin: Highlight;
+      --globe-pick: LinkText;
+      --globe-halo: LinkText;
+    }
+  }
+  .globe__stage {
+    position: relative;
+    aspect-ratio: 1;
+    inline-size: 100%;
+    max-inline-size: 520px;
+    margin-inline: auto;
+  }
+  /* Placeholder until the first frame: same disc the projection draws (radius 0.42 × width). */
+  .globe__disc {
+    position: absolute;
+    inset: 8%;
+    border-radius: 50%;
+    background: var(--globe-ocean);
+    box-shadow: inset 0 0 0 1.5px var(--globe-rim);
+    transition: opacity var(--dur-base) var(--ease-out);
+  }
+  .globe.is-ready .globe__disc {
+    opacity: 0;
+  }
+  .globe__canvas {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    touch-action: pan-y pinch-zoom;
+    cursor: grab;
+  }
+  .globe.is-dragging .globe__canvas {
+    cursor: grabbing;
+  }
+  .globe__hint {
+    position: absolute;
+    inset-block-start: var(--sp-2);
+    inset-inline-start: var(--sp-2);
+    padding: var(--sp-1) var(--sp-3);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-pill);
+    background: rgb(11 19 38 / 55%);
+    color: var(--text-on-inverse);
+    font-size: var(--fs-200);
+    font-weight: 600;
+    pointer-events: none;
+  }
+  .globe__tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    padding: var(--sp-1) var(--sp-3);
+    border: 1px solid var(--lime-500);
+    border-radius: var(--radius-sm);
+    background: var(--navy-900);
+    color: var(--white);
+    font-size: var(--fs-200);
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .globe__card {
+    position: absolute;
+    z-index: 3;
+    inset-inline: var(--sp-2);
+    inset-block-end: var(--sp-2);
+    display: grid;
+    gap: var(--sp-2);
+    max-block-size: calc(100% - var(--sp-8));
+    overflow-y: auto;
+    padding: var(--sp-4) var(--sp-5);
+    padding-inline-end: var(--sp-8);
+    border: 1px solid var(--border-glass);
+    border-inline-start: 3px solid var(--lime-500);
+    border-radius: var(--radius-md);
+    background: rgb(11 19 38 / 94%);
+    color: var(--text-on-inverse);
+    font-size: var(--fs-300);
+  }
+  .globe__card[hidden] {
+    display: none;
+  }
+  .globe__close {
+    position: absolute;
+    inset-block-start: var(--sp-1);
+    inset-inline-end: var(--sp-1);
+    display: grid;
+    place-items: center;
+    inline-size: 44px;
+    block-size: 44px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-on-inverse);
+  }
+  .globe__close .icon {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+  .globe__place {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--sp-1) var(--sp-2);
+  }
+  .globe__place strong {
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    line-height: 1.15;
+  }
+  .globe__place span {
+    color: var(--text-on-inverse-muted);
+  }
+  .globe__count {
+    color: var(--lime-500);
+    font-weight: 700;
+  }
+  .globe__mix {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-1);
+  }
+  .globe__mix :global(li) {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+  .globe__mix :global(a) {
+    color: var(--text-on-inverse);
+    text-underline-offset: 3px;
+  }
+  .globe__mix :global(span) {
+    color: var(--text-on-inverse-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .globe__nearby {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-1) var(--sp-2);
+    padding-block-start: var(--sp-1);
+    border-block-start: 1px solid var(--border-glass);
+  }
+  .globe__nearby[hidden] {
+    display: none;
+  }
+  .globe__nearby-label {
+    color: var(--text-on-inverse-muted);
+    font-size: var(--fs-200);
+  }
+  .globe__nearby-list {
+    display: contents;
+  }
+  .globe :global(.globe__chip) {
+    min-block-size: 32px;
+    padding: 0 var(--sp-3);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--text-on-inverse);
+    font-size: var(--fs-200);
+  }
+  .globe__show {
+    justify-self: start;
+    min-block-size: 44px;
+    padding: var(--sp-2) var(--sp-4);
+    border: 1.5px solid var(--lime-500);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--lime-500);
+    font-weight: 700;
+    font-size: var(--fs-300);
+  }
+  .globe__show[hidden] {
+    display: none;
+  }
+  .globe__controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-2);
+  }
+  .globe__select,
+  .globe__btn {
+    min-block-size: 44px;
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / 6%);
+    color: var(--text-on-inverse);
+    font: inherit;
+    font-size: var(--fs-300);
+  }
+  .globe__select {
+    flex: 1 1 12rem;
+    max-inline-size: 18rem;
+    padding-inline: var(--sp-3);
+  }
+  .globe__select option {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+  .globe__btn {
+    display: grid;
+    place-items: center;
+    inline-size: 44px;
+    padding: 0;
+  }
+  .globe__btn .icon {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+  .globe__btn:disabled {
+    opacity: 0.4;
+  }
+  .globe__spin[aria-pressed='true'] .globe__spin-off,
+  .globe__spin[aria-pressed='false'] .globe__spin-on {
+    display: none;
+  }
+  .globe__spin .icon--fill {
+    inline-size: 16px;
+    block-size: 16px;
+  }
+  :is(.globe__select, .globe__btn, .globe__close, .globe__show, .globe :global(.globe__chip), .globe__mix :global(a)):focus-visible {
+    outline: 2px solid var(--lime-500);
+    outline-offset: 2px;
+  }
+  @media (hover: hover) {
+    .globe__btn:not(:disabled):hover,
+    .globe__close:hover,
+    .globe :global(.globe__chip:hover) {
+      background: rgb(255 255 255 / 12%);
+    }
+    .globe__show:hover {
+      background: var(--lime-500);
+      color: var(--navy-900);
+    }
+  }
+  /* Without JS the controls do nothing: show only the disc. */
+  :global(html:not(.js)) .globe__controls,
+  :global(html:not(.js)) .globe__hint {
+    display: none;
+  }
+  /* Below the hero text on phones/tablets: smaller, so the first project card is not pushed far down. */
+  @media (max-width: 959px) {
+    .globe {
+      gap: var(--sp-2);
+    }
+    .globe__stage {
+      max-inline-size: 300px;
+    }
+  }
+</style>
+
+<script>
+  import { initGlobe } from '../lib/globe';
+  // Idle start: the hero text and stats paint first; the globe's first frame replaces the placeholder disc.
+  // Not tied to `load`: on slow networks (or with a stalled third-party request) `load` can come tens of seconds late,
+  // and the globe would sit as an empty disc. The module runs after parsing, so the DOM is already there.
+  const start = () =>
+    document.querySelectorAll<HTMLElement>('[data-globe]').forEach((el) => {
+      try {
+        initGlobe(el);
+      } catch (err) {
+        console.error('[globe]', err);
+      }
+    });
+  if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 800 });
+  else setTimeout(start, 200);
+</script>

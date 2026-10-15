@@ -1,0 +1,55 @@
+---
+// Certification "seal": circular badge with curved text. Stands in until official logos are supplied.
+interface Props {
+  mark: string; // centre text, e.g. "FIP"
+  ring: string; // curved text, e.g. "APPROVED · TOURNAMENT STANDARD"
+  label: string; // accessible label
+  size?: number;
+}
+const { mark, ring, label, size = 72 } = Astro.props;
+const id = `seal-${mark.toLowerCase().replace(/\W+/g, '')}-${Math.random().toString(36).slice(2, 6)}`;
+---
+
+<svg class="seal" viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={label}>
+  <defs>
+    <path id={id} d="M50 50 m-34 0 a34 34 0 1 1 68 0 a34 34 0 1 1 -68 0" />
+  </defs>
+  <circle cx="50" cy="50" r="48" class="seal__bg" />
+  <circle cx="50" cy="50" r="44" class="seal__ring" />
+  <circle cx="50" cy="50" r="27" class="seal__inner" />
+  <text class="seal__ringtext"><textPath href={`#${id}`} startOffset="0">{ring}</textPath></text>
+  <text class="seal__mark" x="50" y="50" text-anchor="middle" dominant-baseline="central">{mark}</text>
+</svg>
+
+<style>
+  .seal {
+    flex: none;
+    display: block;
+  }
+  .seal__bg {
+    fill: var(--navy-700);
+  }
+  .seal__ring {
+    fill: none;
+    stroke: var(--lime-500);
+    stroke-width: 1.5;
+  }
+  .seal__inner {
+    fill: none;
+    stroke: rgb(255 255 255 / 35%);
+    stroke-width: 1;
+  }
+  .seal__ringtext {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    fill: var(--white);
+  }
+  .seal__mark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    fill: var(--lime-500);
+  }
+</style>

@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero, { type Cta } from '../components/Hero.astro';
+import KeyFacts from '../components/KeyFacts.astro';
+import SpecDiagram from '../components/SpecDiagram.astro';
+import MaterialCards from '../components/MaterialCards.astro';
+import Gallery from '../components/Gallery.astro';
+import QuoteRail from '../components/QuoteRail.astro';
+import FAQ from '../components/FAQ.astro';
+import CardGrid from '../components/CardGrid.astro';
+import ReferenceCard from '../components/ReferenceCard.astro';
+import SiblingStrip from '../components/SiblingStrip.astro';
+import CTABand from '../components/CTABand.astro';
+import LinkTile from '../components/LinkTile.astro';
+import CourtLines from '../components/graphics/CourtLines.astro';
+import { quoteUrl, whatsappUrl } from '../data/site';
+import { courtDimsFor, productMetaFor, productFamilyFor, siteFor } from '../i18n/data';
+import { langOf, localizePath, t } from '../i18n';
+import { allPages, childrenOf, cardImage, cardImageAlt, labelOf } from '../lib/collection';
+import { countryOf } from '../lib/countries';
+import { pageTypeOf } from '../lib/pageType';
+import { columnsFor } from '../lib/grid';
+import type { TemplateProps } from './_types';
+import { SPECS_HEADING_RE } from '../lib/specsHeading.mjs';
+import { M, T } from '../lib/upx-contract.mjs';
+
+const { page, crumbs, Content, headings, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const L = (url: string) => localizePath(url, lang);
+const title = labelOf(page);
+const specs = data.specs ?? [];
+const dims = courtDimsFor(data.url, lang);
+const hasSpecSection = specs.length > 0 || !!dims;
+const specsAnchor = hasSpecSection || headings.some((h) => SPECS_HEADING_RE.test(h.text)) ? 'specs' : null;
+const meta = productMetaFor(data.url, lang);
+
+const ctas: Cta[] = [
+  { label: ui.getQuote, href: L(quoteUrl(data.url)), variant: 'primary' },
+  ...(specsAnchor ? [{ label: ui.technicalSpecs, href: `#${specsAnchor}` } as Cta] : []),
+  { label: 'WhatsApp', href: whatsappUrl(ui.waQuote(title)), variant: 'whatsapp', external: true, icon: 'whatsapp' },
+];
+
+// Gallery: every content image of the page (icons, flags and avatars excluded), de-duplicated
+const seen = new Set<string>();
+const gallery = data.media
+  .filter((m) => m.type === 'image' && !/ikon|icon|unixicon|gravatar|\/avatar\//i.test(m.src))
+  .filter((m) => {
+    const key = m.src.replace(/#.*$/, '').replace(/-\d+x\d+(\.\w+)$/, '$1');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  })
+  .map((m) => ({ src: m.src, alt: m.alt }));
+
+const pages = await allPages(lang);
+const projects = pages.filter((p) => p.data.parent === '/references/' && (p.body ?? '').includes(data.url)).slice(0, 3);
+const parentPage = data.parent ? pages.find((p) => p.data.url === data.parent) : undefined;
+// Related strip: the page's own models (/padbols/), else its siblings in a product hub or family,
+// else the padel court range (root-level products have no catalogue parent).
+const own = await childrenOf(data.url, lang);
+const inCatalog = !!parentPage && ['hub', 'product'].includes(pageTypeOf(parentPage.data));
+const stripParent = own.length ? data.url : inCatalog ? data.parent! : '/our-courts/';
+const stripItems = own.length ? own : (await childrenOf(stripParent, lang)).filter((p) => p.data.url !== data.url);
+const stripTitle = own.length ? ui.modelsInRange : inCatalog ? ui.otherOf(labelOf(parentPage!)) : ui.padelCourts;
+// Court renders and CAD drawings sit on the white plate
+const plate = ['/our-courts/', '/innovative-courts/', '/padbols/'].includes(stripParent);
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? title} description={data.seo.description} ogImage={data.seo.ogImage ?? data.hero?.poster} robots={data.seo.robots} jsonLd={jsonLd} quoteFor={data.url}>
+  <Hero
+    title={title}
+    tagline={data.hero?.tagline ?? data.seo.description}
+    eyebrow={parentPage && parentPage.data.url !== '/' ? labelOf(parentPage) : (productFamilyFor(data.url, lang) ?? ui.unixpadelSystems)}
+    video={data.hero?.video}
+    poster={data.hero?.poster ?? cardImage(page)}
+    image={data.hero?.image}
+    ctas={ctas}
+    size="full"
+  >
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+  </Hero>
+
+  <KeyFacts specs={specs} />
+
+  {
+    hasSpecSection && (
+      <section class="specs section--inverse" id="specs" aria-labelledby="specs-title">
+        <CourtLines variant="bg" />
+        <div class="container specs__inner">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">{ui.technicalSpecifications}</p>
+            <h2 id="specs-title">
+              {ui.specsHeading.split(/\*([^*]+)\*/).map((part, i) => (i % 2 ? <mark class="hl">{part}</mark> : part))}
+            </h2>
+            {data.specsIntro && <p>{data.specsIntro}</p>}
+          </div>
+          <div class:list={['specs__grid', { 'specs__grid--solo': !dims || !specs.length }]}>
+            {dims && (
+              <div class="specs__diagram" data-reveal>
+                <SpecDiagram dims={dims} />
+              </div>
+            )}
+            {specs.length > 0 && <MaterialCards specs={specs} />}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <div class="container product-layout section section--tight">
+    <article class="prose product-body">
+      <Content />
+    </article>
+    <QuoteRail productName={title} productUrl={data.url} specsAnchor={specsAnchor} photo={meta.photo ?? null} photoAlt={meta.photoAlt} />
+  </div>
+
+  <Gallery images={gallery} title={ui.inDetail(title)} eyebrow={ui.rendersInstallations} />
+
+  {data.faq?.length && <FAQ items={data.faq} intro={ui.faqIntro(title)} />}
+
+  {
+    /* Installed projects: always rendered (hidden while empty) between product-refs markers, so the WordPress plugin
+       can drop imported built cards and add references whose court type is this product (product-card template). */
+  }
+  <Fragment set:html={M.open('product-refs')} />
+  <section class="section section--tight" hidden={projects.length === 0}>
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">{ui.installedProjects}</p>
+        <h2>{ui.alreadyInPlay}</h2>
+      </div>
+      <CardGrid columns={columnsFor(projects.length, 3)}>
+        <Fragment set:html={M.open('product-cards')} />
+        {projects.map((p) => (
+          <>
+            <Fragment set:html={M.card(p.data.url)} />
+            <ReferenceCard title={labelOf(p)} href={L(p.data.url)} image={cardImage(p)} alt={cardImageAlt(p)} country={countryOf(`${labelOf(p)} ${p.data.slug}`)} date={p.data.published ?? p.data.lastmod} />
+          </>
+        ))}
+        <Fragment set:html={M.close('product-cards')} />
+        <Fragment set:html={M.open('product-tile')} />
+        {projects.length === 1 && <LinkTile href={L('/references/')} label={ui.allReferences} text={ui.deliveredIn(siteFor(lang).stats[0].value)} />}
+        <Fragment set:html={M.close('product-tile')} />
+      </CardGrid>
+      <template data-upx="product-card">
+        <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} dateIso={T.C_DATE_ISO} dateLabel={T.C_DATE} />
+      </template>
+      <template data-upx="product-linktile">
+        <LinkTile href={L('/references/')} label={ui.allReferences} text={ui.deliveredIn(siteFor(lang).stats[0].value)} />
+      </template>
+    </div>
+  </section>
+  <Fragment set:html={M.close('product-refs')} />
+
+  <SiblingStrip title={stripTitle} items={stripItems} moreHref={own.length ? null : L(stripParent)} moreLabel={ui.seeAll} plate={plate} limit={own.length ? 6 : 4} />
+
+  <CTABand title={ui.readyToPlan(title)} quoteFor={data.url} whatsappText={ui.waQuote(title)} />
+</BaseLayout>
+
+<style>
+  .specs {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bg-inverse);
+    color: var(--text-on-inverse);
+    padding-block: var(--section-pad);
+    scroll-margin-block-start: var(--header-h);
+  }
+  .specs__inner {
+    position: relative;
+    z-index: 1;
+  }
+  .specs .section-head h2 {
+    color: var(--text-on-inverse);
+  }
+  .specs__grid {
+    display: grid;
+    gap: var(--sp-7);
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .specs__grid:not(.specs__grid--solo) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: var(--sp-8);
+    }
+    .specs__diagram {
+      position: sticky;
+      inset-block-start: calc(var(--header-h) + var(--sp-5));
+    }
+  }
+  .specs__grid--solo .specs__diagram {
+    max-inline-size: 760px;
+  }
+  .product-layout {
+    display: grid;
+    gap: var(--sp-7);
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .product-layout {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: var(--sp-8);
+    }
+  }
+</style>

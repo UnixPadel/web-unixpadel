@@ -1,0 +1,335 @@
+---
+import Icon from './Icon.astro';
+import { SITE } from '../data/site';
+import { langOf, localizePath, t } from '../i18n';
+
+interface Props {
+  /** Product options: value is the URL slug used in ?product= */
+  products: { label: string; value: string }[];
+}
+const { products } = Astro.props;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+// REST route of the unixpadel-static WordPress plugin (wp-plugin/unixpadel-static.php). The ?rest_route= form
+// works with or without pretty permalinks.
+const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
+---
+
+<form class="quote" id="quote" method="post" action="#quote" novalidate data-quote-form data-endpoint={QUOTE_ENDPOINT} data-lang={lang} data-wa={SITE.whatsappNumber} data-email={SITE.email} data-msg={JSON.stringify(ui.qMsg)}>
+  <div class="quote__head">
+    <p class="eyebrow">{ui.qEyebrow}</p>
+    <h2>{ui.qTitle}</h2>
+    <p class="quote__lead">{ui.qLead}</p>
+  </div>
+
+  <div class="quote__fields">
+    <div class="field">
+      <label for="q-name">{ui.qName} <span aria-hidden="true">*</span></label>
+      <input id="q-name" name="name" type="text" autocomplete="name" required />
+      <p class="field__error" id="q-name-err" hidden><Icon name="close" /> {ui.qNameErr}</p>
+    </div>
+    <div class="field">
+      <label for="q-company">{ui.qCompany}</label>
+      <input id="q-company" name="company" type="text" autocomplete="organization" />
+    </div>
+    <div class="field">
+      <label for="q-email">{ui.qEmail} <span aria-hidden="true">*</span></label>
+      <input id="q-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+      <p class="field__error" id="q-email-err" hidden><Icon name="close" /> {ui.qEmailErr}</p>
+    </div>
+    <div class="field">
+      <label for="q-phone">{ui.qPhone}</label>
+      <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+" />
+    </div>
+    <div class="field">
+      <label for="q-country">{ui.qCountry} <span aria-hidden="true">*</span></label>
+      <input id="q-country" name="country" type="text" autocomplete="country-name" required />
+      <p class="field__error" id="q-country-err" hidden><Icon name="close" /> {ui.qCountryErr}</p>
+    </div>
+    <div class="field">
+      <label for="q-type">{ui.qType}</label>
+      <select id="q-type" name="projectType">
+        <option value="">{ui.qSelect}</option>
+        {ui.qTypes.map((t) => <option value={t}>{t}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="q-product">{ui.qProduct}</label>
+      <select id="q-product" name="product" data-product-select>
+        <option value="">{ui.qNotSure}</option>
+        {products.map((p) => <option value={p.value}>{p.label}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="q-count">{ui.qCount}</label>
+      <input id="q-count" name="courts" type="number" min="1" max="200" inputmode="numeric" />
+    </div>
+    <div class="field field--wide">
+      <label for="q-message">{ui.qMessage}</label>
+      <textarea id="q-message" name="message" rows="5" placeholder={ui.qMessagePh}></textarea>
+    </div>
+    <div class="field field--wide field--check">
+      <input id="q-consent" name="consent" type="checkbox" required />
+      <label for="q-consent">{ui.qConsent} (<a href={localizePath('/pdpl/', lang)}>{ui.qConsentLink}</a>). <span aria-hidden="true">*</span></label>
+      <p class="field__error" id="q-consent-err" hidden><Icon name="close" /> {ui.qConsentErr}</p>
+    </div>
+    <div class="quote__hp" aria-hidden="true">
+      <label for="q-website">Website</label>
+      <input id="q-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+  </div>
+
+  <div class="quote__actions">
+    <button class="btn btn--primary" type="submit" data-submit="server"><Icon name="mail" /> {ui.qSend}</button>
+    <button class="btn btn--whatsapp" type="submit" data-submit="whatsapp"><Icon name="whatsapp" /> {ui.qSendWa}</button>
+    <button class="btn btn--secondary" type="submit" data-submit="email" hidden data-mail-fallback><Icon name="mail" /> {ui.qSendMail}</button>
+  </div>
+  <p class="quote__status" role="status" aria-live="polite" tabindex="-1" hidden data-status></p>
+</form>
+
+<style>
+  .quote {
+    display: grid;
+    gap: var(--sp-6);
+    padding: var(--sp-6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-page);
+    scroll-margin-block-start: calc(var(--header-h) + var(--sp-4));
+  }
+  .quote__head {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .quote__lead {
+    color: var(--text-secondary);
+    max-inline-size: var(--measure);
+  }
+  .quote__fields {
+    display: grid;
+    gap: var(--sp-4);
+  }
+  @media (min-width: 640px) {
+    .quote__fields {
+      grid-template-columns: 1fr 1fr;
+    }
+    .field--wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .field {
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .field label {
+    font-weight: 500;
+    font-size: var(--fs-300);
+  }
+  .field label span {
+    color: var(--orange-700);
+  }
+  .field input:not([type='checkbox']),
+  .field select,
+  .field textarea {
+    inline-size: 100%;
+    min-block-size: 48px;
+    padding: var(--sp-3);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    background: var(--bg-page);
+    color: var(--text-primary);
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+  .field textarea {
+    resize: vertical;
+  }
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 1px;
+    border-color: var(--focus-ring);
+  }
+  .field.is-invalid input,
+  .field.is-invalid select {
+    border-color: var(--orange-700);
+  }
+  .field__error {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-200);
+    color: var(--orange-700);
+    font-weight: 500;
+  }
+  .field__error .icon {
+    inline-size: 14px;
+    block-size: 14px;
+  }
+  :global([data-theme='dark']) .field__error,
+  :global([data-theme='dark']) .field label span {
+    color: #ffb27a;
+  }
+  .field--check {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    column-gap: var(--sp-3);
+  }
+  .field--check input {
+    inline-size: 22px;
+    block-size: 22px;
+    margin-block-start: 2px;
+    accent-color: var(--navy-700);
+  }
+  .field--check label {
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+  .field--check .field__error {
+    grid-column: 1 / -1;
+  }
+  .quote__hp {
+    position: absolute;
+    inset-inline-start: -9999px;
+  }
+  .quote__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
+  .quote__status {
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-md);
+    border-inline-start: 3px solid var(--border-strong);
+    background: var(--bg-surface);
+    font-weight: 500;
+  }
+  .quote__status[data-state='sent'] {
+    border-inline-start-color: var(--lime-500);
+  }
+  .quote__status[data-state='failed'] {
+    border-inline-start-color: var(--orange-700);
+  }
+</style>
+
+<script>
+  // Progressive enhancement: "Send request" posts to the WordPress plugin (mail + saved copy in WP admin).
+  // WhatsApp composes a pre-written message; if the post fails, the email (mailto) fallback is offered.
+  const form = document.querySelector<HTMLFormElement>('[data-quote-form]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('[data-status]')!;
+    const msg = JSON.parse(form.dataset.msg ?? '{}') as Record<string, string>;
+    const product = form.querySelector<HTMLSelectElement>('[data-product-select]')!;
+    const pre = new URLSearchParams(location.search).get('product');
+    if (pre && [...product.options].some((o) => o.value === pre)) product.value = pre;
+
+    const fields = ['name', 'email', 'country', 'consent'] as const;
+    const validate = (name: string) => {
+      const el = form.elements.namedItem(name) as HTMLInputElement;
+      const wrap = el.closest('.field')!;
+      const err = form.querySelector<HTMLElement>(`#q-${name}-err`);
+      const ok = el.type === 'checkbox' ? el.checked : el.type === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value) : el.value.trim().length > 1;
+      wrap.classList.toggle('is-invalid', !ok);
+      if (err) err.hidden = ok;
+      el.setAttribute('aria-invalid', String(!ok));
+      if (err) el.setAttribute('aria-describedby', ok ? '' : err.id);
+      return ok;
+    };
+    // Leaving a field re-checks it once it has a value or already shows an error; empty untouched fields wait for submit.
+    fields.forEach((n) => {
+      const el = form.elements.namedItem(n) as HTMLInputElement;
+      el.addEventListener(el.type === 'checkbox' ? 'change' : 'blur', () => {
+        if (el.type === 'checkbox' || el.value.trim() || el.closest('.is-invalid')) validate(n);
+      });
+    });
+    const clearErrors = () => {
+      form.querySelectorAll('.is-invalid').forEach((w) => w.classList.remove('is-invalid'));
+      form.querySelectorAll<HTMLElement>('.field__error').forEach((e) => (e.hidden = true));
+      form.querySelectorAll('[aria-invalid]').forEach((e) => e.removeAttribute('aria-invalid'));
+    };
+
+    const buttons = form.querySelectorAll<HTMLButtonElement>('[data-submit]');
+    const mailFallback = form.querySelector<HTMLButtonElement>('[data-mail-fallback]')!;
+    const started = Date.now();
+    let channel = 'server';
+    buttons.forEach((b) => b.addEventListener('click', () => (channel = b.dataset.submit || 'server')));
+
+    const say = (text: string, state = '') => {
+      status.hidden = false;
+      status.textContent = text;
+      status.dataset.state = state;
+    };
+
+    const post = async (data: Record<string, string>) => {
+      buttons.forEach((b) => (b.disabled = true));
+      say(msg.sending);
+      try {
+        const res = await fetch(form.dataset.endpoint!, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => null);
+        if (!res.ok || !json?.ok) throw new Error(String(res.status));
+        say(msg.sent, 'sent');
+        form.reset();
+        clearErrors();
+        mailFallback.hidden = true;
+      } catch {
+        say(msg.failed, 'failed');
+        mailFallback.hidden = false;
+      } finally {
+        buttons.forEach((b) => (b.disabled = false));
+        status.focus();
+      }
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if ((form.elements.namedItem('website') as HTMLInputElement).value) return; // honeypot
+      const results = fields.map(validate);
+      if (results.includes(false)) {
+        (form.querySelector('.is-invalid input') as HTMLElement | null)?.focus();
+        return;
+      }
+      const v = (n: string) => ((form.elements.namedItem(n) as HTMLInputElement)?.value ?? '').trim();
+      const productLabel = product.selectedOptions[0]?.text ?? '';
+      const lines = [
+        `${msg.from} ${v('name')}${v('company') ? ` (${v('company')})` : ''}`,
+        `${msg.country}: ${v('country')}`,
+        v('projectType') && `${msg.type}: ${v('projectType')}`,
+        product.value && `${msg.product}: ${productLabel}`,
+        v('courts') && `${msg.count}: ${v('courts')}`,
+        `${msg.email}: ${v('email')}`,
+        v('phone') && `${msg.phone}: ${v('phone')}`,
+        v('message') && `${msg.details}: ${v('message')}`,
+      ].filter(Boolean);
+      if (channel === 'server') {
+        post({
+          name: v('name'),
+          company: v('company'),
+          email: v('email'),
+          phone: v('phone'),
+          country: v('country'),
+          projectType: v('projectType'),
+          product: product.value ? productLabel : '',
+          courts: v('courts'),
+          message: v('message'),
+          consent: '1',
+          website: v('website'),
+          lang: form.dataset.lang ?? '',
+          page: location.href,
+          elapsed: String(Date.now() - started),
+        });
+        return;
+      }
+      const text = lines.join('\n');
+      const url =
+        channel === 'email'
+          ? `mailto:${form.dataset.email}?subject=${encodeURIComponent(msg.subject)}&body=${encodeURIComponent(text)}`
+          : `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(text)}`;
+      say(channel === 'email' ? msg.openingMail : msg.openingWa);
+      window.open(url, channel === 'email' ? '_self' : '_blank', 'noopener');
+    });
+  }
+</script>

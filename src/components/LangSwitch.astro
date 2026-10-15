@@ -1,0 +1,174 @@
+---
+// Language switcher: links to the same page in each language (that language's home page when the page has no
+// translation). Plain links with hreflang, so it works without JS and search engines see the language set.
+// header: compact <details> menu (globe + current code); drawer: all languages as a grid of chips.
+import Icon from './Icon.astro';
+import { LANGS, LOCALE, counterpartOf, langOf, t, type Lang } from '../i18n';
+
+interface Props {
+  /** English URL of the current page (the language-neutral key). */
+  currentUrl: string;
+  /** Targets that replace the computed counterparts (the reference shell passes tokens the plugin fills in). */
+  hrefs?: Partial<Record<Lang, string>>;
+  variant?: 'header' | 'drawer';
+}
+
+const { currentUrl, hrefs, variant = 'header' } = Astro.props;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const links = LANGS.map((l) => ({ lang: l, href: hrefs?.[l] ?? counterpartOf(currentUrl, l), name: LOCALE[l].name, dir: LOCALE[l].dir, current: l === lang }));
+---
+
+{
+  variant === 'header' ? (
+    <details class="lang" data-lang-menu>
+      <summary class="lang__btn" aria-label={`${ui.language}: ${LOCALE[lang].name}`}>
+        <Icon name="globe" />
+        <span aria-hidden="true">{lang.toUpperCase()}</span>
+      </summary>
+      <ul class="lang__menu">
+        {links.map((l) => (
+          <li>
+            <a class="lang__item" href={l.href} hreflang={l.lang} lang={l.lang} dir={l.dir} aria-current={l.current ? 'true' : undefined} data-no-localize>
+              <span class="lang__code">{l.lang.toUpperCase()}</span>
+              {l.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  ) : (
+    <nav class="lang-grid" aria-label={ui.language}>
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a class="lang-grid__item" href={l.href} hreflang={l.lang} lang={l.lang} dir={l.dir} aria-current={l.current ? 'true' : undefined} data-no-localize>
+              {l.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .lang {
+    position: relative;
+    flex: none;
+  }
+  .lang__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    block-size: 44px;
+    padding-inline: var(--sp-2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: var(--fs-200);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    flex: none;
+    cursor: pointer;
+    list-style: none;
+  }
+  .lang__btn::-webkit-details-marker {
+    display: none;
+  }
+  .lang__btn .icon {
+    inline-size: 18px;
+    block-size: 18px;
+  }
+  .lang[open] .lang__btn {
+    background: var(--bg-surface);
+  }
+  .lang__menu {
+    position: absolute;
+    inset-block-start: calc(100% + 8px);
+    inset-inline-end: 0;
+    z-index: 120;
+    min-inline-size: 190px;
+    margin: 0;
+    padding: var(--sp-2);
+    list-style: none;
+    background: var(--bg-page);
+    border: 1px solid var(--border);
+    border-block-start: 3px solid var(--lime-500);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-menu);
+  }
+  .lang__item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-block-size: 44px;
+    padding-inline: var(--sp-3);
+    border-inline-start: 3px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: var(--fs-300);
+    text-decoration: none;
+  }
+  .lang__code {
+    inline-size: 2.2em;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: var(--fs-200);
+    letter-spacing: 0.06em;
+  }
+  .lang__item[aria-current] {
+    font-weight: 700;
+    border-inline-start-color: var(--lime-500);
+  }
+  @media (hover: hover) {
+    .lang__btn:hover,
+    .lang__item:hover {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+    }
+  }
+
+  .lang-grid ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .lang-grid__item {
+    display: grid;
+    place-items: center;
+    min-block-size: 44px;
+    padding-inline: var(--sp-2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: var(--fs-300);
+    text-decoration: none;
+  }
+  .lang-grid__item[aria-current] {
+    border-color: var(--lime-500);
+    background: var(--lime-500);
+    color: var(--navy-700);
+    font-weight: 700;
+  }
+</style>
+
+<script>
+  // Close the header language menu on Escape or a click outside it (native <details> only toggles on its summary).
+  document.querySelectorAll<HTMLDetailsElement>('[data-lang-menu]').forEach((menu) => {
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    });
+    menu.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  });
+</script>

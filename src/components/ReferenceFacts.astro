@@ -1,0 +1,89 @@
+---
+// Country / published / court type box in a reference page's hero. `shell` renders every row with tokens between
+// markers so the WordPress plugin can fill or drop each one (src/lib/upx-contract.mjs).
+import { langOf, t } from '../i18n';
+import { M, T } from '../lib/upx-contract.mjs';
+
+interface Props {
+  country?: string | null;
+  /** already formatted ("October 2026") */
+  date?: string | null;
+  /** court types, already localized; the first two are shown */
+  products?: { label: string; url: string }[];
+  shell?: boolean;
+}
+
+const { country, date, products = [], shell = false } = Astro.props;
+const ui = t(langOf(Astro.url));
+const mark = (open: boolean, name: string) => (shell ? (open ? M.open(name) : M.close(name)) : '');
+const rows = shell
+  ? { country: T.COUNTRY, date: T.DATE, products: [{ label: T.CT1_LABEL, url: T.CT1_HREF }, { label: T.CT2_LABEL, url: T.CT2_HREF }] }
+  : { country, date, products: products.slice(0, 2) };
+---
+
+<dl class="facts surface-glass">
+  {
+    rows.country && (
+      <>
+        <Fragment set:html={mark(true, 'if:country')} />
+        <div><dt>{ui.country}</dt><dd>{rows.country}</dd></div>
+        <Fragment set:html={mark(false, 'if:country')} />
+      </>
+    )
+  }
+  {
+    rows.date && (
+      <>
+        <Fragment set:html={mark(true, 'if:date')} />
+        <div><dt>{ui.published}</dt><dd>{rows.date}</dd></div>
+        <Fragment set:html={mark(false, 'if:date')} />
+      </>
+    )
+  }
+  {
+    rows.products.length > 0 && (
+      <>
+        <Fragment set:html={mark(true, 'if:types')} />
+        <div>
+          <dt>{ui.courtType}</dt>
+          <dd>
+            {rows.products.map((p, i) => (
+              <>
+                {i === 1 && <Fragment set:html={mark(true, 'if:ct2')} />}
+                {i > 0 && ' · '}
+                <a href={p.url}>{p.label}</a>
+                {i === 1 && <Fragment set:html={mark(false, 'if:ct2')} />}
+              </>
+            ))}
+          </dd>
+        </div>
+        <Fragment set:html={mark(false, 'if:types')} />
+      </>
+    )
+  }
+</dl>
+
+<style>
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4) var(--sp-6);
+    margin: var(--sp-3) 0 0;
+    padding: var(--sp-4) var(--sp-5);
+  }
+  .facts dt {
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lime-500);
+  }
+  .facts dd {
+    margin: 0;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .facts a {
+    color: var(--white);
+  }
+</style>

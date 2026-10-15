@@ -1,0 +1,121 @@
+---
+// Big technical figure: value + unit + label. `data-count` lets motion.ts count up integer values once.
+interface Props {
+  value: string;
+  unit?: string;
+  label: string;
+  size?: 'md' | 'lg' | 'xl';
+  icon?: string;
+  tone?: 'inverse' | 'light' | 'lime';
+}
+import Icon from '../Icon.astro';
+const { value, unit, label, size = 'lg', icon, tone = 'light' } = Astro.props;
+const countable = /^\d{1,3}(,\d{3})*\+?$/.test(value);
+---
+
+<div class:list={['numeral', `numeral--${size}`, `numeral--${tone}`]} data-reveal>
+  <dt class="numeral__label">
+    {icon && <Icon name={icon} />}
+    {label}
+  </dt>
+  <dd class="numeral__figure">
+    <span class="numeral__value" data-count={countable ? value : undefined}>{value}</span>
+    {unit && <span class="numeral__unit">{unit}</span>}
+  </dd>
+</div>
+
+<style>
+  .numeral {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--sp-2);
+    padding-inline-start: var(--sp-4);
+    border-inline-start: 2px solid var(--lime-500);
+  }
+  .numeral__figure {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .numeral__value {
+    white-space: nowrap;
+  }
+  .numeral__figure {
+    flex-wrap: wrap;
+  }
+  .numeral--md .numeral__value {
+    font-size: clamp(1.625rem, 1.1rem + 2.2vw, 3.25rem);
+  }
+  .numeral--lg .numeral__value {
+    font-size: var(--fs-stat);
+  }
+  .numeral--xl .numeral__value {
+    font-size: var(--fs-display-xl);
+  }
+  .numeral__unit {
+    font-size: var(--fs-600);
+    font-weight: 600;
+  }
+  .numeral__label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-300);
+    font-weight: 500;
+  }
+  .numeral__label :global(.icon) {
+    inline-size: 18px;
+    block-size: 18px;
+  }
+
+  .numeral--light .numeral__value {
+    color: var(--navy-700);
+  }
+  .numeral--light .numeral__unit,
+  .numeral--light .numeral__label {
+    color: var(--text-secondary);
+  }
+  .numeral--light .numeral__label :global(.icon) {
+    color: var(--accent);
+  }
+  :global([data-theme='dark']) .numeral--light .numeral__value {
+    color: var(--lime-500);
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .numeral--light .numeral__value {
+      color: var(--lime-500);
+    }
+  }
+
+  .numeral--inverse .numeral__value {
+    color: var(--lime-500);
+  }
+  .numeral--inverse .numeral__unit {
+    color: var(--white);
+  }
+  .numeral--inverse .numeral__label {
+    color: var(--text-on-inverse-muted);
+  }
+  .numeral--inverse .numeral__label :global(.icon) {
+    color: var(--lime-500);
+  }
+
+  /* lime block: navy text on lime (8.1:1) */
+  .numeral--lime {
+    padding: var(--sp-4) var(--sp-5);
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--lime-500);
+  }
+  .numeral--lime .numeral__value,
+  .numeral--lime .numeral__unit,
+  .numeral--lime .numeral__label {
+    color: var(--navy-700);
+  }
+</style>

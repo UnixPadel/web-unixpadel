@@ -1,0 +1,52 @@
+---
+// The reference page (ReferencePage.astro) as a shell for references written in WordPress: the same layout and
+// components, with tokens and markers where the content goes (src/lib/upx-contract.mjs). The plugin fills it in per
+// request (wp-plugin/includes/refs-render.php). Built at /upx-shell/reference/ and /<lang>/upx-shell/reference/,
+// noindex, kept out of the sitemap; the plugin answers those URLs with a 404.
+// Keep this in step with ReferencePage.astro: build:wp compares the two.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import Gallery from '../components/Gallery.astro';
+import PhotoBand from '../components/PhotoBand.astro';
+import ReferenceFacts from '../components/ReferenceFacts.astro';
+import { labelOf, pageByUrl } from '../lib/collection';
+import { LANGS, langOf, localizePath, t } from '../i18n';
+import { M, T, SHELL_PATH, langToken } from '../lib/upx-contract.mjs';
+
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const L = (url: string) => localizePath(url, lang);
+const hub = await pageByUrl('/references/', lang);
+const crumbs = [
+  { label: ui.home, url: L('/') },
+  { label: hub ? (hub.data.navLabel ?? labelOf(hub)) : ui.allReferences, url: L('/references/') },
+  { label: T.TITLE, url: '' },
+];
+const langHrefs = Object.fromEntries(LANGS.map((l) => [l, langToken(l)]));
+---
+
+<BaseLayout url={SHELL_PATH} seoTitle={T.SEO_TITLE} shell langHrefs={langHrefs}>
+  <Hero title={T.TITLE} tagline={T.TAGLINE} eyebrow={T.EYEBROW} poster={T.HERO_SRC} imageAlt={T.HERO_ALT} layout="split" size="compact" lines>
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+    <ReferenceFacts shell />
+  </Hero>
+
+  <div class="container section section--tight">
+    <article class="prose">
+      <Fragment set:html={M.slot('body')} />
+    </article>
+  </div>
+
+  <Gallery images={[]} shell title={ui.moreFromSite} eyebrow={ui.gallery} />
+
+  <PhotoBand items={[]} shell eyebrow={ui.moreProjects} title={ui.recentlyDelivered} more={{ label: ui.allReferences, href: L('/references/') }} />
+
+  <Fragment set:html={M.open('if:cta-news')} />
+  <CTABand />
+  <Fragment set:html={M.close('if:cta-news')} />
+  <Fragment set:html={M.open('if:cta-project')} />
+  <CTABand title={ui.similarTitle} text={ui.similarText} primaryLabel={ui.startProject} />
+  <Fragment set:html={M.close('if:cta-project')} />
+</BaseLayout>

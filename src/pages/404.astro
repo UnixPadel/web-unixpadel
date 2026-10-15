@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import { langOf, localizePath, t } from '../i18n';
+
+// English 404 (dist/404.html); src/pages/[lang]/404.astro renders the other languages', served by the plugin for their misses.
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const L = (url: string) => localizePath(url, lang);
+---
+
+<BaseLayout url="/404/" seoTitle="Page not found | Unixpadel" robots="noindex, follow">
+  <Hero eyebrow={ui.e404Eyebrow} title={ui.e404Title} tagline={ui.e404Tagline} size="compact" ctas={[{ label: ui.e404Courts, href: L('/our-courts/'), variant: 'primary' }, { label: ui.e404Refs, href: L('/references/') }, { label: ui.e404Guide, href: L('/padel-guide/') }]} />
+  <div class="container section section--tight">
+    <div class="prose">
+      <p>{ui.e404Lost} <a href={L('/')}>{ui.e404Home}</a> {ui.e404Or} <a href={L('/contact-us/')}>{ui.e404Contact}</a> {ui.e404End}</p>
+    </div>
+  </div>
+  <CTABand />
+</BaseLayout>

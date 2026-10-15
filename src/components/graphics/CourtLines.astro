@@ -1,0 +1,53 @@
+---
+// Padel court geometry as graphic language. Decorative (aria-hidden).
+//   bg      → full FIP court plan stretched behind a section (low opacity via CSS)
+//   divider → baseline with service-line ticks and the net mark, used between sections
+interface Props {
+  variant?: 'bg' | 'divider';
+  class?: string;
+}
+const { variant = 'divider', class: cls } = Astro.props;
+---
+
+{
+  variant === 'bg' ? (
+    <svg class:list={['court-lines court-lines--bg', cls]} viewBox="0 0 200 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" stroke-width="0.35" vector-effect="non-scaling-stroke">
+        <rect x="10" y="10" width="180" height="80" />
+        <line x1="100" y1="6" x2="100" y2="94" stroke-width="0.7" />
+        <line x1="37.45" y1="10" x2="37.45" y2="90" />
+        <line x1="162.55" y1="10" x2="162.55" y2="90" />
+        <line x1="37.45" y1="50" x2="162.55" y2="50" />
+      </g>
+    </svg>
+  ) : (
+    <svg class:list={['court-lines court-lines--divider', cls]} viewBox="0 0 1200 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" stroke-width="1.5" vector-effect="non-scaling-stroke">
+        <line x1="0" y1="12" x2="1200" y2="12" />
+        <line x1="330" y1="6" x2="330" y2="18" />
+        <line x1="870" y1="6" x2="870" y2="18" />
+        <line x1="600" y1="0" x2="600" y2="24" stroke-width="3" />
+      </g>
+    </svg>
+  )
+}
+
+<style>
+  .court-lines {
+    display: block;
+    pointer-events: none;
+  }
+  .court-lines--bg {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    z-index: 0;
+    color: var(--court-line, rgb(255 255 255 / 5%));
+  }
+  .court-lines--divider {
+    inline-size: 100%;
+    block-size: 24px;
+    color: var(--court-line, var(--lime-500));
+  }
+</style>

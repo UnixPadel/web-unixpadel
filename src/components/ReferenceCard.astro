@@ -1,0 +1,220 @@
+---
+import Icon from './Icon.astro';
+import { mediaUrl, srcsetFor } from '../lib/media';
+import { langOf, LOCALE } from '../i18n';
+import { countryName } from '../i18n/data';
+import { countrySlug } from '../lib/countries';
+
+interface Props {
+  title: string;
+  href: string;
+  image?: string | null;
+  alt?: string;
+  /** English country name (lib/countries.ts); null for projects without a detected country */
+  country?: string | null;
+  date?: Date | null;
+  /** court types the project names, already in the page language */
+  courtTypes?: string[];
+  excerpt?: string | null;
+  headingLevel?: 'h2' | 'h3';
+  /** featured: large card with the title over the photo (a filter flattens it back to a plain card) */
+  featured?: boolean;
+  /** /references/ grid: 4:3 photos, and the featured card spans two columns of one row instead of a 2×2 square */
+  hub?: boolean;
+  // Overrides for the card templates the WordPress plugin fills in (src/lib/upx-contract.mjs): filter key, country
+  // label and date as given, instead of being derived from `country` / `date`.
+  countryKey?: string;
+  countryLabel?: string;
+  dateIso?: string;
+  dateLabel?: string;
+}
+const { title, href, image, alt = '', country, date, courtTypes = [], excerpt, headingLevel = 'h3', featured = false, hub = false } = Astro.props;
+const { countryKey, countryLabel, dateIso, dateLabel } = Astro.props;
+const lang = langOf(Astro.url);
+const Heading = headingLevel;
+const src = mediaUrl(image);
+const key = countryKey ?? (country ? countrySlug(country) : 'other');
+const label = countryLabel ?? (country ? countryName(country, lang) : null);
+const iso = dateIso ?? date?.toISOString();
+const fmt = dateLabel ?? (date ? new Intl.DateTimeFormat(LOCALE[lang].intl, { month: 'short', year: 'numeric' }).format(date) : null);
+const sizes = featured ? '(min-width: 1024px) 840px, 100vw' : '(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw';
+---
+
+<article class:list={['ref', { 'ref--featured': featured, 'ref--hub': hub }]} data-country={key} data-reveal>
+  <div class="ref__media">
+    {
+      src ? (
+        <img src={src} srcset={srcsetFor(image) ?? undefined} sizes={sizes} alt={alt} width="640" height="480" loading="lazy" decoding="async" />
+      ) : (
+        <div class="ref__placeholder" aria-hidden="true">
+          <Icon name="map-pin" />
+        </div>
+      )
+    }
+  </div>
+  <div class="ref__body">
+    {
+      (label || fmt || courtTypes.length > 0) && (
+        <p class="ref__meta">
+          {label && <span class="tag ref__country">{label}</span>}
+          {courtTypes.length > 0 && <span class="ref__types">{courtTypes.slice(0, 2).join(' · ')}</span>}
+          {fmt && <time datetime={iso}>{fmt}</time>}
+        </p>
+      )
+    }
+    <Heading class="ref__title"><a href={href}>{title}</a></Heading>
+    {excerpt && <p class="ref__excerpt">{excerpt}</p>}
+  </div>
+</article>
+
+<style>
+  .ref {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: var(--sp-3);
+  }
+  .ref__media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface-2);
+  }
+  .ref--hub .ref__media {
+    aspect-ratio: 4 / 3;
+  }
+  .ref__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform 500ms var(--ease-out);
+  }
+  .ref__placeholder {
+    display: grid;
+    place-items: center;
+    block-size: 100%;
+    color: var(--border-strong);
+  }
+  .ref__placeholder .icon {
+    inline-size: 40px;
+    block-size: 40px;
+  }
+  .ref__body {
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .ref__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-1) var(--sp-3);
+    font-size: var(--fs-200);
+    color: var(--text-secondary);
+  }
+  .ref__country {
+    background: var(--lime-500);
+    color: var(--navy-700);
+  }
+  .ref__types {
+    font-weight: 500;
+  }
+  .ref__title {
+    font-size: var(--fs-600);
+  }
+  .ref__title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .ref__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .ref__excerpt {
+    color: var(--text-secondary);
+    font-size: var(--fs-300);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Featured: the photo fills the card and the text sits over it. A filter (.ref--flat) turns it into a plain card. */
+  .ref--featured:not(.ref--flat) {
+    grid-column: span 2;
+    grid-row: span 2;
+    gap: 0;
+    align-content: stretch;
+  }
+  .ref--featured:not(.ref--flat) .ref__media {
+    aspect-ratio: auto;
+    block-size: 100%;
+    min-block-size: 320px;
+  }
+  .ref--featured:not(.ref--flat) .ref__media img {
+    position: absolute;
+    inset: 0;
+  }
+  .ref--featured:not(.ref--flat) .ref__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgb(11 19 38 / 88%));
+  }
+  .ref--featured:not(.ref--flat) .ref__body {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: var(--sp-5);
+    z-index: 1;
+  }
+  .ref--featured:not(.ref--flat) .ref__title {
+    font-size: var(--fs-700);
+  }
+  .ref--featured:not(.ref--flat) :is(.ref__title a, .ref__meta, .ref__excerpt) {
+    color: var(--white);
+  }
+  @media (max-width: 639px) {
+    .ref--featured:not(.ref--flat) {
+      grid-column: auto;
+      grid-row: auto;
+    }
+  }
+  /* Hub grid: one row high, so the cards beside it line up (4:3 photo + text ≈ 440px at three columns). */
+  .ref--hub.ref--featured:not(.ref--flat) {
+    grid-row: auto;
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .ref--hub.ref--featured:not(.ref--flat) .ref__media {
+      aspect-ratio: 16 / 9;
+      block-size: auto;
+      min-block-size: 0;
+    }
+  }
+  @media (min-width: 1024px) {
+    .ref--hub.ref--featured:not(.ref--flat) .ref__media {
+      min-block-size: 440px;
+    }
+  }
+
+  .ref:focus-within {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+  .ref__title a:focus-visible {
+    outline: none;
+  }
+  @media (hover: hover) {
+    .ref:hover .ref__media img {
+      transform: scale(1.03);
+    }
+    .ref:hover .ref__title a {
+      color: var(--link-hover);
+    }
+    .ref--featured:not(.ref--flat):hover .ref__title a {
+      color: var(--lime-500);
+    }
+  }
+</style>

@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ReferenceCard from '../components/ReferenceCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import ProjectGlobe from '../components/ProjectGlobe.astro';
+import Numeral from '../components/graphics/Numeral.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
+import { productMetaFor, siteFor } from '../i18n/data';
+import { langOf, localizePath, LOCALE, t } from '../i18n';
+import { childrenOf, cardImage, cardImageAlt, excerptOf, labelOf, readingTime } from '../lib/collection';
+import { countryOf } from '../lib/countries';
+import { isNews } from '../lib/pageType';
+import { columnsFor } from '../lib/grid';
+import { courtTypesOf, refCardImage, refExcerpt } from '../lib/references';
+import { globeDataFor } from '../lib/referenceMap';
+import { M, T, VISIBLE } from '../lib/upx-contract.mjs';
+import type { TemplateProps } from './_types';
+
+const { page, crumbs, Content, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const L = (url: string) => localizePath(url, lang);
+const productMeta = (url: string) => productMetaFor(url, lang);
+const children = await childrenOf(data.url, lang);
+const kind = data.url === '/references/' ? 'reference' : data.url === '/padel-guide/' ? 'article' : 'product';
+const hasIntro = !!page.body?.trim().length;
+const plate = data.url === '/our-courts/' || data.url === '/innovative-courts/';
+
+// Reference index: delivered projects in the grid ("show all"), company news as a list below it.
+// VISIBLE: featured card (2 cells) + 10 → full rows at 2 and 3 columns. The WordPress plugin puts references written
+// in WP admin in front of these cards (between the hub-cards markers, from the templates below the grid), so the
+// script recounts "Show all" from the cards in the page.
+const isRef = kind === 'reference';
+const plural = (fn: (n: number) => string) => ({ one: fn(1), other: fn(987654).replace('987654', '{n}') });
+const results = plural(ui.resultsCount);
+const showAll = plural(ui.showAllProjects);
+const projects = isRef
+  ? await Promise.all(
+      children
+        .filter((p) => !isNews(p.data.url))
+        .map(async (p) => ({
+          p,
+          country: countryOf(`${labelOf(p)} ${p.data.slug}`),
+          image: await refCardImage(p, lang),
+          types: (await courtTypesOf(p, lang)).map((c) => c.short),
+          excerpt: refExcerpt(p),
+        })),
+    )
+  : [];
+const news = isRef ? children.filter((p) => isNews(p.data.url)) : [];
+const monthYear = new Intl.DateTimeFormat(LOCALE[lang].intl, { month: 'short', year: 'numeric' });
+// Hero globe (pins from src/data/reference-map.json); its pin card narrows the grid to countries with stories.
+const stories = new Map<string, number>();
+for (const x of projects) if (x.country) stories.set(x.country, (stories.get(x.country) ?? 0) + 1);
+const globe = isRef ? await globeDataFor(lang, stories) : null;
+
+// Split hero with a real installation photo when one of the children has one
+const heroPhoto = kind === 'product' ? children.map((c) => ({ c, m: productMeta(c.data.url) })).find((x) => x.m.photo) : undefined;
+
+// Hero rule by role. Catalogue hubs (products, services): compact split with a real photo, so the cards
+// start high on the page. Content hubs (guide, references): compact, typography-led, no media.
+// /canopy/ keeps its full-width video banner (content owner decision, 2026-10-02).
+const keepVideoBanner = data.url === '/canopy/';
+const firstWithImage = children.find((c) => cardImage(c));
+const split =
+  kind === 'product' && !keepVideoBanner
+    ? heroPhoto
+      ? { src: heroPhoto.m.photo!, alt: heroPhoto.m.photoAlt ?? '', href: heroPhoto.m.photoHref ? L(heroPhoto.m.photoHref) : null }
+      : (() => {
+          const src = data.hero?.image ?? data.hero?.poster ?? (firstWithImage ? cardImage(firstWithImage) : null);
+          return src ? { src, alt: firstWithImage && src === cardImage(firstWithImage) ? cardImageAlt(firstWithImage) : labelOf(page), href: null } : null;
+        })()
+    : null;
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? labelOf(page)} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero
+    title={labelOf(page)}
+    tagline={data.hero?.tagline ?? data.seo.description}
+    eyebrow={isRef ? ui.projectsWorldwide : kind === 'article' ? ui.nGuides(children.length) : data.url === '/our-services/' ? ui.nServices(children.length) : ui.nSystems(children.length)}
+    video={keepVideoBanner ? data.hero?.video : null}
+    poster={split ? split.src : keepVideoBanner ? (data.hero?.poster ?? cardImage(children[0])) : null}
+    image={keepVideoBanner ? data.hero?.image : null}
+    imageAlt={split?.alt}
+    imageHref={split?.href ?? null}
+    layout={split || globe ? 'split' : 'cover'}
+    size={keepVideoBanner ? 'full' : 'compact'}
+    lines
+  >
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+    {globe && <ProjectGlobe slot="media" data={globe} />}
+    {
+      isRef && (
+        <dl class="hero-stats" aria-label={ui.keyFigures}>
+          {siteFor(lang).stats.slice(0, 3).map((s) => (
+            <Numeral value={s.value} label={s.label} size="md" tone="inverse" />
+          ))}
+        </dl>
+      )
+    }
+  </Hero>
+
+  {
+    hasIntro && (
+      <div class="container section section--tight hub-intro">
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    )
+  }
+
+  <section class="section section--tight" id={isRef ? 'projects' : undefined}>
+    <div class="container">
+      {isRef && <p class="visually-hidden" role="status" data-filters-status data-results-one={results.one} data-results-other={results.other} data-showall-one={showAll.one} data-showall-other={showAll.other}></p>}
+      <p class="filters__empty" hidden data-filters-empty>{ui.noProjects}</p>
+      <CardGrid columns={isRef ? 3 : columnsFor(children.length, 3)} class={isRef ? 'ref-grid' : undefined}>
+        {isRef && <Fragment set:html={M.open('hub-cards')} />}
+        {
+          isRef
+            ? projects.map(({ p, country, image, types, excerpt }, i) => (
+                <>
+                  <Fragment set:html={M.card(p.data.url)} />
+                  <ReferenceCard
+                    title={labelOf(p)}
+                    href={L(p.data.url)}
+                    image={image?.src}
+                    alt={image?.alt}
+                    country={country}
+                    courtTypes={types}
+                    excerpt={excerpt}
+                    headingLevel="h2"
+                    featured={i === 0}
+                    hub
+                  />
+                </>
+              ))
+            : kind === 'article'
+              ? children.map((p) => (
+                  <ArticleCard title={labelOf(p)} href={L(p.data.url)} excerpt={p.data.seo.description} image={cardImage(p)} alt={cardImageAlt(p)} minutes={readingTime(p)} headingLevel="h2" />
+                ))
+              : children.map((p, i) => (
+                  <ProductCard title={labelOf(p)} href={L(p.data.url)} excerpt={excerptOf(p)} image={cardImage(p)} alt={cardImageAlt(p)} plate={plate} index={i + 1} headingLevel="h2" spec={productMeta(p.data.url).spec} />
+                ))
+        }
+        {isRef && <Fragment set:html={M.close('hub-cards')} />}
+      </CardGrid>
+      {
+        isRef && (
+          <>
+            <template data-upx="hub-card-featured">
+              <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" featured hub />
+            </template>
+            <template data-upx="hub-card">
+              <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" hub />
+            </template>
+            <div class="ref-more">
+              <button class="btn btn--secondary" type="button" data-show-all data-visible={VISIBLE} hidden>
+                {ui.showAllProjects(projects.length)}
+              </button>
+            </div>
+          </>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    /* Company news: always rendered on the reference index (hidden while empty) so the WordPress plugin can fill it;
+       every item carries its URL in a news marker, the news-item template sits next to the list. */
+    isRef && (
+      <>
+        <Fragment set:html={M.open('news-section')} />
+        <section class="section section--tight news" aria-labelledby="company-news" hidden={news.length === 0}>
+          <div class="container">
+            <h2 class="news__title" id="company-news">{ui.companyNews}</h2>
+            <ul class="news__list">
+              <Fragment set:html={M.open('news-items')} />
+              {news.map((p) => {
+                const when = p.data.published ?? p.data.lastmod;
+                return (
+                  <>
+                    <Fragment set:html={M.news(p.data.url)} />
+                    <li class="news__item">
+                      <a href={L(p.data.url)}>{labelOf(p)}</a>
+                      {when && <time datetime={when.toISOString()}>{monthYear.format(when)}</time>}
+                    </li>
+                  </>
+                );
+              })}
+              <Fragment set:html={M.close('news-items')} />
+            </ul>
+            <template data-upx="news-item">
+              <li class="news__item">
+                <a href={T.N_HREF}>{T.N_TITLE}</a>
+                <time datetime={T.N_DATE_ISO}>{T.N_DATE}</time>
+              </li>
+            </template>
+          </div>
+        </section>
+        <Fragment set:html={M.close('news-section')} />
+      </>
+    )
+  }
+
+  {data.faq?.length && <FAQ items={data.faq} />}
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .hero-stats {
+    margin: var(--sp-3) 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    gap: var(--sp-5) var(--sp-7);
+  }
+  @media (max-width: 479px) {
+    .hero-stats {
+      gap: var(--sp-4);
+    }
+  }
+  .hub-intro {
+    padding-block-end: 0;
+  }
+  .hub-intro .prose :global(h2),
+  .hub-intro .prose :global(h5) {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: var(--fs-500);
+    color: var(--text-secondary);
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  :global(.ref-grid) {
+    grid-auto-flow: dense;
+  }
+  :global(.ref-grid .ref[hidden]) {
+    display: none;
+  }
+  /* nth-child(VISIBLE + 1): cards after the first VISIBLE wait behind "Show all" (JS only). By position rather than a
+     class, so cards the WordPress plugin puts in front push the rest down without rewriting them. */
+  :global(.js .ref-grid:not(.is-expanded, .is-filtered) > .ref:nth-child(n + 12)) {
+    display: none;
+  }
+  .ref-more {
+    display: flex;
+    justify-content: center;
+    margin-block-start: var(--sp-7);
+  }
+  .filters__empty {
+    color: var(--text-secondary);
+    margin-block-end: var(--sp-5);
+  }
+  .news {
+    padding-block-start: 0;
+  }
+  .news__title {
+    font-size: var(--fs-700);
+    margin-block-end: var(--sp-4);
+  }
+  .news__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-block-start: 1px solid var(--border);
+    max-inline-size: 64rem;
+  }
+  .news__item {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--sp-1) var(--sp-5);
+    padding-block: var(--sp-4);
+    border-block-end: 1px solid var(--border);
+  }
+  .news__item a {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .news__item a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .news__item time {
+    flex: none;
+    font-size: var(--fs-200);
+    color: var(--text-secondary);
+  }
+  .news__item:focus-within {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .news__item a:focus-visible {
+    outline: none;
+  }
+  @media (hover: hover) {
+    .news__item:hover a {
+      color: var(--link-hover);
+    }
+  }
+</style>
+
+<script>
+  // "Show all" on the reference index. Progressive: without JS every card is in the page. The globe in the hero
+  // narrows the grid to one country by dispatching `refs:country` with { slug } (kept in ?country= so the view can
+  // be shared); while narrowed, "Show all" brings every project back.
+  const status = document.querySelector<HTMLElement>('[data-filters-status]');
+  const grid = document.querySelector<HTMLElement>('.ref-grid');
+  if (status && grid) {
+    const cards = [...grid.querySelectorAll<HTMLElement>('.ref')];
+    const empty = document.querySelector<HTMLElement>('[data-filters-empty]')!;
+    const more = document.querySelector<HTMLButtonElement>('[data-show-all]');
+    const visible = Number(more?.dataset.visible ?? 11);
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+
+    // References written in WordPress are added in front of the built cards (wp-plugin), so the "Show all" label is
+    // recounted from the cards actually in the page.
+    const d = status.dataset;
+    const plural = (one: string | undefined, other: string | undefined, n: number) => ((n === 1 ? one : other) ?? '').replace('{n}', String(n));
+    if (more) {
+      more.textContent = plural(d.showallOne, d.showallOther, cards.length);
+      more.hidden = cards.length <= visible;
+    }
+
+    const apply = (want: string) => {
+      if (want && !cards.some((c) => c.dataset.country === want)) want = '';
+      grid.classList.toggle('is-filtered', !!want);
+      let shown = 0;
+      cards.forEach((card) => {
+        const show = !want || card.dataset.country === want;
+        card.classList.toggle('ref--flat', !!want);
+        card.hidden = !show;
+        if (show) shown++;
+      });
+      empty.hidden = shown > 0;
+      if (more) more.hidden = !want && (grid.classList.contains('is-expanded') || cards.length <= visible);
+      status.textContent = plural(d.resultsOne, d.resultsOther, shown);
+      const url = new URL(location.href);
+      if (want) url.searchParams.set('country', want);
+      else url.searchParams.delete('country');
+      history.replaceState(history.state, '', url);
+    };
+
+    more?.addEventListener('click', () => {
+      const filtered = grid.classList.contains('is-filtered');
+      grid.classList.add('is-expanded');
+      if (filtered) apply('');
+      more.hidden = true;
+      if (!filtered) cards[visible]?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+    });
+    document.addEventListener('refs:country', (e) => {
+      apply((e as CustomEvent<{ slug: string }>).detail.slug);
+      document.getElementById('projects')?.scrollIntoView({ block: 'start', behavior: reduce.matches ? 'auto' : 'smooth' });
+    });
+
+    const initial = new URL(location.href).searchParams.get('country');
+    if (initial) apply(initial);
+  }
+</script>

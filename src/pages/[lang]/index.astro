@@ -1,0 +1,8 @@
+---
+import HomePage from '../../templates/HomePage.astro';
+import { PREFIXED } from '../../i18n';
+
+export const getStaticPaths = () => PREFIXED.map((lang) => ({ params: { lang } }));
+---
+
+<HomePage />

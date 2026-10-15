@@ -1,0 +1,505 @@
+{
+  "/": {
+    "tr": "/tr/",
+    "de": "/de/",
+    "fr": "/fr/",
+    "ar": "/ar/",
+    "ru": "/ru/"
+  },
+  "/about-us/": {
+    "tr": "/tr/about-us/",
+    "de": "/de/about-us/",
+    "fr": "/fr/about-us/",
+    "ar": "/ar/about-us/",
+    "ru": "/ru/about-us/"
+  },
+  "/adl-kdk/": {
+    "tr": "/tr/adl-kdk/",
+    "de": "/de/adl-kdk/",
+    "fr": "/fr/adl-kdk/",
+    "ar": "/ar/adl-kdk/",
+    "ru": "/ru/adl-kdk/"
+  },
+  "/adlx3t/": {
+    "tr": "/tr/adlx3t/",
+    "de": "/de/adlx3t/",
+    "fr": "/fr/adlx3t/",
+    "ar": "/ar/adlx3t/",
+    "ru": "/ru/adlx3t/"
+  },
+  "/adlx4t/": {
+    "tr": "/tr/adlx4t/",
+    "de": "/de/adlx4t/",
+    "fr": "/fr/adlx4t/",
+    "ar": "/ar/adlx4t/",
+    "ru": "/ru/adlx4t/"
+  },
+  "/anti-wind-padel-court/": {
+    "tr": "/tr/anti-wind-padel-court/",
+    "de": "/de/anti-wind-padel-court/",
+    "fr": "/fr/anti-wind-padel-court/",
+    "ar": "/ar/anti-wind-padel-court/",
+    "ru": "/ru/anti-wind-padel-court/"
+  },
+  "/canopy/": {
+    "tr": "/tr/full-padel-court-canopy-campaign/",
+    "de": "/de/full-padel-court-canopy-campaign/",
+    "fr": "/fr/full-padel-court-canopy-campaign/",
+    "ar": "/ar/full-padel-court-canopy-campaign/",
+    "ru": "/ru/full-padel-court-canopy-campaign/"
+  },
+  "/cesme-panoramic-padel-courts/": {
+    "tr": "/tr/cesme-panoramic-padel-courts/",
+    "de": "/de/cesme-panoramic-padel-courts/",
+    "fr": "/fr/cesme-panoramic-padel-courts/",
+    "ar": "/ar/cesme-panoramic-padel-courts/",
+    "ru": "/ru/cesme-panoramic-padel-courts/"
+  },
+  "/cleek/": {
+    "tr": "/tr/cleek/",
+    "de": "/de/cleek/",
+    "fr": "/fr/cleek/",
+    "ar": "/ar/cleek/",
+    "ru": "/ru/cleek/"
+  },
+  "/consulting/": {
+    "tr": "/tr/consulting/",
+    "de": "/de/consulting/",
+    "fr": "/fr/consulting/",
+    "ar": "/ar/consulting/",
+    "ru": "/ru/consulting/"
+  },
+  "/contact-us/": {
+    "tr": "/tr/contact-us/",
+    "de": "/de/contact-us/",
+    "fr": "/fr/contact-us/",
+    "ar": "/ar/contact-us/",
+    "ru": "/ru/contact-us/"
+  },
+  "/designing/": {
+    "tr": "/tr/designing/",
+    "de": "/de/designing/",
+    "fr": "/fr/designing/",
+    "ar": "/ar/designing/",
+    "ru": "/ru/designing/"
+  },
+  "/england-eastbound/": {
+    "tr": "/tr/england-eastbound/",
+    "de": "/de/england-eastbound/",
+    "fr": "/fr/england-eastbound/",
+    "ar": "/ar/england-eastbound/",
+    "ru": "/ru/england-eastbound/"
+  },
+  "/floating-floor-padel-court/": {
+    "tr": "/tr/floating-floor-padel-court/",
+    "de": "/de/floating-floor-padel-court/",
+    "fr": "/fr/floating-floor-padel-court/",
+    "ar": "/ar/floating-floor-padel-court/",
+    "ru": "/ru/floating-floor-padel-court/"
+  },
+  "/full-isolated-padel-court-house/": {
+    "tr": "/tr/full-isolated-padel-court-house/",
+    "de": "/de/full-isolated-padel-court-house/",
+    "fr": "/fr/full-isolated-padel-court-house/",
+    "ar": "/ar/full-isolated-padel-court-house/",
+    "ru": "/ru/full-isolated-padel-court-house/"
+  },
+  "/full-membrane-cover/": {
+    "tr": "/tr/full-membrane-cover/",
+    "de": "/de/full-membrane-cover/",
+    "fr": "/fr/full-membrane-cover/",
+    "ar": "/ar/full-membrane-cover/",
+    "ru": "/ru/full-membrane-cover/"
+  },
+  "/full-panoramic-padbol/": {
+    "tr": "/tr/full-panoramic-padbol/",
+    "de": "/de/full-panoramic-padbol/",
+    "fr": "/fr/full-panoramic-padbol/",
+    "ar": "/ar/full-panoramic-padbol/",
+    "ru": "/ru/full-panoramic-padbol/"
+  },
+  "/full-panoramic-padel-court/": {
+    "tr": "/tr/full-panoramic-padel-court/",
+    "de": "/de/full-panoramic-padel-court/",
+    "fr": "/fr/full-panoramic-padel-court/",
+    "ar": "/ar/full-panoramic-padel-court/",
+    "ru": "/ru/full-panoramic-padel-court/"
+  },
+  "/half-close-canopy/": {
+    "tr": "/tr/half-close-canopy/",
+    "de": "/de/half-close-canopy/",
+    "fr": "/fr/half-close-canopy/",
+    "ar": "/ar/half-close-canopy/",
+    "ru": "/ru/half-close-canopy/"
+  },
+  "/how-much-does-a-padel-court-cost/": {
+    "tr": "/tr/padel-investment-full-report/",
+    "de": "/de/padel-investment-full-report/",
+    "fr": "/fr/padel-investment-full-report/",
+    "ar": "/ar/padel-investment-full-report/",
+    "ru": "/ru/padel-investment-full-report/"
+  },
+  "/innovative-canopy/": {
+    "tr": "/tr/innovative-canopy/",
+    "de": "/de/innovative-canopy/",
+    "fr": "/fr/innovative-canopy/",
+    "ar": "/ar/innovative-canopy/",
+    "ru": "/ru/innovative-canopy/"
+  },
+  "/innovative-canopy/flat-floor-padel-court-canopy/": {
+    "tr": "/tr/innovative-canopy/flat-floor-padel-court-canopy/",
+    "de": "/de/innovative-canopy/flat-floor-padel-court-canopy/",
+    "fr": "/fr/innovative-canopy/flat-floor-padel-court-canopy/",
+    "ar": "/ar/innovative-canopy/flat-floor-padel-court-canopy/",
+    "ru": "/ru/innovative-canopy/flat-floor-padel-court-canopy/"
+  },
+  "/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/": {
+    "tr": "/tr/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/",
+    "de": "/de/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/",
+    "fr": "/fr/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/",
+    "ar": "/ar/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/",
+    "ru": "/ru/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/"
+  },
+  "/innovative-courts/": {
+    "tr": "/tr/innovative-courts/",
+    "de": "/de/innovative-courts/",
+    "fr": "/fr/innovative-courts/",
+    "ar": "/ar/innovative-courts/",
+    "ru": "/ru/innovative-courts/"
+  },
+  "/innovative-courts/flat-floor-padel-court/": {
+    "tr": "/tr/innovative-courts/flat-floor-padel-court/",
+    "de": "/de/innovative-courts/flat-floor-padel-court/",
+    "fr": "/fr/innovative-courts/flat-floor-padel-court/",
+    "ar": "/ar/innovative-courts/flat-floor-padel-court/",
+    "ru": "/ru/innovative-courts/flat-floor-padel-court/"
+  },
+  "/installation/": {
+    "tr": "/tr/installation/",
+    "de": "/de/installation/",
+    "fr": "/fr/installation/",
+    "ar": "/ar/installation/",
+    "ru": "/ru/installation/"
+  },
+  "/manufacturing/": {
+    "tr": "/tr/manufacturing/",
+    "de": "/de/manufacturing/",
+    "fr": "/fr/manufacturing/",
+    "ar": "/ar/manufacturing/",
+    "ru": "/ru/manufacturing/"
+  },
+  "/mobilefold-padbol/": {
+    "tr": "/tr/mobilefold-padbol/",
+    "de": "/de/mobilefold-padbol/",
+    "fr": "/fr/mobilefold-padbol/",
+    "ar": "/ar/mobilefold-padbol/",
+    "ru": "/ru/mobilefold-padbol/"
+  },
+  "/mobilfold-padel-court/": {
+    "tr": "/tr/mobilfold-padel-court/",
+    "de": "/de/mobilfold-padel-court/",
+    "fr": "/fr/mobilfold-padel-court/",
+    "ar": "/ar/mobilfold-padel-court/",
+    "ru": "/ru/mobilfold-padel-court/"
+  },
+  "/mobilfold-x-tend/": {
+    "tr": "/tr/mobilfold-x-tend/",
+    "de": "/de/mobilfold-x-tend/",
+    "fr": "/fr/mobilfold-x-tend/",
+    "ar": "/ar/mobilfold-x-tend/",
+    "ru": "/ru/mobilfold-x-tend/"
+  },
+  "/optimal-and-durable-steel-types-for-padel-courts/": {
+    "de": "/de/optimal-and-durable-steel-types-for-padel-courts/",
+    "fr": "/fr/optimal-and-durable-steel-types-for-padel-courts/",
+    "ar": "/ar/optimal-and-durable-steel-types-for-padel-courts/",
+    "ru": "/ru/optimal-and-durable-steel-types-for-padel-courts/"
+  },
+  "/our-courts/": {
+    "tr": "/tr/our-courts/",
+    "de": "/de/our-courts/",
+    "fr": "/fr/our-courts/",
+    "ar": "/ar/our-courts/",
+    "ru": "/ru/our-courts/"
+  },
+  "/our-courts/pickleball-court/": {
+    "tr": "/tr/our-courts/pickleball-court/",
+    "de": "/de/our-courts/pickleball-court/",
+    "fr": "/fr/our-courts/pickleball-court/",
+    "ar": "/ar/our-courts/pickleball-court/",
+    "ru": "/ru/our-courts/pickleball-court/"
+  },
+  "/our-services/": {
+    "tr": "/tr/our-services/",
+    "de": "/de/our-services/",
+    "fr": "/fr/our-services/",
+    "ar": "/ar/our-services/",
+    "ru": "/ru/our-services/"
+  },
+  "/padbols/": {
+    "tr": "/tr/padbols/",
+    "de": "/de/padbols/",
+    "fr": "/fr/padbols/",
+    "ar": "/ar/padbols/",
+    "ru": "/ru/padbols/"
+  },
+  "/padel_center_italy/": {
+    "tr": "/tr/padel_center_italy/",
+    "de": "/de/padel_center_italy/",
+    "fr": "/fr/padel_center_italy/",
+    "ar": "/ar/padel_center_italy/",
+    "ru": "/ru/padel_center_italy/"
+  },
+  "/padel-court-cover/": {
+    "tr": "/tr/padel-court-cover/",
+    "de": "/de/padel-court-cover/",
+    "fr": "/fr/padel-court-cover/",
+    "ar": "/ar/padel-court-cover/",
+    "ru": "/ru/padel-court-cover/"
+  },
+  "/padel-court-foundation/": {
+    "tr": "/tr/padel-court-foundation/",
+    "de": "/de/padel-court-foundation/",
+    "fr": "/fr/padel-court-foundation/",
+    "ar": "/ar/padel-court-foundation/",
+    "ru": "/ru/padel-court-foundation/"
+  },
+  "/padel-guide/": {
+    "tr": "/tr/padel-guide/",
+    "de": "/de/padel-guide/",
+    "fr": "/fr/padel-guide/",
+    "ar": "/ar/padel-guide/",
+    "ru": "/ru/padel-guide/"
+  },
+  "/padel-guide/coastal-padel-courts-construction/": {
+    "tr": "/tr/padel-guide/coastal-padel-courts-construction/",
+    "de": "/de/padel-guide/coastal-padel-courts-construction/",
+    "fr": "/fr/padel-guide/coastal-padel-courts-construction/",
+    "ar": "/ar/padel-guide/coastal-padel-courts-construction/",
+    "ru": "/ru/padel-guide/coastal-padel-courts-construction/"
+  },
+  "/padel-guide/how-to-build-a-padel-court/": {
+    "tr": "/tr/padel-guide/how-to-build-a-padel-court/",
+    "de": "/de/padel-guide/how-to-build-a-padel-court/",
+    "fr": "/fr/padel-guide/how-to-build-a-padel-court/",
+    "ar": "/ar/padel-guide/how-to-build-a-padel-court/",
+    "ru": "/ru/padel-guide/how-to-build-a-padel-court/"
+  },
+  "/padel-guide/ideal-ceiling-height-padel-court/": {
+    "tr": "/tr/padel-guide/ideal-ceiling-height-padel-court/",
+    "de": "/de/padel-guide/ideal-ceiling-height-padel-court/",
+    "fr": "/fr/padel-guide/ideal-ceiling-height-padel-court/",
+    "ar": "/ar/padel-guide/ideal-ceiling-height-padel-court/",
+    "ru": "/ru/padel-guide/ideal-ceiling-height-padel-court/"
+  },
+  "/padel-guide/padel-court-design-factors/": {
+    "tr": "/tr/padel-guide/padel-court-design-factors/",
+    "de": "/de/padel-guide/padel-court-design-factors/",
+    "fr": "/fr/padel-guide/padel-court-design-factors/",
+    "ar": "/ar/padel-guide/padel-court-design-factors/",
+    "ru": "/ru/padel-guide/padel-court-design-factors/"
+  },
+  "/padel-guide/padel-court-dimensions/": {
+    "tr": "/tr/padel-guide/padel-court-dimensions/",
+    "de": "/de/padel-guide/padel-court-dimensions/",
+    "fr": "/fr/padel-guide/padel-court-dimensions/",
+    "ar": "/ar/padel-guide/padel-court-dimensions/",
+    "ru": "/ru/padel-guide/padel-court-dimensions/"
+  },
+  "/padel-guide/padel-court-maintenance-tips/": {
+    "tr": "/tr/padel-guide/padel-court-maintenance-tips/",
+    "de": "/de/padel-guide/padel-court-maintenance-tips/",
+    "fr": "/fr/padel-guide/padel-court-maintenance-tips/",
+    "ar": "/ar/padel-guide/padel-court-maintenance-tips/",
+    "ru": "/ru/padel-guide/padel-court-maintenance-tips/"
+  },
+  "/padel-guide/padel-court-surface/": {
+    "tr": "/tr/padel-guide/padel-court-surface/",
+    "de": "/de/padel-guide/padel-court-surface/",
+    "fr": "/fr/padel-guide/padel-court-surface/",
+    "ar": "/ar/padel-guide/padel-court-surface/",
+    "ru": "/ru/padel-guide/padel-court-surface/"
+  },
+  "/padel-guide/padel-net-and-mesh-systems-quality-guide/": {
+    "tr": "/tr/padel-net-and-mesh-systems-quality-guide/",
+    "de": "/de/padel-net-and-mesh-systems-quality-guide/",
+    "fr": "/fr/padel-net-and-mesh-systems-quality-guide/",
+    "ar": "/ar/padel-net-and-mesh-systems-quality-guide/",
+    "ru": "/ru/padel-net-and-mesh-systems-quality-guide/"
+  },
+  "/padel-guide/what-is-padel/": {
+    "tr": "/tr/padel-guide/what-is-padel/",
+    "de": "/de/padel-guide/what-is-padel/",
+    "fr": "/fr/padel-guide/what-is-padel/",
+    "ar": "/ar/padel-guide/what-is-padel/",
+    "ru": "/ru/padel-guide/what-is-padel/"
+  },
+  "/panaromic-plate-padel-court/": {
+    "tr": "/tr/panaromic-plate-padel-court/",
+    "de": "/de/panaromic-plate-padel-court/",
+    "fr": "/fr/panaromic-plate-padel-court/",
+    "ar": "/ar/panaromic-plate-padel-court/",
+    "ru": "/ru/panaromic-plate-padel-court/"
+  },
+  "/panoramic-padbol/": {
+    "tr": "/tr/panoramic-padbol/",
+    "de": "/de/panoramic-padbol/",
+    "fr": "/fr/panoramic-padbol/",
+    "ar": "/ar/panoramic-padbol/",
+    "ru": "/ru/panoramic-padbol/"
+  },
+  "/panoramic-padel-court/": {
+    "tr": "/tr/panoramic-padel-court/",
+    "de": "/de/panoramic-padel-court/",
+    "fr": "/fr/panoramic-padel-court/",
+    "ar": "/ar/panoramic-padel-court/",
+    "ru": "/ru/panoramic-padel-court/"
+  },
+  "/pdpl/": {
+    "tr": "/tr/pdpl/",
+    "de": "/de/pdpl/",
+    "fr": "/fr/pdpl/",
+    "ar": "/ar/pdpl/",
+    "ru": "/ru/pdpl/"
+  },
+  "/plate-standard-padel-court/": {
+    "tr": "/tr/plate-standard-padel-court/",
+    "de": "/de/plate-standard-padel-court/",
+    "fr": "/fr/plate-standard-padel-court/",
+    "ar": "/ar/plate-standard-padel-court/",
+    "ru": "/ru/plate-standard-padel-court/"
+  },
+  "/portable-padbol/": {
+    "tr": "/tr/portable-padbol/",
+    "de": "/de/portable-padbol/",
+    "fr": "/fr/portable-padbol/",
+    "ar": "/ar/portable-padbol/",
+    "ru": "/ru/portable-padbol/"
+  },
+  "/portable-padel-court/": {
+    "tr": "/tr/portable-padel-court/",
+    "de": "/de/portable-padel-court/",
+    "fr": "/fr/portable-padel-court/",
+    "ar": "/ar/portable-padel-court/",
+    "ru": "/ru/portable-padel-court/"
+  },
+  "/repair-and-accessories/": {
+    "tr": "/tr/repair-and-accessories/",
+    "de": "/de/repair-and-accessories/",
+    "fr": "/fr/repair-and-accessories/",
+    "ar": "/ar/repair-and-accessories/",
+    "ru": "/ru/repair-and-accessories/"
+  },
+  "/retractable-roof-cover-system/": {
+    "tr": "/tr/retractable-roof-cover-system/",
+    "de": "/de/retractable-roof-cover-system/",
+    "fr": "/fr/retractable-roof-cover-system/",
+    "ar": "/ar/retractable-roof-cover-system/",
+    "ru": "/ru/retractable-roof-cover-system/"
+  },
+  "/retractable-side-and-roof-canopy-system/": {
+    "tr": "/tr/retractable-side-and-roof-canopy-system/",
+    "de": "/de/retractable-side-and-roof-canopy-system/",
+    "fr": "/fr/retractable-side-and-roof-canopy-system/",
+    "ar": "/ar/retractable-side-and-roof-canopy-system/",
+    "ru": "/ru/retractable-side-and-roof-canopy-system/"
+  },
+  "/roof-top-canopy/": {
+    "tr": "/tr/roof-top-canopy/",
+    "de": "/de/roof-top-canopy/",
+    "fr": "/fr/roof-top-canopy/",
+    "ar": "/ar/roof-top-canopy/",
+    "ru": "/ru/roof-top-canopy/"
+  },
+  "/sandwich-panel-full-covered/": {
+    "tr": "/tr/sandwich-panel-full-covered/",
+    "de": "/de/sandwich-panel-full-covered/",
+    "fr": "/fr/sandwich-panel-full-covered/",
+    "ar": "/ar/sandwich-panel-full-covered/",
+    "ru": "/ru/sandwich-panel-full-covered/"
+  },
+  "/single-full-panoramic-padel-court/": {
+    "tr": "/tr/single-full-panoramic-padel-court/",
+    "de": "/de/single-full-panoramic-padel-court/",
+    "fr": "/fr/single-full-panoramic-padel-court/",
+    "ar": "/ar/single-full-panoramic-padel-court/",
+    "ru": "/ru/single-full-panoramic-padel-court/"
+  },
+  "/single-padel-court/": {
+    "tr": "/tr/single-padel-court/",
+    "de": "/de/single-padel-court/",
+    "fr": "/fr/single-padel-court/",
+    "ar": "/ar/single-padel-court/",
+    "ru": "/ru/single-padel-court/"
+  },
+  "/single-panoramic-padel-court/": {
+    "tr": "/tr/single-panoramic-padel-court/",
+    "de": "/de/single-panoramic-padel-court/",
+    "fr": "/fr/single-panoramic-padel-court/",
+    "ar": "/ar/single-panoramic-padel-court/",
+    "ru": "/ru/single-panoramic-padel-court/"
+  },
+  "/standard-padbol/": {
+    "tr": "/tr/standard-padbol/",
+    "de": "/de/standard-padbol/",
+    "fr": "/fr/standard-padbol/",
+    "ar": "/ar/standard-padbol/",
+    "ru": "/ru/standard-padbol/"
+  },
+  "/standard-padel-court/": {
+    "tr": "/tr/standard-padel-court/",
+    "de": "/de/standard-padel-court/",
+    "fr": "/fr/standard-padel-court/",
+    "ar": "/ar/standard-padel-court/",
+    "ru": "/ru/standard-padel-court/"
+  },
+  "/turfs/": {
+    "tr": "/tr/turfs/",
+    "de": "/de/turfs/",
+    "fr": "/fr/turfs/",
+    "ar": "/ar/turfs/",
+    "ru": "/ru/turfs/"
+  },
+  "/turkey-cullinan-belek/": {
+    "tr": "/tr/turkey-cullinan-belek/",
+    "de": "/de/turkey-cullinan-belek/",
+    "fr": "/fr/turkey-cullinan-belek/",
+    "ar": "/ar/turkey-cullinan-belek/",
+    "ru": "/ru/turkey-cullinan-belek/"
+  },
+  "/uk-padel-court/": {
+    "tr": "/tr/uk-padel-court/",
+    "de": "/de/uk-padel-court/",
+    "fr": "/fr/uk-padel-court/",
+    "ar": "/ar/uk-padel-court/",
+    "ru": "/ru/uk-padel-court/"
+  },
+  "/unixpadel-in-austria-full-speed-ahead/": {
+    "tr": "/tr/unixpadel-in-austria-full-speed-ahead/",
+    "de": "/de/unixpadel-in-austria-full-speed-ahead/",
+    "fr": "/fr/unixpadel-in-austria-full-speed-ahead/",
+    "ar": "/ar/unixpadel-in-austria-full-speed-ahead/",
+    "ru": "/ru/unixpadel-in-austria-full-speed-ahead/"
+  },
+  "/vicenza-italy/": {
+    "tr": "/tr/vicenza-italy/",
+    "de": "/de/vicenza-italy/",
+    "fr": "/fr/vicenza-italy/",
+    "ar": "/ar/vicenza-italy/",
+    "ru": "/ru/vicenza-italy/"
+  },
+  "/wheel-canopy-system/": {
+    "tr": "/tr/wheel-canopy-system/",
+    "de": "/de/wheel-canopy-system/",
+    "fr": "/fr/wheel-canopy-system/",
+    "ar": "/ar/wheel-canopy-system/",
+    "ru": "/ru/wheel-canopy-system/"
+  },
+  "/wp-challenge-padel-court/": {
+    "tr": "/tr/wp-challenge-padel-court/",
+    "de": "/de/wp-challenge-padel-court/",
+    "fr": "/fr/wp-challenge-padel-court/",
+    "ar": "/ar/wp-challenge-padel-court/",
+    "ru": "/ru/wp-challenge-padel-court/"
+  }
+}

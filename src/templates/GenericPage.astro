@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import { labelOf } from '../lib/collection';
+import type { TemplateProps } from './_types';
+import { langOf, t } from '../i18n';
+
+const { page, crumbs, Content, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const hasBody = page.body?.trim().length;
+// Every hero carries an eyebrow naming the kind of page.
+const ui = t(langOf(Astro.url));
+const EYEBROWS: Record<string, string> = { '/pdpl/': ui.legal };
+const eyebrow = EYEBROWS[data.url] ?? 'Unixpadel';
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? labelOf(page)} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero eyebrow={eyebrow} title={labelOf(page)} tagline={data.hero?.tagline} image={data.hero?.image} poster={data.hero?.poster} video={data.hero?.video} size="compact">
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+  </Hero>
+  {
+    hasBody ? (
+      <div class="container section section--tight">
+        <article class="prose">
+          <Content />
+        </article>
+      </div>
+    ) : null
+  }
+  <CTABand />
+</BaseLayout>

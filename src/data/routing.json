@@ -1,0 +1,29 @@
+{
+  "productParents": ["/our-courts/", "/innovative-courts/", "/canopy/", "/innovative-canopy/", "/turfs/"],
+  "productUrls": [
+    "/padbols/",
+    "/our-courts/pickleball-court/",
+    "/standard-padbol/",
+    "/panoramic-padbol/",
+    "/full-panoramic-padbol/",
+    "/portable-padbol/",
+    "/mobilefold-padbol/",
+    "/anti-wind-padel-court/",
+    "/full-isolated-padel-court-house/"
+  ],
+  "parentOverrides": {
+    "/standard-padbol/": { "parent": "/padbols/", "order": 1 },
+    "/panoramic-padbol/": { "parent": "/padbols/", "order": 2 },
+    "/full-panoramic-padbol/": { "parent": "/padbols/", "order": 3 },
+    "/portable-padbol/": { "parent": "/padbols/", "order": 4 },
+    "/mobilefold-padbol/": { "parent": "/padbols/", "order": 5 },
+    "/optimal-and-durable-steel-types-for-padel-courts/": { "parent": "/padel-guide/", "order": null }
+  },
+  "newsUrls": [
+    "/references/10-years-of-unixpadel/",
+    "/references/achievement-in-azerbaijan/",
+    "/references/expands-to-europe/",
+    "/references/fsb-cologne/",
+    "/references/prestigious-european-union-trade-award/"
+  ]
+}

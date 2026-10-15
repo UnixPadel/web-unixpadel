@@ -1,0 +1,199 @@
+---
+// Full-width navy band with a collage of square installation photos (one large + up to four small).
+// Mobile: a horizontal scroll-snap strip.
+import Icon from './Icon.astro';
+import CourtLines from './graphics/CourtLines.astro';
+import { mediaUrl, srcsetFor } from '../lib/media';
+import type { ShowcaseItem } from '../data/showcase';
+import { BAND_ITEMS, M, bandToken } from '../lib/upx-contract.mjs';
+
+interface Props {
+  items: ShowcaseItem[];
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  more?: { label: string; href: string };
+  /**
+   * Reference shell (src/lib/upx-contract.mjs): five tiles with tokens (UPXBSRCA …), the whole band in if:band and
+   * tiles 4 and 5 in if:band-d / if:band-e, so the WordPress plugin can show three to five projects or none.
+   */
+  shell?: boolean;
+}
+const { items, eyebrow, title, text, more, shell = false } = Astro.props;
+const shown = shell
+  ? Array.from({ length: BAND_ITEMS }, (_, i) => ({ src: bandToken('SRC', i), alt: bandToken('ALT', i), label: bandToken('LABEL', i), href: bandToken('HREF', i) }))
+  : items.slice(0, 5);
+const mark = (html: string) => (shell ? html : '');
+const optional: Record<number, string> = { 3: 'if:band-d', 4: 'if:band-e' };
+---
+
+<Fragment set:html={mark(M.open('if:band'))} />
+<section class="band section--inverse">
+  <CourtLines variant="bg" />
+  <div class="container band__inner">
+    <div class="band__head" data-reveal>
+      {eyebrow && <p class="eyebrow" set:html={eyebrow} />}
+      <h2 set:html={title} />
+      {text && <p class="band__text">{text}</p>}
+      {
+        more && (
+          <a class="btn btn--inverse" href={more.href}>
+            {more.label} <Icon name="arrow-right" />
+          </a>
+        )
+      }
+    </div>
+    <ul class="band__grid" role="list">
+      {
+        shown.map((it, i) => (
+          <>
+          {optional[i] && <Fragment set:html={mark(M.open(optional[i]))} />}
+          <li class:list={['band__tile', { 'band__tile--big': i === 0 }]} data-reveal>
+            <a class="band__link" href={it.href}>
+              <span class="photo band__photo">
+                <img
+                  src={mediaUrl(it.src)}
+                  srcset={srcsetFor(it.src) ?? undefined}
+                  sizes={i === 0 ? '(min-width: 960px) 40vw, 80vw' : '(min-width: 960px) 20vw, 60vw'}
+                  alt={it.alt}
+                  width="1080"
+                  height="1080"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="band__label">
+                {it.label}
+                <Icon name="arrow-up-right" />
+              </span>
+            </a>
+          </li>
+          {optional[i] && <Fragment set:html={mark(M.close(optional[i]))} />}
+          </>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+<Fragment set:html={mark(M.close('if:band'))} />
+
+<style>
+  .band {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: var(--section-pad);
+    background: var(--bg-inverse);
+    color: var(--text-on-inverse);
+  }
+  .band__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--sp-7);
+  }
+  @media (min-width: 960px) {
+    .band__inner {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+      align-items: end;
+      gap: var(--sp-8);
+    }
+  }
+  .band__head {
+    display: grid;
+    gap: var(--sp-4);
+    align-content: end;
+  }
+  .band__head h2 {
+    color: var(--text-on-inverse);
+  }
+  .band__head .btn {
+    justify-self: start;
+  }
+  .band__text {
+    color: var(--text-on-inverse-muted);
+    font-size: var(--fs-500);
+  }
+  .band__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-3);
+  }
+  @media (min-width: 720px) {
+    .band__grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+    .band__tile--big {
+      grid-row: span 2;
+    }
+  }
+  @media (max-width: 719px) {
+    .band__grid {
+      grid-auto-flow: column;
+      grid-auto-columns: 72%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-block-end: var(--sp-3);
+      margin-inline: calc(-1 * var(--gutter));
+      padding-inline: var(--gutter);
+      scrollbar-width: thin;
+    }
+    .band__tile {
+      scroll-snap-align: start;
+    }
+  }
+  .band__link {
+    position: relative;
+    display: block;
+    block-size: 100%;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .band__photo {
+    display: block;
+    aspect-ratio: 1 / 1;
+    block-size: 100%;
+  }
+  .band__photo img {
+    transition: transform 600ms var(--ease-out);
+  }
+  .band__label {
+    position: absolute;
+    inset-inline-start: var(--sp-3);
+    inset-block-end: var(--sp-3);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    max-inline-size: calc(100% - 2 * var(--sp-3));
+    padding: var(--sp-1) var(--sp-3);
+    border-radius: var(--radius-sm);
+    background: var(--lime-500);
+    color: var(--navy-700);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .band__label :global(.icon) {
+    inline-size: 14px;
+    block-size: 14px;
+  }
+  .band__link:focus-visible {
+    outline: 2px solid var(--lime-500);
+    outline-offset: 3px;
+  }
+  @media (hover: hover) {
+    .band__link:hover .band__photo img {
+      transform: scale(1.04);
+    }
+    .band__link:hover .band__label {
+      transform: translateY(-3px);
+    }
+  }
+</style>

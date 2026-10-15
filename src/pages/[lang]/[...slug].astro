@@ -1,0 +1,24 @@
+---
+// Translated pages at /<lang>/<english slug>/ (tr, de, fr, ar, ru): the slugs Google already knows from the old
+// Weglot translations, and the shared key every language uses.
+import { getCollection } from 'astro:content';
+import PageRoute from '../../templates/PageRoute.astro';
+import { COLLECTION, type Page } from '../../lib/collection';
+import { PREFIXED, type Lang } from '../../i18n';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const lang of PREFIXED) {
+    const pages = (await getCollection(COLLECTION[lang])) as Page[];
+    for (const page of pages) {
+      if (page.data.url === '/') continue; // the home page is src/pages/[lang]/index.astro
+      paths.push({ params: { lang, slug: page.data.url.replace(/^\/|\/$/g, '') }, props: { page, lang } });
+    }
+  }
+  return paths;
+}
+
+const { page, lang } = Astro.props as { page: Page; lang: Lang };
+---
+
+<PageRoute page={page} lang={lang} />

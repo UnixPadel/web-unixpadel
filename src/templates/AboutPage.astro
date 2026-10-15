@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import StatBand from '../components/StatBand.astro';
+import CTABand from '../components/CTABand.astro';
+import { quoteUrl } from '../data/site';
+import { sealsFor, siteFor } from '../i18n/data';
+import { langOf, localizePath, LOCALE, t } from '../i18n';
+import Seal from '../components/graphics/Seal.astro';
+import { cardImage, labelOf } from '../lib/collection';
+import type { TemplateProps } from './_types';
+
+const { page, crumbs, Content, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? labelOf(page)} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero
+    title={ui.aboutTitle}
+    tagline={ui.aboutTagline}
+    eyebrow={ui.aboutEyebrow}
+    video={data.hero?.video}
+    poster={data.hero?.poster ?? cardImage(page)}
+    ctas={[{ label: ui.getCustomQuote, href: localizePath(quoteUrl(), lang), variant: 'primary' }, { label: ui.seeReferences, href: localizePath('/references/', lang) }]}
+  >
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+    <ul class="about-seals" aria-label={ui.certsAria}>
+      {sealsFor(lang).map((s) => <li><Seal {...s} size={60} /></li>)}
+    </ul>
+  </Hero>
+  <StatBand stats={siteFor(lang).stats} highlightLast />
+  <div class="container section section--tight">
+    <article class="prose">
+      <Content />
+    </article>
+  </div>
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .about-seals {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    padding: 0;
+    margin-block-start: var(--sp-4);
+  }
+</style>

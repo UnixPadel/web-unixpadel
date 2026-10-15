@@ -1,0 +1,159 @@
+---
+// Dimensioned plan view of the court, drawn from src/data/courtDims.ts.
+import type { CourtDims } from '../data/courtDims';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  dims: CourtDims;
+}
+const { dims } = Astro.props;
+const ui = t(langOf(Astro.url));
+const VW = 640;
+const s = Math.min(520 / dims.length, 230 / dims.width); // px per metre
+const L = dims.length * s;
+const W = dims.width * s;
+const x0 = (VW - L) / 2;
+const y0 = 56;
+const VH = y0 + W + 64;
+const cx = x0 + L / 2;
+const cy = y0 + W / 2;
+const fmt = (m: number) => `${Number(m.toFixed(2))} m`;
+const off = (dims.serviceFromNet ?? 0) * s;
+---
+
+<figure class="diagram">
+  <svg viewBox={`0 0 ${VW} ${VH}`} role="img" aria-label={`${dims.caption}: ${fmt(dims.length)} ${ui.by} ${fmt(dims.width)}`}>
+    <defs>
+      <marker id="dim-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 10 5 0 10z" class="diagram__arrowhead" />
+      </marker>
+    </defs>
+
+    <!-- surface -->
+    <rect x={x0} y={y0} width={L} height={W} class="diagram__surface" />
+    <g class="diagram__lines">
+      <rect x={x0} y={y0} width={L} height={W} />
+      {
+        dims.lines === 'padel' && (
+          <>
+            <line x1={cx - off} y1={y0} x2={cx - off} y2={y0 + W} />
+            <line x1={cx + off} y1={y0} x2={cx + off} y2={y0 + W} />
+            <line x1={cx - off} y1={cy} x2={cx + off} y2={cy} />
+          </>
+        )
+      }
+      {
+        dims.lines === 'pickleball' && (
+          <>
+            <line x1={cx - off} y1={y0} x2={cx - off} y2={y0 + W} />
+            <line x1={cx + off} y1={y0} x2={cx + off} y2={y0 + W} />
+            <line x1={x0} y1={cy} x2={cx - off} y2={cy} />
+            <line x1={cx + off} y1={cy} x2={x0 + L} y2={cy} />
+          </>
+        )
+      }
+    </g>
+    <!-- net -->
+    <line x1={cx} y1={y0 - 8} x2={cx} y2={y0 + W + 8} class="diagram__net" />
+    <text x={cx} y={y0 + W + 26} class="diagram__label" text-anchor="middle">{ui.net}</text>
+
+    <!-- dimensions -->
+    <g class="diagram__dims">
+      <line x1={x0} y1={y0 - 24} x2={x0 + L} y2={y0 - 24} marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)" />
+      <text x={cx} y={y0 - 32} text-anchor="middle">{fmt(dims.length)}</text>
+      <line x1={x0 - 24} y1={y0} x2={x0 - 24} y2={y0 + W} marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)" />
+      <text x={x0 - 32} y={cy} text-anchor="middle" transform={`rotate(-90 ${x0 - 32} ${cy})`}>{fmt(dims.width)}</text>
+      {
+        off > 0 && (
+          <>
+            <line x1={cx} y1={y0 + W + 44} x2={cx + off} y2={y0 + W + 44} marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)" />
+            <text x={cx + off / 2} y={y0 + W + 60} text-anchor="middle">{fmt(dims.serviceFromNet!)}</text>
+          </>
+        )
+      }
+    </g>
+  </svg>
+  <figcaption>
+    {dims.caption}
+    {dims.standardOnly && <span> · {ui.fipStandardDims}</span>}
+  </figcaption>
+  <dl class="diagram__notes">
+    {
+      dims.notes.map((n) => (
+        <div>
+          <dt>{n.label}</dt>
+          <dd>{n.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</figure>
+
+<style>
+  .diagram {
+    margin: 0;
+    display: grid;
+    gap: var(--sp-4);
+  }
+  .diagram svg {
+    inline-size: 100%;
+    block-size: auto;
+    overflow: visible;
+  }
+  .diagram__surface {
+    fill: var(--navy-600);
+  }
+  .diagram__lines {
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 2;
+  }
+  .diagram__net {
+    stroke: var(--lime-500);
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .diagram__label {
+    fill: var(--lime-500);
+    font: 700 15px var(--font-sans);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .diagram__dims line {
+    stroke: var(--lime-500);
+    stroke-width: 1.25;
+  }
+  .diagram__arrowhead {
+    fill: var(--lime-500);
+  }
+  .diagram__dims text {
+    fill: var(--white);
+    font: 700 20px var(--font-display);
+  }
+  figcaption {
+    font-size: var(--fs-300);
+    color: var(--text-on-inverse-muted);
+  }
+  .diagram__notes {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3) var(--sp-5);
+  }
+  .diagram__notes div {
+    padding-block-start: var(--sp-2);
+    border-block-start: 1px solid var(--border-glass);
+  }
+  .diagram__notes dt {
+    font-size: var(--fs-200);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lime-500);
+    font-weight: 700;
+  }
+  .diagram__notes dd {
+    margin: 0;
+    color: var(--white);
+    font-weight: 500;
+  }
+</style>

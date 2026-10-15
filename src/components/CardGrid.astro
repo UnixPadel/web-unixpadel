@@ -1,0 +1,30 @@
+---
+interface Props {
+  columns?: 2 | 3 | 4;
+  class?: string;
+}
+const { columns = 3, class: cls } = Astro.props;
+---
+
+<div class:list={['card-grid', cls]} style={`--cols:${columns}`}>
+  <slot />
+</div>
+
+<style>
+  .card-grid {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid {
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      gap: var(--sp-6);
+    }
+  }
+</style>

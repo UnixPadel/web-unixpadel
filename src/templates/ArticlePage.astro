@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import FAQ from '../components/FAQ.astro';
+import CardGrid from '../components/CardGrid.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import CTABand from '../components/CTABand.astro';
+import Icon from '../components/Icon.astro';
+import { childrenOf, cardImage, cardImageAlt, labelOf, readingTime } from '../lib/collection';
+import type { TemplateProps } from './_types';
+import { langOf, localizePath, LOCALE, t } from '../i18n';
+
+const { page, crumbs, Content, headings, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+
+const title = labelOf(page);
+const toc = headings.filter((h) => h.depth === 2);
+const hasToc = toc.length > 2;
+const minutes = readingTime(page);
+const updated = data.lastmod ? new Intl.DateTimeFormat(LOCALE[lang].intl, { day: 'numeric', month: 'long', year: 'numeric' }).format(data.lastmod) : null;
+const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url !== data.url).slice(0, 2);
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? title} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero title={title} tagline={data.hero?.tagline ?? data.seo.description} eyebrow={ui.guideEyebrow} size="compact" lines>
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+    <p class="article-meta">
+      <span><Icon name="clock" /> {ui.minRead(minutes)}</span>
+      {updated && <span>{ui.updated} <time datetime={data.lastmod!.toISOString()}>{updated}</time></span>}
+    </p>
+  </Hero>
+
+  <div class:list={['container', 'article-layout', 'section', 'section--tight', { 'article-layout--toc': hasToc }]}>
+    {
+      hasToc && (
+        <nav class="toc" aria-labelledby="toc-title">
+          <p class="toc__title" id="toc-title">{ui.onThisPage}</p>
+          <ol>
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+    <article class="prose">
+      <Content />
+    </article>
+  </div>
+
+  {data.faq?.length && <FAQ items={data.faq} />}
+
+  {
+    more.length > 0 && (
+      <section class="section section--tight section--surface">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">{ui.keepReading}</p>
+            <h2>{ui.moreFromGuide}</h2>
+          </div>
+          <CardGrid columns={2}>
+            {more.map((p) => (
+              <ArticleCard title={labelOf(p)} href={p.data.url} excerpt={p.data.seo.description} image={cardImage(p)} alt={cardImageAlt(p)} minutes={readingTime(p)} />
+            ))}
+          </CardGrid>
+        </div>
+      </section>
+    )
+  }
+
+  <CTABand title={ui.guideCtaTitle} text={ui.guideCtaText} primaryLabel={ui.askEngineers} />
+</BaseLayout>
+
+<style>
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    font-size: var(--fs-300);
+    color: var(--text-on-inverse-muted);
+  }
+  .article-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+  }
+  .article-layout {
+    display: grid;
+    gap: var(--sp-6);
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .article-layout--toc {
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: var(--sp-8);
+    }
+    .toc {
+      position: sticky;
+      inset-block-start: calc(var(--header-h) + var(--sp-4));
+    }
+  }
+  .toc {
+    padding: var(--sp-4) var(--sp-5);
+    border-inline-start: 2px solid var(--lime-500);
+    background: var(--bg-surface);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .toc__title {
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-block-end: var(--sp-3);
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-2);
+    font-size: var(--fs-300);
+  }
+  .toc a {
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  @media (hover: hover) {
+    .toc a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+  }
+</style>

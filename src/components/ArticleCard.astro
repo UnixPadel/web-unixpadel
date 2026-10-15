@@ -1,0 +1,112 @@
+---
+import Icon from './Icon.astro';
+import { mediaUrl, srcsetFor } from '../lib/media';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  title: string;
+  href: string;
+  excerpt?: string | null;
+  image?: string | null;
+  alt?: string;
+  minutes?: number;
+  headingLevel?: 'h2' | 'h3';
+}
+const { title, href, excerpt, image, alt = '', minutes, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const ui = t(langOf(Astro.url));
+const src = mediaUrl(image);
+---
+
+<article class="post">
+  {
+    src && (
+      <div class="post__media ratio-16-9">
+        <img src={src} srcset={srcsetFor(image) ?? undefined} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" alt={alt} width="640" height="360" loading="lazy" decoding="async" />
+      </div>
+    )
+  }
+  <div class="post__body">
+    {
+      minutes && (
+        <p class="post__meta">
+          <Icon name="clock" /> {ui.minRead(minutes)}
+        </p>
+      )
+    }
+    <Heading class="post__title"><a href={href}>{title}</a></Heading>
+    {excerpt && <p class="post__excerpt">{excerpt}</p>}
+    <span class="post__more" aria-hidden="true">{ui.readGuide} <Icon name="arrow-right" /></span>
+  </div>
+</article>
+
+<style>
+  .post {
+    position: relative;
+    display: grid;
+    gap: var(--sp-3);
+    padding-block-end: var(--sp-4);
+    border-block-end: 1px solid var(--border);
+  }
+  .post__media {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface-2);
+  }
+  .post__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  .post__body {
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .post__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-200);
+    color: var(--text-secondary);
+  }
+  .post__title {
+    font-size: var(--fs-600);
+  }
+  .post__title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .post__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .post__excerpt {
+    color: var(--text-secondary);
+    font-size: var(--fs-300);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post__more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-300);
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .post:focus-within {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 4px;
+  }
+  .post__title a:focus-visible {
+    outline: none;
+  }
+  @media (hover: hover) {
+    .post:hover .post__title a {
+      color: var(--link-hover);
+    }
+  }
+</style>

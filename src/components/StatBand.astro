@@ -1,0 +1,65 @@
+---
+import Numeral from './graphics/Numeral.astro';
+import CourtLines from './graphics/CourtLines.astro';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  stats: readonly { value: string; label: string }[];
+  /** inverse (navy) by default; surface for light contexts */
+  tone?: 'inverse' | 'surface';
+  /** render the last figure as a solid lime block */
+  highlightLast?: boolean;
+}
+const { stats, tone = 'inverse', highlightLast = false } = Astro.props;
+---
+
+<section class:list={['stats', `stats--${tone}`]} aria-label={t(langOf(Astro.url)).keyFigures}>
+  {tone === 'inverse' && <CourtLines variant="bg" />}
+  <div class="container">
+    <dl class="stats__list" style={`--n:${stats.length}`}>
+      {
+        stats.map((s, i) => (
+          <Numeral
+            value={s.value}
+            label={s.label}
+            size="lg"
+            tone={highlightLast && i === stats.length - 1 ? 'lime' : tone === 'inverse' ? 'inverse' : 'light'}
+          />
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .stats {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .stats--inverse {
+    background: var(--bg-inverse);
+    color: var(--text-on-inverse);
+  }
+  .stats--surface {
+    background: var(--bg-tint);
+  }
+  .stats .container {
+    position: relative;
+    z-index: 1;
+  }
+  .stats__list {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6) var(--sp-4);
+    padding-block: var(--sp-7);
+  }
+  @media (min-width: 800px) {
+    .stats__list {
+      grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr));
+      padding-block: var(--sp-8);
+      align-items: end;
+    }
+  }
+</style>

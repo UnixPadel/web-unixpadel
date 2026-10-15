@@ -1,0 +1,744 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import StatBand from '../components/StatBand.astro';
+import ReferenceCard from '../components/ReferenceCard.astro';
+import PhotoBand from '../components/PhotoBand.astro';
+import CTABand from '../components/CTABand.astro';
+import Icon from '../components/Icon.astro';
+import Seal from '../components/graphics/Seal.astro';
+import Numeral from '../components/graphics/Numeral.astro';
+import CourtLines from '../components/graphics/CourtLines.astro';
+import { quoteUrl } from '../data/site';
+import { deliveredFor, homeFor, homeUiFor, productMetaFor, sealsFor, siteFor } from '../i18n/data';
+import { langOf, localizePath, t } from '../i18n';
+import { allPages, childrenOf, cardImage, cardImageAlt, labelOf, readingTime, pageByUrl } from '../lib/collection';
+import { countryOf } from '../lib/countries';
+import { isNews } from '../lib/pageType';
+import { keyFacts } from '../lib/specs';
+import { mediaUrl, srcsetFor } from '../lib/media';
+import { webSite } from '../lib/jsonld';
+import { HOME_REFS, M, T } from '../lib/upx-contract.mjs';
+
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const hu = homeUiFor(lang);
+const HOME = homeFor(lang);
+const L = (url: string) => localizePath(url, lang);
+const home = await pageByUrl('/', lang);
+const seo = home?.data.seo;
+const pages = await allPages(lang);
+const byUrl = (url: string) => pages.find((p) => p.data.url === url);
+
+const courts = HOME.courts.flatMap((c) => {
+  const p = byUrl(c.url);
+  return p ? [{ ...c, page: p, meta: productMetaFor(c.url, lang) }] : [];
+});
+const systems = HOME.systems.flatMap((s) => {
+  const p = byUrl(s.url);
+  return p ? [{ ...s, page: p, meta: productMetaFor(s.url, lang), fact: keyFacts(p.data.specs, 1, lang)[0] }] : [];
+});
+// Delivered projects only (company news stays on the references index). References written in WordPress go in
+// front of these (wp-plugin, from the home-card templates), keeping HOME_REFS cards in all.
+const references = (await childrenOf('/references/', lang)).filter((p) => !isNews(p.data.url)).slice(0, HOME_REFS);
+const guides = HOME.guides.flatMap((u) => {
+  const p = byUrl(u);
+  return p ? [p] : [];
+});
+const guideHub = await pageByUrl('/padel-guide/', lang);
+const n = (i: number) => String(i).padStart(2, '0');
+---
+
+<BaseLayout page={home} url="/" seoTitle={seo?.title ?? hu.seoTitle} description={seo?.description} ogImage={HOME.hero.poster} robots={seo?.robots} jsonLd={[webSite(lang)]} bodyClass="home">
+  <Hero
+    title={HOME.hero.title}
+    tagline={HOME.hero.tagline}
+    eyebrow={HOME.hero.eyebrow}
+    video={HOME.hero.video}
+    poster={HOME.hero.poster}
+    ctas={[{ label: ui.getQuote, href: L(quoteUrl()), variant: 'primary' }, { label: hu.explore, href: L('/our-courts/') }]}
+  >
+    <ul class="seals" aria-label={ui.certsAria}>
+      {sealsFor(lang).map((s) => <li><Seal {...s} size={48} /></li>)}
+    </ul>
+  </Hero>
+
+  <StatBand stats={siteFor(lang).stats} highlightLast />
+
+  <!-- 01 Court range: numbered list; the stage shows the CAD render on a court-line plate + a real photo -->
+  <section class="section range">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">01</span>{hu.rangeEyebrow}</p>
+        <h2 set:html={hu.rangeTitle} />
+        <p>{hu.rangeText}</p>
+      </div>
+      <div class="range__layout" data-range>
+        <ol class="range__list">
+          {
+            courts.map((c, i) => (
+              <li class="range__item" data-range-item={i} data-reveal>
+                <a class="range__link" href={L(c.url)}>
+                  <span class="range__no">{n(i + 1)}</span>
+                  <span class="range__name">{labelOf(c.page)}</span>
+                  <span class="range__spec">{c.spec}</span>
+                  <Icon name="arrow-right" class="range__arrow" />
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        <div class="range__stage" aria-hidden="true">
+          {
+            courts.map((c, i) => (
+              <figure class:list={['range__figure', { 'is-active': i === 0 }]} data-range-figure={i}>
+                <div class="range__plate plate-court">
+                  <img src={mediaUrl(c.icon)} alt="" width="800" height="600" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+                </div>
+                {c.meta.photo && (
+                  <div class="range__photo photo">
+                    <img src={mediaUrl(c.meta.photo)} alt="" width="1080" height="1080" loading="lazy" decoding="async" />
+                  </div>
+                )}
+                <figcaption>
+                  <span class="range__cap-no">{n(i + 1)}</span> {labelOf(c.page)}
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+      <p class="range__more">
+        <a class="btn btn--primary" href={L('/our-courts/')}>{hu.allCourts}</a>
+        <a class="btn btn--ghost" href={L('/padbols/')}>{hu.padbol} <Icon name="arrow-right" /></a>
+        <a class="btn btn--ghost" href={L('/our-courts/pickleball-court/')}>{hu.pickleball} <Icon name="arrow-right" /></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Photo band: real installations -->
+  <PhotoBand
+    items={deliveredFor(lang).map((d) => ({ ...d, href: L(d.href) }))}
+    eyebrow={`<span class="eyebrow__num">02</span>${hu.deliveredEyebrow}`}
+    title={hu.deliveredTitle}
+    text={hu.deliveredText}
+    more={{ label: ui.allReferences, href: L('/references/') }}
+  />
+
+  <!-- 03 Innovative systems: render on a plate + real photo + one measured fact from the page's own specs -->
+  <section class="section systems">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">03</span>{hu.systemsEyebrow}</p>
+        <h2 set:html={hu.systemsTitle} />
+      </div>
+      <div class="systems__rows">
+        {
+          systems.map((s, i) => {
+            const img = cardImage(s.page);
+            return (
+              <article class:list={['sysrow', { 'sysrow--flip': i % 2 === 1 }]} data-reveal>
+                <div class="sysrow__media">
+                  <div class="sysrow__main media-frame">
+                    {img && <img src={mediaUrl(img)} srcset={srcsetFor(img) ?? undefined} sizes="(min-width: 960px) 50vw, 100vw" alt={cardImageAlt(s.page)} width="800" height="600" loading="lazy" decoding="async" />}
+                  </div>
+                  {s.meta.photo && s.meta.photo !== img && (
+                    <a class="sysrow__inset photo" href={L(s.meta.photoHref ?? s.url)} aria-label={s.meta.photoAlt}>
+                      <img src={mediaUrl(s.meta.photo)} alt={s.meta.photoAlt ?? ''} width="1080" height="1080" loading="lazy" decoding="async" />
+                    </a>
+                  )}
+                  <span class="sysrow__no" aria-hidden="true">{n(i + 1)}</span>
+                </div>
+                <div class="sysrow__text">
+                  <p class="eyebrow">{s.eyebrow}</p>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                  {s.fact && (
+                    <dl class="sysrow__fact">
+                      <Numeral value={s.fact.value} unit={s.fact.unit} label={s.fact.label} size="md" icon={s.fact.icon} />
+                    </dl>
+                  )}
+                  <a class="btn btn--secondary" href={L(s.url)}>
+                    {hu.seeThe(labelOf(s.page))} <Icon name="arrow-right" />
+                  </a>
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Why Unixpadel -->
+  <section class="section section--tint why">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">04</span>{hu.whyEyebrow}</p>
+        <h2 set:html={hu.whyTitle} />
+      </div>
+      <dl class="why__list">
+        {
+          HOME.why.map((w, i) => (
+            <div class="why__item" data-reveal>
+              <dt>
+                <span class="why__no">{n(i + 1)}</span>
+                <Icon name={w.icon} />
+                {w.title}
+              </dt>
+              <dd>{w.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- 05 Factory -->
+  <section class="section section--inverse factory">
+    <CourtLines variant="bg" />
+    <div class="container factory__inner">
+      <div class="factory__media media-frame" data-reveal>
+        <video controls preload="none" playsinline poster={mediaUrl(HOME.hero.poster) ?? undefined} src={mediaUrl(HOME.factory.video) ?? undefined} aria-label={hu.factoryAria}></video>
+      </div>
+      <div class="factory__text" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">05</span>{hu.factoryEyebrow}</p>
+        <h2>{HOME.factory.title}</h2>
+        <dl class="factory__fig">
+          <Numeral value="12" unit={hu.perDay} label={hu.capacity} size="xl" tone="inverse" />
+        </dl>
+        <p>{HOME.factory.text}</p>
+        <ul class="chips surface-glass" aria-label={hu.services}>
+          {HOME.factory.services.map((s) => <li><a href={L(s.url)}>{s.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 References + guide in one editorial section -->
+  <section class="section editorial">
+    <div class="container editorial__inner">
+      <div class="editorial__refs">
+        <div class="split-head" data-reveal>
+          <div class="section-head">
+            <p class="eyebrow"><span class="eyebrow__num">06</span>{hu.refsEyebrow}</p>
+            <h2>{hu.refsTitle}</h2>
+          </div>
+          <a class="btn btn--secondary" href={L('/references/')}>{hu.allProjects}</a>
+        </div>
+        <div class="editorial__grid">
+          <Fragment set:html={M.open('home-cards')} />
+          {references.map((p, i) => (
+            <>
+              <Fragment set:html={M.card(p.data.url)} />
+              <ReferenceCard title={labelOf(p)} href={L(p.data.url)} image={cardImage(p)} alt={cardImageAlt(p)} country={countryOf(`${labelOf(p)} ${p.data.slug}`)} date={p.data.published ?? p.data.lastmod} featured={i === 0} />
+            </>
+          ))}
+          <Fragment set:html={M.close('home-cards')} />
+        </div>
+        <template data-upx="home-card-featured">
+          <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} dateIso={T.C_DATE_ISO} dateLabel={T.C_DATE} featured />
+        </template>
+        <template data-upx="home-card">
+          <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} dateIso={T.C_DATE_ISO} dateLabel={T.C_DATE} />
+        </template>
+      </div>
+      <aside class="editorial__guide" aria-labelledby="guide-title" data-reveal>
+        <p class="eyebrow">{hu.guideEyebrow}</p>
+        <h2 id="guide-title">{hu.guideTitle}</h2>
+        {guideHub?.data.seo.description && <p class="editorial__lead">{guideHub.data.seo.description}</p>}
+        <ol class="guide-list">
+          {
+            guides.map((p, i) => (
+              <li>
+                <a href={L(p.data.url)}>
+                  <span class="guide-list__no">{n(i + 1)}</span>
+                  <span class="guide-list__title">{labelOf(p)}</span>
+                  <span class="guide-list__meta">
+                    <Icon name="clock" /> {ui.minRead(readingTime(p))}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        <a class="btn btn--primary" href={L('/padel-guide/')}>{hu.openGuide}</a>
+      </aside>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .seals {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    padding: 0;
+    margin-block-start: var(--sp-6);
+    opacity: 0.8;
+  }
+
+  /* ---- 01 range */
+  .range__layout {
+    display: grid;
+    gap: var(--sp-6);
+  }
+  @media (min-width: 960px) {
+    .range__layout {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: var(--sp-8);
+      align-items: start;
+    }
+  }
+  .range__list {
+    list-style: none;
+    padding: 0;
+    border-block-start: 1px solid var(--border);
+  }
+  .range__link {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    grid-template-areas: 'no name arrow' 'no spec arrow';
+    column-gap: var(--sp-3);
+    align-items: center;
+    padding: var(--sp-4) var(--sp-3);
+    border-block-end: 1px solid var(--border);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color var(--dur-fast) var(--ease-out);
+  }
+  .range__link::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block: 0;
+    inline-size: 4px;
+    background: var(--lime-500);
+    transform: scaleY(0);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .range__no {
+    grid-area: no;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-800);
+    line-height: 1;
+    color: var(--border-strong);
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .range__name {
+    grid-area: name;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-700);
+    line-height: 1.1;
+  }
+  .range__spec {
+    grid-area: spec;
+    color: var(--text-secondary);
+    font-size: var(--fs-300);
+    margin-block-start: var(--sp-1);
+  }
+  .range__arrow {
+    grid-area: arrow;
+    inline-size: 22px;
+    block-size: 22px;
+    color: var(--border-strong);
+    transition:
+      transform var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out);
+  }
+  .range__item.is-active .range__link {
+    background: var(--bg-tint);
+  }
+  .range__item.is-active .range__link::before {
+    transform: scaleY(1);
+  }
+  .range__item.is-active .range__no {
+    color: var(--accent);
+  }
+  .range__item.is-active .range__arrow {
+    color: var(--orange-500);
+    transform: translateX(4px);
+  }
+  .range__link:focus-visible {
+    background: var(--bg-tint);
+  }
+  .range__stage {
+    display: none;
+    position: sticky;
+    inset-block-start: calc(var(--header-h) + var(--sp-5));
+  }
+  @media (min-width: 960px) {
+    .range__stage {
+      display: grid;
+    }
+  }
+  .range__figure {
+    grid-area: 1 / 1;
+    position: relative;
+    margin: 0;
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      clip-path 320ms var(--ease-out);
+  }
+  .range__figure.is-active {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  .range__plate {
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .range__plate img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+    padding: var(--sp-6);
+  }
+  .range__photo {
+    position: absolute;
+    inset-inline-end: calc(-1 * var(--sp-4));
+    inset-block-end: var(--sp-6);
+    inline-size: 38%;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    border: 4px solid var(--bg-page);
+    box-shadow: 8px 8px 0 var(--lime-500);
+  }
+  .range__figure figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
+    margin-block-start: var(--sp-3);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-600);
+  }
+  .range__cap-no {
+    color: var(--accent);
+  }
+  .range__more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-block-start: var(--sp-6);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .range__figure {
+      clip-path: none;
+    }
+  }
+  @media (hover: hover) {
+    .range__link:hover {
+      background: var(--bg-tint);
+    }
+  }
+
+  /* ---- 03 systems */
+  .systems__rows {
+    display: grid;
+    gap: clamp(64px, 9vw, 128px);
+  }
+  .sysrow {
+    display: grid;
+    gap: var(--sp-6);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .sysrow {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: var(--sp-9);
+    }
+    .sysrow--flip .sysrow__media {
+      order: 2;
+    }
+  }
+  .sysrow__media {
+    position: relative;
+    padding-block-end: var(--sp-6);
+  }
+  .sysrow__main {
+    aspect-ratio: 4 / 3;
+    background: var(--navy-900);
+  }
+  .sysrow__main img {
+    object-fit: cover;
+  }
+  .sysrow__inset {
+    position: absolute;
+    inset-inline-end: calc(-1 * var(--sp-3));
+    inset-block-end: 0;
+    inline-size: 36%;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    border: 4px solid var(--bg-page);
+    box-shadow: 8px 8px 0 var(--lime-500);
+  }
+  .sysrow--flip .sysrow__inset {
+    inset-inline-end: auto;
+    inset-inline-start: calc(-1 * var(--sp-3));
+    box-shadow: -8px 8px 0 var(--lime-500);
+  }
+  .sysrow__no {
+    position: absolute;
+    inset-block-start: calc(-1 * var(--sp-6));
+    inset-inline-start: calc(-1 * var(--sp-2));
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-display-xl);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--lime-500);
+    pointer-events: none;
+  }
+  .sysrow--flip .sysrow__no {
+    inset-inline-start: auto;
+    inset-inline-end: calc(-1 * var(--sp-2));
+  }
+  .sysrow__text {
+    display: grid;
+    gap: var(--sp-4);
+    max-inline-size: 36rem;
+  }
+  .sysrow__text h3 {
+    font-size: var(--fs-800);
+  }
+  .sysrow__text > p:not(.eyebrow) {
+    color: var(--text-secondary);
+    font-size: var(--fs-500);
+  }
+  .sysrow__fact {
+    margin: var(--sp-2) 0;
+  }
+  .sysrow__text .btn {
+    justify-self: start;
+  }
+
+  /* ---- 04 why */
+  .why__list {
+    display: grid;
+    gap: var(--sp-7) var(--sp-8);
+    margin: 0;
+  }
+  @media (min-width: 720px) {
+    .why__list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1100px) {
+    .why__list {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  .why__item {
+    padding-block-start: var(--sp-4);
+    border-block-start: 2px solid var(--navy-700);
+  }
+  :global([data-theme='dark']) .why__item {
+    border-color: var(--lime-500);
+  }
+  .why__item dt {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: var(--sp-3);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-600);
+    margin-block-end: var(--sp-3);
+  }
+  .why__no {
+    font-size: var(--fs-300);
+    color: var(--accent);
+  }
+  .why__item dt :global(.icon) {
+    inline-size: 28px;
+    block-size: 28px;
+    color: var(--accent);
+  }
+  .why__item dd {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  /* ---- 05 factory */
+  .factory {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .factory__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--sp-7);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .factory__inner {
+      grid-template-columns: 1.15fr 1fr;
+      gap: var(--sp-8);
+    }
+  }
+  .factory__media {
+    aspect-ratio: 16 / 9;
+    background: var(--navy-900);
+    box-shadow: 12px 12px 0 var(--lime-500);
+  }
+  .factory__text {
+    display: grid;
+    gap: var(--sp-4);
+  }
+  .factory__text h2 {
+    color: var(--text-on-inverse);
+  }
+  .factory__fig {
+    margin: 0;
+  }
+  .factory__text > p:not(.eyebrow) {
+    color: var(--text-on-inverse-muted);
+    font-size: var(--fs-500);
+  }
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+    margin-block-start: var(--sp-2);
+  }
+  .chips a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 40px;
+    padding: var(--sp-1) var(--sp-4);
+    border: 1px solid rgb(255 255 255 / 35%);
+    border-radius: var(--radius-pill);
+    color: var(--text-on-inverse);
+    text-decoration: none;
+    font-size: var(--fs-300);
+    font-weight: 500;
+  }
+  @media (hover: hover) {
+    .chips a:hover {
+      border-color: var(--lime-500);
+      background: var(--lime-500);
+      color: var(--navy-700);
+    }
+  }
+
+  /* ---- 06 editorial */
+  .editorial__inner {
+    display: grid;
+    gap: var(--sp-8);
+  }
+  @media (min-width: 1024px) {
+    .editorial__inner {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--sp-8);
+      align-items: start;
+    }
+  }
+  .split-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--sp-4);
+  }
+  .split-head .section-head {
+    margin-block-end: var(--sp-6);
+  }
+  .editorial__grid {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .editorial__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: auto auto;
+    }
+  }
+  .editorial__guide {
+    display: grid;
+    gap: var(--sp-4);
+    padding: var(--sp-6);
+    border-radius: var(--radius-md);
+    background: var(--bg-tint);
+    border-block-start: 4px solid var(--lime-500);
+  }
+  .editorial__guide h2 {
+    font-size: var(--fs-700);
+  }
+  .editorial__lead {
+    color: var(--text-secondary);
+  }
+  .editorial__guide .btn {
+    justify-self: start;
+  }
+  .guide-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .guide-list a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    grid-template-areas: 'no title' 'no meta';
+    gap: 2px var(--sp-2);
+    padding-block: var(--sp-3);
+    border-block-end: 1px solid var(--border);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .guide-list__no {
+    grid-area: no;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-700);
+    line-height: 1;
+    color: var(--accent);
+  }
+  .guide-list__title {
+    grid-area: title;
+    font-weight: 700;
+  }
+  .guide-list__meta {
+    grid-area: meta;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-200);
+    color: var(--text-secondary);
+  }
+  @media (hover: hover) {
+    .guide-list a:hover .guide-list__title {
+      color: var(--link-hover);
+    }
+  }
+</style>
+
+<script>
+  // Court range: the stage image follows the hovered / focused list item.
+  const items = [...document.querySelectorAll<HTMLElement>('[data-range-item]')];
+  const figures = [...document.querySelectorAll<HTMLElement>('[data-range-figure]')];
+  const activate = (i: string) => {
+    items.forEach((el) => el.classList.toggle('is-active', el.dataset.rangeItem === i));
+    figures.forEach((el) => el.classList.toggle('is-active', el.dataset.rangeFigure === i));
+  };
+  items.forEach((el) => {
+    el.addEventListener('mouseenter', () => activate(el.dataset.rangeItem!));
+    el.addEventListener('focusin', () => activate(el.dataset.rangeItem!));
+  });
+  activate('0');
+</script>

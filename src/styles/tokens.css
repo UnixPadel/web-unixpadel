@@ -1,0 +1,134 @@
+/* Design tokens. Palette → semantic layer; dark mode remaps only the semantic layer.
+   Brand colours come from logo1.svg: navy #14274E, lime #9DC43B, orange #F36F24. */
+:root {
+  color-scheme: light dark;
+
+  /* ---- palette */
+  --navy-900: #0b1326;
+  --navy-800: #0f1a33;
+  --navy-700: #14274e;
+  --navy-600: #1d2c4d;
+  --navy-500: #2a3a5e;
+  --navy-100: #e9edf3;
+  --navy-50: #f4f6f9;
+  --lime-100: #f1f7df;
+  --lime-200: #dfedb8;
+  --lime-500: #9dc43b;
+  --lime-700: #4e6b15; /* 6:1 on white */
+  --orange-500: #f36f24;
+  --orange-700: #b84a0c; /* 5.2:1 on white */
+  --ink-900: #121a2b;
+  --ink-600: #4b5668;
+  --ink-300: #a9b4c8;
+  --ink-200: #d9dfe8;
+  --white: #ffffff;
+  --whatsapp: #0e6b60; /* 6.4:1 with white */
+
+  /* ---- semantic (light) */
+  --bg-page: var(--white);
+  --bg-surface: var(--navy-50);
+  --bg-surface-2: var(--navy-100);
+  --bg-inverse: var(--navy-700);
+  --bg-inverse-2: var(--navy-800);
+  --bg-tint: var(--lime-100); /* alternating light sections */
+  --surface-glass: rgb(255 255 255 / 7%);
+  --border-glass: rgb(255 255 255 / 18%);
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-on-inverse: var(--white);
+  --text-on-inverse-muted: #c5cde0;
+  --accent: var(--lime-700);
+  --accent-on-inverse: var(--lime-500);
+  --link: var(--navy-700);
+  --link-hover: var(--orange-700);
+  --border: var(--ink-200);
+  --border-strong: var(--ink-300);
+  --focus-ring: var(--navy-700);
+  --cta-bg: var(--orange-500);
+  --cta-bg-hover: #e0621b;
+  --cta-text: var(--navy-700);
+  --media-plate: var(--white);
+  --shadow-menu: 0 12px 32px rgb(20 39 78 / 14%);
+  --header-bg: rgb(255 255 255 / 92%);
+
+  /* ---- type scale (Major Third 1.25, base 17px) */
+  --fs-200: 0.8125rem;
+  --fs-300: 0.9375rem;
+  --fs-400: 1.0625rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.25rem;
+  --fs-700: 1.5625rem;
+  --fs-800: clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+  --fs-900: clamp(2.75rem, 1.4rem + 5vw, 5.5rem);
+  --fs-display-xl: clamp(4rem, 2rem + 9vw, 9rem);
+  --fs-stat: clamp(2.75rem, 1.8rem + 3.6vw, 5.25rem);
+  --lh-tight: 0.98;
+  --lh-heading: 1.2;
+  --lh-body: 1.5;
+
+  /* ---- spacing (8pt) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+  --section-pad: clamp(48px, 8vw, 112px);
+  --gutter: clamp(16px, 4vw, 48px);
+  --container: 1280px;
+  --measure: 65ch;
+
+  /* ---- shape, motion */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in: cubic-bezier(0.6, 0, 0.8, 0.4);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+  --header-h: 72px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg-page: var(--navy-800);
+    --bg-tint: #13203b;
+    --bg-surface: #16233f;
+    --bg-surface-2: var(--navy-600);
+    --bg-inverse: var(--navy-900);
+    --bg-inverse-2: #070d1c;
+    --text-primary: #eef2f8;
+    --text-secondary: var(--ink-300);
+    --accent: var(--lime-500);
+    --link: #d7e6ad;
+    --link-hover: #ffb27a;
+    --border: var(--navy-500);
+    --border-strong: #3d5080;
+    --focus-ring: var(--lime-500);
+    --shadow-menu: none;
+    --header-bg: rgb(15 26 51 / 92%);
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg-page: var(--navy-800);
+  --bg-tint: #13203b;
+  --bg-surface: #16233f;
+  --bg-surface-2: var(--navy-600);
+  --bg-inverse: var(--navy-900);
+  --bg-inverse-2: #070d1c;
+  --text-primary: #eef2f8;
+  --text-secondary: var(--ink-300);
+  --accent: var(--lime-500);
+  --link: #d7e6ad;
+  --link-hover: #ffb27a;
+  --border: var(--navy-500);
+  --border-strong: #3d5080;
+  --focus-ring: var(--lime-500);
+  --shadow-menu: none;
+  --header-bg: rgb(15 26 51 / 92%);
+}

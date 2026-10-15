@@ -1,0 +1,69 @@
+---
+// The racket arc + shrinking dot trail from the Unixpadel logo, drawn large. Decorative.
+interface Props {
+  class?: string;
+  /** draw the stroke on first view (respects reduced motion) */
+  animate?: boolean;
+}
+const { class: cls, animate = true } = Astro.props;
+// Trail runs along the midline between the two strokes (evenly spaced by arc length).
+const dots = [
+  [488, 139, 9],
+  [438, 139, 8.2],
+  [389, 143, 7.4],
+  [340, 152, 6.6],
+  [292, 167, 5.8],
+  [247, 189, 5],
+  [206, 216, 4.2],
+  [168, 248, 3.4],
+  [135, 286, 2.6],
+  [108, 328, 1.8],
+];
+---
+
+<svg class:list={['arc', { 'arc--animate': animate }, cls]} viewBox="0 0 600 420" aria-hidden="true" focusable="false">
+  <path class="arc__stroke" d="M30 410 C 70 150, 300 20, 590 120" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" pathLength="1" />
+  <path class="arc__stroke arc__stroke--thin" d="M120 410 C 200 250, 380 170, 590 190" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" pathLength="1" />
+  <g class="arc__dots" fill="currentColor">
+    {dots.map(([cx, cy, r], i) => <circle cx={cx} cy={cy} r={r} style={`--d:${i}`} />)}
+  </g>
+</svg>
+
+<style>
+  .arc {
+    display: block;
+    color: var(--lime-500);
+    pointer-events: none;
+  }
+  .arc__stroke {
+    opacity: 0.45;
+  }
+  .arc__stroke--thin {
+    opacity: 0.25;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .arc--animate .arc__stroke {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: arc-draw 900ms var(--ease-out) 150ms forwards;
+    }
+    :global(.js) .arc--animate .arc__stroke--thin {
+      animation-delay: 350ms;
+    }
+    :global(.js) .arc--animate .arc__dots circle {
+      opacity: 0;
+      animation: arc-dot 260ms var(--ease-out) forwards;
+      animation-delay: calc(700ms + var(--d) * 70ms);
+    }
+  }
+  @keyframes arc-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes arc-dot {
+    to {
+      opacity: 1;
+    }
+  }
+</style>

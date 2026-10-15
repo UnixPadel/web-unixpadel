@@ -1,0 +1,83 @@
+---
+// Spec bullets as "material" cards (icon + category + value) on the navy specs section.
+import Icon from './Icon.astro';
+import { kindOf, type Spec } from '../lib/specs';
+import { langOf } from '../i18n';
+
+interface Props {
+  specs: Spec[];
+}
+const items = Astro.props.specs.map((s) => ({ ...s, ...kindOf(s.label, langOf(Astro.url)) }));
+---
+
+<ul class="materials" role="list">
+  {
+    items.map((it) => (
+      <li class="material surface-glass" data-reveal>
+        <span class="material__icon" aria-hidden="true">
+          <Icon name={it.icon} />
+        </span>
+        <h3 class="material__label">{it.label}</h3>
+        <p class="material__value">{it.value}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .materials {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-3);
+  }
+  @media (min-width: 640px) {
+    .materials {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .material {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'icon label' 'icon value';
+    gap: var(--sp-1) var(--sp-3);
+    align-content: start;
+    padding: var(--sp-4);
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+  .material__icon {
+    grid-area: icon;
+    display: grid;
+    place-items: center;
+    inline-size: 40px;
+    block-size: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--lime-500);
+    color: var(--navy-700);
+  }
+  .material__icon :global(.icon) {
+    inline-size: 22px;
+    block-size: 22px;
+  }
+  .material__label {
+    grid-area: label;
+    font-family: var(--font-sans);
+    font-size: var(--fs-300);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--lime-500);
+  }
+  .material__value {
+    grid-area: value;
+    color: var(--white);
+    font-size: var(--fs-300);
+    line-height: 1.5;
+  }
+  @media (hover: hover) {
+    .material:hover {
+      border-color: rgb(157 196 59 / 60%);
+    }
+  }
+</style>

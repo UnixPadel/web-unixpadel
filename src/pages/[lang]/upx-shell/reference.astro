@@ -1,0 +1,9 @@
+---
+// Shell for references written in WordPress, per language (src/templates/ReferenceShell.astro). Not a public page.
+import ReferenceShell from '../../../templates/ReferenceShell.astro';
+import { PREFIXED } from '../../../i18n';
+
+export const getStaticPaths = () => PREFIXED.map((lang) => ({ params: { lang } }));
+---
+
+<ReferenceShell />

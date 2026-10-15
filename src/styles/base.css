@@ -1,0 +1,718 @@
+/* Reset, typography, layout primitives and shared UI classes. Component-specific CSS lives in each .astro file. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-block: calc(var(--header-h) + var(--sp-4)) var(--sp-9);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-400);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-inline-size: 100%;
+  display: block;
+}
+
+img,
+video {
+  block-size: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-900);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.025em;
+}
+h2 {
+  font-size: var(--fs-800);
+}
+h3 {
+  font-size: var(--fs-700);
+}
+h4 {
+  font-size: var(--fs-600);
+}
+h5,
+h6 {
+  font-size: var(--fs-500);
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote,
+table {
+  margin: 0;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--link-hover);
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: var(--lime-500);
+  color: var(--navy-700);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------- layout primitives */
+.container {
+  inline-size: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section--tight {
+  padding-block: calc(var(--section-pad) * 0.6);
+}
+
+.section--inverse {
+  background: var(--bg-inverse);
+  color: var(--text-on-inverse);
+}
+
+.section--surface {
+  background: var(--bg-surface);
+}
+
+.section--tint {
+  background: var(--bg-tint);
+}
+
+.section-head {
+  display: grid;
+  gap: var(--sp-3);
+  max-inline-size: 48rem;
+  margin-block-end: var(--sp-7);
+}
+
+.section-head p {
+  color: var(--text-secondary);
+  font-size: var(--fs-500);
+  max-inline-size: var(--measure);
+}
+
+.section--inverse .section-head p {
+  color: var(--text-on-inverse-muted);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-200);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: '';
+  inline-size: 24px;
+  block-size: 2px;
+  background: currentColor;
+}
+
+.section--inverse .eyebrow,
+.hero .eyebrow,
+.contact-card .eyebrow {
+  color: var(--accent-on-inverse);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- buttons */
+.btn {
+  --_bg: transparent;
+  --_fg: var(--text-primary);
+  --_border: var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-block-size: 48px;
+  padding: var(--sp-3) var(--sp-5);
+  border: 1.5px solid var(--_border);
+  border-radius: var(--radius-md);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-300);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn[aria-disabled='true'],
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn--primary {
+  --_bg: var(--cta-bg);
+  --_fg: var(--cta-text);
+  --_border: var(--cta-bg);
+}
+
+.btn--secondary {
+  --_fg: var(--text-primary);
+  --_border: var(--border-strong);
+}
+
+.btn--inverse {
+  --_fg: var(--white);
+  --_border: rgb(255 255 255 / 55%);
+}
+
+.btn--whatsapp {
+  --_bg: var(--whatsapp);
+  --_fg: var(--white);
+  --_border: var(--whatsapp);
+}
+
+.btn--ghost {
+  --_border: transparent;
+  padding-inline: var(--sp-3);
+}
+
+.btn--icon {
+  padding: 0;
+  inline-size: 48px;
+}
+
+.btn .icon {
+  inline-size: 20px;
+  block-size: 20px;
+  flex: none;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    color: var(--_fg);
+  }
+  .btn--primary:hover {
+    --_bg: var(--cta-bg-hover);
+    --_border: var(--cta-bg-hover);
+  }
+  .btn--secondary:hover {
+    --_border: var(--text-primary);
+    --_bg: var(--bg-surface);
+  }
+  .btn--inverse:hover {
+    --_border: var(--white);
+    --_bg: rgb(255 255 255 / 10%);
+  }
+  .btn--whatsapp:hover {
+    --_bg: #0a5a50;
+    --_border: #0a5a50;
+  }
+  .btn--ghost:hover {
+    --_bg: var(--bg-surface);
+  }
+}
+
+.btn.is-loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.btn.is-loading::after {
+  content: '';
+  position: absolute;
+  inline-size: 18px;
+  block-size: 18px;
+  border: 2px solid var(--_fg);
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------------------------------------------------- shared bits */
+.icon {
+  inline-size: 1em;
+  block-size: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.icon--fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 2px var(--sp-3);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface-2);
+  color: var(--text-secondary);
+  font-size: var(--fs-200);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.section--inverse .tag {
+  background: rgb(255 255 255 / 12%);
+  color: var(--text-on-inverse);
+}
+
+/* Logo-derived motif: the shrinking dot trail along the racket arc. */
+.dot-trail {
+  inline-size: 120px;
+  block-size: 20px;
+  color: var(--accent);
+}
+
+.section--inverse .dot-trail {
+  color: var(--accent-on-inverse);
+}
+
+/* Product renders and CAD drawings were made for white backgrounds; keep a white plate in dark mode. */
+.media-plate {
+  background: var(--media-plate);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-2);
+}
+
+.media-frame > img,
+.media-frame > video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+.ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+.ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-surface) 25%, var(--bg-surface-2) 50%, var(--bg-surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--sp-4);
+  inset-block-start: -100px;
+  z-index: 200;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--navy-700);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-decoration: none;
+  transition: inset-block-start var(--dur-fast) var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  inset-block-start: var(--sp-4);
+  outline-color: var(--lime-500);
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  padding: 0;
+  font-size: var(--fs-300);
+  color: var(--text-secondary);
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs li + li::before {
+  content: '/';
+  margin-inline-end: var(--sp-2);
+  color: var(--border-strong);
+}
+
+.breadcrumbs li:last-child {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.breadcrumbs [aria-current='page'] {
+  display: inline-block;
+  max-inline-size: min(48ch, 100%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+@media (hover: hover) {
+  .breadcrumbs a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+}
+
+/* ---------------------------------------------------------------- v2 visual layer */
+
+/* Highlighted word in display headings: lime on navy, lime underline block on light backgrounds */
+.hl {
+  background: none;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--lime-500);
+  text-decoration-thickness: 0.16em;
+  text-underline-offset: 0.08em;
+  text-decoration-skip-ink: none;
+}
+
+.hero .hl,
+.section--inverse .hl,
+.cta .hl {
+  color: var(--lime-500);
+  text-decoration: none;
+}
+
+/* Numbered eyebrow: "01 — Court range" */
+.eyebrow__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-400);
+  letter-spacing: 0;
+  color: var(--lime-500);
+  -webkit-text-stroke: 0;
+}
+
+.eyebrow:has(.eyebrow__num)::before {
+  display: none;
+}
+
+.eyebrow:has(.eyebrow__num) .eyebrow__num::after {
+  content: '';
+  display: inline-block;
+  inline-size: 24px;
+  block-size: 2px;
+  margin-inline: var(--sp-2);
+  vertical-align: middle;
+  background: currentColor;
+}
+
+.section-head h2 {
+  max-inline-size: 22ch;
+}
+
+/* Glass-wall panel: only on navy backgrounds */
+.surface-glass {
+  background: var(--surface-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+}
+
+/* Photo treatments */
+.photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-900);
+}
+
+.photo > img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.photo--duotone > img {
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.photo--duotone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgb(157 196 59 / 16%)),
+    rgb(20 39 78 / 45%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* White plate with a faint court-line pattern for CAD renders */
+.plate-court {
+  background-color: var(--media-plate);
+  background-image:
+    linear-gradient(var(--plate-line, rgb(20 39 78 / 6%)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--plate-line, rgb(20 39 78 / 6%)) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+}
+
+/* Scroll reveal (motion.ts). Only hidden when JS runs and motion is allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 320ms var(--ease-out),
+      transform 320ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 60ms);
+  }
+  .js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reading progress as a court baseline along the header's bottom edge: a straight 3px lime fill,
+   faint court marks that light up once passed (service ticks at 25/75%, net at 50%) and a tennis ball
+   riding on the line. Ball position/spin and the land-bounce are driven by src/lib/motion.ts. */
+.progress {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 18px;
+  overflow: visible;
+  pointer-events: none;
+}
+.progress__fill {
+  fill: var(--lime-500);
+}
+/* the ball's recent flight path; it flattens into the fill line within ~0.45s (src/lib/motion.ts) */
+.progress__tail {
+  fill: none;
+  stroke: var(--lime-500);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.progress__mark {
+  stroke: var(--lime-500);
+  stroke-width: 1;
+  opacity: 0.3;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.progress__mark--net {
+  stroke-dasharray: 1.5 1.5;
+}
+.progress__mark.is-passed {
+  opacity: 1;
+}
+.progress__ball {
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.progress.is-live .progress__ball {
+  opacity: 1;
+}
+.progress__ball circle {
+  fill: #d9f24a; /* optic tennis-ball yellow, sits between lime-500 and white */
+  stroke: rgb(0 0 0 / 22%);
+  stroke-width: 0.6;
+}
+.progress__seam {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+/* Ball motion. While the page scrolls the ball hops along the line (scroll-linked, one hop per ~44px of
+   travel, driven by src/lib/motion.ts) and trails a short lime tail that settles back into the line.
+   When scrolling stops the ball lands and keeps a slow idle bounce: small amplitude, squash on landing. */
+.progress__bounce {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.progress__bounce.is-idle {
+  animation: progress-idle 1.15s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes progress-idle {
+  0% {
+    transform: scale(1, 1);
+  }
+  10% {
+    transform: scale(1.14, 0.86);
+  }
+  22% {
+    transform: translateY(-1.5px) scale(0.97, 1.04);
+  }
+  50% {
+    transform: translateY(-5px) scale(1, 1);
+  }
+  78% {
+    transform: translateY(-1.5px) scale(0.97, 1.04);
+  }
+  90% {
+    transform: scale(1.14, 0.86);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress__bounce.is-idle {
+    animation: none;
+  }
+}
+
+/* Two navy bands never touch without a seam: the lime top rule (as on the quote rail and contact card)
+   marks where one ends. Hoisted component <script> tags can sit between the sections. */
+:is(.hero, .section--inverse, .stats--inverse) + :is(.section--inverse, .stats--inverse, .cta),
+:is(.hero, .section--inverse, .stats--inverse) + script + :is(.section--inverse, .stats--inverse, .cta) {
+  border-block-start: 4px solid var(--lime-500);
+}
+
+/* ---- scripts DM Sans / Barlow don't cover (fonts loaded by BaseLayout on those pages only) */
+:root[lang='ru'] {
+  --font-sans: var(--font-cyrillic);
+  --font-display: var(--font-cyrillic-display);
+}
+:root[lang='ar'] {
+  --font-sans: var(--font-arabic);
+  --font-display: var(--font-arabic);
+}
+/* Arabic script has no letter-case or tracking conventions: drop the uppercase/letter-spacing of eyebrows etc. */
+:root[lang='ar'] * {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* ---- right-to-left: directional icons (arrows, chevrons) point the reading way */
+[dir='rtl'] .icon--dir {
+  transform: scaleX(-1);
+}

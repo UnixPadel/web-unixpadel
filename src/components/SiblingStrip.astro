@@ -1,0 +1,55 @@
+---
+import CardGrid from './CardGrid.astro';
+import ProductCard from './ProductCard.astro';
+import { cardImage, cardImageAlt, excerptOf, labelOf, type Page } from '../lib/collection';
+import { productMetaFor } from '../i18n/data';
+import { langOf, t } from '../i18n';
+import { columnsFor } from '../lib/grid';
+
+interface Props {
+  title: string;
+  items: Page[];
+  moreHref?: string | null;
+  moreLabel?: string;
+  plate?: boolean;
+  /** cards shown; the rest is one click away via "See all" */
+  limit?: number;
+}
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const { title, items: all, moreHref, moreLabel = ui.seeAll, plate = false, limit = 4 } = Astro.props;
+const items = all.slice(0, limit);
+---
+
+{
+  items.length > 0 && (
+    <section class="section section--tint siblings">
+      <div class="container">
+        <div class="siblings__head">
+          <h2>{title}</h2>
+          {moreHref && (
+            <a class="btn btn--secondary" href={moreHref}>
+              {moreLabel}
+            </a>
+          )}
+        </div>
+        <CardGrid columns={columnsFor(items.length, 4)}>
+          {items.map((p) => (
+            <ProductCard title={labelOf(p)} href={p.data.url} excerpt={excerptOf(p)} image={cardImage(p)} alt={cardImageAlt(p)} plate={plate} spec={productMetaFor(p.data.url, lang).spec} />
+          ))}
+        </CardGrid>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .siblings__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    margin-block-end: var(--sp-6);
+  }
+</style>

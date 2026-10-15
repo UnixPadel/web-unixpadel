@@ -1,0 +1,84 @@
+---
+import Icon from './Icon.astro';
+import { langOf, t } from '../i18n';
+// The pre-paint script in BaseLayout applies the stored choice before first render.
+const ui = t(langOf(Astro.url));
+---
+
+<button class="theme-toggle" type="button" data-theme-toggle aria-label={ui.themeToDark} data-label-dark={ui.themeToDark} data-label-light={ui.themeToLight} aria-pressed="false">
+  <Icon name="sun" class="theme-toggle__sun" />
+  <Icon name="moon" class="theme-toggle__moon" />
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 44px;
+    block-size: 44px;
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-secondary);
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out);
+  }
+  .theme-toggle .icon {
+    inline-size: 20px;
+    block-size: 20px;
+    grid-area: 1 / 1;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+  .theme-toggle__moon {
+    opacity: 0;
+  }
+  :global([data-theme='dark']) .theme-toggle__moon {
+    opacity: 1;
+  }
+  :global([data-theme='dark']) .theme-toggle__sun {
+    opacity: 0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .theme-toggle__moon {
+      opacity: 1;
+    }
+    :global(:root:not([data-theme='light'])) .theme-toggle__sun {
+      opacity: 0;
+    }
+  }
+  .theme-toggle:active {
+    transform: translateY(1px);
+  }
+  @media (hover: hover) {
+    .theme-toggle:hover {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+    }
+  }
+</style>
+
+<script>
+  const root = document.documentElement;
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  const effective = () => root.getAttribute('data-theme') ?? (media.matches ? 'dark' : 'light');
+  const sync = () => {
+    const dark = effective() === 'dark';
+    document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(dark));
+      b.setAttribute('aria-label', (dark ? b.dataset.labelLight : b.dataset.labelDark) ?? '');
+    });
+  };
+  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const next = effective() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+      sync();
+    }),
+  );
+  media.addEventListener('change', sync);
+  sync();
+</script>

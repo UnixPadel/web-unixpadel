@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import OfficeCard from '../components/OfficeCard.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Icon from '../components/Icon.astro';
+import Arc from '../components/graphics/Arc.astro';
+import { SITE, whatsappUrl } from '../data/site';
+import { allPages, labelOf } from '../lib/collection';
+import { pageTypeOf } from '../lib/pageType';
+import type { TemplateProps } from './_types';
+import { siteFor } from '../i18n/data';
+import { langOf, localizePath, LOCALE, t } from '../i18n';
+
+const { page, crumbs, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const site = siteFor(lang);
+const products = (await allPages(lang))
+  .filter((p) => pageTypeOf(p.data) === 'product')
+  .sort((a, b) => (a.data.parent ?? '').localeCompare(b.data.parent ?? '') || (a.data.order ?? 99) - (b.data.order ?? 99))
+  .map((p) => ({ label: labelOf(p), value: p.data.url.replace(/^\/|\/$/g, '') }));
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? ui.contactSeo} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero lines eyebrow={ui.contactEyebrow} title={ui.contactTitle} tagline={ui.contactTagline} size="compact">
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+  </Hero>
+
+  <div class="container contact-layout section section--tight">
+    <QuoteForm products={products} />
+
+    <aside class="contact-side" id="contact">
+      <div class="contact-card">
+        <Arc class="contact-card__arc" animate={false} />
+        <p class="eyebrow">{ui.direct}</p>
+        <h2>{ui.talkToPerson}</h2>
+        <a class="contact-line" href={whatsappUrl(ui.waProject)} target="_blank" rel="noopener">
+          <Icon name="whatsapp" /><span><strong>WhatsApp</strong><br />{ui.waFastest}</span>
+        </a>
+        <a class="contact-line" href={SITE.phoneHref}><Icon name="phone" /><span><strong>{SITE.phone}</strong><br />{ui.phoneHours}</span></a>
+        <a class="contact-line" href={`mailto:${SITE.email}`}><Icon name="mail" /><span><strong>{SITE.email}</strong><br />{ui.mailDocs}</span></a>
+      </div>
+      <OfficeCard name={site.hq.name} address={site.hq.address} mapEmbed={site.hq.mapEmbed} headingLevel="h2" />
+      <OfficeCard name={site.factory.name} address={site.factory.address} headingLevel="h2" />
+    </aside>
+  </div>
+
+  <section class="section section--tight section--surface">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">{ui.regionalOffices}</p>
+        <h2>{ui.closerTitle}</h2>
+        <p>{ui.closerText}</p>
+      </div>
+      <CardGrid columns={3}>
+        {site.offices.map((o) => <OfficeCard name={o.country} address={o.address} flag={o.flag} mapEmbed={o.mapEmbed} contact={'contact' in o ? o.contact : null} href={'href' in o ? o.href : null} />)}
+      </CardGrid>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-layout {
+    display: grid;
+    gap: var(--sp-6);
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .contact-layout {
+      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+      gap: var(--sp-8);
+    }
+  }
+  .contact-side {
+    display: grid;
+    gap: var(--sp-5);
+    scroll-margin-block-start: calc(var(--header-h) + var(--sp-4));
+  }
+  .contact-card :global(.contact-card__arc) {
+    position: absolute;
+    inset-inline-end: -30%;
+    inset-block-start: -20%;
+    inline-size: 90%;
+    opacity: 0.6;
+  }
+  .contact-card > :not(:global(.arc)) {
+    position: relative;
+  }
+  .contact-card {
+    position: relative;
+    overflow: hidden;
+    border-block-start: 4px solid var(--lime-500);
+    display: grid;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    border-radius: var(--radius-md);
+    background: var(--bg-inverse);
+    color: var(--text-on-inverse);
+  }
+  .contact-card h2 {
+    color: var(--text-on-inverse);
+    font-size: var(--fs-700);
+  }
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-block-size: 48px;
+    color: var(--text-on-inverse);
+    text-decoration: none;
+    font-size: var(--fs-300);
+  }
+  .contact-line .icon {
+    inline-size: 24px;
+    block-size: 24px;
+    color: var(--accent-on-inverse);
+  }
+  .contact-line strong {
+    font-size: var(--fs-400);
+  }
+  @media (hover: hover) {
+    .contact-line:hover {
+      color: var(--accent-on-inverse);
+    }
+  }
+</style>

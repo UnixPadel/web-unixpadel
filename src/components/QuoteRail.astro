@@ -1,0 +1,96 @@
+---
+import Icon from './Icon.astro';
+import { SITE, quoteUrl, whatsappUrl } from '../data/site';
+import { mediaUrl } from '../lib/media';
+import { langOf, localizePath, t } from '../i18n';
+
+interface Props {
+  productName: string;
+  /** pre-selects the product on the quote form; omitted for services */
+  productUrl?: string | null;
+  /** defaults to "Request a quote" */
+  eyebrow?: string;
+  specsAnchor?: string | null;
+  /** square installation photo of this court type */
+  photo?: string | null;
+  photoAlt?: string;
+}
+const { productName, productUrl, eyebrow, specsAnchor, photo, photoAlt = '' } = Astro.props;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const wa = whatsappUrl(ui.waQuote(productName));
+---
+
+<aside class="rail" aria-labelledby="rail-title">
+  {photo && (
+    <div class="rail__photo photo">
+      <img src={mediaUrl(photo)} alt={photoAlt} width="1080" height="1080" loading="lazy" decoding="async" />
+    </div>
+  )}
+  <p class="eyebrow">{eyebrow ?? ui.requestQuote}</p>
+  <h2 class="rail__title" id="rail-title">{productName}</h2>
+  <ul class="rail__points">
+    {ui.railPoints.map((point) => <li><Icon name="check" /> {point}</li>)}
+  </ul>
+  <div class="rail__actions">
+    <a class="btn btn--primary" href={localizePath(quoteUrl(productUrl), lang)}>{ui.getQuote}</a>
+    <a class="btn btn--whatsapp" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+    {specsAnchor && <a class="btn btn--secondary" href={`#${specsAnchor}`}>{ui.technicalSpecs}</a>}
+  </div>
+  <a class="rail__phone" href={SITE.phoneHref}><Icon name="phone" /> {SITE.phone}</a>
+</aside>
+
+<style>
+  .rail {
+    display: grid;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-tint);
+    border-block-start: 4px solid var(--lime-500);
+  }
+  .rail__photo {
+    aspect-ratio: 16 / 10;
+    margin: calc(-1 * var(--sp-5)) calc(-1 * var(--sp-5)) 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  @media (min-width: 1024px) {
+    .rail {
+      position: sticky;
+      inset-block-start: calc(var(--header-h) + var(--sp-4));
+    }
+  }
+  .rail__title {
+    font-size: var(--fs-700);
+  }
+  .rail__points {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-2);
+    font-size: var(--fs-300);
+    color: var(--text-secondary);
+  }
+  .rail__points li {
+    display: flex;
+    gap: var(--sp-2);
+    align-items: flex-start;
+  }
+  .rail__points .icon {
+    margin-block-start: 3px;
+    color: var(--accent);
+  }
+  .rail__actions {
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .rail__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-block-size: 44px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+</style>

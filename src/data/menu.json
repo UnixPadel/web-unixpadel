@@ -1,0 +1,258 @@
+[
+  {
+    "label": "About Us",
+    "url": "/about-us/",
+    "type": "page"
+  },
+  {
+    "label": "Courts",
+    "url": null,
+    "type": "group",
+    "children": [
+      {
+        "label": "Padel Courts",
+        "url": "/our-courts/",
+        "type": "page",
+        "children": [
+          {
+            "label": "Portable",
+            "url": "/portable-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Single",
+            "url": "/single-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Standard",
+            "url": "/standard-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Panoramic",
+            "url": "/panoramic-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Full Panoramic",
+            "url": "/full-panoramic-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "WP Challenge",
+            "url": "/wp-challenge-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Padel Court Cover",
+            "url": "/padel-court-cover/",
+            "type": "page"
+          },
+          {
+            "label": "Single Full Panoramic",
+            "url": "/single-full-panoramic-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Single Panoramic",
+            "url": "/single-panoramic-padel-court/",
+            "type": "page"
+          }
+        ]
+      },
+      {
+        "label": "Innovative Court",
+        "url": "/innovative-courts/",
+        "type": "page",
+        "children": [
+          {
+            "label": "MobilFOLD",
+            "url": "/mobilfold-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Flat Floor",
+            "url": "/innovative-courts/flat-floor-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Floating Floor",
+            "url": "/floating-floor-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Plate Standard Padel Court",
+            "url": "/plate-standard-padel-court/",
+            "type": "page"
+          },
+          {
+            "label": "Panaromic Plate Padel Court",
+            "url": "/panaromic-plate-padel-court/",
+            "type": "page"
+          }
+        ]
+      },
+      {
+        "label": "Padbol Courts",
+        "url": "/padbols/",
+        "type": "page"
+      },
+      {
+        "label": "Pickleball Court",
+        "url": "/our-courts/pickleball-court/",
+        "type": "page"
+      }
+    ]
+  },
+  {
+    "label": "Canopy",
+    "url": null,
+    "type": "group",
+    "children": [
+      {
+        "label": "Canopy",
+        "url": "/canopy/",
+        "type": "page",
+        "children": [
+          {
+            "label": "Half – Close",
+            "url": "/half-close-canopy/",
+            "type": "page"
+          },
+          {
+            "label": "Retractable Roof System",
+            "url": "/retractable-roof-cover-system/",
+            "type": "page"
+          },
+          {
+            "label": "Unixpadel Full Membrane",
+            "url": "/full-membrane-cover/",
+            "type": "page"
+          },
+          {
+            "label": "Roof Top Canopy",
+            "url": "/roof-top-canopy/",
+            "type": "page"
+          },
+          {
+            "label": "Sandwich Panel Full Covered",
+            "url": "/sandwich-panel-full-covered/",
+            "type": "page"
+          }
+        ]
+      },
+      {
+        "label": "Innovative Canopy",
+        "url": "/innovative-canopy/",
+        "type": "page",
+        "children": [
+          {
+            "label": "Flat Floor Padel Court With Canopy",
+            "url": "/innovative-canopy/flat-floor-padel-court-canopy/",
+            "type": "page"
+          },
+          {
+            "label": "Flat Floor Padel Court With Retractable Canopy",
+            "url": "/innovative-canopy/flat-floor-padel-court-with-retractabe-canopy/",
+            "type": "page"
+          },
+          {
+            "label": "MobilFOLD X-TEND",
+            "url": "/mobilfold-x-tend/",
+            "type": "page"
+          },
+          {
+            "label": "Wheel Canopy System",
+            "url": "/wheel-canopy-system/",
+            "type": "page"
+          },
+          {
+            "label": "Retractable Side and Roof Canopy System",
+            "url": "/retractable-side-and-roof-canopy-system/",
+            "type": "page"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Turfs",
+    "url": "/turfs/",
+    "type": "page",
+    "children": [
+      {
+        "label": "ADLX3T",
+        "url": "/adlx3t/",
+        "type": "page"
+      },
+      {
+        "label": "ADLX4T",
+        "url": "/adlx4t/",
+        "type": "page"
+      },
+      {
+        "label": "Cleek",
+        "url": "/cleek/",
+        "type": "page"
+      },
+      {
+        "label": "ADL KDK",
+        "url": "/adl-kdk/",
+        "type": "page"
+      }
+    ]
+  },
+  {
+    "label": "Services",
+    "url": "/our-services/",
+    "type": "page",
+    "children": [
+      {
+        "label": "Consulting",
+        "url": "/consulting/",
+        "type": "page"
+      },
+      {
+        "label": "Designing",
+        "url": "/designing/",
+        "type": "page"
+      },
+      {
+        "label": "Installation",
+        "url": "/installation/",
+        "type": "page"
+      },
+      {
+        "label": "Manufacturing",
+        "url": "/manufacturing/",
+        "type": "page"
+      },
+      {
+        "label": "Repair and Accessories",
+        "url": "/repair-and-accessories/",
+        "type": "page"
+      },
+      {
+        "label": "Padel Court Foundation",
+        "url": "/padel-court-foundation/",
+        "type": "page"
+      }
+    ]
+  },
+  {
+    "label": "Padel Guide",
+    "url": "/padel-guide/",
+    "type": "page"
+  },
+  {
+    "label": "References",
+    "url": "/references/",
+    "type": "page"
+  },
+  {
+    "label": "Contact",
+    "url": "/contact-us/",
+    "type": "page"
+  }
+]

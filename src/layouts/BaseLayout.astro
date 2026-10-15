@@ -1,0 +1,128 @@
+---
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/prose.css';
+import { Font } from 'astro:assets';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SkipLink from '../components/SkipLink.astro';
+import IconSprite from '../components/IconSprite.astro';
+import { SITE } from '../data/site';
+import { MEDIA_ORIGIN, mediaUrl } from '../lib/media';
+import { organization } from '../lib/jsonld';
+import { normalizeTitle, describe, robotsOf, alternatesOf } from '../lib/seo';
+import { pageTypeOf } from '../lib/pageType';
+import { cardImage, type Page } from '../lib/collection';
+import { LOCALE, langOf, localizePath, type Lang } from '../i18n';
+import { M, T, SHELL_ROBOTS } from '../lib/upx-contract.mjs';
+
+interface Props {
+  /** English URL of the page (the key shared by all languages); the /<lang>/ prefix is added here. */
+  url: string;
+  seoTitle: string;
+  description?: string | null;
+  ogImage?: string | null;
+  robots?: string | null;
+  jsonLd?: Record<string, unknown>[];
+  /** Product URL the header/mobile "Get a quote" buttons should pre-select. */
+  quoteFor?: string | null;
+  bodyClass?: string;
+  /** Content entry behind the page: drives description fallback, robots for unreviewed pages and article meta. */
+  page?: Page;
+  /** Reference shell for the WordPress plugin (src/lib/upx-contract.mjs): page-specific head values become tokens and slots. */
+  shell?: boolean;
+  /** Language switcher targets that replace the computed ones (the shell passes tokens). */
+  langHrefs?: Partial<Record<Lang, string>>;
+}
+
+const { url, seoTitle, description, ogImage, robots, jsonLd = [], quoteFor = null, bodyClass, page, shell = false, langHrefs } = Astro.props;
+const lang = langOf(Astro.url);
+const canonical = shell ? T.CANONICAL : new URL(localizePath(url, lang), Astro.site).href;
+const title = shell ? T.SEO_TITLE : normalizeTitle(seoTitle);
+const metaDescription = shell ? T.DESC : describe(page, description);
+const metaRobots = shell ? SHELL_ROBOTS : robotsOf(page, robots);
+const alternates = metaRobots.startsWith('noindex') ? [] : alternatesOf(url, Astro.site!);
+// Share image: the page's own photo before the logo.
+const ogImageUrl = shell ? T.OG_IMAGE : (mediaUrl(ogImage ?? (page ? cardImage(page) : null)) ?? mediaUrl(SITE.logoRetina));
+const pageType = page ? pageTypeOf(page.data) : null;
+const isArticle = shell || pageType === 'article' || pageType === 'reference';
+const published = shell ? T.PUBLISHED : (page?.data.published?.toISOString() ?? null);
+const modified = shell ? T.MODIFIED : (page?.data.lastmod?.toISOString() ?? null);
+const ld = [organization(), ...jsonLd];
+---
+
+<!doctype html>
+<html lang={lang} dir={LOCALE[lang].dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    {metaDescription && <meta name="description" content={metaDescription} />}
+    <meta name="robots" content={metaRobots} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    {shell && <Fragment set:html={M.slot('hreflang')} />}
+    <link rel="icon" href={mediaUrl(SITE.logoSvg)} type="image/svg+xml" />
+    <link rel="icon" href={mediaUrl(SITE.favicon32)} sizes="32x32" />
+    <link rel="icon" href={mediaUrl(SITE.appleTouchIcon)} sizes="192x192" />
+    <link rel="apple-touch-icon" href={mediaUrl(SITE.appleTouchIcon)} />
+    <meta name="theme-color" content="#14274E" />
+    <meta name="color-scheme" content="light dark" />
+    {MEDIA_ORIGIN && !new URL(MEDIA_ORIGIN).host.endsWith(new URL(SITE.url).host) && <link rel="preconnect" href={MEDIA_ORIGIN} />}
+
+    <meta property="og:type" content={isArticle ? 'article' : 'website'} />
+    <meta property="og:locale" content={LOCALE[lang].og} />
+    {Object.entries(LOCALE).filter(([l]) => l !== lang && alternates.some((a) => a.lang === l)).map(([, l]) => <meta property="og:locale:alternate" content={l.og} />)}
+    {shell && <Fragment set:html={M.slot('og-locale-alt')} />}
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    {metaDescription && <meta property="og:description" content={metaDescription} />}
+    <meta property="og:url" content={canonical} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    {isArticle && published && <meta property="article:published_time" content={published} />}
+    {isArticle && modified && <meta property="article:modified_time" content={modified} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {metaDescription && <meta name="twitter:description" content={metaDescription} />}
+
+    <!-- Only the two faces used above the fold; the rest load on demand via font-display. -->
+    <Font cssVariable="--font-sans" preload={[{ weight: 400, subset: 'latin' }]} />
+    <Font cssVariable="--font-display" preload={[{ weight: 700, subset: 'latin' }]} />
+    {lang === 'ru' && <Font cssVariable="--font-cyrillic" preload={[{ weight: 400, subset: 'cyrillic' }]} />}
+    {lang === 'ru' && <Font cssVariable="--font-cyrillic-display" preload={[{ weight: 700, subset: 'cyrillic' }]} />}
+    {lang === 'ar' && <Font cssVariable="--font-arabic" preload={[{ weight: 400, subset: 'arabic' }, { weight: 700, subset: 'arabic' }]} />}
+
+    <script is:inline>
+      // Apply the stored theme before first paint (no flash). Falls back to prefers-color-scheme.
+      (function () {
+        document.documentElement.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+
+    {ld.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    {shell && <Fragment set:html={M.slot('jsonld')} />}
+  </head>
+  <body class={bodyClass}>
+    <SkipLink />
+    <IconSprite />
+    <Header currentUrl={url} quoteFor={quoteFor} langHrefs={langHrefs} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  import '../lib/motion';
+</script>
+
+<style is:global>
+  main:focus {
+    outline: none;
+  }
+</style>

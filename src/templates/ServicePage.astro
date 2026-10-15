@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import QuoteRail from '../components/QuoteRail.astro';
+import SiblingStrip from '../components/SiblingStrip.astro';
+import CTABand from '../components/CTABand.astro';
+import { quoteUrl } from '../data/site';
+import { childrenOf, cardImage, cardImageAlt, labelOf } from '../lib/collection';
+import type { TemplateProps } from './_types';
+import { langOf, localizePath, t } from '../i18n';
+
+const { page, crumbs, Content, headings, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+
+const title = labelOf(page);
+const siblings = (await childrenOf('/our-services/', lang)).filter((p) => p.data.url !== data.url);
+
+// Imageless service bodies are a run of "heading + paragraph" blocks; one flat outline gets the numbered
+// section styling (prose.css). Long-form pages with sub-sections (the foundation guide) keep plain prose.
+const flat = headings.length >= 3 && headings.every((h) => h.depth === headings[0].depth);
+// A closing "Contact us / Let's get started" block is styled as a callout rather than numbered.
+const CLOSING_RE = /contact|get started|kontakt|jetzt starten|contactez|lançons|تواصل|لنبدأ|свяжитесь|давайте начн|ulaşın|başlayalım/i;
+const closing = flat && CLOSING_RE.test(headings.at(-1)?.text ?? '');
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? title} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero
+    title={title}
+    tagline={data.hero?.tagline ?? data.seo.description}
+    eyebrow={ui.services}
+    poster={cardImage(page)}
+    imageAlt={cardImageAlt(page)}
+    layout="cover"
+    size="full"
+    ctas={[{ label: ui.talkToTeam, href: localizePath(quoteUrl(), lang), variant: 'primary' }]}
+  >
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+  </Hero>
+  <div class="container service-layout section section--tight">
+    <article class:list={['prose', { 'prose--sections': flat, 'prose--closing': closing }]}>
+      <Content />
+    </article>
+    <QuoteRail productName={title} eyebrow={ui.talkToTeam} />
+  </div>
+  <SiblingStrip title={ui.otherServices} items={siblings} moreHref={localizePath('/our-services/', lang)} />
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .service-layout {
+    display: grid;
+    gap: var(--sp-7);
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .service-layout {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: var(--sp-8);
+    }
+  }
+</style>

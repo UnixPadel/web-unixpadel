@@ -1,0 +1,201 @@
+---
+import Icon from './Icon.astro';
+import { mediaUrl, srcsetFor } from '../lib/media';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  title: string;
+  href: string;
+  excerpt?: string | null;
+  image?: string | null;
+  alt?: string;
+  badge?: string | null;
+  /** Render / CAD images sit on a white plate so dark mode keeps them readable. */
+  plate?: boolean;
+  headingLevel?: 'h2' | 'h3';
+  index?: number;
+  /** one-line technical spec shown under the title */
+  spec?: string | null;
+}
+const { title, href, excerpt, image, alt = '', badge, plate = false, headingLevel = 'h3', index, spec } = Astro.props;
+const Heading = headingLevel;
+const ui = t(langOf(Astro.url));
+const src = mediaUrl(image);
+const set = srcsetFor(image);
+---
+
+<article class:list={['card', { 'card--plate': plate }]} data-reveal>
+  <div class:list={['card__media', plate ? 'ratio-4-3 plate-court' : 'ratio-4-3']}>
+    {
+      src ? (
+        <img src={src} srcset={set ?? undefined} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" alt={alt} width="640" height="360" loading="lazy" decoding="async" />
+      ) : (
+        <div class="card__placeholder" aria-hidden="true">
+          <Icon name="layers" />
+        </div>
+      )
+    }
+    {index !== undefined && <span class="card__index">{String(index).padStart(2, '0')}</span>}
+    {badge && <span class="tag card__badge">{badge}</span>}
+  </div>
+  <div class="card__body">
+    <Heading class="card__title">
+      <a href={href}>{title}</a>
+    </Heading>
+    {spec && <p class="card__spec">{spec}</p>}
+    {excerpt && <p class="card__excerpt">{excerpt}</p>}
+    <span class="card__more" aria-hidden="true">
+      {ui.explore} <Icon name="arrow-right" />
+    </span>
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-page);
+    overflow: hidden;
+    transition:
+      border-color var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out);
+  }
+  .card__media {
+    position: relative;
+    background: var(--bg-surface-2);
+    overflow: hidden;
+  }
+  .card--plate .card__media {
+    border-block-end: 1px solid var(--border);
+  }
+  .card__spec {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-400);
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+  .card::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    block-size: 3px;
+    background: var(--lime-500);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .card__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform 500ms var(--ease-out);
+  }
+  .card--plate .card__media img {
+    object-fit: contain;
+    padding: var(--sp-3);
+  }
+  .card__placeholder {
+    display: grid;
+    place-items: center;
+    block-size: 100%;
+    color: var(--border-strong);
+  }
+  .card__placeholder .icon {
+    inline-size: 40px;
+    block-size: 40px;
+  }
+  .card__index {
+    position: absolute;
+    inset-inline-start: var(--sp-3);
+    inset-block-start: var(--sp-3);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-600);
+    line-height: 1;
+    color: var(--navy-700);
+    background: var(--lime-500);
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--radius-sm);
+  }
+  .card__badge {
+    position: absolute;
+    inset-inline-end: var(--sp-3);
+    inset-block-start: var(--sp-3);
+    background: var(--navy-700);
+    color: var(--white);
+  }
+  .card__body {
+    display: grid;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-4) var(--sp-5);
+    flex: 1;
+    align-content: start;
+  }
+  .card__title {
+    font-size: var(--fs-600);
+  }
+  .card__title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  /* whole card clickable */
+  .card__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .card__excerpt {
+    color: var(--text-secondary);
+    font-size: var(--fs-300);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card__more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    margin-block-start: auto;
+    padding-block-start: var(--sp-2);
+    font-size: var(--fs-300);
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .card__more .icon {
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+  .card:focus-within {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .card__title a:focus-visible {
+    outline: none;
+  }
+  .card:focus-within::after {
+    transform: scaleX(1);
+  }
+  @media (hover: hover) {
+    .card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+    .card:hover::after {
+      transform: scaleX(1);
+    }
+    .card:hover .card__media img {
+      transform: scale(1.03);
+    }
+    .card:hover .card__more .icon {
+      transform: translateX(3px);
+    }
+    .card:hover .card__title a {
+      color: var(--link-hover);
+    }
+  }
+</style>

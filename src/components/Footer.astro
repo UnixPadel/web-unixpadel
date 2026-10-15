@@ -1,0 +1,261 @@
+---
+import menu from '../data/menu.json';
+import { SITE, quoteUrl, whatsappUrl } from '../data/site';
+import { mediaUrl } from '../lib/media';
+import Icon from './Icon.astro';
+import CourtLines from './graphics/CourtLines.astro';
+import Seal from './graphics/Seal.astro';
+import { sealsFor, siteFor } from '../i18n/data';
+import { langOf, localizePath, t } from '../i18n';
+
+interface MenuItem {
+  label: string;
+  url: string | null;
+  children?: MenuItem[];
+}
+const items = menu as MenuItem[];
+const find = (label: string) => items.find((i) => i.label === label);
+const courts = find('Courts')?.children?.find((c) => c.label === 'Padel Courts')?.children ?? [];
+const innovative = find('Courts')?.children?.find((c) => c.label === 'Innovative Court')?.children ?? [];
+const canopies = find('Canopy')?.children?.flatMap((c) => c.children ?? []) ?? [];
+const year = new Date().getFullYear();
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const site = siteFor(lang);
+// Menu labels in the page language (menu.json carries the English ones).
+const label = (l: string) => (lang === 'en' ? l : (ui.menu[l] ?? l));
+const href = (u: string | null) => (u ? localizePath(u, lang) : u);
+---
+
+<footer class="site-footer">
+  <CourtLines variant="divider" class="footer-lines" />
+  <div class="container">
+    <ul class="footer-seals" aria-label={ui.certsAria}>
+      {sealsFor(lang).map((s) => <li><Seal {...s} size={64} /></li>)}
+    </ul>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src={mediaUrl(SITE.logo)} width="250" height="80" alt="Unixpadel" loading="lazy" decoding="async" />
+        <p>{ui.footerAbout}</p>
+        <ul class="footer-socials" aria-label={ui.socialMedia}>
+          {
+            SITE.socials.map((s) => (
+              <li>
+                <a href={s.href} target="_blank" rel="noopener" aria-label={s.name}>
+                  <Icon name={s.icon} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <nav class="footer-col" aria-labelledby="f-courts">
+        <h2 class="footer-col__title" id="f-courts">{ui.fCourts}</h2>
+        <ul>
+          {courts.slice(0, 7).map((c) => <li><a href={href(c.url)}>{label(c.label)}</a></li>)}
+          <li><a href={href('/our-courts/')}>{ui.fAllCourts}</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="f-systems">
+        <h2 class="footer-col__title" id="f-systems">{ui.fSystems}</h2>
+        <ul>
+          {innovative.map((c) => <li><a href={href(c.url)}>{label(c.label)}</a></li>)}
+          {canopies.slice(0, 4).map((c) => <li><a href={href(c.url)}>{label(c.label)}</a></li>)}
+          <li><a href={href('/turfs/')}>{ui.fTurf}</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="f-company">
+        <h2 class="footer-col__title" id="f-company">{ui.fCompany}</h2>
+        <ul>
+          <li><a href={href('/about-us/')}>{ui.fAbout}</a></li>
+          <li><a href={href('/our-services/')}>{ui.fServices}</a></li>
+          <li><a href={href('/references/')}>{ui.fReferences}</a></li>
+          <li><a href={href('/padel-guide/')}>{ui.fGuide}</a></li>
+          <li><a href={href('/how-much-does-a-padel-court-cost/')}>{ui.fCost}</a></li>
+          <li><a href={href('/contact-us/')}>{ui.fContact}</a></li>
+          <li><a href={href('/pdpl/')}>{ui.fPrivacy}</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-contact">
+        <h2 class="footer-col__title">{ui.fTalk}</h2>
+        <a class="footer-contact__line" href={SITE.phoneHref}><Icon name="phone" /> {SITE.phone}</a>
+        <a class="footer-contact__line" href={`mailto:${SITE.email}`}><Icon name="mail" /> {SITE.email}</a>
+        <a class="footer-contact__line" href={whatsappUrl(ui.waQuestion)} target="_blank" rel="noopener">
+          <Icon name="whatsapp" /> WhatsApp
+        </a>
+        <address class="footer-address">
+          <strong>{site.hq.name}</strong><br />{SITE.hq.address}
+        </address>
+        <address class="footer-address">
+          <strong>{site.factory.name}</strong><br />{SITE.factory.address}
+        </address>
+        <p class="footer-offices">
+          {ui.fOffices}: {site.offices.map((o) => o.country).join(' · ')}
+        </p>
+        <a class="btn btn--inverse" href={localizePath(quoteUrl(), lang)}>{ui.getQuote}</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {year} {SITE.legalName}. {ui.rights}</p>
+      <p>{ui.footerBadges}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-inverse);
+    color: var(--text-on-inverse-muted);
+    padding-block: var(--sp-8) calc(var(--sp-6) + 72px);
+    font-size: var(--fs-300);
+  }
+  @media (min-width: 960px) {
+    .site-footer {
+      padding-block-end: var(--sp-6);
+    }
+  }
+  .site-footer a {
+    color: var(--text-on-inverse);
+    text-decoration: none;
+  }
+  @media (hover: hover) {
+    .site-footer a:hover {
+      color: var(--accent-on-inverse);
+      text-decoration: underline;
+    }
+  }
+  .footer-top {
+    display: grid;
+    gap: var(--sp-6);
+    grid-template-columns: 1fr;
+    padding-block-end: var(--sp-6);
+    border-block-end: 1px solid rgb(255 255 255 / 14%);
+  }
+  @media (min-width: 640px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 1024px) {
+    .footer-top {
+      grid-template-columns: 1.4fr 0.8fr 0.9fr 0.9fr 1.3fr;
+    }
+    .footer-brand {
+      grid-column: auto;
+    }
+  }
+  .footer-brand img {
+    inline-size: 149px; /* 125×40 logo (250×80 source) + 12px padding each side */
+    block-size: 56px;
+    padding: var(--sp-2) var(--sp-3);
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    box-shadow: 6px 6px 0 var(--lime-500);
+  }
+  .site-footer {
+    position: relative;
+  }
+  .site-footer :global(.footer-lines) {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: -12px;
+  }
+  .footer-seals {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin: 0 0 var(--sp-7);
+    padding: 0 0 var(--sp-6);
+    border-block-end: 1px solid rgb(255 255 255 / 14%);
+  }
+  .footer-brand p {
+    margin-block: var(--sp-4);
+    max-inline-size: 36ch;
+  }
+  .footer-socials {
+    list-style: none;
+    display: flex;
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+  }
+  .footer-socials a {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 44px;
+    block-size: 44px;
+    border: 1px solid rgb(255 255 255 / 25%);
+    border-radius: var(--radius-md);
+  }
+  .footer-socials .icon {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+  .footer-col__title {
+    font-family: var(--font-sans);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-on-inverse);
+    margin-block-end: var(--sp-4);
+  }
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .footer-col li a {
+    display: inline-block;
+    padding-block: 2px;
+  }
+  .footer-contact {
+    display: grid;
+    gap: var(--sp-3);
+    align-content: start;
+  }
+  .footer-contact__line {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-block-size: 32px;
+    font-weight: 500;
+  }
+  .footer-contact__line .icon {
+    inline-size: 18px;
+    block-size: 18px;
+    color: var(--accent-on-inverse);
+  }
+  .footer-address {
+    font-style: normal;
+    line-height: 1.45;
+  }
+  .footer-address strong {
+    color: var(--text-on-inverse);
+  }
+  .footer-offices {
+    font-size: var(--fs-200);
+  }
+  .footer-contact .btn {
+    justify-self: start;
+  }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    padding-block-start: var(--sp-5);
+    font-size: var(--fs-200);
+  }
+</style>

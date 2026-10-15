@@ -1,0 +1,99 @@
+---
+import Icon from './Icon.astro';
+import { inlineMd } from '../lib/inlineMd';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  items: { q: string; a: string }[];
+  title?: string;
+  intro?: string;
+}
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const { items, title = ui.faqTitle, intro } = Astro.props;
+// Stable per FAQ (same build → same ids), so diffs and anchors don't churn between builds.
+const uid = [...(items[0]?.q ?? title)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7).toString(36).slice(0, 6);
+---
+
+<section class="faq section section--tight" aria-labelledby={`faq-${uid}`}>
+  <div class="container faq__inner">
+    <div class="section-head">
+      <p class="eyebrow">{ui.faq}</p>
+      <h2 id={`faq-${uid}`}>{title}</h2>
+      {intro && <p>{intro}</p>}
+    </div>
+    <div class="faq__list">
+      {
+        items.map(({ q, a }) => (
+          <details class="faq__item" name={`faq-${uid}`}>
+            <summary class="faq__q">
+              <span>{q.replace(/^Q:\s*/, '')}</span>
+              <Icon name="chevron-down" />
+            </summary>
+            <div class="faq__a" set:html={`<p>${inlineMd(a)}</p>`} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq__inner {
+    display: grid;
+    gap: var(--sp-5);
+  }
+  @media (min-width: 960px) {
+    .faq__inner {
+      grid-template-columns: 1fr 1.6fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+    .faq__inner .section-head {
+      margin: 0;
+      position: sticky;
+      inset-block-start: calc(var(--header-h) + var(--sp-4));
+    }
+  }
+  .faq__list {
+    border-block-start: 1px solid var(--border);
+  }
+  .faq__item {
+    border-block-end: 1px solid var(--border);
+  }
+  .faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    min-block-size: 56px;
+    padding: var(--sp-3) 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq__q::-webkit-details-marker {
+    display: none;
+  }
+  .faq__q .icon {
+    flex: none;
+    inline-size: 20px;
+    block-size: 20px;
+    color: var(--accent);
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+  .faq__item[open] .faq__q .icon {
+    transform: rotate(180deg);
+  }
+  .faq__a {
+    padding-block: 0 var(--sp-4);
+    color: var(--text-secondary);
+    max-inline-size: var(--measure);
+  }
+  @media (hover: hover) {
+    .faq__q:hover {
+      color: var(--link-hover);
+    }
+  }
+</style>

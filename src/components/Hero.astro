@@ -1,0 +1,354 @@
+---
+import Icon from './Icon.astro';
+import Arc from './graphics/Arc.astro';
+import CourtLines from './graphics/CourtLines.astro';
+import { mediaUrl, srcsetFor } from '../lib/media';
+import { langOf, t } from '../i18n';
+
+export interface Cta {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'inverse' | 'whatsapp';
+  external?: boolean;
+  icon?: string;
+}
+
+interface Props {
+  /** `*word*` in the title is rendered as a lime highlight */
+  title: string;
+  tagline?: string | null;
+  eyebrow?: string | null;
+  video?: string | null;
+  poster?: string | null;
+  image?: string | null;
+  imageAlt?: string;
+  ctas?: Cta[];
+  /** compact: shorter band for hubs/articles; full: tall media-backed banner */
+  size?: 'full' | 'compact';
+  /** cover: media behind the text; split: media framed beside the text */
+  layout?: 'cover' | 'split';
+  /** court-line pattern behind compact text-only heroes */
+  lines?: boolean;
+  /** link wrapped around the split image (e.g. the reference it comes from) */
+  imageHref?: string | null;
+}
+
+const {
+  title,
+  tagline,
+  eyebrow,
+  video,
+  poster,
+  image,
+  imageAlt = '',
+  ctas = [],
+  size = 'full',
+  layout: requestedLayout = 'cover',
+  lines = false,
+  imageHref = null,
+} = Astro.props;
+const stillSrc = poster ?? image ?? null;
+const still = mediaUrl(stillSrc);
+const stillSet = srcsetFor(stillSrc);
+// A `media` slot (e.g. the references globe) takes the split column instead of a photo. Rendered first: a slot
+// whose expression yields nothing (`{cond && <X slot="media" />}`) still "exists" for Astro.slots.has().
+const mediaHtml = Astro.slots.has('media') ? (await Astro.slots.render('media')).trim() : '';
+const slotMedia = mediaHtml.length > 0;
+const hasMedia = !!(video || still || slotMedia);
+// A split hero without media would leave an empty column; fall back to the text-only cover band.
+const layout = hasMedia ? requestedLayout : 'cover';
+const ui = t(langOf(Astro.url));
+const parts = title.split(/\*([^*]+)\*/);
+---
+
+<section class:list={['hero', `hero--${size}`, `hero--${layout}`, { 'hero--media': hasMedia, 'hero--slot': slotMedia }]}>
+  {(lines || !hasMedia) && <CourtLines variant="bg" />}
+  {
+    slotMedia ? (
+      <div class="hero__media hero__media--slot">
+        <Fragment set:html={mediaHtml} />
+      </div>
+    ) : hasMedia && (
+      <div class:list={['hero__media', { 'photo--duotone': layout === 'cover' }]} aria-hidden={layout === 'cover' ? 'true' : undefined}>
+        {imageHref && layout === 'split' ? (
+          <a href={imageHref} class="hero__media-link" aria-label={imageAlt || ui.openProject}>
+            <img class="hero__still" src={still} srcset={stillSet ?? undefined} sizes="(min-width: 960px) 45vw, 100vw" alt={imageAlt} width="1080" height="1080" fetchpriority="high" decoding="async" />
+          </a>
+        ) : (
+          still && (
+            <img
+              class="hero__still"
+              src={still}
+              srcset={stillSet ?? undefined}
+              sizes={layout === 'cover' ? '100vw' : '(min-width: 960px) 45vw, 100vw'}
+              alt={layout === 'cover' ? '' : imageAlt}
+              width="1600"
+              height="900"
+              fetchpriority="high"
+              decoding="async"
+            />
+          )
+        )}
+        {video && layout === 'cover' && <video class="hero__video" data-src={mediaUrl(video)} muted loop playsinline preload="none" tabindex="-1" />}
+      </div>
+    )
+  }
+  <Arc class="hero__arc" />
+  <div class="container hero__inner">
+    <div class="hero__crumbs"><slot name="crumbs" /></div>
+    <div class="hero__text">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1 class="hero__title">{parts.map((p, i) => (i % 2 ? <mark class="hl">{p}</mark> : p))}</h1>
+      {tagline && <p class="hero__tagline">{tagline}</p>}
+      {
+        ctas.length > 0 && (
+          <div class="hero__ctas">
+            {ctas.map((c) => (
+              <a
+                class:list={['btn', `btn--${c.variant ?? 'inverse'}`]}
+                href={c.href}
+                target={c.external ? '_blank' : undefined}
+                rel={c.external ? 'noopener' : undefined}
+              >
+                {c.icon && <Icon name={c.icon} />}
+                {c.label}
+              </a>
+            ))}
+          </div>
+        )
+      }
+      <slot />
+    </div>
+  </div>
+  <CourtLines variant="divider" class="hero__baseline" />
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    background: var(--bg-inverse);
+    color: var(--text-on-inverse);
+    overflow: hidden;
+    /* clip, not just hidden: a hidden box still scrolls when something inside is scrolled into view (the arc
+       overhangs the right edge, so focusing a control in the split column could shift the whole hero) */
+    overflow: clip;
+    --court-line: rgb(255 255 255 / 7%);
+  }
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: var(--sp-5);
+    padding-block: var(--sp-6) var(--sp-8);
+  }
+  .hero--full .hero__inner {
+    min-block-size: min(84vh, 760px);
+    align-content: end;
+    padding-block-end: var(--sp-9);
+  }
+  .hero--compact .hero__inner {
+    padding-block: var(--sp-5) var(--sp-8);
+  }
+  .hero__crumbs:empty {
+    display: none;
+  }
+  .hero__crumbs :global(.breadcrumbs ol) {
+    color: var(--text-on-inverse-muted);
+  }
+  .hero__crumbs :global(.breadcrumbs [aria-current='page']) {
+    color: var(--text-on-inverse);
+  }
+  .hero__crumbs :global(.breadcrumbs li + li::before) {
+    color: rgb(255 255 255 / 40%);
+  }
+  .hero__text {
+    display: grid;
+    gap: var(--sp-4);
+    max-inline-size: 60rem;
+  }
+  .hero__title {
+    color: var(--text-on-inverse);
+    text-wrap: balance;
+  }
+  .hero--full .hero__title {
+    font-size: calc(var(--fs-900) * 0.9);
+  }
+  .hero--compact .hero__title {
+    font-size: clamp(2.25rem, 1.3rem + 3.6vw, 4.25rem);
+  }
+  .hero__tagline {
+    font-size: var(--fs-500);
+    color: var(--text-on-inverse-muted);
+    max-inline-size: var(--measure);
+    text-wrap: pretty;
+  }
+  .hero--full .hero__tagline {
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    max-inline-size: 46ch;
+  }
+  .hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-block-start: var(--sp-2);
+  }
+  .hero :global(.hero__arc) {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: -6%;
+    inset-inline-end: -8%;
+    inline-size: min(70vw, 820px);
+    block-size: auto;
+  }
+  .hero--full :global(.hero__arc) {
+    inline-size: min(55vw, 680px);
+    inset-block-start: -10%;
+    inset-inline-end: -14%;
+    opacity: 0.75;
+  }
+  .hero--compact :global(.hero__arc) {
+    inline-size: min(48vw, 520px);
+    inset-block-start: -18%;
+  }
+  .hero :global(.hero__baseline) {
+    position: absolute;
+    z-index: 2;
+    inset-inline: 0;
+    inset-block-end: var(--sp-4);
+    opacity: 0.9;
+  }
+
+  /* ---- media behind text */
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--navy-900);
+  }
+  .hero__still,
+  .hero__video {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  .hero__video {
+    opacity: 0;
+    transition: opacity 800ms var(--ease-out);
+  }
+  .hero__video.is-playing {
+    opacity: 1;
+  }
+  .hero--cover.hero--media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgb(11 19 38 / 88%) 0%, rgb(11 19 38 / 60%) 50%, rgb(11 19 38 / 15%) 100%);
+  }
+  @media (max-width: 719px) {
+    .hero--cover.hero--media::before {
+      background: linear-gradient(180deg, rgb(11 19 38 / 35%) 0%, rgb(11 19 38 / 90%) 70%);
+    }
+  }
+
+  /* ---- media beside text */
+  .hero--split .hero__media {
+    position: relative;
+    inset: auto;
+    z-index: 2;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--media-plate);
+    box-shadow: 12px 12px 0 var(--lime-500);
+  }
+  .hero__media-link {
+    display: block;
+    block-size: 100%;
+  }
+  @media (min-width: 960px) {
+    .hero--split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) min(40vw, 520px) var(--gutter);
+      align-items: center;
+    }
+    .hero--split .hero__inner {
+      grid-column: 1;
+      grid-row: 1;
+      inline-size: auto;
+      margin-inline-start: max(var(--gutter), calc((100vw - var(--container)) / 2));
+      margin-inline-end: var(--sp-7);
+    }
+    .hero--split .hero__media {
+      grid-column: 2;
+      grid-row: 1;
+      margin-block: var(--sp-7) var(--sp-8);
+    }
+  }
+  @media (max-width: 959px) {
+    .hero--split .hero__media {
+      margin: 0 var(--gutter) var(--sp-7);
+      aspect-ratio: 4 / 3;
+      order: 2;
+    }
+    .hero--split {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero--split .hero__inner {
+      padding-block-end: var(--sp-6);
+    }
+  }
+
+  /* ---- slotted media (globe): no photo plate, shadow or crop; the arc steps back behind it */
+  .hero--split .hero__media--slot {
+    aspect-ratio: auto;
+    overflow: visible;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .hero--slot :global(.hero__arc) {
+    opacity: 0.35;
+  }
+  @media (max-width: 959px) {
+    .hero--split .hero__media--slot {
+      aspect-ratio: auto;
+      margin-block-end: var(--sp-6);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__video {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Poster is always the LCP. The video loads after the page is idle, on wide screens or fast mobile
+  // connections only, and never with reduced motion or data saving.
+  type Conn = { saveData?: boolean; effectiveType?: string };
+  const conn = (navigator as Navigator & { connection?: Conn }).connection;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wide = window.matchMedia('(min-width: 960px)').matches;
+  const fastMobile = window.matchMedia('(min-width: 600px)').matches && conn?.effectiveType === '4g';
+  const videos = document.querySelectorAll<HTMLVideoElement>('.hero__video[data-src]');
+  if (reduce || conn?.saveData || !(wide || fastMobile)) {
+    videos.forEach((v) => v.remove());
+  } else {
+    const start = () =>
+      videos.forEach((v) => {
+        v.src = v.dataset.src!;
+        v.autoplay = true;
+        v.addEventListener('playing', () => v.classList.add('is-playing'), { once: true });
+        v.play().catch(() => {}); // autoplay blocked → the poster stays
+      });
+    const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 4000 }) : setTimeout(start, 1500));
+    if (document.readyState === 'complete') idle();
+    else window.addEventListener('load', idle, { once: true });
+  }
+</script>

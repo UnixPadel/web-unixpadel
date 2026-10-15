@@ -1,0 +1,119 @@
+---
+import Icon from './Icon.astro';
+import { mediaUrl } from '../lib/media';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  name: string;
+  address: string;
+  flag?: string | null;
+  mapEmbed?: string | null;
+  contact?: string | null;
+  href?: string | null;
+  headingLevel?: 'h2' | 'h3';
+}
+const { name, address, flag, mapEmbed, contact, href, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const ui = t(langOf(Astro.url));
+const mapsSearch = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+---
+
+<article class="office">
+  <div class="office__head">
+    {flag && <img class="office__flag" src={mediaUrl(flag)} alt="" width="40" height="40" loading="lazy" decoding="async" />}
+    <Heading class="office__name">{name}</Heading>
+  </div>
+  <address class="office__address">{address}</address>
+  {contact && (href ? <a class="office__contact" href={href} target="_blank" rel="noopener">{contact}</a> : <p class="office__contact">{contact}</p>)}
+  {
+    mapEmbed ? (
+      <div class="office__map" data-map={mapEmbed} data-map-title={ui.mapTitle}>
+        <button class="btn btn--secondary office__load" type="button">
+          <Icon name="map-pin" /> {ui.showOnMap}
+        </button>
+        <a class="office__ext" href={mapsSearch} target="_blank" rel="noopener">
+          {ui.openInMaps} <Icon name="arrow-up-right" />
+        </a>
+      </div>
+    ) : (
+      <a class="office__ext" href={mapsSearch} target="_blank" rel="noopener">
+        {ui.openInMaps} <Icon name="arrow-up-right" />
+      </a>
+    )
+  }
+</article>
+
+<style>
+  .office {
+    display: grid;
+    gap: var(--sp-3);
+    align-content: start;
+    padding: var(--sp-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-page);
+  }
+  .office__head {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+  .office__flag {
+    inline-size: 44px;
+    block-size: 44px;
+    object-fit: contain;
+    flex: none;
+    padding: 3px;
+    border-radius: 50%;
+    border: 2px solid var(--lime-500);
+  }
+  .office {
+    border-block-start: 3px solid var(--lime-500);
+  }
+  .office__name {
+    font-size: var(--fs-600);
+  }
+  .office__address {
+    font-style: normal;
+    color: var(--text-secondary);
+    font-size: var(--fs-300);
+  }
+  .office__contact {
+    font-size: var(--fs-300);
+    font-weight: 500;
+  }
+  .office__map {
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .office__map iframe {
+    inline-size: 100%;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    border-radius: var(--radius-sm);
+  }
+  .office__ext {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-300);
+    font-weight: 500;
+    min-block-size: 32px;
+  }
+</style>
+
+<script>
+  // Maps load on demand: seven iframes on one page would dominate the load.
+  document.querySelectorAll<HTMLElement>('.office__map[data-map]').forEach((box) => {
+    box.querySelector('.office__load')?.addEventListener('click', (e) => {
+      const btn = e.currentTarget as HTMLButtonElement;
+      const f = document.createElement('iframe');
+      f.src = box.dataset.map!;
+      f.title = box.dataset.mapTitle ?? '';
+      f.loading = 'lazy';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      f.setAttribute('allowfullscreen', '');
+      btn.replaceWith(f);
+    });
+  });
+</script>

@@ -1,0 +1,74 @@
+---
+// "See all" tile that fills the second slot of a two-column grid holding a single card.
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  label: string;
+  text?: string;
+}
+const { href, label, text } = Astro.props;
+---
+
+<a class="tile plate-court" href={href} data-reveal>
+  <span class="tile__label">{label}</span>
+  {text && <span class="tile__text">{text}</span>}
+  <span class="tile__more" aria-hidden="true"><Icon name="arrow-right" /></span>
+</a>
+
+<style>
+  .tile {
+    display: grid;
+    align-content: end;
+    gap: var(--sp-2);
+    min-block-size: 240px;
+    padding: var(--sp-5);
+    border: 1px solid var(--border);
+    border-block-start: 4px solid var(--lime-500);
+    border-radius: var(--radius-md);
+    color: var(--navy-700);
+    text-decoration: none;
+    --plate-line: rgb(20 39 78 / 8%);
+    transition:
+      border-color var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out);
+  }
+  .tile__label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-700);
+    line-height: var(--lh-heading);
+  }
+  .tile__text {
+    font-size: var(--fs-300);
+    color: var(--ink-600);
+  }
+  .tile__more {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 48px;
+    block-size: 48px;
+    margin-block-start: var(--sp-2);
+    border-radius: 50%;
+    background: var(--lime-500);
+  }
+  .tile__more :global(.icon) {
+    inline-size: 20px;
+    block-size: 20px;
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+  .tile:active {
+    transform: translateY(1px);
+  }
+  @media (hover: hover) {
+    .tile:hover {
+      color: var(--navy-700);
+      border-color: var(--border-strong);
+      border-block-start-color: var(--lime-500);
+      transform: translateY(-2px);
+    }
+    .tile:hover .tile__more :global(.icon) {
+      transform: translateX(3px);
+    }
+  }
+</style>

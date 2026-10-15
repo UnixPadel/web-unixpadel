@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import PageRoute from '../templates/PageRoute.astro';
+import type { Page } from '../lib/collection';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages
+    .filter((page) => page.data.url !== '/') // the home page is src/pages/index.astro
+    .map((page) => ({
+      // "/padel-guide/x/" → "padel-guide/x"
+      params: { slug: page.data.url.replace(/^\/|\/$/g, '') },
+      props: { page },
+    }));
+}
+
+const { page } = Astro.props as { page: Page };
+---
+
+<PageRoute page={page} lang="en" />

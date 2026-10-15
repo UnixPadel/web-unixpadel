@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import Gallery from '../components/Gallery.astro';
+import PhotoBand from '../components/PhotoBand.astro';
+import ReferenceFacts from '../components/ReferenceFacts.astro';
+import { isNews } from '../lib/pageType';
+import { cardImage, cardImageAlt, labelOf } from '../lib/collection';
+import { courtTypesOf, morePhotoBand } from '../lib/references';
+import { countryOf } from '../lib/countries';
+import type { TemplateProps } from './_types';
+import { countryName } from '../i18n/data';
+import { langOf, localizePath, LOCALE, t } from '../i18n';
+
+const { page, crumbs, Content, jsonLd } = Astro.props as TemplateProps;
+const { data } = page;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const L = (url: string) => localizePath(url, lang);
+const title = labelOf(page);
+const news = isNews(data.url);
+const country = news ? null : countryName(countryOf(`${title} ${data.slug}`), lang);
+const when = data.published ?? data.lastmod;
+const date = when ? new Intl.DateTimeFormat(LOCALE[lang].intl, { month: 'long', year: 'numeric' }).format(when) : null;
+const more = await morePhotoBand(lang, data.url);
+// Court types this project links to (from its own body links)
+const products = await courtTypesOf(page, lang);
+// Gallery: images of this page that aren't already in the body or the hero
+const heroImg = cardImage(page);
+const inBody = (src: string) => (page.body ?? '').includes(src.replace(/#.*$/, ''));
+const gallery = data.media
+  .filter((m) => m.type === 'image' && m.src !== heroImg && !inBody(m.src) && !/ikon|icon|gravatar|avatar|logo/i.test(m.src))
+  .map((m) => ({ src: m.src, alt: m.alt }));
+---
+
+<BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? title} description={data.seo.description} ogImage={cardImage(page)} robots={data.seo.robots} jsonLd={jsonLd}>
+  <Hero title={title} tagline={data.hero?.tagline ?? data.seo.description} eyebrow={news ? ui.news : ui.referenceProject} poster={heroImg} imageAlt={cardImageAlt(page)} layout="split" size="compact" lines>
+    <Breadcrumbs slot="crumbs" crumbs={crumbs} />
+    <ReferenceFacts country={country} date={date} products={products} />
+  </Hero>
+
+  <div class="container section section--tight">
+    <article class="prose">
+      <Content />
+    </article>
+  </div>
+
+  <Gallery images={gallery} title={ui.moreFromSite} eyebrow={ui.gallery} />
+
+  {
+    more.length >= 3 && (
+      <PhotoBand
+        items={more}
+        eyebrow={ui.moreProjects}
+        title={ui.recentlyDelivered}
+        more={{ label: ui.allReferences, href: L('/references/') }}
+      />
+    )
+  }
+
+  {
+    news ? (
+      <CTABand />
+    ) : (
+      <CTABand title={ui.similarTitle} text={ui.similarText} primaryLabel={ui.startProject} />
+    )
+  }
+</BaseLayout>

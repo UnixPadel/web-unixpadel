@@ -166,6 +166,8 @@ Dayanıklılık ve ticari verimlilik için tasarlanan kort, kulübünüzün tüm
 
 Kortumuz her seviyeden oyuncu için yüksek yapısal stabilite, eşsiz dayanıklılık ve akıcı bir oyun deneyimi sunar. Her sistemi uzun ömür için tasarlıyor ve zamana meydan okuyacak şekilde üretiyoruz. Teklif almak veya mühendislik ekibimize danışmak için hemen bize ulaşın!
 
+Bütçeyi ve araziyi mi planlıyorsunuz? [Bir padel kortunun maliyetine](/padel-guide/how-much-does-a-padel-court-cost/) ve resmî [padel kortu ölçülerine](/padel-guide/padel-court-dimensions/) göz atın.
+
 [**Teklif alın**](/contact-us/)
 
 [**Mühendislik ekibine ulaşın**](https://wa.me/905466653656?text=)

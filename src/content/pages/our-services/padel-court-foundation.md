@@ -140,6 +140,8 @@ Cold winters make frost protection non-negotiable. The frost line typically sits
 
 **Rushing the 28-day cure**: weakens the entire structure.
 
+For the full build sequence, from permits to handover, see [how to build a padel court](/padel-guide/how-to-build-a-padel-court/).
+
 ## Planning a padel court?
 
 Whether it’s an engineered concrete slab or a concrete-free Flat Floor build, Unixpadel matches the foundation to your site, climate and business case.

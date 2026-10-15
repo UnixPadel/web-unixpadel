@@ -74,3 +74,5 @@ legacyUrls:
   - /full-padel-court-canopy-campaign/
 ---
 ## Unixpadel bietet hochwertige Überdachungen – in verschiedenen Ausführungen für Ihre Anforderungen!
+
+Sie planen einen überdachten Club oder eine Halle? Unser Leitfaden erklärt, [wie viel lichte Höhe ein Padelplatz](/padel-guide/ideal-ceiling-height-padel-court/) unter einem Dach braucht.

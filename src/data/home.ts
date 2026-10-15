@@ -62,5 +62,5 @@ export const HOME = {
       { label: 'Repair & accessories', url: '/repair-and-accessories/' },
     ],
   },
-  guides: ['/how-much-does-a-padel-court-cost/', '/padel-guide/padel-court-dimensions/', '/padel-court-foundation/'],
+  guides: ['/padel-guide/padel-court-dimensions/', '/padel-guide/how-to-build-a-padel-court/', '/padel-guide/how-much-does-a-padel-court-cost/'],
 } as const;

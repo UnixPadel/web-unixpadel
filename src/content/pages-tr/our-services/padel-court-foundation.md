@@ -140,6 +140,8 @@ Soğuk kışlar don korumasını vazgeçilmez kılar. Don derinliği genellikle 
 
 **28 günlük kür süresini kısaltmak**: tüm yapıyı zayıflatır.
 
+İzinlerden teslime kadar yapım sürecinin tamamı için [padel kortu nasıl yapılır](/padel-guide/how-to-build-a-padel-court/) yazımıza göz atın.
+
 ## Padel kortu mu planlıyorsunuz?
 
 İster mühendislik hesaplı bir beton döşeme ister betonsuz bir Flat Floor kurulumu olsun, Unixpadel zemini sahanıza, iklime ve iş planınıza göre belirler.

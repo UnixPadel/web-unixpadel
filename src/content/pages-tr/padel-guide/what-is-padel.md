@@ -1,107 +1,86 @@
 ---
 url: /padel-guide/what-is-padel/
 slug: padel-guide__what-is-padel
-title: "Padel Nedir? Yeni Başlayanların Bilmesi Gereken Her Şey"
+title: "Padel Nedir? Spor, Kort ve Yatırım Gerekçesi"
 navLabel: Padel nedir?
 parent: /padel-guide/
-order: 10
+order: 1
 orphan: false
 wpId: 1885
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T14:07:49+00:00
 seo:
-  title: "Padel Nedir? Yeni Başlayanların Bilmesi Gereken Her Şey - Unixpadel"
-  description: Padel nedir? Temel kuralları, kort ölçülerini, puanlamayı ve ekipmanları öğrenin. Dünyanın en hızlı büyüyen raket sporuna hemen başlayın!
-  ogImage: null
+  title: "Padel Nedir? Kulüpler ve Yatırımcılar İçin Rehber"
+  description: "Padel nedir, 20 x 10 m'lik cam duvarlı kortta nasıl oynanır ve kulüpler, oteller ve şehirler neden yatırım yapar? Kort tipleri ve ilk adımlar."
+  ogImage: /wp-content/uploads/2025/05/South-africa-3.png
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-hero:
-  video: null
-  poster: null
-  image: /wp-content/uploads/2025/05/South-africa-3.png
-  tagline: null
+summary: "Padel, cam ve tel örgü duvarları oyunun parçası olan, 20 x 10 m'lik kapalı çevreli bir kortta çiftler hâlinde oynanan bir raket sporudur. Öğrenmesi kolaydır, son derece sosyaldir ve yaklaşık bir tenis kortunun alanına üç kort sığar; bu nedenle dünya genelinde kulüpler, oteller ve belediyeler kort ekliyor."
+faq:
+  - q: Padel tekler mi yoksa çiftler mi oynanır?
+    a: "Resmî padel, 20 x 10 m'lik bir kortta çiftler hâlinde oynanır. Single kortlar (20 x 6 m) antrenman, eğitim ve dar alanlar için kullanılır; [Unixpadel Single kortu](/single-padel-court/) inceleyin."
+  - q: Padelin tenisten farkı nedir?
+    a: "Kort, tenis kortunun üçte biri büyüklüğündedir, servis alttan atılır ve duvarlar oyunun parçasıdır. Ralliler daha uzundur ve yeni başlayanlar ilk seanslarında gerçek sayılar oynayabilir; bu da kortların dolu kalmasını sağlar."
+  - q: Padel kortu nereye kurulabilir?
+    a: "Açık alanda beton veya geçirgen beton döşeme üzerine, kapalı alanda en az 6 m serbest yükseklik altına, betonsuz bir [Flat Floor kort](/innovative-courts/flat-floor-padel-court/) ile çatılara ve otoparklara ya da yıl boyu oyun için bir [kanopi](/canopy/) altına."
+  - q: Bir padel kortunun kurulumu ne kadar sürer?
+    a: "Taban hazır olduğunda deneyimli bir ekip standart bir kortu yaklaşık 3 ila 5 günde monte eder. Üretim ve sevkiyat süresi modele ve varış noktasına bağlıdır."
 media:
   - order: 1
-    type: background
-    src: /wp-content/uploads/2025/05/South-africa-3.png
-    alt: ""
-    section: 3
-  - order: 2
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 12
+    src: /wp-content/uploads/2025/05/South-africa-3.png
+    alt: Güney Afrika'da cam arka duvarlı mavi bir Unixpadel kortunda ralli yapan iki oyuncu
+    section: 2
 ---
 
-Dünyanın en hızlı büyüyen raket sporunun kurallarını, temel ekipmanlarını, kort dinamiklerini ve kendine özgü stratejilerini keşfedin.
+Padel, tenis ve squash unsurlarını birleştiren bir raket sporudur: çiftler hâlinde, alttan servisle, topun sekebildiği cam ve metal tel örgü duvarlarla çevrili küçük bir kortta oynanır. 1969'da Meksika'nın Acapulco kentinde ortaya çıkmıştır ve uluslararası oyun 1991'den bu yana [Uluslararası Padel Federasyonu (FIP)](https://www.padelfip.com/) tarafından yönetilmektedir.
 
-#### Padel Fenomeni
+Bir tesis sahibi için padel, yeni bir spordan çok yeni bir kort türüdür: kompakt, hızlı kurulan ve kolayca dolan; çünkü insanlar ilk seanstan itibaren oyundan keyif alır.
 
-Geleneksel raket sporlarının erişilebilir, yüksek enerjili ve son derece sosyal bir evrimi.
+## Padel nasıl oynanır?
 
-## Temel Bilgiler: Padel Tam Olarak Nedir?
+Dört oyuncu, bir fileyle ikiye bölünmüş kortu paylaşır. Temel kurallar:
 
-1969'da Meksika'da doğan **padel**, tenis ve squash unsurlarını ustalıkla harmanlayan yenilikçi bir tenis varyasyonudur. Son derece düşük giriş eşiği ve hızlı oyun yapısı sayesinde tüm dünyanın ilgisini çekmiştir. Resmî standartlar ve uluslararası oyun yapısı [Uluslararası Padel Federasyonu (FIP)](https://www.padelfip.com/) tarafından denetlenir.
+- **Servis:** alttan atılır; top, servis çizgisinin arkasında bir kez sektikten sonra bel hizasında veya altında vurularak çapraz olarak rakibin servis karesine gönderilir.
+- **Oyundaki duvarlar:** top rakip sahada sektikten sonra cama veya tel örgüye çarpıp oyunda kalabilir. Oyuncular topu kendi duvarlarından da oynayabilir.
+- **Sayı sistemi:** tenisle aynıdır (15, 30, 40, oyun); genellikle üç setin ikisini alan kazanır ve 6–6'da tie-break oynanır.
+- **Ekipman:** kordajsız, delikli, dolu gövdeli bir raket ve tenis topuna benzeyen ancak basıncı daha düşük bir top.
 
-Tenisin aksine kortu çevreleyen duvarlar oyunun aktif bir parçasıdır; oyuncular topu stratejik olarak camdan sektirebilir. Bu da kaba kuvvetten çok taktik zekâyı ön plana çıkaran uzun ve heyecanlı rallilere yol açar.
+Duvarlar topu oyunda tuttuğu için ralliler uzundur ve pozisyon almak güçten daha önemlidir. Bu nedenle yeni başlayanlar, aileler ve deneyimli tenisçiler aynı kortu paylaşabilir.
 
-### Bir Bakışta Padel
+![Güney Afrika'da cam arka duvarlı mavi bir Unixpadel kortunda ralli yapan iki oyuncu](/wp-content/uploads/2025/05/South-africa-3.png)
 
-- **Format:** Yalnızca çiftler (2'ye 2) olarak oynanır.
-- **Puanlama:** Geleneksel tenisle aynı yapıdadır.
-- **Kort Çevresi:** Taşıyıcı cam ve tel örgü duvarlarla çevrilidir.
-- **Servis:** Kesinlikle alttan (bel seviyesinin altından) atılır.
+## Bir padel kortu nasıl görünür?
 
-## Kortun İçinden: Ölçüler ve Zeminler
+Kurallara uygun bir kort, duvarların iç yüzünden ölçülen **20 m x 10 m**'lik bir dikdörtgendir. Arka duvarlar 4 m yüksekliktedir (3 m cam ve üstünde 1 m tel örgü), yan duvarlar her iki uçta cam paneller ile ortada elektro kaynaklı tel örgüyü birleştirir; zemin ise genellikle silis kumu dolgulu suni çimdir. FIP ölçülerinin, çizgilerinin ve toleranslarının tamamı [padel kortu ölçüleri](/padel-guide/padel-court-dimensions/) rehberimizde yer alır.
 
-Standart bir padel kortu **10 metre genişliğinde ve 20 metre uzunluğundadır**. Bu kompakt alan oyuncuları fiziksel olarak birbirine yakın tutar; sosyal etkileşimi ve oyunun temposunu en üst düzeye çıkarır.
+Kapalı alanda FIP, kortun tamamı üzerinde en az 6 m serbest yükseklik şart koşar ve yeni tesisler için 8 m önerir; [padel için ideal tavan yüksekliği](/padel-guide/ideal-ceiling-height-padel-court/) yazımıza göz atın.
 
-Kortun yapısı yüksek kaliteli temperli cam paneller, elektrik kaynaklı taşıyıcı tel örgü çitler ve homojen top sekmesi ile ideal çekiş sağlamak için teknik silis kumuyla doldurulmuş profesyonel sınıf sentetik çim zeminden oluşur. Tüm mühendislik özelliklerini [Unixpadel kort modelleri sayfamızda](/our-courts/) inceleyebilirsiniz.
+## Kulüpler, oteller ve şehirler neden padele yatırım yapıyor?
 
-[İnceleyin](/our-courts/)
+- **Küçük taban alanı:** bir tenis kortunun alanına yaklaşık üç padel kortu sığar; böylece mevcut tesisler arsa satın almadan kapasite ekleyebilir.
+- **Rezervasyon başına dört oyuncu:** her seans dört kişi tarafından paylaşılır; bu da oyuncu başına maliyeti düşük, doluluğu yüksek tutar.
+- **Kısa öğrenme süreci:** yeni oyuncular ilk saatlerinde gerçek rallilerin tadını çıkarır; bu yüzden geri gelir ve arkadaşlarını da getirirler.
+- **Sosyal ve seyirci dostu:** cam duvarlar kortun dışından izlemeye olanak tanır; bu da oteller, tatil köyleri, alışveriş merkezleri ve kulüp binaları için idealdir.
+- **Hızlı kurulum:** prefabrik çelik bir kort, hazırlanmış bir taban üzerine günler içinde kurulur.
 
-#### Unixpadel Mühendislik Ölçütleri
+Kort paketinden teslimat ve kuruluma kadar bütçe tarafı [bir padel kortunun maliyeti](/padel-guide/how-much-does-a-padel-court-cost/) yazımızda ele alınmaktadır.
 
-Standart profesyonel çiftler oyunu için belirlenmiş kusursuz ölçüler.
+## Hangi padel kortu tipleri vardır?
 
-Yüksek darbe dayanımı ve görüş için premium panoramik ve taşıyıcı cam.
+| Kort tipi | Cam ve konstrüksiyon | Tipik kullanım |
+|---|---|---|
+| [Standart kort](/standard-padel-court/) | 10 mm temperli cam, stabilite için ek dikmeler | Kulüpler, okullar, belediyeler, rüzgârlı alanlar |
+| [Panoramik kort](/panoramic-padel-court/) | 12 mm cam, açık görüş için daha ince çerçeve | Premium kulüpler, oteller, etkinlikler |
+| [Full Panoramik kort](/full-panoramic-padel-court/) | Oyun duvarlarında çerçevesiz cam görünümü | Vitrin ve turnuva kortları |
+| [Single kort](/single-padel-court/) | 20 x 6 m oyun alanı | Antrenman, eğitim, küçük arsalar |
+| [WP Challenge kort](/wp-challenge-padel-court/) | Üç dikmeli köşeler, ek çaprazlama | Kuvvetli rüzgâr alan bölgeler |
+| [Flat Floor kort](/innovative-courts/flat-floor-padel-court/) | Beton döşeme olmadan düz bir yüzeye oturur | Çatılar, otoparklar, geçici alanlar |
 
-Güvenli dönüşler ve öngörülebilir top kayması için tasarlanmış gelişmiş sentetik çim sistemi.
+Tüm Unixpadel kortları, Adıyaman, Türkiye'deki kendi fabrikamızda tasarlanır, kaynaklanır, galvanizlenir ve elektrostatik toz boyayla kaplanır; 94'ten fazla ülkede kurulmuştur.
 
-## Padelin Temel Kuralları ve Puanlaması Nelerdir?
+## İlk olarak neyi planlamalısınız?
 
-### Puanlama Sistemi
+İşe arazinizden başlayın: kullanılabilir alan, zemin koşulları, kapalı veya açık alan ve yerel iklim. Ardından kort modelini ve zemini seçin, kanopiye ihtiyaç olup olmadığına karar verin. [Padel kortu tasarımının 5 temel faktörü](/padel-guide/padel-court-design-factors/), bu kararları bir mühendisin ele alacağı sırayla açıklar.
 
-Padel, tenisle birebir aynı puanlama yapısını izler: 15, 30, 40 ve Oyun. Maçlar genellikle 3 setin en iyisi olarak oynanır; set 6-6 berabere kalırsa 7 sayılık tie-break oynanır.
-
-### Alttan Servis
-
-Servis, top servis çizgisinin gerisinde bir kez yere sektirildikten sonra bel seviyesinde veya altında alttan vurularak atılmalıdır. Servis, çapraz olarak rakibin ilgili servis karesine geçmelidir.
-
-### Duvarlarla Etkileşim
-
-Top rakibin sahasındaki zemine sektikten sonra cam veya tel örgü duvarların herhangi bir kombinasyonuna çarpabilir ve oyunda kalmaya devam eder. Oyuncular topu geri döndürmek için kendi cam duvarlarından da sektirebilir.
-
-## Başlamak İçin Hangi Ekipmanlara İhtiyacınız Var?
-
-### Padel Raketi
-
-Geleneksel tenis raketlerinden farklı olarak padel raketleri telsiz, daha kısa, delikli yüzey desenine sahip karbon fiber veya cam elyafından üretilmiş kompozit yapılardır.
-
-### Düşük Basınçlı Toplar
-
-Görünüş olarak standart tenis toplarına benzer, ancak dar kortlarda sekme kontrolünü sağlamak için biraz daha küçük boyutlara ve belirgin şekilde daha düşük iç basınca sahiptir.
-
-### Omni Kort Ayakkabıları
-
-Güvenliği sağlamak ve kumlu sentetik çimde kaymayı önlemek için balıksırtı veya omni desenli dış tabana sahip uygun kort ayakkabıları gereklidir.
-
-## Padel Neden En Hızlı Büyüyen Spor?
-
-Padelin benzeri görülmemiş yükselişi, son derece kapsayıcı olmasından kaynaklanır. Karmaşık vuruş tekniklerinde ustalaşmak için yıllarca pratik gerektiren tenisin aksine, yeni başlayanlar padel kortundaki ilk 20 dakikalarında rahatça ralli yapabilir.
-
-Oyun, yorucu dip çizgisi gücünden çok pozisyon, geometri ve akıllı açılara dayanır. Dar alanda çiftler olarak oynandığı için dünya genelinde son derece sosyal bir yaşam tarzı aktivitesine dönüşmüştür.
-
-## Korta Çıkmaya Hazır mısınız?
-
-İster yakınınızdaki bir kulübü bulmak, ister premium bir raket edinmek, isterseniz de dünya standartlarında anahtar teslim bir padel tesisine yatırım yapmak isteyin; Unixpadel dünya genelindeki öncü teknik iş ortağınızdır.
+Aklınızda bir arazi varsa [arsa ölçülerinizi ve konumunuzu bize gönderin](/contact-us/); mühendislerimiz size bir kort yerleşimi önersin.

@@ -1,105 +1,102 @@
 ---
 url: /padel-guide/coastal-padel-courts-construction/
 slug: padel-guide__coastal-padel-courts-construction
-title: "Sahil Padel Kortları: Nemli Bölgelerde Kurulabilir mi?"
-navLabel: Padel kortu sahil ve nemli bölgelerde kurulabilir mi?
+title: "Kıyı Padel Kortları: Tuzlu, Nemli ve Rüzgârlı Alanlarda Yapım"
+navLabel: Kıyı ve nemli alanlar
 parent: /padel-guide/
-order: 1
+order: 10
 orphan: false
 wpId: 1854
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T12:38:23+00:00
 seo:
-  title: "Sahil Padel Kortları: Nemli Bölgelerde Kurulabilir mi? - Unixpadel"
-  description: Sahil padel kortları yüksek nem ve tuzlu hava koşullarına nasıl dayanır? Denizcilik sınıfı çelik, C5 kaplama ve rüzgâra dayanıklı tasarımları inceleyin.
+  title: "Kıyı Padel Kortları: Tuz, Nem ve Rüzgâr"
+  description: "Deniz kenarına padel kortu yapılabilir mi? Evet; doğru korozyon koruması, paslanmaz bağlantılar ve rüzgâr tasarımıyla. Kıyı alanlarında neler belirlenmeli?"
   ogImage: /wp-content/uploads/2026/07/coastal-padel.png
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-hero:
-  video: null
-  poster: null
-  image: /wp-content/uploads/2026/07/coastal-padel.png
-  tagline: null
+summary: "Çelik sıcak daldırma galvanizlenip arazinin korozivite kategorisine göre (ISO 9223/12944 kapsamında C4–C5) kaplandığında, bağlantı elemanları A4 (316) paslanmaz olduğunda ve konstrüksiyon yerel rüzgâra göre hesaplandığında padel kortları deniz kenarında ve nemli iklimlerde güvenle kurulabilir. Düzenli tatlı su ile durulama tuz birikimini önler."
+faq:
+  - q: Deniz kenarına padel kortu yapılabilir mi?
+    a: "Evet. Sıcak daldırma galvanizli çelik, C4–C5 korozivitesine göre belirlenmiş bir kaplama sistemi, A4 paslanmaz bağlantı elemanları ve yerel rüzgâra göre hesaplanmış bir konstrüksiyonla kıyı kortları uzun yıllar dayanır."
+  - q: C5 korozivite kategorisi nedir?
+    a: "ISO 9223 ve ISO 12944, atmosferleri C1'den (çok düşük) C5'e (çok yüksek) ve CX'e (aşırı, açık deniz) kadar sınıflandırır. Tuz serpintisine maruz kıyı alanları genellikle C4 veya C5'tir."
+  - q: Kıyı kortları paslanmaz çelik çerçeve gerektirir mi?
+    a: "Hayır. Yapı çeliği üzerindeki daha kalın bir dupleks kaplama çerçeveyi korur; paslanmaz çelik ise en çok değer kattığı yerde, cıvata ve somunlarda kullanılır."
+  - q: Kıyıdaki bir padel kortunun bakımı nasıl yapılmalıdır?
+    a: "Konstrüksiyonu, tel örgüyü ve camı düzenli olarak tatlı suyla durulayın, kaplamayı birkaç ayda bir kontrol edin ve çizikleri pas yayılmadan hemen onarın."
 media:
   - order: 1
-    type: background
-    src: /wp-content/uploads/2026/07/coastal-padel.png
-    alt: ""
-    section: 2
-  - order: 2
     type: image
     src: /wp-content/uploads/2026/07/coastal-padel.png
-    alt: Deniz kenarında kurulan, mühendislik tasarımlı sahil padel kortları
-    section: 3
+    alt: Palmiye ağaçları ve deniz üzerinde gün batımıyla deniz kenarındaki panoramik padel kortu
+    section: 1
+  - order: 2
+    type: image
+    src: /wp-content/uploads/2026/04/SnapInsta.to_671743659_18082190798574854_8781156476965671478_n.jpg
+    alt: Bir kıyı koyuna bakan yamaç terasındaki Unixpadel panoramik kortu
+    section: 2
   - order: 3
     type: image
     src: /wp-content/uploads/2026/07/hot-dip-galvanized.png
-    alt: Denizcilik sınıfı padel kortu koruması için sıcak daldırma galvanizli konstrüksiyon
+    alt: Tel örgü panelli, sıcak daldırma galvanizli ve toz boyalı padel kortu çerçevesi
     section: 3
-  - order: 4
-    type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 7
 legacyUrls:
   - /coastal-padel-courts-construction/
 ---
 
-Okyanus kıyısında veya tropik bölgelerde **sahil padel kortları** inşa etmek ciddi iklimsel zorluklar getirir. Tuzlu su serpintisi, yüksek nem ve güçlü deniz rüzgârları standart metal yapıları kısa sürede yıpratır. Ancak yatırımcılar, özel mühendislik çözümleri ve korozyona dayanıklı malzemeler kullanıldığında uzun ömürlü **sahil padel kortlarını** güvenle kurabilir.
+![Palmiye ağaçları ve deniz üzerinde gün batımıyla deniz kenarındaki panoramik padel kortu](/wp-content/uploads/2026/07/coastal-padel.png)
 
-![Deniz kenarında kurulan, mühendislik tasarımlı sahil padel kortları](/wp-content/uploads/2026/07/coastal-padel.png)
+Plaj kulüpleri, sahil otelleri ve tropik tatil köyleri padel kortu işletmek için en iyi yerlerden biridir; aynı zamanda çelik ve cam için en zorlu ortamlardandır. Tuz, nem ve rüzgâr kortu her gün yıpratır. İyi haber şu: doğru teknik şartnameyle bir kıyı kortu, iç bölgedeki bir kort kadar uzun ömürlü olur.
 
-## Sahil Padel Kortlarının Zorlukları: Tuz, Nem ve Rüzgâr
+## Kıyı alanlarını padel kortları için zorlu kılan nedir?
 
-Standart kortlar genellikle sıradan boyalı çelikle üretilir. Deniz kenarındaki bölgelerde mikroskobik tuz parçacıkları ve nem, standart boyayı birkaç ay içinde bozar. Bunun sonucunda yapısal pas, basit profil yapılarını hızla zayıflatır. Ayrıca nemli bölgelerdeki padel kortları, cam panellere büyük yük bindiren şiddetli rüzgâr hamlelerine de dayanmak zorundadır.
+- **Tuz:** havadaki klorürler konstrüksiyonun üzerine çöker ve çeliğin çıplak kaldığı her yerde, yani çiziklerde, kesim kenarlarında, kaynaklarda ve bağlantılarda korozyonu hızlandırır.
+- **Nem ve yoğuşma:** nem, özellikle kutu profillerin içinde ve bağlantıların altında, yüzeylerde daha uzun süre kalır.
+- **Rüzgâr:** açık kıyı şeritlerinde cam panelleri ve ankrajları zorlayan kuvvetli, ani rüzgârlar görülür.
+- **Güneş ve UV:** kaplamaları, çimi ve fileleri iç bölgelere göre daha hızlı soldurur.
 
-- **Oksidasyon:** Tuz, paslanmayı güçlü biçimde hızlandırır. Bu nedenle korunmasız metal, işlem görmemiş sahil padel kortlarını hızla tahrip eder.
-- **Rüzgâr Yükleri:** Standart kort konstrüksiyonları, takviyeli dikmeler ve ağır temellerden yoksun olduğu için kıyı fırtınalarında sıklıkla hasar görür.
+![Bir kıyı koyuna bakan yamaç terasındaki Unixpadel panoramik kortu](/wp-content/uploads/2026/04/SnapInsta.to_671743659_18082190798574854_8781156476965671478_n.jpg)
 
-![Denizcilik sınıfı padel kortu koruması için sıcak daldırma galvanizli konstrüksiyon](/wp-content/uploads/2026/07/hot-dip-galvanized.png)
+## Deniz kenarındaki bir padel kortunu nasıl korursunuz?
 
-## Denizcilik Sınıfı Padel Kortu İçin Mühendislik Çözümleri
+İşe araziyi sınıflandırarak başlayın. ISO 9223 ve ISO 12944, atmosferleri C1'den (çok düşük) C5'e (çok yüksek) ve CX'e (aşırı, açık deniz) kadar sınıflandırır. Sahil şeridindeki arazilerin çoğu **C4 veya C5**'tir ve kaplama sistemi bu kategoriye göre belirlenmelidir.
 
-Agresif kıyı ortamlarına karşı mühendislerin kortun her bileşenini güçlendirmesi gerekir. Örneğin Unixpadel olarak, yüksek nemli kurulumlarda [ISO 12944 C5 denizcilik standartlarına](https://www.iso.org/) uygun, sıkı üretim protokolleri uyguluyoruz:
+Buna göre bir kıyı kortu şunları bir araya getirmelidir:
 
-- **Sıcak Daldırma Galvanizli Çelik veya Alüminyum:** Dayanıklı sahil padel kortları için ağır hizmet tipi çeliği erimiş çinkoya daldırarak geçirimsiz bir pas bariyeri oluşturuyoruz.
-- **C5 Denizcilik Boya Sistemi:** Bunun yanında, açık deniz petrol platformlarında tuz kaynaklı bozulmayı önlemek için yaygın olarak kullanılan C5-M sertifikalı termoplastik toz boya uyguluyoruz.
-- **A4 Paslanmaz Çelik Bağlantı Elemanları:** Ayrıca tüm sahil padel kortlarında pas akıntılarını önlemek için A4 (316L) paslanmaz çelik cıvata ve somunlar kullanıyoruz.
+- **İmalattan sonra sıcak daldırma galvaniz (ISO 1461):** kaynaklar ve kesim kenarları dahil, içte ve dışta her yüzey çinkoyla kaplanır.
+- Çinkonun üzerine, arazinin korozivite kategorisine göre belirlenen **daha kalın bir toz boya sistemi**.
+- Bağlantı noktaları çevresinde pas izlerini önleyen **A4 (316) paslanmaz çelik cıvata ve somunlar**.
+- Cam ile çelik arasında UV'ye ve tuza dayanıklı **EPDM kauçuk contalar**.
+- Suyun çerçeve içinde birikmemesi için **kutu profillerin drenajı ve havalandırması**.
 
-Bileşen
+## Kıyı şartnamesi standart bir korttan nasıl ayrılır?
 
-Standart Kort
+| Bileşen | Unixpadel standart kort | Unixpadel kıyı şartnamesi |
+|---|---|---|
+| Çerçeve koruması | Sıcak daldırma galvaniz (ISO 1461) + toz boya | Sıcak daldırma galvaniz + C4–C5 için daha kalın kaplama sistemi |
+| Bağlantı elemanları | Galvanizli çelik | A4 (316) paslanmaz çelik |
+| Cam contaları | Kauçuk contalar | EPDM contalar |
+| Konstrüksiyon | 100 x 50 mm kolonlar ve kirişler, üç dikmeli köşeler, 120–140 km/h rüzgâr dayanımı | Araziye özel statik hesap; çok açık alanlar için güçlendirilmiş [WP Challenge](/wp-challenge-padel-court/) çerçeve |
+| Çim ve file | UV stabilizeli | UV stabilizeli, daha sık kontrol edilir |
 
-Sahil Padel Kortları
+Standart Unixpadel kortu bile sıcak daldırma galvanizli ve toz boyalıdır; kıyı şartnamesi, tuzun ve rüzgârın en yoğun olduğu yerlerde ek güvenlik payı sağlar. Galvanizli yapı çeliğinin neden paslanmaz çerçevelere tercih edildiği [padel kortları için çelik türleri](/padel-guide/steel-types-for-padel-courts/) yazımızda açıklanmaktadır.
 
-Konstrüksiyon İşlemi
+![Tel örgü panelli, sıcak daldırma galvanizli ve toz boyalı padel kortu çerçevesi](/wp-content/uploads/2026/07/hot-dip-galvanized.png)
 
-Ön galvanizli + Standart Boya
+## Peki ya rüzgâr?
 
-Sıcak Daldırma Galvaniz + C5 Denizcilik Kaplaması
+Kıyıda rüzgâr çoğu zaman daha büyük risktir. Tam konumunuz için bir statik hesap isteyin: Unixpadel kortları, İstanbul Teknik Üniversitesi (İTÜ) onaylı statik analizle birlikte teslim edilir. Açık alanlarda [WP Challenge kort](/wp-challenge-padel-court/) gibi köşeleri güçlendirilmiş bir kort ve iyi ankrajlanmış bir çevre kirişi camı stabil tutar. Bir [kanopi](/canopy/) planlıyorsanız o da aynı rüzgâra göre hesaplanmalıdır.
 
-Vida ve Cıvatalar
+## Kıyıdaki bir kortun bakımı nasıl yapılmalıdır?
 
-Çinko kaplı (A2)
+- Çerçeveyi, tel örgüyü ve camı birkaç haftada bir ve fırtınalardan sonra tatlı suyla durulayın.
+- Kaplamayı üç ayda bir kontrol edin ve her çiziği pas yayılmadan rötuşlayın.
+- Bağlantıları ve contaları yılda iki kez kontrol edin.
+- Rüzgâr kumu daha hızlı uçurduğu için çimi daha sık fırçalayın ve kumunu takviye edin.
 
-A4 (316L) Paslanmaz Çelik
+Rutinin tamamı [padel kortu bakımı](/padel-guide/padel-court-maintenance-tips/) yazımızda yer alır.
 
-Dikme Et Kalınlığı
+## Kıyıda bir padel projesi mi planlıyorsunuz?
 
-2mm – 3mm
-
-Yüksek rüzgâr yükleri için takviyeli 3mm+
-
-Cam Bağlantısı
-
-Standart Neopren
-
-EPDM denizcilik sınıfı kauçuk contalar
-
-## Özet: Uzun Ömürlü Sahil Padel Kortları İnşa Etmek
-
-Sonuç olarak yatırımcılar, nemli ve deniz kenarındaki ortamlarda **sahil padel kortlarını** başarıyla kurabilir. Denizcilik sınıfı yapılar biraz daha yüksek bir ilk yatırım gerektirse de uzun vadede bakım maliyetlerinde büyük tasarruf sağlar. Mühendislik ürünü korozyon önleyici malzemeleri tercih etmek, sahil kulübünüzün yıllarca kârlı kalmasını güvence altına alır.
-
-## Sahil padel projesi mi planlıyorsunuz?
-
-Bulunduğunuz konuma özel rüzgâr yükü hesaplarını ve denizcilik sınıfı malzemeleri görüşmek için lütfen [Unixpadel mühendislik ekibiyle iletişime geçin](/contact-us/).
+Arazinin konumunu ve maruziyetini (denize uzaklık, hâkim rüzgâr) bize gönderin; [Unixpadel mühendislik ekibi](/contact-us/) kortunuz için konstrüksiyon, kaplama ve bağlantı elemanlarını önersin.

@@ -19,6 +19,7 @@ import { columnsFor } from '../lib/grid';
 import { courtTypesOf, refCardImage, refExcerpt } from '../lib/references';
 import { globeDataFor } from '../lib/referenceMap';
 import { M, T, VISIBLE } from '../lib/upx-contract.mjs';
+import { GUIDE_GROUPS } from '../data/guide';
 import type { TemplateProps } from './_types';
 
 const { page, crumbs, Content, jsonLd } = Astro.props as TemplateProps;
@@ -31,6 +32,18 @@ const children = await childrenOf(data.url, lang);
 const kind = data.url === '/references/' ? 'reference' : data.url === '/padel-guide/' ? 'article' : 'product';
 const hasIntro = !!page.body?.trim().length;
 const plate = data.url === '/our-courts/' || data.url === '/innovative-courts/';
+
+// Padel guide: articles in reading-path groups (src/data/guide.ts); an article missing from the map lands in the last group.
+const guideGroups =
+  kind === 'article'
+    ? GUIDE_GROUPS.map((g, i, all) => ({
+        ...g,
+        pages: [
+          ...g.urls.flatMap((u) => children.filter((c) => c.data.url === u)),
+          ...(i === all.length - 1 ? children.filter((c) => !all.some((x) => x.urls.includes(c.data.url))) : []),
+        ],
+      }))
+    : [];
 
 // Reference index: delivered projects in the grid ("show all"), company news as a list below it.
 // VISIBLE: featured card (2 cells) + 10 → full rows at 2 and 3 columns. The WordPress plugin puts references written
@@ -116,60 +129,77 @@ const split =
     )
   }
 
-  <section class="section section--tight" id={isRef ? 'projects' : undefined}>
-    <div class="container">
-      {isRef && <p class="visually-hidden" role="status" data-filters-status data-results-one={results.one} data-results-other={results.other} data-showall-one={showAll.one} data-showall-other={showAll.other}></p>}
-      <p class="filters__empty" hidden data-filters-empty>{ui.noProjects}</p>
-      <CardGrid columns={isRef ? 3 : columnsFor(children.length, 3)} class={isRef ? 'ref-grid' : undefined}>
-        {isRef && <Fragment set:html={M.open('hub-cards')} />}
-        {
-          isRef
-            ? projects.map(({ p, country, image, types, excerpt }, i) => (
-                <>
-                  <Fragment set:html={M.card(p.data.url)} />
-                  <ReferenceCard
-                    title={labelOf(p)}
-                    href={L(p.data.url)}
-                    image={image?.src}
-                    alt={image?.alt}
-                    country={country}
-                    courtTypes={types}
-                    excerpt={excerpt}
-                    headingLevel="h2"
-                    featured={i === 0}
-                    hub
-                  />
-                </>
-              ))
-            : kind === 'article'
-              ? children.map((p) => (
-                  <ArticleCard title={labelOf(p)} href={L(p.data.url)} excerpt={p.data.seo.description} image={cardImage(p)} alt={cardImageAlt(p)} minutes={readingTime(p)} headingLevel="h2" />
+  {
+    kind === 'article' ? (
+      guideGroups.map((g, gi) => (
+        <section class="section section--tight guide-group" aria-labelledby={`guide-${g.id}`}>
+          <div class="container">
+            <div class="section-head guide-group__head">
+              <p class="eyebrow">{String(gi + 1).padStart(2, '0')}</p>
+              <h2 id={`guide-${g.id}`}>{ui.guideGroups[g.id].title}</h2>
+              <p>{ui.guideGroups[g.id].text}</p>
+            </div>
+            <CardGrid columns={columnsFor(g.pages.length, 3)}>
+              {g.pages.map((p, i) => (
+                <ArticleCard title={labelOf(p)} href={L(p.data.url)} excerpt={p.data.seo.description ?? p.data.summary} image={cardImage(p)} alt={cardImageAlt(p)} minutes={readingTime(p)} badge={gi === 0 && i === 0 ? ui.startHere : undefined} />
+              ))}
+            </CardGrid>
+          </div>
+        </section>
+      ))
+    ) : (
+    <section class="section section--tight" id={isRef ? 'projects' : undefined}>
+      <div class="container">
+        {isRef && <p class="visually-hidden" role="status" data-filters-status data-results-one={results.one} data-results-other={results.other} data-showall-one={showAll.one} data-showall-other={showAll.other}></p>}
+        <p class="filters__empty" hidden data-filters-empty>{ui.noProjects}</p>
+        <CardGrid columns={isRef ? 3 : columnsFor(children.length, 3)} class={isRef ? 'ref-grid' : undefined}>
+          {isRef && <Fragment set:html={M.open('hub-cards')} />}
+          {
+            isRef
+              ? projects.map(({ p, country, image, types, excerpt }, i) => (
+                  <>
+                    <Fragment set:html={M.card(p.data.url)} />
+                    <ReferenceCard
+                      title={labelOf(p)}
+                      href={L(p.data.url)}
+                      image={image?.src}
+                      alt={image?.alt}
+                      country={country}
+                      courtTypes={types}
+                      excerpt={excerpt}
+                      headingLevel="h2"
+                      featured={i === 0}
+                      hub
+                    />
+                  </>
                 ))
               : children.map((p, i) => (
                   <ProductCard title={labelOf(p)} href={L(p.data.url)} excerpt={excerptOf(p)} image={cardImage(p)} alt={cardImageAlt(p)} plate={plate} index={i + 1} headingLevel="h2" spec={productMeta(p.data.url).spec} />
                 ))
+          }
+          {isRef && <Fragment set:html={M.close('hub-cards')} />}
+        </CardGrid>
+        {
+          isRef && (
+            <>
+              <template data-upx="hub-card-featured">
+                <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" featured hub />
+              </template>
+              <template data-upx="hub-card">
+                <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" hub />
+              </template>
+              <div class="ref-more">
+                <button class="btn btn--secondary" type="button" data-show-all data-visible={VISIBLE} hidden>
+                  {ui.showAllProjects(projects.length)}
+                </button>
+              </div>
+            </>
+          )
         }
-        {isRef && <Fragment set:html={M.close('hub-cards')} />}
-      </CardGrid>
-      {
-        isRef && (
-          <>
-            <template data-upx="hub-card-featured">
-              <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" featured hub />
-            </template>
-            <template data-upx="hub-card">
-              <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" hub />
-            </template>
-            <div class="ref-more">
-              <button class="btn btn--secondary" type="button" data-show-all data-visible={VISIBLE} hidden>
-                {ui.showAllProjects(projects.length)}
-              </button>
-            </div>
-          </>
-        )
-      }
-    </div>
-  </section>
+      </div>
+    </section>
+    )
+  }
 
   {
     /* Company news: always rendered on the reference index (hidden while empty) so the WordPress plugin can fill it;
@@ -227,6 +257,9 @@ const split =
   }
   .hub-intro {
     padding-block-end: 0;
+  }
+  .guide-group + .guide-group {
+    padding-block-start: 0;
   }
   .hub-intro .prose :global(h2),
   .hub-intro .prose :global(h5) {

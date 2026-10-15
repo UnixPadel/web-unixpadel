@@ -66,7 +66,7 @@ const categoryKey = crumbs.map((c) => stripLang(c.url)).map((u) => HUB_CATEGORY[
 const category = CATEGORY[lang][categoryKey];
 const ld = { ...data, url: localizePath(data.url, lang) };
 if (Template === ProductPage) jsonLd.push(product(ld, category));
-if (type === 'article' || type === 'reference') jsonLd.push(article(ld));
+if (type === 'article' || type === 'reference') jsonLd.push(article(ld, { lang, isPartOf: data.parent === '/padel-guide/' ? localizePath('/padel-guide/', lang) : undefined }));
 if (type === 'service') jsonLd.push(service(ld));
 if (type === 'contact') jsonLd.push(webPage('ContactPage', ld));
 if (type === 'about') jsonLd.push(webPage('AboutPage', ld));

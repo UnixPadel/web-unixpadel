@@ -74,3 +74,5 @@ legacyUrls:
   - /full-padel-court-canopy-campaign/
 ---
 ## تقدّم Unixpadel مظلات متميزة بتصاميم متنوعة تلبي احتياجاتك!
+
+هل تخطط لنادٍ مغطى أو داخلي؟ يشرح دليلنا [الارتفاع الصافي الذي يحتاجه ملعب البادل](/padel-guide/ideal-ceiling-height-padel-court/) تحت السقف.

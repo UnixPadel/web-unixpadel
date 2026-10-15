@@ -1,114 +1,91 @@
 ---
 url: /padel-guide/ideal-ceiling-height-padel-court/
 slug: padel-guide__ideal-ceiling-height-padel-court
-title: What is the ideal ceiling height for a padel court?
-navLabel: What is the ideal ceiling height for a padel court?
+title: "Padel Court Ceiling Height: FIP Minimum and Ideal Height"
+navLabel: Ceiling height for indoor padel
 parent: /padel-guide/
-order: 2
+order: 3
 orphan: false
 wpId: 1856
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T12:46:57+00:00
 seo:
-  title: "Padel Court Ceiling Height Guide: FIP Standards & Ideal Height - Unixpadel"
-  description: What is the ideal ceiling height for an indoor padel court? Discover FIP regulations, optimal height standards (8m–10m), and structural engineering tips.
-  ogImage: /wp-content/uploads/2025/12/1_Photo-4-1024x576.jpg
+  title: "Padel Court Ceiling Height: FIP Minimum and Ideal"
+  description: "How high must an indoor padel court ceiling be? FIP minimum of 6 m, 8 m suggested for new facilities, and how lights and beams eat into clear height."
+  ogImage: /wp-content/uploads/2026/05/Ekran-goruntusu-2026-05-21-173347.png
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-hero:
-  video: null
-  poster: null
-  image: /photo-1554068865-24cecd4e34f8
-  tagline: null
+summary: "The FIP requires at least 6 m of clear height over the entire padel court, measured to the lowest obstacle such as a beam, duct or light, and suggests 8 m for new facilities. Most clubs design for 8 m or more so that defensive lobs never touch the roof."
+faq:
+  - q: What is the minimum ceiling height for a padel court?
+    a: "6 m of clear height over the whole court, measured from the playing surface to the lowest obstacle, according to the FIP Rules of Padel."
+  - q: What ceiling height is recommended for a new padel club?
+    a: "The FIP suggests 8 m for new facilities. Courts used for competitions and show matches are often built with 9 m or more."
+  - q: Do lights count towards the ceiling height?
+    a: "Yes. Clear height is measured to the lowest element above the court, including floodlights, ducts, sprinklers and roof bracing, not to the roof itself."
+  - q: Can I put a padel court in an existing warehouse?
+    a: "Often, if the clear height under the trusses is at least 6 m over the full 20 x 10 m court and the floor can take a level slab. Lighting should then be mounted outside the court footprint or between trusses."
 media:
   - order: 1
-    type: background
-    src: https://images.unsplash.com/photo-1554068865-24cecd4e34f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80
-    alt: ""
+    type: image
+    src: /wp-content/uploads/2026/05/Ekran-goruntusu-2026-05-21-173347.png
+    alt: Steel arch canopy covering several padel courts with generous clear height above the playing area
     section: 2
   - order: 2
     type: image
-    src: /wp-content/uploads/2025/12/1_Photo-4-1024x576.jpg
-    alt: Indoor sports facility with high ceiling structure for padel court
-    section: 4
-  - order: 3
-    type: image
     src: /wp-content/uploads/2026/10/image-1791297076624.png
-    alt: Modern LED sports lighting suspended on high ceiling profile
+    alt: Indoor padel hall with linear LED lights mounted high in the steel roof structure
     section: 4
-  - order: 4
-    type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 8
 legacyUrls:
   - /blog2/
 ---
 
-The lob is a major strategic shot in padel. To ensure perfect playability and meet the strict standards of the International Padel Federation (FIP), the choice of ceiling height is one of the most critical criteria when designing an indoor club. Check out our technical guide on optimal coverage heights.
+The lob is one of padel's main tactical shots: a defending pair lifts the ball over the opponents at the net to win back position. Indoors, the roof decides whether that shot exists. A ceiling that is too low turns good lobs into faults and changes how the court plays, which members notice quickly.
 
-#### Unixpadel Architecture Department
+## What does the FIP say about ceiling height?
 
-Design of padel coverings, optimization of indoor spaces, and structural engineering.
+The [FIP Rules of Padel](https://www.padelfip.com/wp-content/uploads/2025/12/FIP_Rules-of-Padel.pdf) set two figures:
 
-## Official standards: What does the FIP say?
+- **6 m minimum** clear height over the whole court, with no elements such as lights obstructing that space.
+- **8 m suggested** for new facilities, again over the whole court.
 
-![Indoor sports facility with high ceiling structure for padel court](/wp-content/uploads/2025/12/1_Photo-4-1024x576.jpg)
+The rules also require the bottom of the floodlights to be at least 6 m above the floor, and suggest 8 m when the lights are inside the vertical projection of the court walls.
 
-According to the official regulations of the **International Padel Federation (FIP)**, the minimum height required between the floor and the lowest point of the ceiling (including lights or any other obstacle) must be **6 meters** over the entire playing surface.
+![Steel arch canopy covering several padel courts with generous clear height above the playing area](/wp-content/uploads/2026/05/Ekran-goruntusu-2026-05-21-173347.png)
 
-However, although 6 meters is the strict legal minimum for approving a court, it is by no means the ideal height. Experienced players will quickly feel frustration due to the inability to perform defensive lobs without hitting the structure. For a club aiming for profitability and member satisfaction, aiming higher is essential.
+## Which ceiling height should you choose?
 
-«A ceiling that is too low not only ruins the playing experience, it completely alters padel tactics by penalizing major defensive shots.»
+| Clear height | Status | What players experience |
+|---|---|---|
+| Below 6 m | Not compliant | Lobs regularly hit the structure; not suitable for official play |
+| 6 m | FIP minimum | Playable, but high defensive lobs are restricted |
+| 7–8 m | Recommended for clubs (8 m suggested by the FIP for new venues) | Normal lob play, comfortable for all levels |
+| 9 m and above | Competition and show courts | No restriction, better air volume for spectators |
 
-## Why is height crucial for playability?
+For a new club the extra metres cost far less at design stage than after construction. If you are converting an existing building, measure the clear height under the lowest truss or duct at the court edges as well as at the centre, because many roofs slope.
 
-Unlike tennis, padel uses walls and high bounces. The lob is not just a fallback shot; it is the number one tactical weapon to regain the net from opponents.
+## Building height or clear height: what is the difference?
 
-![Modern LED sports lighting suspended on high ceiling profile](/wp-content/uploads/2026/10/image-1791297076624.png)
+The figure that counts is **clear height**: the distance from the finished playing surface to the lowest obstacle above the court. Floodlights, ventilation ducts, sprinkler lines, cable trays and roof bracing can easily take half a metre to a metre off the height of the roof itself.
 
-- **The precision lob:** A perfect padel lob often goes between 7 and 9 meters to fall dead in the back corners of the court.
-- **Psychological safety:** If players see the ceiling is low, they will naturally hold back their shots for fear of faulting.
-- **Acoustic and thermal comfort:** A larger volume of air under the ceiling allows for better heat dissipation in summer and reduces the reverberation of hitting noise.
+Keep that height free by:
 
-## Indoor coverage solutions by Unixpadel
+- mounting lights between trusses or along the sides of the court instead of hanging them below the structure;
+- routing ducts and services outside the 20 x 10 m footprint;
+- choosing a roof structure that spans the court without central columns.
 
-At **Unixpadel**, our engineering focuses on free-span metal structures (without any central pillar) capable of reaching heights of 8 to 12 meters. We design our frameworks to maximize the useful volume above the playing area.
+![Indoor padel hall with linear LED lights mounted high in the steel roof structure](/wp-content/uploads/2026/10/image-1791297076624.png)
 
-Clear Height
+## What else does a high roof change?
 
-Recommended Play Level
+A larger air volume keeps the hall cooler in summer and reduces the echo of ball strikes, which makes the club more comfortable for players and spectators. On the other hand, heating volume, roof loads and lighting power all grow with height, so the design should balance play quality against running costs.
 
-Player Experience
+## How does Unixpadel cover padel courts?
 
-**6 meters**
+Unixpadel designs and manufactures [padel court canopies](/canopy/) and [innovative canopy systems](/innovative-canopy/) that span the court without internal columns. The [Roof Top canopy](/roof-top-canopy/), for example, reaches a centre height of 9.2–9.9 m. Each structure is calculated for local wind and snow loads, and the lighting is integrated into the frame so the clear height is not reduced.
 
-Amateur / Casual
+The court itself follows the same [FIP dimensions](/padel-guide/padel-court-dimensions/) indoors and outdoors; the [design factors guide](/padel-guide/padel-court-design-factors/) explains how canopy, lighting and surface decisions fit together.
 
-Acceptable (but lobs restricted)
+## Planning an indoor club?
 
-**7 to 8 meters**
-
-Competition / Club Standard
-
-Excellent (Fluid play)
-
-**9 to 10+ meters**
-
-FIP Tournaments / Premier Padel
-
-Perfect (Total tactical freedom)
-
-## Intelligent equipment integration
-
-It is important to understand the difference between building height and **useful clear height**. Air conditioning, ventilation ducts, and especially the LED lighting system can cause a loss of up to 1 meter of height if poorly positioned.
-
-Unixpadel solutions integrate these elements directly into the profile of the structural beams or on the outer sides of the playing area. Thus, no obstacle hinders the trajectory of the ball, ensuring that 100% of the built height is usable by players.
-
-## Conclusion: A strategic choice for your club
-
-Building an indoor padel club is a long-term investment. Opting for a ceiling height of 8 meters or more is the assurance of retaining a clientele of regular and competitive players. With **Unixpadel** expertise, you ensure an optimized architectural design, meeting not only FIP standards but especially the demands of the most passionate players.
-
-## An indoor club project or court covering?
-
-Consult our Unixpadel experts to define the architecture and ideal height for your complex’s profitability.
+Share the building section or your preferred canopy size and our engineers will check the clear height, light positions and structure for your courts. [Contact the Unixpadel team](/contact-us/).

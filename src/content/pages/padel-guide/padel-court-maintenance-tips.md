@@ -1,78 +1,89 @@
 ---
 url: /padel-guide/padel-court-maintenance-tips/
 slug: padel-guide__padel-court-maintenance-tips
-title: "Padel Court Maintenance: Tips for Long-Lasting Performance"
-navLabel: Maintenance tips for a padel court
+title: "Padel Court Maintenance: Schedule, Checks and Repairs"
+navLabel: Padel court maintenance
 parent: /padel-guide/
-order: 6
+order: 11
 orphan: false
 wpId: 1869
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T13:22:29+00:00
 seo:
-  title: "Padel Court Maintenance: Tips for Long-Lasting Performance - Unixpadel"
-  description: Discover essential padel court maintenance tips, routine protocols, and repair methods to ensure safe play and long-lasting performance.
-  ogImage: null
+  title: "Padel Court Maintenance: Schedule and Checklist"
+  description: "Padel court maintenance schedule: daily, weekly, monthly and yearly tasks for turf, sand, glass, mesh, net, anchors and lighting, plus common repairs."
+  ogImage: /wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.23.45-1.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+summary: "A padel court stays safe and plays well with a simple routine: clear debris daily, brush the turf and redistribute the sand weekly, check glass, gaskets, mesh, net height and anchors monthly, and have the turf decompacted and topped up with sand every 6 to 12 months."
+faq:
+  - q: How often should padel court turf be brushed?
+    a: "At least once a week, and more often on courts that are busy or exposed to wind, to spread the silica sand evenly and keep the fibres upright."
+  - q: How often does a padel court need sand?
+    a: "Top up the silica sand whenever bare fibres start to show, and as part of a deep clean every 6 to 12 months. Outdoor and windy courts lose sand faster."
+  - q: What should be checked on the glass panels?
+    a: "Look for chips at the edges and make sure the rubber gaskets between glass and steel are intact and the fixings are tight. A failed gasket lets glass touch steel and can lead to breakage."
+  - q: Does Unixpadel repair courts from other manufacturers?
+    a: "Contact our team with photos and the court details; we supply replacement glass, mesh panels, turf, nets and accessories and advise on repairs."
 media:
   - order: 1
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 9
+    src: /wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.23.45-1.jpeg
+    alt: Floodlit multi-court padel club at night with heavily used blue and green turf
+    section: 1
 legacyUrls:
   - /padel-court-maintenance-tips/
   - /padel-guide__trashed/padel-court-maintenance-tips/
 ---
 
-Proper maintenance is the key to ensuring the longevity, safety, and optimal performance of any padel court. From regular sand redistribution to structural inspections, implementing a consistent care routine protects your investment and provides players with a premium gaming experience.
+A padel court is used for hours every day, outdoors in all weathers or indoors under constant play. Small, regular checks keep the bounce consistent, prevent injuries and protect the investment. Most tasks take minutes and can be done by club staff; a few need a specialist once or twice a year.
 
-## Routine Maintenance Protocols
+## What is the maintenance schedule for a padel court?
 
-To keep the court surface in tournament-ready condition, standard upkeep should be divided into daily, weekly, and monthly tasks. This prevents premature wear on the artificial turf and maintains a consistent ball bounce.
+| Frequency | Task |
+|---|---|
+| Daily | Remove leaves, dust and debris; check doors and padding |
+| Weekly | Brush the turf to spread the sand evenly and lift the fibres |
+| Every two weeks | Clean the glass panels |
+| Monthly | Check glass edges and gaskets, mesh panels, net height and tension, anchors and lighting |
+| Every 6–12 months | Deep clean: decompaction, sand top-up, moss and weed treatment, seam inspection |
+| Yearly | Full structural inspection and coating check; touch-up of any damage |
 
-### Daily Surface Sweeping
+![Floodlit multi-court padel club at night with heavily used blue and green turf](/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.23.45-1.jpeg)
 
-Remove leaves, debris, and organic matter daily. Leaving debris on the court can cause drainage issues and encourage moss growth, which creates slippery, unsafe playing conditions.
+## How do you look after the turf and sand?
 
-### Silica Sand Redistribution
+**Daily sweeping:** leaves and organic matter block drainage and encourage moss, which makes the surface slippery.
 
-Sand naturally pushes towards the edges and net line during play. Use a wide, soft-bristled brush weekly to redistribute the silica sand evenly across the monofilament turf to prevent fiber flattening.
+**Weekly brushing:** sand drifts towards the walls and the net during play. A wide, soft brush or a towed brush redistributes it so traction and bounce stay even and the fibres do not flatten.
 
-### Glass Panel Cleaning
+**Deep cleaning every 6 to 12 months:**
 
-Clean the tempered glass panels every two weeks using standard glass cleaners and a squeegee. Smudged glass reduces visibility and alters the friction required for proper wall bounces.
+- **Decompaction:** loosen compacted sand to restore cushioning and drainage.
+- **Sand top-up:** replace sand lost to wind, rain and shoes, using the same rounded silica sand.
+- **Moss and weed treatment:** apply a treatment suitable for artificial turf around the edges.
+- **Seam inspection:** check glued joints and inlaid lines for lifting edges that could trip players.
 
-## Deep Cleaning and Turf Care
+How the choice of turf affects upkeep is explained in [padel court surfaces](/padel-guide/padel-court-surface/).
 
-Beyond daily sweeping, artificial turf requires professional deep cleaning every 6 to 12 months. This process involves:
+## How do you maintain glass, mesh and net?
 
-- **Decompaction:** Loosening compacted sand to restore the shock-absorbing properties of the court and prevent player injuries.
-- **Weed and Fungus Treatment:** Applying specialized, non-corrosive biocides to the perimeter to stop moss, algae, and weed infiltration.
-- **Sand Top-Up:** Adding new silica sand to replace material lost to wind, shoes, and rain. A standard 10x20m court requires precise sand levels for optimum traction.
-- **Seam Inspection:** Checking the glued joints of the artificial grass rolls to ensure there are no lifting edges that could cause tripping hazards.
+**Glass:** clean every two weeks with a standard glass cleaner and a squeegee so players and spectators see clearly. Each month, check edges for chips and make sure the rubber gaskets between glass and steel are intact and the fixings are tight. Replace any damaged gasket straight away; glass must never touch steel.
 
-## Structural Inspection and Repair Methods
+**Mesh and welds:** look for loose panels, rattling fixings, damaged coating or rust spots. Sand down superficial rust, apply a zinc-rich primer and a matching topcoat. Broken welds need a professional repair.
 
-The structural integrity of a padel court is vital for safety, considering players frequently collide with the mesh and glass under high impact.
+**Net:** check that it is 0.88 m high at the centre and 0.92 m at the ends, that the cable tensioner holds, and that the headband is not torn. The full specification is in the [net and mesh guide](/padel-guide/padel-net-and-mesh-systems-quality-guide/).
 
-### Tempered Glass Maintenance
+## What should the structural check cover?
 
-Inspect the 10mm or 12mm glass panels monthly for micro-cracks or edge chipping. Ensure the neoprene gaskets separating the glass from the metal frame are intact. If a gasket fails, the glass can shatter upon impact. _Repair Method:_ Replace degraded gaskets immediately and tighten all holding brackets.
+- Anchor bolts on the base plates, which can loosen over time.
+- Plumb and alignment of columns, especially after storms.
+- Coating condition on columns, beams and mesh frames.
+- Door hinges, locks and padding on access openings and net posts.
+- Floodlight fixings, aiming and cabling.
 
-### Metallic Mesh and Welds
+Seaside courts need more frequent rinsing and coating checks; see [coastal padel courts](/padel-guide/coastal-padel-courts-construction/).
 
-The electro-welded mesh handles intense ball impacts. Check for signs of oxidation (rust) or broken welding points. _Repair Method:_ Sand down superficial rust, apply an anti-corrosive primer, and repaint with exact-match structural paint. Broken welds require professional re-welding.
+## When should you call a specialist?
 
-### Anchors and Net Tension
-
-Regularly check the tension of the center net; it should be 88cm at the center and 92cm at the posts. Inspect the base expansion bolts anchoring the structure to the concrete foundation to ensure they have not loosened over time.
-
-## Need Professional Court Maintenance?
-
-Unixpadel’s technical team provides expert maintenance services globally to keep your courts in perfect condition.
-
-[**Contact Our Team**](/contact-us/)
-
-[**View Repair Services**](/repair-and-accessories/)
+Call in a specialist for cracked or chipped glass, broken welds, turf seams that keep lifting, standing water after rain, or an uneven bounce that brushing does not fix. Unixpadel's technical team supplies replacement glass, mesh panels, turf, nets and accessories through [repair and accessories](/repair-and-accessories/) and advises clubs worldwide. [Contact our team](/contact-us/) with photos of the issue.

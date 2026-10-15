@@ -16,8 +16,7 @@
     "/panoramic-padbol/": { "parent": "/padbols/", "order": 2 },
     "/full-panoramic-padbol/": { "parent": "/padbols/", "order": 3 },
     "/portable-padbol/": { "parent": "/padbols/", "order": 4 },
-    "/mobilefold-padbol/": { "parent": "/padbols/", "order": 5 },
-    "/optimal-and-durable-steel-types-for-padel-courts/": { "parent": "/padel-guide/", "order": null }
+    "/mobilefold-padbol/": { "parent": "/padbols/", "order": 5 }
   },
   "newsUrls": [
     "/references/10-years-of-unixpadel/",

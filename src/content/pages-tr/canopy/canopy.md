@@ -74,3 +74,5 @@ legacyUrls:
   - /full-padel-court-canopy-campaign/
 ---
 ## Unixpadel'den üstün kanopi çözümleri. İhtiyacınıza uygun farklı kanopi tasarımları sunuyoruz!
+
+Üstü kapalı veya kapalı bir kulüp mü planlıyorsunuz? Rehberimiz, bir çatı altında [padel kortunun ne kadar serbest yükseklik gerektirdiğini](/padel-guide/ideal-ceiling-height-padel-court/) açıklıyor.

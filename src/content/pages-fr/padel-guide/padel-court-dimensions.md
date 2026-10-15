@@ -1,101 +1,99 @@
 ---
 url: /padel-guide/padel-court-dimensions/
 slug: padel-guide__padel-court-dimensions
-title: "Dimensions d'un terrain de padel : taille et règles officielles FIP"
-navLabel: "Quelles sont les dimensions standard d'un terrain de padel ?"
+title: "Dimensions d'un terrain de padel : mesures officielles FIP"
+navLabel: Dimensions d'un terrain de padel
 parent: /padel-guide/
-order: 7
+order: 2
 orphan: false
 wpId: 1871
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T13:39:32+00:00
 seo:
-  title: "Dimensions d'un terrain de padel : règles FIP"
-  description: "Dimensions officielles d'un terrain de padel : 10m x 20m, hauteurs des parois, règles du filet et hauteur libre. Planifiez votre terrain avec Unixpadel."
+  title: "Dimensions d'un terrain de padel : guide officiel FIP"
+  description: "Dimensions officielles d'un terrain de padel : aire de jeu de 20 x 10 m, parois de 4 m, parois latérales, filet, lignes, hauteur libre et zones de sécurité."
   ogImage: /wp-content/uploads/2026/07/Adsiz-tasarim.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+summary: "Un terrain de padel réglementaire mesure 20 x 10 m à l'intérieur des parois. Les parois de fond font 4 m (3 m de paroi plus 1 m de grillage), le filet 0.88 m au centre et 0.92 m aux extrémités, les lignes de service sont à 6.95 m du filet et un terrain couvert exige 6 m de hauteur libre minimum."
+faq:
+  - q: "Quelle est la taille d'un terrain de padel ?"
+    a: "20 m de long et 10 m de large, mesurés à l'intérieur des parois, avec une tolérance de 0.5 %. Un terrain Single mesure 20 m x 6 m."
+  - q: "Quelle surface faut-il prévoir pour un terrain de padel ?"
+    a: "Prévoyez une base d'environ 20.8 m x 10.8 m pour le terrain et sa structure, plus l'espace nécessaire aux accès, aux mâts d'éclairage et à la circulation. Si le jeu hors du terrain est autorisé, réservez une zone dégagée d'au moins 3 m (4 m recommandés) sur 4 m au-delà de chaque ouverture latérale."
+  - q: "Quelle est la hauteur des parois d'un terrain de padel ?"
+    a: "Les parois de fond mesurent 4 m de haut : 3 m de verre ou de paroi pleine surmontés de 1 m de grillage métallique. Les parois latérales descendent par paliers des angles vers le filet, selon la configuration choisie."
+  - q: "Quelle est la hauteur du filet sur un terrain de padel ?"
+    a: "0.88 m au centre et 0.92 m aux extrémités. Le filet mesure 10 m de long et les poteaux ne doivent pas dépasser 1.05 m."
 media:
   - order: 1
     type: image
     src: /wp-content/uploads/2026/07/Adsiz-tasarim.jpg
-    alt: "Schéma des dimensions officielles d'un terrain de padel, avec le tracé réglementaire de 10m x 20m"
-    section: 3
+    alt: "Terrain de padel panoramique Unixpadel avec sa paroi de fond de 4 m en verre et grillage et ses parois latérales à décrochement"
+    section: 2
   - order: 2
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 6
+    src: /wp-content/uploads/2023/07/Standard-Court-5.png
+    alt: "Vue 3D d'un terrain de padel standard Unixpadel avec fonds vitrés, côtés grillagés et quatre mâts d'éclairage"
+    section: 3
 legacyUrls:
   - /padel-court-dimensions/
 ---
 
-Connaître les dimensions officielles d'un terrain de padel est indispensable pour construire une installation de niveau professionnel ou pour comprendre la géométrie précise du sport de raquette à la croissance la plus rapide au monde. Découvrez les mesures exactes, les contraintes de hauteur et les plans d'implantation homologués pour le jeu officiel.
+Tout terrain de padel destiné au jeu officiel respecte les mesures du [règlement du padel de la FIP](https://www.padelfip.com/wp-content/uploads/2025/12/FIP_Rules-of-Padel.pdf). Les respecter compte doublement : pour les joueurs, qui attendent les mêmes rebonds partout, et pour le projet, car l'emprise, la hauteur des parois et la hauteur libre conditionnent les fondations, la structure et tout bâtiment autour du terrain.
 
-## Plan officiel des dimensions d'un terrain de padel
+## Quelles sont les dimensions officielles d'un terrain de padel ?
 
-![Schéma des dimensions officielles d'un terrain de padel, avec le tracé réglementaire de 10m x 20m](/wp-content/uploads/2026/07/Adsiz-tasarim.jpg)
+L'aire de jeu est un rectangle de **20 m de long sur 10 m de large**, mesuré à l'intérieur des parois, avec une tolérance de **0.5 %**. Un filet la divise en deux moitiés égales.
 
-Un terrain de padel réglementaire est un ensemble architectural minutieusement conçu, exclusivement destiné au jeu en double. Ses dimensions officielles forment un rectangle de **10 mètres de large sur 20 mètres de long** (mesures intérieures), divisé exactement en son milieu par un filet central, comme le définit le [règlement de la Fédération internationale de padel (FIP)](https://www.padelfip.com/regulations/). Ce format compact favorise un placement rapide, un jeu de balle stratégique et une communication fluide entre partenaires. Le tableau ci-dessous récapitule chaque dimension officielle en un coup d'œil.
+| Élément | Mesure officielle | Remarques |
+|---|---|---|
+| Aire de jeu | 20 m x 10 m | À l'intérieur des parois, tolérance de 0.5 % |
+| Lignes de service | À 6.95 m du filet | Parallèles au filet, de chaque côté |
+| Ligne centrale de service | Divise chaque zone de service en deux | Dépasse la ligne de service d'au moins 20 cm |
+| Largeur des lignes | 5 cm | De préférence blanches ou noires, contrastant avec le sol |
+| Longueur du filet | 10 m | D'une paroi à l'autre |
+| Hauteur du filet | 0.88 m au centre, 0.92 m aux extrémités | Poteaux de 1.05 m maximum |
+| Parois de fond | 4 m de haut | 3 m de paroi ou de verre plus 1 m de grillage |
+| Hauteur libre (intérieur) | 6 m minimum | 8 m préconisés pour les nouveaux équipements |
+| Terrain Single | 20 m x 6 m | Terrains d'entraînement et de cours |
 
-Élément structurel
+![Terrain de padel panoramique Unixpadel avec sa paroi de fond de 4 m en verre et grillage et ses parois latérales à décrochement](/wp-content/uploads/2026/07/Adsiz-tasarim.jpg)
 
-Spécification standard
+## Quelle est la hauteur des parois d'un terrain de padel ?
 
-Remarques réglementaires
+Les **parois de fond** mesurent 4 m de haut. Les 3 m inférieurs forment une surface de rebond pleine, généralement en verre de sécurité trempé, et le dernier mètre est en grillage métallique.
 
-**Longueur du terrain**
+Les **parois latérales** peuvent suivre l'une des deux configurations admises par la FIP :
 
-20.00 mètres
+1. **À décrochement (variante 1) :** à chaque extrémité, un tronçon de paroi de 3 m de haut et 2 m de long, suivi d'un tronçon de 2 m de haut et 2 m de long. Le grillage complète l'enceinte jusqu'à 3 m sur les 6 m centraux et jusqu'à 4 m aux deux extrémités.
+2. **Droite (variante 2) :** à chaque extrémité, un tronçon de paroi de 3 m de haut et 4 m de long, sans décrochement. Le grillage complète l'enceinte jusqu'à 4 m sur les 2 derniers mètres de chaque extrémité.
 
-Limite intérieure de l'aire de jeu. Tolérance de ±0.5%.
+Le grillage est toujours aligné sur la face intérieure du verre, de sorte que la surface de jeu reste plane. Ses caractéristiques (taille des mailles, diamètre du fil, finition) sont détaillées dans notre [guide de qualité des filets et grillages](/padel-guide/padel-net-and-mesh-systems-quality-guide/).
 
-**Largeur du terrain**
+## De quelle surface un terrain de padel a-t-il besoin ?
 
-10.00 mètres
+La structure ajoute de la largeur et de la longueur à l'aire de jeu de 20 x 10 m. Comme ordre de grandeur, prévoyez une base plane d'environ **20.8 m x 10.8 m** par terrain, avec une poutre périphérique armée pour les ancrages ; notre [guide des fondations](/padel-court-foundation/) présente les options de dalle.
 
-Limite intérieure de l'aire de jeu. Tolérance de ±0.5%.
+Autour de cette base, prévoyez :
 
-**Hauteur du filet**
+- **Les ouvertures d'accès :** une ou deux par côté, symétriques par rapport au filet. Avec une seule ouverture par côté, elle doit mesurer 1.05–2.20 m de large ; avec deux, chacune doit mesurer 0.72–1.10 m. Les ouvertures font 2.00–2.20 m de haut.
+- **Le jeu hors du terrain :** si les joueurs peuvent sortir du terrain par les ouvertures, conservez à l'extérieur de chaque côté une zone libre de tout obstacle d'au moins 3 m de large (4 m recommandés), 4 m de long et 3 m de haut.
+- **Les mâts d'éclairage :** à l'extérieur de l'aire de jeu, le bas des projecteurs étant situé à au moins 6 m au-dessus du sol.
+- **La circulation et les spectateurs :** allées entre les terrains, bancs et espaces pour le public.
 
-0.88m (centre) / 0.92m (poteaux)
+En extérieur, la FIP recommande d'orienter le grand axe nord–sud pour éviter que le soleil rasant n'éblouisse les joueurs.
 
-La hauteur maximale des poteaux est de 1.05 mètre.
+![Vue 3D d'un terrain de padel standard Unixpadel avec fonds vitrés, côtés grillagés et quatre mâts d'éclairage](/wp-content/uploads/2023/07/Standard-Court-5.png)
 
-**Distance de la ligne de service**
+## Quelle hauteur libre faut-il pour un terrain de padel couvert ?
 
-6.95 mètres
+La FIP exige au moins **6 m** de hauteur libre sur l'ensemble du terrain, sans aucun élément tel qu'un luminaire ou une poutre sous cette limite, et préconise **8 m** pour les nouveaux équipements. Le lob étant un coup essentiel, la plupart des clubs visent 8 m ou plus. Les arbitrages sont expliqués dans [la hauteur sous plafond idéale d'un terrain de padel](/padel-guide/ideal-ceiling-height-padel-court/).
 
-Mesurée du filet jusqu'au bord arrière de la ligne de service.
+## Quelles exigences s'appliquent au sol et aux lignes ?
 
-**Ligne centrale de service**
+Le sol peut être en béton, en matériau synthétique ou en gazon synthétique, à condition que le rebond soit régulier. Il doit être plan à 3 mm près sous une règle de 3 m, d'une seule couleur (tons vert, bleu ou terre cuite), et les terrains sans drainage doivent présenter une pente d'au plus 1 % du centre vers les bords. Les différentes surfaces sont comparées dans [les surfaces de terrain de padel](/padel-guide/padel-court-surface/).
 
-5.00 mètres
+## Vous préparez l'implantation d'un terrain ?
 
-Divise la zone de service en deux moitiés parfaitement égales.
-
-## Hauteurs des parois et dimensions de l'enceinte
-
-La dynamique propre au padel repose entièrement sur la structure qui entoure le terrain : ces dimensions verticales comptent donc autant que l'emprise au sol. L'enceinte associe des panneaux en verre trempé transparent haute résistance et un grillage électrosoudé.
-
-### 1. Parois de fond (murs arrière)
-
-Les parois de fond doivent atteindre une hauteur totale de **4 mètres**. Les 3 premiers mètres à partir du sol doivent être constitués d'une surface de rebond pleine (généralement des panneaux de verre panoramiques premium), surmontée d'un dernier mètre de grillage métallique structurel.
-
-### 2. Parois latérales (enceintes latérales)
-
-La Fédération internationale de padel admet deux configurations pour les parois latérales (variante à décrochement ou rectangulaire). La conception standard actuelle associe des panneaux de verre de 3 mètres de haut partant des angles, prolongés par des panneaux grillagés de 2 mètres de haut en direction du filet central.
-
-#### Règle essentielle de hauteur libre
-
-Pour les terrains de padel couverts, la hauteur libre minimale entre le gazon fini et l'obstacle structurel le plus bas (poutres de toiture, fermes de charpente ou luminaires) doit être d'**au moins 6 mètres** sur toute l'emprise du terrain. Pour les tournois internationaux de haut niveau, une hauteur libre de 8 mètres ou plus est vivement recommandée afin de permettre les lobs tactiques les plus hauts.
-
-## Tracés et dimensions de la surface d'un terrain de padel
-
-Toutes les lignes de délimitation et de service doivent mesurer exactement **5 centimètres de large**, peintes ou intégrées sous forme de fibres de gazon blanches ou jaunes à fort contraste. La surface se compose d'un gazon synthétique professionnel en fibre monofilament texturée ou en fibre fibrillée, garni d'un sable de silice spécial séché au four, qui optimise l'adhérence, la glisse de balle et la régularité du rebond. Avec l'emprise de 10m x 20m, ces tracés complètent les dimensions officielles requises pour le jeu homologué.
-
-## Vous envisagez d'investir dans un équipement de padel de niveau international ?
-
-Des conseils techniques sur les fondations en béton aux plans d'implantation panoramiques, jusqu'aux installations clé en main de terrains premium, Unixpadel respecte chaque dimension de votre terrain de padel, au millimètre près.
-
-[Nous contacter](/contact-us/)
+Unixpadel réalise des plans d'implantation pour les terrains isolés comme pour les clubs de plusieurs terrains, avec les accès, l'éclairage et l'emplacement des auvents. [Envoyez-nous les dimensions de votre parcelle](/contact-us/) ou découvrez nos [modèles de terrains](/our-courts/).

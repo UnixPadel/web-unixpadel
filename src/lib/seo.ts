@@ -44,9 +44,9 @@ const leadParagraph = (body: string | undefined) => {
   return null;
 };
 
-/** Meta description: the Yoast one (trimmed), else the hero tagline, else the body's lead paragraph. */
+/** Meta description: the Yoast one (trimmed), else the hero tagline, else the summary, else the body's lead paragraph. */
 export function describe(page: Page | undefined, given?: string | null): string | null {
-  const d = given ?? page?.data.seo.description ?? page?.data.hero?.tagline ?? leadParagraph(page?.body);
+  const d = given ?? page?.data.seo.description ?? page?.data.hero?.tagline ?? page?.data.summary ?? leadParagraph(page?.body);
   return d ? clip(plain(d)) : null;
 }
 

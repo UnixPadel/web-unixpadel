@@ -132,12 +132,12 @@
     "ar": "/ar/half-close-canopy/",
     "ru": "/ru/half-close-canopy/"
   },
-  "/how-much-does-a-padel-court-cost/": {
-    "tr": "/tr/padel-investment-full-report/",
-    "de": "/de/padel-investment-full-report/",
-    "fr": "/fr/padel-investment-full-report/",
-    "ar": "/ar/padel-investment-full-report/",
-    "ru": "/ru/padel-investment-full-report/"
+  "/padel-guide/how-much-does-a-padel-court-cost/": {
+    "tr": "/tr/padel-guide/how-much-does-a-padel-court-cost/",
+    "de": "/de/padel-guide/how-much-does-a-padel-court-cost/",
+    "fr": "/fr/padel-guide/how-much-does-a-padel-court-cost/",
+    "ar": "/ar/padel-guide/how-much-does-a-padel-court-cost/",
+    "ru": "/ru/padel-guide/how-much-does-a-padel-court-cost/"
   },
   "/innovative-canopy/": {
     "tr": "/tr/innovative-canopy/",
@@ -209,11 +209,12 @@
     "ar": "/ar/mobilfold-x-tend/",
     "ru": "/ru/mobilfold-x-tend/"
   },
-  "/optimal-and-durable-steel-types-for-padel-courts/": {
-    "de": "/de/optimal-and-durable-steel-types-for-padel-courts/",
-    "fr": "/fr/optimal-and-durable-steel-types-for-padel-courts/",
-    "ar": "/ar/optimal-and-durable-steel-types-for-padel-courts/",
-    "ru": "/ru/optimal-and-durable-steel-types-for-padel-courts/"
+  "/padel-guide/steel-types-for-padel-courts/": {
+    "tr": "/tr/padel-guide/steel-types-for-padel-courts/",
+    "de": "/de/padel-guide/steel-types-for-padel-courts/",
+    "fr": "/fr/padel-guide/steel-types-for-padel-courts/",
+    "ar": "/ar/padel-guide/steel-types-for-padel-courts/",
+    "ru": "/ru/padel-guide/steel-types-for-padel-courts/"
   },
   "/our-courts/": {
     "tr": "/tr/our-courts/",

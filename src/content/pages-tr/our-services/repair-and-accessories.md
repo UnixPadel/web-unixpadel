@@ -52,6 +52,8 @@ Her padel kortunun ve dolayısıyla bakım ve onarım gereksinimlerinin farklı 
 
 Unixpadel olarak onarım ve aksesuar hizmetlerimizin her aşamasında tavizsiz kalite sunmaya kararlıyız. Premium malzeme seçiminden teknisyenlerimizin uzmanlığına kadar beklentilerinizi aşmak için mükemmelliği ön planda tutuyoruz. Üstün işçilik, dayanıklı çözümler ve tam memnuniyetinize olan bağlılığımızı yansıtan bir hizmet kalitesi için bize güvenebilirsiniz.
 
+Onarımlar arasındaki günlük bakım için [padel kortu bakım takvimimizi](/padel-guide/padel-court-maintenance-tips/) izleyin.
+
 #### Hemen Bize Ulaşın
 
 Aşınma ve yıpranmanın padel kortunuzun performansını ve estetiğini olumsuz etkilemesine izin vermeyin. Kortunuzun bütünlüğünü korumak için güvenilir onarım ve bakım hizmetlerimizden ve premium aksesuarlarımızdan yararlanın. Bir görüşme planlamak veya hizmetlerimiz hakkında bilgi almak için bugün Unixpadel'e ulaşın. Padel kortunuzu en iyi durumda tutma ve oyun deneyiminizi geliştirme yolunda güvenilir iş ortağınız olalım.

@@ -51,6 +51,8 @@ const pageSchema = z.object({
       poster: z.string().nullable().optional(),
     }),
   ),
+  /** Answer-first summary (40–60 words) shown above guide articles; also the card excerpt and llms.txt line. */
+  summary: z.string().optional(),
   faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   legacyUrls: z.array(z.string()).optional(),
 });

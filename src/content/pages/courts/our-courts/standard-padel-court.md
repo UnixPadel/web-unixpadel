@@ -166,6 +166,8 @@ Designed for durability and commercial turnover, it meets all your club expectat
 
 Our court delivers high structural stability, unmatched durability, and a smooth playing experience for players of all levels. We engineer every system for longevity and design it to withstand the test of time. Contact us today to request a quote or consult with our engineering team!
 
+Planning the budget and the site? See [how much a padel court costs](/padel-guide/how-much-does-a-padel-court-cost/) and the official [padel court dimensions](/padel-guide/padel-court-dimensions/).
+
 [**Get a quote**](/contact-us/)
 
 [**Contact Engineering Team**](https://wa.me/905466653656?text=)

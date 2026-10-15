@@ -1,107 +1,86 @@
 ---
 url: /padel-guide/what-is-padel/
 slug: padel-guide__what-is-padel
-title: "Was ist Padel? Alles, was Einsteiger wissen müssen"
+title: "Was ist Padel? Sport, Platz und Wirtschaftlichkeit"
 navLabel: Was ist Padel?
 parent: /padel-guide/
-order: 10
+order: 1
 orphan: false
 wpId: 1885
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T14:07:49+00:00
 seo:
-  title: "Was ist Padel? Alles, was Einsteiger wissen müssen - Unixpadel"
-  description: "Was ist Padel? Regeln, Platzmaße, Zählweise und Ausrüstung der weltweit am schnellsten wachsenden Rückschlagsportart im Überblick."
-  ogImage: null
+  title: "Was ist Padel? Ein Leitfaden für Clubs und Investoren"
+  description: "Was Padel ist, wie es auf einem verglasten 20 x 10 m Platz gespielt wird und warum Clubs, Hotels und Städte investieren. Platztypen und nächste Schritte."
+  ogImage: /wp-content/uploads/2025/05/South-africa-3.png
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-hero:
-  video: null
-  poster: null
-  image: /wp-content/uploads/2025/05/South-africa-3.png
-  tagline: null
+summary: "Padel ist ein Rückschlagsport im Doppel, gespielt auf einem umschlossenen 20 x 10 m Platz, dessen Glas- und Gitterwände im Spiel bleiben. Der Sport ist leicht zu erlernen, sehr gesellig, und drei Plätze passen auf etwa die Fläche eines Tennisplatzes. Deshalb bauen Clubs, Hotels und Kommunen weltweit neue Padelplätze."
+faq:
+  - q: Wird Padel im Einzel oder im Doppel gespielt?
+    a: "Offizielles Padel wird im Doppel auf einem 20 x 10 m Platz gespielt. Single-Plätze (20 x 6 m) dienen dem Training, dem Coaching und engen Grundstücken; siehe den [Single-Platz von Unixpadel](/single-padel-court/)."
+  - q: Worin unterscheidet sich Padel von Tennis?
+    a: "Der Platz ist ein Drittel so groß, der Aufschlag erfolgt von unten, und die Wände gehören zum Spiel. Die Ballwechsel sind länger, und Einsteiger spielen schon in der ersten Stunde echte Punkte, was die Plätze ausgebucht hält."
+  - q: Wo kann ein Padelplatz gebaut werden?
+    a: "Im Freien auf einer Beton- oder Drainbetonplatte, in Hallen mit mindestens 6 m lichter Höhe, auf Dächern und Parkdecks mit einem betonfreien [Flat Floor Platz](/innovative-courts/flat-floor-padel-court/) oder unter einer [Überdachung](/canopy/) für ganzjährigen Spielbetrieb."
+  - q: Wie lange dauert die Montage eines Padelplatzes?
+    a: "Sobald der Untergrund vorbereitet ist, montiert ein erfahrenes Team einen Standard-Platz in etwa 3 bis 5 Tagen. Die Vorlaufzeit für Fertigung und Versand hängt vom Modell und vom Zielort ab."
 media:
   - order: 1
-    type: background
-    src: /wp-content/uploads/2025/05/South-africa-3.png
-    alt: ""
-    section: 3
-  - order: 2
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 12
+    src: /wp-content/uploads/2025/05/South-africa-3.png
+    alt: Zwei Spieler im Ballwechsel auf einem blauen Unixpadel-Platz mit gläsernen Rückwänden in Südafrika
+    section: 2
 ---
 
-Lernen Sie die Regeln, die wichtigste Ausrüstung, die Dynamik auf dem Platz und die besonderen Strategien der weltweit am schnellsten wachsenden Rückschlagsportart kennen.
+Padel ist ein Rückschlagsport, der Elemente von Tennis und Squash verbindet: Gespielt wird im Doppel, mit Aufschlag von unten, auf einem kleinen Platz, der von Wänden aus Glas und Metallgitter umschlossen ist, von denen der Ball abprallen darf. Der Sport entstand 1969 in Acapulco, Mexiko, und die [International Padel Federation (FIP)](https://www.padelfip.com/) regelt das internationale Spiel seit 1991.
 
-#### Das Phänomen Padel
+Für Betreiber einer Anlage ist Padel weniger eine neue Sportart als eine neue Art von Platz: kompakt, schnell gebaut und leicht auszulasten, weil die Menschen schon ab der ersten Stunde Freude daran haben.
 
-Eine zugängliche, dynamische und ausgesprochen gesellige Weiterentwicklung klassischer Rückschlagsportarten.
+## Wie wird Padel gespielt?
 
-## Die Grundlagen: Was genau ist Padel?
+Vier Spieler teilen sich einen Platz, der durch ein Netz geteilt ist. Das Wichtigste:
 
-**Padel** entstand 1969 in Mexiko und ist eine innovative Variante des Tennis, die Elemente aus Tennis und Squash gekonnt verbindet. Dank der äußerst niedrigen Einstiegshürde und des schnellen Spieltempos hat der Sport weltweit Aufmerksamkeit erlangt. Die offiziellen Standards und internationalen Spielstrukturen werden von der [International Padel Federation (FIP)](https://www.padelfip.com/) festgelegt.
+- **Aufschlag:** von unten; der Ball wird nach einmaligem Aufspringen hinter der Aufschlaglinie auf oder unter Hüfthöhe getroffen und diagonal in das gegnerische Aufschlagfeld gespielt.
+- **Wände im Spiel:** Nachdem der Ball auf der gegnerischen Seite aufgesprungen ist, darf er das Glas oder Gitter berühren und bleibt im Spiel. Spieler dürfen den Ball auch über die eigenen Wände spielen.
+- **Zählweise:** wie im Tennis (15, 30, 40, Spiel), meist auf zwei Gewinnsätze mit Tiebreak bei 6–6.
+- **Ausrüstung:** ein fester, besaitungsloser, perforierter Schläger und ein Ball ähnlich einem Tennisball, jedoch mit geringerem Innendruck.
 
-Anders als beim Tennis sind die Wände rund um den Platz aktiver Teil des Spiels: Die Spieler können den Ball gezielt über das Glas spielen. So entstehen lange, spannende Ballwechsel, bei denen taktisches Geschick mehr zählt als reine Körperkraft.
+Da die Wände den Ball im Spiel halten, sind die Ballwechsel lang, und die Positionierung zählt mehr als die Schlagkraft. Deshalb können Einsteiger, Familien und erfahrene Tennisspieler denselben Platz nutzen.
 
-### Padel auf einen Blick
+![Zwei Spieler im Ballwechsel auf einem blauen Unixpadel-Platz mit gläsernen Rückwänden in Südafrika](/wp-content/uploads/2025/05/South-africa-3.png)
 
-- **Format:** Ausschließlich im Doppel (2 gegen 2).
-- **Zählweise:** Gleiche Struktur wie im klassischen Tennis.
-- **Umfassung:** Umgeben von tragenden Glas- und Gitterwänden.
-- **Aufschlag:** Ausschließlich von unten (unterhalb der Taille).
+## Wie sieht ein Padelplatz aus?
 
-## Der Platz: Maße und Beläge
+Ein regelkonformer Platz ist ein Rechteck von **20 m x 10 m**, gemessen innerhalb der Wände. Die Rückwände sind 4 m hoch (3 m Glas, darüber 1 m Gitter), die Seitenwände kombinieren Glasscheiben an beiden Enden mit elektrisch verschweißtem Gitter in der Mitte, und der Boden besteht meist aus Kunstrasen mit Quarzsandverfüllung. Alle FIP-Maße, Linien und Toleranzen finden Sie in unserem Leitfaden zu den [Padelplatz-Maßen](/padel-guide/padel-court-dimensions/).
 
-Ein Standard-Padelplatz ist **10 Meter breit und 20 Meter lang**. Durch die kompakte Fläche stehen die Spieler näher beieinander, was den sozialen Austausch und die Intensität des Spiels steigert.
+In Hallen schreibt die FIP über dem gesamten Platz eine lichte Höhe von mindestens 6 m vor und empfiehlt 8 m für neue Anlagen; siehe [ideale Deckenhöhe für Padel](/padel-guide/ideal-ceiling-height-padel-court/).
 
-Die Konstruktion besteht aus hochwertigen Scheiben aus Einscheibensicherheitsglas (ESG), elektrisch verschweißten Gitterzäunen und einem professionellen Kunstrasenbelag mit technischer Quarzsand-Verfüllung, der ein gleichmäßiges Ballsprungverhalten und optimale Traktion gewährleistet. Die vollständigen technischen Daten finden Sie auf unserer Seite mit den [Unixpadel-Platzmodellen](/our-courts/).
+## Warum investieren Clubs, Hotels und Städte in Padel?
 
-[Professionelle Platzmodelle ansehen](/our-courts/)
+- **Geringer Flächenbedarf:** Auf die Fläche eines Tennisplatzes passen etwa drei Padelplätze, sodass bestehende Anlagen ihre Kapazität ohne Grundstückskauf erweitern können.
+- **Vier Spieler pro Buchung:** Jeder Termin wird von vier Personen geteilt, was die Kosten pro Spieler niedrig und die Auslastung hoch hält.
+- **Kurze Lernkurve:** Neue Spieler erleben schon in der ersten Stunde echte Ballwechsel, kommen deshalb wieder und bringen Freunde mit.
+- **Gesellig und zuschauerfreundlich:** Durch die Glaswände lässt sich das Spiel von außen verfolgen, was zu Hotels, Resorts, Einkaufszentren und Clubhäusern passt.
+- **Schnell gebaut:** Ein vorgefertigter Stahlplatz wird auf einem vorbereiteten Untergrund in wenigen Tagen montiert.
 
-#### Technische Maßstäbe von Unixpadel
+Die Budgetseite, vom Platzpaket bis zu Lieferung und Montage, behandelt der Artikel [Was kostet ein Padelplatz?](/padel-guide/how-much-does-a-padel-court-cost/)
 
-Exakte Abmessungen für das professionelle Standard-Doppelspiel.
+## Welche Arten von Padelplätzen gibt es?
 
-Hochwertiges Panorama- und Sicherheitsglas für hohe Schlagfestigkeit und gute Sicht.
+| Platztyp | Glas und Konstruktion | Typischer Einsatz |
+|---|---|---|
+| [Standard-Platz](/standard-padel-court/) | 10 mm Einscheibensicherheitsglas, zusätzliche Stützen für mehr Stabilität | Clubs, Schulen, Kommunen, windige Standorte |
+| [Panoramaplatz](/panoramic-padel-court/) | 12 mm Glas, schlankerer Rahmen für freie Sicht | Premium-Clubs, Hotels, Events |
+| [Full Panoramaplatz](/full-panoramic-padel-court/) | Rahmenlose Glasoptik an den Spielwänden | Vorzeige- und Turnierplätze |
+| [Single-Platz](/single-padel-court/) | Spielfeld 20 x 6 m | Training, Coaching, kleine Grundstücke |
+| [WP Challenge Platz](/wp-challenge-padel-court/) | Ecken mit drei Stützen, zusätzliche Aussteifung | Gebiete mit starkem Wind |
+| [Flat Floor Platz](/innovative-courts/flat-floor-padel-court/) | Steht ohne Betonplatte auf einer ebenen Fläche | Dächer, Parkdecks, temporäre Standorte |
 
-Fortschrittliches Kunstrasensystem für sichere Drehbewegungen und berechenbares Gleiten des Balls.
+Alle Unixpadel-Plätze werden in unserem eigenen Werk in Adıyaman, Türkei, konstruiert, geschweißt, verzinkt und pulverbeschichtet und wurden bereits in mehr als 94 Ländern montiert.
 
-## Welche Grundregeln und welche Zählweise gelten im Padel?
+## Was sollten Sie zuerst planen?
 
-### Die Zählweise
+Beginnen Sie mit dem Standort: verfügbare Fläche, Bodenverhältnisse, Halle oder Freiluft und lokales Klima. Wählen Sie dann Platzmodell und Belag und entscheiden Sie, ob eine Überdachung nötig ist. Die [5 Schlüsselfaktoren der Padelplatz-Planung](/padel-guide/padel-court-design-factors/) führen Sie in der Reihenfolge durch diese Entscheidungen, in der ein Ingenieur sie treffen würde.
 
-Padel wird exakt wie Tennis gezählt: 15, 30, 40 und Spiel. Gespielt wird in der Regel auf zwei Gewinnsätze, beim Stand von 6:6 entscheidet ein Tiebreak bis 7 Punkte.
-
-### Der Aufschlag von unten
-
-Der Aufschlag erfolgt von unten auf oder unterhalb der Taillenhöhe, nachdem der Ball einmal hinter der Aufschlaglinie aufgesprungen ist. Er muss diagonal in das gegenüberliegende Aufschlagfeld gespielt werden.
-
-### Spiel mit den Wänden
-
-Sobald der Ball auf dem Kunstrasen des Gegners aufgesprungen ist, darf er beliebig gegen die Glas- oder Gitterwände prallen und bleibt im Spiel. Die Spieler können den Ball auch über die eigenen Glaswände zurückspielen.
-
-## Welche Ausrüstung brauchen Sie für den Einstieg?
-
-### Der Padelschläger
-
-Anders als herkömmliche Tennisschläger sind Padelschläger saitenlos, kürzer und bestehen aus Verbundwerkstoffen wie Carbon oder Glasfaser mit einer gelochten Schlagfläche.
-
-### Bälle mit geringem Innendruck
-
-Sie ähneln optisch normalen Tennisbällen, sind aber etwas kleiner und haben einen deutlich geringeren Innendruck, damit sich der Absprung auf dem begrenzten Platz kontrollieren lässt.
-
-### Omni-Court-Schuhe
-
-Geeignete Platzschuhe mit Fischgrät- oder Omni-Sohlenprofil sind notwendig, um die Sicherheit zu gewährleisten und ein Ausrutschen auf dem sandverfüllten Kunstrasen zu verhindern.
-
-## Warum ist Padel die am schnellsten wachsende Sportart?
-
-Der beispiellose Aufstieg des Padel beruht vor allem auf seiner Zugänglichkeit. Während Tennis jahrelanges Training erfordert, um die komplexe Schlagtechnik zu beherrschen, gelingen Einsteigern auf einem Padelplatz schon in den ersten 20 Minuten mühelos Ballwechsel.
-
-Entscheidend sind weniger kraftvolle Grundlinienschläge als vielmehr Positionierung, Geometrie und geschickte Winkel. Da im engen Doppel gespielt wird, hat sich Padel weltweit zu einer ausgesprochen geselligen Freizeitaktivität entwickelt.
-
-## Bereit für den Platz?
-
-Ob Sie einen Club in Ihrer Nähe suchen, einen hochwertigen Schläger kaufen oder in den Bau einer erstklassigen, schlüsselfertigen Padelanlage investieren möchten: Unixpadel ist Ihr führender internationaler Technologiepartner.
+Wenn Sie bereits einen Standort im Blick haben, [senden Sie uns Maße und Lage Ihres Grundstücks](/contact-us/), und unsere Ingenieure schlagen Ihnen eine Platzanordnung vor.

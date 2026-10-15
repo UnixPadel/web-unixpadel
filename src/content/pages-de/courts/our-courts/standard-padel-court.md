@@ -166,6 +166,8 @@ Auf Langlebigkeit und wirtschaftlichen Betrieb ausgelegt, erfüllt er alle Erwar
 
 Unser Platz bietet hohe Stabilität, außergewöhnliche Langlebigkeit und ein gleichmäßiges Spielerlebnis für Spieler aller Niveaus. Jedes System ist auf Langlebigkeit ausgelegt und für dauerhaften Einsatz konstruiert. Kontaktieren Sie uns noch heute für ein Angebot oder eine Beratung durch unser Engineering-Team!
 
+Sie planen Budget und Standort? Lesen Sie, [was ein Padelplatz kostet](/padel-guide/how-much-does-a-padel-court-cost/), und informieren Sie sich über die offiziellen [Padelplatz-Maße](/padel-guide/padel-court-dimensions/).
+
 [**Angebot anfordern**](/contact-us/)
 
 [**Kontakt aufnehmen**](https://wa.me/905466653656?text=)

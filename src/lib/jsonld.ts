@@ -12,6 +12,7 @@ type Page = {
   hero?: { poster: string | null; image: string | null } | undefined;
   media: { type: string; src: string }[];
   faq?: { q: string; a: string }[] | undefined;
+  summary?: string | undefined;
 };
 
 export const organization = () => ({
@@ -79,8 +80,10 @@ export const faqPage = (faq: { q: string; a: string }[]) => ({
   })),
 });
 
+/** Icons and the WordPress author avatar are never a page image (same rule as cardImage in collection.ts). */
+const NOT_A_PHOTO = /ikon|icon|gravatar|\/avatar\/|-v1\.png$/i;
 const imageOf = (p: Page) =>
-  mediaUrl(p.seo.ogImage ?? p.hero?.poster ?? p.hero?.image ?? p.media.find((m) => m.type === 'image')?.src ?? null);
+  mediaUrl(p.seo.ogImage ?? p.hero?.poster ?? p.hero?.image ?? p.media.find((m) => m.type === 'image' && !NOT_A_PHOTO.test(m.src))?.src ?? null);
 
 export const product = (p: Page, category = 'Padel court') => ({
   '@context': 'https://schema.org',
@@ -94,18 +97,25 @@ export const product = (p: Page, category = 'Padel court') => ({
   category,
 });
 
-export const article = (p: Page) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: p.title,
-  description: p.seo.description ?? undefined,
-  image: imageOf(p) ?? undefined,
-  url: new URL(p.url, SITE.url).href,
-  datePublished: (p.published ?? p.lastmod)?.toISOString(),
-  dateModified: p.lastmod?.toISOString(),
-  author: { '@id': `${SITE.url}/#organization` },
-  publisher: { '@id': `${SITE.url}/#organization` },
-});
+/** Articles and reference stories; `isPartOf` names the hub (the padel guide) the article belongs to. */
+export const article = (p: Page, opts: { lang?: string; isPartOf?: string } = {}) => {
+  const url = new URL(p.url, SITE.url).href;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: p.title,
+    description: p.seo.description ?? p.summary ?? undefined,
+    image: imageOf(p) ?? undefined,
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    inLanguage: opts.lang,
+    isPartOf: opts.isPartOf ? { '@type': 'CollectionPage', '@id': new URL(opts.isPartOf, SITE.url).href } : undefined,
+    datePublished: (p.published ?? p.lastmod)?.toISOString(),
+    dateModified: p.lastmod?.toISOString(),
+    author: { '@id': `${SITE.url}/#organization` },
+    publisher: { '@id': `${SITE.url}/#organization` },
+  };
+};
 
 export const service = (p: Page) => ({
   '@context': 'https://schema.org',
@@ -123,6 +133,7 @@ export const service = (p: Page) => ({
 export const collectionPage = (p: Page, items: { name: string; url: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
+  '@id': new URL(p.url, SITE.url).href,
   name: p.title,
   description: p.seo.description ?? undefined,
   url: new URL(p.url, SITE.url).href,

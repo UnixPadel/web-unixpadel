@@ -1,73 +1,97 @@
 ---
 url: /padel-guide/padel-net-and-mesh-systems-quality-guide/
 slug: padel-guide__padel-net-and-mesh-systems-quality-guide
-title: Padel File ve Tel Örgü Sistemleri Kalite Rehberi
-navLabel: Padel filesi ve tel örgü sistemlerinin kalitesi nasıl değerlendirilir?
+title: "Padel Filesi ve Tel Örgü: FIP Özellikleri ve Kalite Kontrolleri"
+navLabel: Padel filesi ve tel örgü kalitesi
 parent: /padel-guide/
-order: 5
+order: 8
 orphan: false
 wpId: 1909
 postType: post
-lastmod: 2026-07-22T09:36:51+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-22T09:36:51+00:00
 seo:
-  title: "Padel File ve Tel Örgü Sistemleri: Kalite ve Güvenlik Rehberi - Unixpadel"
-  description: Sertifikalı padel file ve tel örgü sistemlerinin oyuncu güvenliği, FIP uyumu ve top sekme hassasiyetini nasıl sağladığını teknik rehberimizde keşfedin.
+  title: "Padel Filesi ve Tel Örgü: FIP Kuralları ve Kalite"
+  description: "Padel filesi ve kortun metal tel örgüsü için FIP kuralları: yükseklikler, kablo, göz açıklıkları ve tel kalınlığı ile oyuncuları koruyan kalite kontrolleri."
   ogImage: /wp-content/uploads/2026/06/mesh3.png
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+summary: "Bir padel filesi 10 m uzunluğundadır; ortada 0.88 m, uçlarda 0.92 m yüksekliktedir ve 1.05 m'yi aşmayan direklere en fazla 1 cm çaplı bir kabloyla asılır. Kortu çevreleyen metal tel örgünün göz köşegeni 5–7.08 cm, tel kalınlığı 2–3 mm (en fazla 4 mm) olmalı ve her kaynak noktası korunmalıdır."
+faq:
+  - q: Padel filesi ne kadar yüksektir?
+    a: "Ortada 0.88 m, uçlarda 0.92 m; tolerans 5 mm'dir. File 10 m uzunluğundadır ve direkleri 1.05 m'yi aşamaz."
+  - q: Padel kortunda hangi tel örgü göz ölçüsü kullanılır?
+    a: "FIP, göz köşegeninin 5 ile 7.08 cm arasında olmasını şart koşar. Unixpadel kortlarında kullanılan 50 x 50 mm kaynaklı kare tel örgünün köşegeni yaklaşık 7.07 cm'dir ve sınırın içindedir."
+  - q: Padel kortu tel örgüsünün tel kalınlığı nedir?
+    a: "FIP 2 ila 3 mm önerir ve 4 mm'ye kadar izin verir. Unixpadel, maksimum rijitlik ve dayanıklılık için 4 mm elektro kaynaklı tel kullanır."
+  - q: Tel örgü oyun alanının bir parçası mıdır?
+    a: "Evet. Rakip sahada sekip ardından tel örgüye çarpan top oyunda kalır; bu nedenle tel örgü düz, gergin ve camla aynı hizada olmalıdır."
 media:
   - order: 1
     type: image
     src: /wp-content/uploads/2026/06/mesh3.png
-    alt: FIP uyumlu bir kortta padel file ve tel örgü sistemlerinin profesyonel montajı
-    section: 3
+    alt: Mavi çim üzerinde beyaz markalı üst bantlı ve sentetik ağlı Unixpadel padel filesi
+    section: 2
   - order: 2
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 6
+    src: /wp-content/uploads/2026/07/hot-dip-galvanized.png
+    alt: Galvanizli padel kortu çerçevesine camla aynı hizada monte edilmiş elektro kaynaklı çelik tel örgü paneller
+    section: 3
 legacyUrls:
   - /padel-net-and-mesh-systems-quality-guide/
 ---
 
-Bir padel kortunu mu değerlendiriyorsunuz? Yatırımcılar ve kulüp sahipleri çoğunlukla sentetik çime veya panoramik cam duvarlara odaklanır. Oysa yüksek kaliteli **padel file ve tel örgü sistemleri**, en kritik yapısal bileşenlerdir. Topun sekme öngörülebilirliğini belirler, oyuncu güvenliğini sağlar ve zorlu açık alan koşullarında kortun uzun vadeli dayanıklılığını doğrudan etkiler.
+İlgiyi çoğunlukla cam duvarlar çeker; ancak file ve metal tel örgü neredeyse her rallide oyuna girer. Sekmelerin öngörülebilir olup olmayacağını, oyuncuların çevreye güvenle koşup koşamayacağını ve kortun açık alanda birkaç sezon sonra nasıl görüneceğini bunlar belirler. Bu rehber, [FIP Padel Kuralları](https://www.padelfip.com/wp-content/uploads/2025/12/FIP_Rules-of-Padel.pdf)'nın neleri şart koştuğunu ve bir kortu teslim almadan önce neleri kontrol etmeniz gerektiğini ortaya koyar.
 
-![FIP uyumlu bir kortta padel file ve tel örgü sistemlerinin profesyonel montajı](/wp-content/uploads/2026/06/mesh3.png)
+## Padel filesi için FIP kuralları nelerdir?
 
-## Temel Teknik Özellikler
+| Eleman | FIP gerekliliği |
+|---|---|
+| Uzunluk | 10 m; direkler arasındaki boşluğu aralık bırakmadan doldurur |
+| Yükseklik | Ortada 0.88 m, uçlarda 0.92 m, tolerans 5 mm |
+| Taşıyıcı kablo | Metal, en fazla 1 cm çap |
+| Direkler | En fazla 1.05 m yükseklik, yuvarlatılmış kenarlar, dış yüzü kortun yan kenarıyla aynı hizada |
+| Üst bant | Kabloyu örten 5.0–6.3 cm genişliğinde beyaz şerit; reklamlı olduğunda toplam yükseklik en fazla 11 cm |
+| File ağı | Topun geçemeyeceği sıklıkta örülmüş sentetik elyaf |
+| Gerdirme sistemi | Beklenmedik şekilde gevşememeli ve oyuncuları riske atmamalıdır |
 
-Kurallara uygun bir file tam olarak 10 metre uzunluğundadır. [Uluslararası Padel Federasyonu (FIP)](https://www.padelfip.com/) tarafından yayımlanan resmî kurallara göre file ortada 0.88 metre yüksekliğinde olmalı ve direklerde 0.92 metreye yükselmelidir. Bu temel ölçülerin ötesinde, yapısal ömrü belirleyen üretim kalitesidir.
+File, davul gibi gergin olmadan tamamen açık şekilde asılmalı ve iplerine hiçbir şey takılmamalıdır.
 
-- ✓  
-      **Malzeme Bileşimi ve Yoğunluk:** Premium fileler yüksek yoğunluklu _Polipropilen (PP)_ veya _Polietilen (PE)_ kullanır. Üreticilerin bu sentetik lifleri UV'ye karşı stabilize etmesi gerekir; böylece doğrudan güneş ışığı altında solma ve gevrekleşme önlenir.
-- ✓  
-      **İp Kalınlığı ve Düğümsüz Tasarım:** Standart ip kalınlığı 3.0 mm ile 4.0 mm arasındadır. Düğümsüz tasarımı özellikle öneriyoruz: Düğümsüz fileler enerjiyi daha etkili şekilde sönümleyip dağıtır ve tekil ip kopmalarını önler.
-- ✓  
-      **Üst Bant ve Gergi Kablosu:** Üst bantta, maksimum yırtılma dayanımı için ağır hizmet tipi, çift dikişli polyester veya PVC kullanılır. İç gergi kablosu ise iç paslanmayı önlemek ve hassas gerginlik ayarı sağlamak için plastik kaplı galvanizli çelikten üretilir.
+![Mavi çim üzerinde beyaz markalı üst bantlı ve sentetik ağlı Unixpadel padel filesi](/wp-content/uploads/2026/06/mesh3.png)
 
-## Metal Çit ve Kort Çevre Kapama Standartları
+### Bir fileyi dayanıklı kılan nedir?
 
-Tenisin aksine padelde metal tel örgü, oyun alanının aktif bir parçasıdır. Oyuncular stratejik sekmeler için sıklıkla tel örgüyü kullanır ve tel örgü yüksek hızlı vücut darbelerine maruz kalır. Bu nedenle yapısal bütünlükten taviz verilemez.
+- Güneşte solmayan ve kırılganlaşmayan **UV stabilizeli sentetik lifler** (polietilen veya polipropilen).
+- Topun en çok çarptığı yerde yırtılmaya direnen **ağır hizmet tipi, çift dikişli bir üst bant**.
+- Üst bandın içinde paslanmayan **kaplamalı bir çelik kablo** ve ayarını koruyan bir gergi.
 
-- ✓  
-      **Elektrik Kaynaklı Izgara Standartları:** Taşıyıcı tel örgü, 50 mm × 50 mm hassas göz açıklığına sahip elektrik kaynaklı telden oluşur. FIP kuralları 1.6 mm ile 3.0 mm arasında tel kalınlığı önerir, ancak ek dayanıklılık için 4.0 mm'ye kadar izin verir. Bu geometri tutarlı bir sekme açısı sağlar ve topun içinden geçmesini engeller.
-- ✓  
-      **İleri Korozyon Önleme Mühendisliği:** Açık kortlar, ham çeliğin hızla bozulduğu zorlu hava koşullarıyla karşı karşıyadır. Premium sistemler çift katmanlı bir koruma sürecinden geçer: Pasa karşı geçirimsiz bir bariyer oluşturmak için önce sıcak daldırma galvaniz, ardından yüksek sıcaklıkta polyester elektrostatik toz boya uygulanır.
+## Metal tel örgü için FIP kuralları nelerdir?
 
-#### ⚠️ Sakatlıkları Önlemek İçin Düz Yüzey İşçiliği
+Tel örgü, cam panellerin üstünde ve aralarında çevreyi tamamlar ve aktif bir oyun yüzeyidir. FIP şunları şart koşar:
 
-Padel kortunda güvenlik her şeyin önündedir. Metal konstrüksiyonun kort içine bakan yüzü, taşıyıcı dikmelerle tamamen aynı hizada olmalıdır. Dışarı taşan tel uçları, pürüzlü kaynaklar veya keskin kenarlar ciddi kesik riski oluşturur ve standart altı bir üretimin göstergesidir.
+- **Göz açıklığı:** köşegen 5 cm'den az ve 7.08 cm'den fazla olmamalıdır.
+- **Tel kalınlığı:** 2–3 mm önerilir, en fazla 4 mm; topun sekmesi için yeterli gerginlikte olmalıdır.
+- **Güvenli kaynaklar:** kaynaklı tel örgüde her kaynak noktası, kesiklere karşı her iki yüzde korunmalıdır; örülmemiş kaynaklı tel örgüde eşkenar dörtgen değil, kare gözler kullanılmalıdır.
+- Camın iç yüzüyle aynı hizada, keskin veya çıkıntılı uçları olmayan **düz, düşey bir yüzey**.
 
-## Yapısal Entegrasyon ve Montaj
+Unixpadel kortları **4 mm telli 50 x 50 mm elektro kaynaklı çelik tel örgü** kullanır. 50 mm'lik bir karenin köşegeni yaklaşık 7.07 cm'dir ve FIP sınırının içindedir; 4 mm tel ise kuralların izin verdiği en rijit paneli sağlar.
 
-Kortun ömrünü üst düzey bir montaj belirler. Montaj ekiplerinin tel örgü panelleri ana taşıyıcı dikmelere güvenli şekilde sabitlemesi gerekir. Ayrıca yüksek kaliteli **padel file ve tel örgü sistemleri**, titreşim önleyici kauçuk contalar kullanır. Bu mühendislik detayı metal tıkırtısını en aza indirir, akustik kirliliği azaltır ve kinetik enerjiyi sönümleyerek kaynak noktalarının ömrünü uzatır.
+![Galvanizli padel kortu çerçevesine camla aynı hizada monte edilmiş elektro kaynaklı çelik tel örgü paneller](/wp-content/uploads/2026/07/hot-dip-galvanized.png)
 
-## Uzun Vadeli Değer ve Yatırım Getirisi
+## Tel örgü korozyona karşı nasıl korunur?
 
-Sertifikalı kort çevre bileşenlerine yatırım yapmak toplam sahip olma maliyetini önemli ölçüde düşürür. Bu premium malzemeler minimum günlük bakım gerektirse de yine de rutin bir kontrol protokolü uygulamanız gerekir. Kablo gerginliğini doğrulamak ve toz boya bütünlüğünü kontrol etmek, kortun işletme ömrünü en üst düzeye çıkarır ve estetik görünümünü korur.
+Açık alandaki tel örgü yağmura, UV'ye ve deniz kenarında tuza maruz kalır. Unixpadel tel örgü panelleri ve çerçeveleri sıcak daldırma galvanizlenir ve ardından toz boyanır; böylece boya çizilse bile çinko çeliği korur. Deniz kenarı ve nemli araziler için [kıyı padel kortları](/padel-guide/coastal-padel-courts-construction/) yazımızı okuyun; çeliğin kendisinin seçimi [padel kortları için çelik türleri](/padel-guide/steel-types-for-padel-courts/) yazımızda ele alınmaktadır.
 
-## Padel Kortunuzu Yenilemeye Hazır mısınız?
+## Bir kortu teslim almadan önce neleri kontrol etmelisiniz?
 
-Sertifikalı, mühendislik ürünü **padel file ve tel örgü sistemlerimizle** oyuncularınıza en iyi deneyimi sunun. Proje gereksinimlerinizi görüşmek için bugün bizimle iletişime geçin.
+- Ortada ve her iki uçta ölçülen file yüksekliği.
+- Yuvarlatılmış kenarlı file direkleri ve file ile direkler arasında boşluk olmaması.
+- Düz, gergin ve camla aynı hizada; gevşek veya takırdayan paneli olmayan tel örgü panelleri.
+- Kortun iç tarafında çıkıntılı tel uçları veya pürüzlü kaynaklar olmaması.
+- Her giriş açıklığının yanlarında ve üstünde ve file direklerinde en az 2 cm koruyucu ped.
+- Gürültüyü sınırlamak için tel örgü panelleri ile çerçeve arasında titreşim önleyici contalar.
 
-[Bize ulaşın](/contact-us/)
+## File ve tel örgüyü nasıl iyi durumda tutarsınız?
+
+File yüksekliğini ve kablo gerginliğini her ay kontrol edin; tel örgü panellerini ve bağlantılarını gevşemiş cıvatalar, hasarlı kaplama veya pas lekelerine karşı inceleyin. Küçük kaplama hasarları sahada onarılabilir; rutin [padel kortu bakımı](/padel-guide/padel-court-maintenance-tips/) yazımızda yer alır. Yedek file, direk ve tel örgü panelleri Unixpadel [onarım ve aksesuarlar](/repair-and-accessories/) hizmetiyle temin edilebilir.
+
+Kort ölçülerinin tamamı [padel kortu ölçüleri](/padel-guide/padel-court-dimensions/) yazımızda yer alır. Belirli bir kort veya yedek parçalar hakkında sorularınız mı var? [Teknik ekibimizle iletişime geçin](/contact-us/).

@@ -52,6 +52,8 @@ We understand that every padel court is unique, and so are its maintenance and r
 
 At Unixpadel, we are committed to delivering uncompromising quality in every aspect of our repair and accessories services. From the selection of premium materials to the expertise of our technicians, we prioritize excellence to exceed your expectations. You can trust us to provide exceptional craftsmanship, durable solutions, and a level of service that reflects our dedication to your complete satisfaction.
 
+For day-to-day care between repairs, follow our [padel court maintenance schedule](/padel-guide/padel-court-maintenance-tips/).
+
 #### Contact Us Today
 
 Don't let wear and tear hinder your padel court's performance and aesthetic appeal. Take advantage of our reliable repair and maintenance services, along with our premium accessories, to preserve the integrity of your court. Contact Unixpadel today to schedule a consultation or inquire about our services. Let us be your trusted partner in keeping your padel court in prime condition and enhancing your playing experience.

@@ -1,101 +1,99 @@
 ---
 url: /padel-guide/padel-court-dimensions/
 slug: padel-guide__padel-court-dimensions
-title: "Padelplatz-Maße: offizielle FIP-Größe und Regeln"
-navLabel: Welche Standardmaße hat ein Padelplatz?
+title: "Padelplatz-Maße: offizielle FIP-Abmessungen"
+navLabel: Padelplatz-Maße
 parent: /padel-guide/
-order: 7
+order: 2
 orphan: false
 wpId: 1871
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T13:39:32+00:00
 seo:
-  title: "Padelplatz-Maße: offizielle FIP-Größe und Regeln - Unixpadel"
-  description: "Offizielle Padelplatz-Maße erklärt: 10m x 20m Spielfeld, Wandhöhen, Netzregeln und lichte Höhe. Planen Sie Ihren Platz mit Unixpadel."
+  title: "Padelplatz-Maße: der offizielle FIP-Leitfaden"
+  description: "Offizielle Padelplatz-Maße: Spielfeld 20 x 10 m, 4 m hohe Rückwände, Varianten der Seitenwände, Netz- und Linienmaße, lichte Höhe und Sicherheitsflächen."
   ogImage: /wp-content/uploads/2026/07/Adsiz-tasarim.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+summary: "Ein regelkonformer Padelplatz misst innerhalb der Wände 20 x 10 m. Die Rückwände sind 4 m hoch (3 m Wand plus 1 m Gitter), das Netz ist in der Mitte 0.88 m und an den Enden 0.92 m hoch, die Aufschlaglinien liegen 6.95 m vom Netz entfernt, und Hallenplätze benötigen mindestens 6 m lichte Höhe."
+faq:
+  - q: Wie groß ist ein Padelplatz?
+    a: "20 m lang und 10 m breit, gemessen von der Innenseite der Wände, mit einer Toleranz von 0.5 %. Ein Single-Platz misst 20 m x 6 m."
+  - q: Wie viel Fläche brauche ich für einen Padelplatz?
+    a: "Planen Sie für den Platz und seine Konstruktion eine Grundfläche von etwa 20.8 m x 10.8 m ein, dazu Raum für Zugänge, Lichtmasten und Verkehrswege. Ist das Spiel außerhalb des Platzes erlaubt, halten Sie hinter jeder seitlichen Öffnung eine freie Fläche von mindestens 3 m (empfohlen 4 m) mal 4 m frei."
+  - q: Wie hoch sind die Wände eines Padelplatzes?
+    a: "Die Rückwände sind 4 m hoch: 3 m Glas oder massive Wand und darüber 1 m Metallgitter. Die Seitenwände fallen je nach gewählter Variante von den Ecken zum Netz hin stufenweise ab."
+  - q: Wie hoch ist das Netz auf einem Padelplatz?
+    a: "0.88 m in der Mitte und 0.92 m an den Enden. Das Netz ist 10 m lang, und die Pfosten dürfen nicht höher als 1.05 m sein."
 media:
   - order: 1
     type: image
     src: /wp-content/uploads/2026/07/Adsiz-tasarim.jpg
-    alt: Diagramm der offiziellen Padelplatz-Maße mit dem regelkonformen Spielfeld von 10m x 20m
-    section: 3
+    alt: Panorama-Padelplatz von Unixpadel mit 4 m hoher Rückwand aus Glas und Gitter und gestuften Seitenwänden
+    section: 2
   - order: 2
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 6
+    src: /wp-content/uploads/2023/07/Standard-Court-5.png
+    alt: 3D-Ansicht eines Standard-Padelplatzes von Unixpadel mit Glasstirnseiten, Gitterseiten und vier Lichtmasten
+    section: 3
 legacyUrls:
   - /padel-court-dimensions/
 ---
 
-Wer eine Anlage auf professionellem Niveau bauen oder die exakte Geometrie hinter der weltweit am schnellsten wachsenden Rückschlagsportart verstehen möchte, muss die offiziellen Padelplatz-Maße kennen. Hier finden Sie die genauen Abmessungen, Höhenvorgaben und Flächenpläne, die für den offiziellen Spielbetrieb zugelassen sind.
+Jeder Padelplatz für den offiziellen Spielbetrieb folgt den Maßen der [FIP Rules of Padel](https://www.padelfip.com/wp-content/uploads/2025/12/FIP_Rules-of-Padel.pdf). Dass sie stimmen, ist doppelt wichtig: einmal für die Spieler, die überall dasselbe Absprungverhalten erwarten, und einmal für das Projekt, denn Grundfläche, Wandhöhen und lichte Höhe bestimmen Fundament, Konstruktion und jedes Gebäude rund um den Platz.
 
-## Offizielle Padelplatz-Maße im Überblick
+## Welche offiziellen Maße hat ein Padelplatz?
 
-![Diagramm der offiziellen Padelplatz-Maße mit dem regelkonformen Spielfeld von 10m x 20m](/wp-content/uploads/2026/07/Adsiz-tasarim.jpg)
+Das Spielfeld ist ein Rechteck von **20 m Länge und 10 m Breite**, gemessen von der Innenseite der Wände, mit einer Toleranz von **0.5 %**. Ein Netz teilt es in zwei gleich große Hälften.
 
-Ein regelkonformer Padelplatz ist eine präzise geplante Anlage, die ausschließlich für das Doppelspiel ausgelegt ist. Die offiziellen Padelplatz-Maße bilden ein Rechteck von **10 Metern Breite und 20 Metern Länge** (Innenmaße), das in der Mitte exakt durch ein Netz geteilt wird – so festgelegt im [Reglement der International Padel Federation (FIP)](https://www.padelfip.com/regulations/). Diese kompakte Grundfläche fördert schnelles Positionsspiel, strategische Ballplatzierung und eine reibungslose Abstimmung zwischen den Spielern. Die folgende Tabelle fasst alle offiziellen Padelplatz-Maße auf einen Blick zusammen.
+| Element | Offizielles Maß | Hinweise |
+|---|---|---|
+| Spielfeld | 20 m x 10 m | Innerhalb der Wände, Toleranz 0.5 % |
+| Aufschlaglinien | 6.95 m vom Netz | Auf beiden Seiten parallel zum Netz |
+| Mittlere Aufschlaglinie | Teilt jedes Aufschlagfeld in zwei Hälften | Reicht mindestens 20 cm über die Aufschlaglinie hinaus |
+| Linienbreite | 5 cm | Vorzugsweise weiß oder schwarz, im Kontrast zum Boden |
+| Netzlänge | 10 m | Von Wand zu Wand |
+| Netzhöhe | 0.88 m in der Mitte, 0.92 m an den Enden | Pfosten nicht höher als 1.05 m |
+| Rückwände | 4 m hoch | 3 m Wand oder Glas plus 1 m Gitter |
+| Lichte Höhe (Halle) | Mindestens 6 m | 8 m für neue Anlagen empfohlen |
+| Single-Platz | 20 m x 6 m | Trainings- und Coachingplätze |
 
-Bauliches Merkmal
+![Panorama-Padelplatz von Unixpadel mit 4 m hoher Rückwand aus Glas und Gitter und gestuften Seitenwänden](/wp-content/uploads/2026/07/Adsiz-tasarim.jpg)
 
-Standardmaß
+## Wie hoch sind die Wände eines Padelplatzes?
 
-Hinweise zum Reglement
+**Rückwände** sind 4 m hoch. Die unteren 3 m bilden eine massive Abprallfläche, in der Regel aus Einscheibensicherheitsglas (ESG), der obere Meter besteht aus Metallgitter.
 
-**Platzlänge**
+**Seitenwände** können einer von zwei Varianten folgen, die die FIP zulässt:
 
-20.00 Meter
+1. **Gestuft (Variante 1):** an jedem Ende ein 3 m hohes und 2 m langes Wandelement, gefolgt von einem 2 m hohen und 2 m langen Element. Gitter ergänzt die Umfassung entlang der mittleren 6 m bis auf 3 m und an beiden Enden bis auf 4 m Höhe.
+2. **Gerade (Variante 2):** an jedem Ende ein 3 m hohes und 4 m langes Wandelement ohne Stufe. Gitter ergänzt die Umfassung auf den letzten 2 m an jedem Ende bis auf 4 m Höhe.
 
-Grenze der inneren Spielfläche. Toleranz ±0,5 %.
+Das Gitter liegt immer bündig mit der Innenseite des Glases, damit die Spielfläche eben bleibt. Seine Spezifikation (Maschenweite, Drahtstärke, Oberfläche) behandelt unser [Leitfaden zur Qualität von Netz- und Gittersystemen](/padel-guide/padel-net-and-mesh-systems-quality-guide/).
 
-**Platzbreite**
+## Wie viel Platz braucht ein Padelplatz?
 
-10.00 Meter
+Die Konstruktion vergrößert das Spielfeld von 20 x 10 m in Breite und Länge. Als Richtwert planen Sie pro Platz eine ebene Grundfläche von etwa **20.8 m x 10.8 m** mit einem bewehrten Randbalken für die Verankerungen ein; unser [Fundament-Leitfaden](/padel-court-foundation/) erläutert die Optionen für die Bodenplatte.
 
-Grenze der inneren Spielfläche. Toleranz ±0,5 %.
+Rund um diese Fläche sollten Sie berücksichtigen:
 
-**Netzhöhe**
+- **Zugangsöffnungen:** eine oder zwei pro Seite, symmetrisch zum Netz. Bei einer Öffnung pro Seite muss sie 1.05–2.20 m breit sein, bei zwei Öffnungen jeweils 0.72–1.10 m. Die Öffnungen sind 2.00–2.20 m hoch.
+- **Spiel außerhalb des Platzes:** Dürfen Spieler den Platz durch die Öffnungen verlassen, halten Sie außerhalb jeder Seite eine hindernisfreie Fläche von mindestens 3 m Breite (empfohlen 4 m), 4 m Länge und 3 m Höhe frei.
+- **Lichtmasten:** außerhalb des Spielfelds, wobei die Unterkante der Strahler mindestens 6 m über dem Boden liegt.
+- **Verkehrswege und Zuschauer:** Wege zwischen den Plätzen, Bänke und Zuschauerbereiche.
 
-0.88m (Mitte) / 0.92m (Pfosten)
+Im Freien empfiehlt die FIP, die Längsachse in Nord-Süd-Richtung auszurichten, damit die tief stehende Sonne die Spieler nicht blendet.
 
-Die maximale Pfostenhöhe beträgt 1.05 Meter.
+![3D-Ansicht eines Standard-Padelplatzes von Unixpadel mit Glasstirnseiten, Gitterseiten und vier Lichtmasten](/wp-content/uploads/2023/07/Standard-Court-5.png)
 
-**Abstand der Aufschlaglinie**
+## Welche lichte Höhe braucht ein Hallen-Padelplatz?
 
-6.95 Meter
+Die FIP verlangt über dem gesamten Platz eine lichte Höhe von mindestens **6 m**, ohne dass Leuchten, Träger oder Ähnliches unter diese Linie ragen, und empfiehlt **8 m** für neue Anlagen. Da der Lob ein zentraler Schlag ist, planen die meisten Clubs 8 m oder mehr. Die Abwägungen erläutert der Artikel zur [idealen Deckenhöhe für einen Padelplatz](/padel-guide/ideal-ceiling-height-padel-court/).
 
-Gemessen vom Netz bis zur Hinterkante der Aufschlaglinie.
+## Welche Anforderungen gelten für Boden und Linien?
 
-**Mittlere Aufschlaglinie**
+Der Boden kann aus Beton, einem synthetischen Belag oder Kunstrasen bestehen, solange der Ballabsprung gleichmäßig ist. Er muss auf einer 3-m-Richtlatte auf 3 mm genau eben und einfarbig sein (Grün-, Blau- oder Terrakottatöne), und Plätze ohne Entwässerung benötigen ein Gefälle von höchstens 1 % von der Mitte zu den Rändern. Die Belagsoptionen vergleicht der Artikel zu [Padelplatz-Belägen](/padel-guide/padel-court-surface/).
 
-5.00 Meter
+## Sie planen die Anordnung Ihrer Plätze?
 
-Teilt das Aufschlagfeld exakt in zwei gleich große Hälften.
-
-## Wandhöhen und Maße der Umfassung eines Padelplatzes
-
-Die besondere Spieldynamik im Padel beruht vollständig auf der umgebenden Konstruktion. Die vertikalen Padelplatz-Maße sind daher ebenso wichtig wie die Grundfläche. Die Umfassung besteht aus einer Kombination von schlagfesten, transparenten Scheiben aus Einscheibensicherheitsglas (ESG) und elektrisch verschweißten Gitterzäunen.
-
-### 1. Stirnwände (Rückwände)
-
-Die Rückwände müssen eine Gesamthöhe von **4 Metern** aufweisen. Die unteren 3 Meter müssen aus einer festen Rücksprungfläche bestehen (in der Regel hochwertige Panoramaglas-Elemente), darüber folgt ein abschließender Meter aus einem tragenden Metallgitterzaun.
-
-### 2. Seitenwände (seitliche Umfassung)
-
-Die International Padel Federation lässt für die seitliche Umfassung zwei Varianten zu (gestufte oder rechteckige Ausführung). Das heute übliche Standarddesign kombiniert 3 Meter hohe Glaselemente, die von den Ecken ausgehen, mit 2 Meter hohen Gitterpaneelen, die nahtlos in Richtung Netzbereich anschließen.
-
-#### Entscheidende Regel zur lichten Höhe
-
-Bei Padel-Hallenplätzen muss die lichte Höhe von der fertigen Kunstrasenoberfläche bis zum tiefsten baulichen Hindernis (etwa Dachträger, Deckenbinder oder Leuchten) über der gesamten Platzfläche **mindestens 6 Meter** betragen. Für hochrangige internationale Turniere wird eine lichte Höhe von 8 Metern oder mehr dringend empfohlen, damit auch hohe taktische Lobs möglich sind.
-
-## Linienmarkierungen und Belagsmaße eines Padelplatzes
-
-Alle Begrenzungs- und Aufschlaglinien müssen exakt **5 Zentimeter breit** sein und werden in kontrastreichem Weiß oder Gelb aufgemalt oder als Kunstrasenfasern eingearbeitet. Der Belag besteht aus einem professionellen Kunstrasensystem mit texturierter Monofilament-Faser oder fibrillierter Faser und einer Verfüllung aus speziellem, ofengetrocknetem Quarzsand – für optimalen Halt, ein berechenbares Gleitverhalten des Balls und ein gleichmäßiges Rücksprungverhalten. Zusammen mit der Grundfläche von 10m x 20m vervollständigen diese Markierungen die offiziellen Padelplatz-Maße für den zugelassenen Spielbetrieb.
-
-## Sie planen eine Investition in eine erstklassige Padelanlage?
-
-Von der technischen Beratung zum Betonfundament über die Planung von Panoramaplätzen bis hin zur schlüsselfertigen Montage hochwertiger Plätze: Unixpadel setzt jedes Padelplatz-Maß exakt um – bis auf den Millimeter.
-
-[Kontakt aufnehmen](/contact-us/)
+Unixpadel erstellt Lagepläne für Einzelplätze und Clubs mit mehreren Plätzen, einschließlich Zugängen, Beleuchtung und Position der Überdachung. [Senden Sie uns die Maße Ihres Grundstücks](/contact-us/) oder sehen Sie sich unsere [Platzmodelle](/our-courts/) an.

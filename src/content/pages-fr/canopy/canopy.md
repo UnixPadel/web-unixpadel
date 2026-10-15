@@ -74,3 +74,5 @@ legacyUrls:
   - /full-padel-court-canopy-campaign/
 ---
 ## Unixpadel propose des auvents de grande qualité, avec différents modèles adaptés à chacun de vos besoins !
+
+Vous préparez un club couvert ou en salle ? Notre guide explique [quelle hauteur libre exige un terrain de padel](/padel-guide/ideal-ceiling-height-padel-court/) sous une toiture.

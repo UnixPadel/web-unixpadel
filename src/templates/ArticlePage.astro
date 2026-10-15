@@ -7,7 +7,8 @@ import CardGrid from '../components/CardGrid.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import CTABand from '../components/CTABand.astro';
 import Icon from '../components/Icon.astro';
-import { childrenOf, cardImage, cardImageAlt, labelOf, readingTime } from '../lib/collection';
+import { cardImage, cardImageAlt, labelOf, pageByUrl, readingTime, type Page } from '../lib/collection';
+import { GUIDE_ORDER, GUIDE_RELATED, guideGroupOf } from '../data/guide';
 import type { TemplateProps } from './_types';
 import { langOf, localizePath, LOCALE, t } from '../i18n';
 
@@ -20,8 +21,17 @@ const title = labelOf(page);
 const toc = headings.filter((h) => h.depth === 2);
 const hasToc = toc.length > 2;
 const minutes = readingTime(page);
-const updated = data.lastmod ? new Intl.DateTimeFormat(LOCALE[lang].intl, { day: 'numeric', month: 'long', year: 'numeric' }).format(data.lastmod) : null;
-const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url !== data.url).slice(0, 2);
+const fmt = new Intl.DateTimeFormat(LOCALE[lang].intl, { day: 'numeric', month: 'long', year: 'numeric' });
+const updated = data.lastmod ? fmt.format(data.lastmod) : null;
+const published = data.published && data.published.toDateString() !== data.lastmod?.toDateString() ? fmt.format(data.published) : null;
+
+// Reading path from src/data/guide.ts: hand-picked related articles, previous/next in the guide order, and the call
+// to action of the article's group.
+const pagesAt = async (urls: string[]) => (await Promise.all(urls.map((u) => pageByUrl(u, lang)))).filter((p): p is Page => !!p);
+const more = await pagesAt(GUIDE_RELATED[data.url] ?? []);
+const at = GUIDE_ORDER.indexOf(data.url);
+const [prev, next] = at < 0 ? [undefined, undefined] : await Promise.all([GUIDE_ORDER[at - 1], GUIDE_ORDER[at + 1]].map((u) => (u ? pageByUrl(u, lang) : undefined)));
+const cta = ui.guideCta[guideGroupOf(data.url) ?? 'materials'];
 ---
 
 <BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? title} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
@@ -29,7 +39,9 @@ const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url 
     <Breadcrumbs slot="crumbs" crumbs={crumbs} />
     <p class="article-meta">
       <span><Icon name="clock" /> {ui.minRead(minutes)}</span>
+      {published && <span>{ui.published} <time datetime={data.published!.toISOString()}>{published}</time></span>}
       {updated && <span>{ui.updated} <time datetime={data.lastmod!.toISOString()}>{updated}</time></span>}
+      <span><Icon name="check-badge" /> {ui.preparedBy}</span>
     </p>
   </Hero>
 
@@ -49,11 +61,38 @@ const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url 
       )
     }
     <article class="prose">
+      {
+        data.summary && (
+          <div class="answer">
+            <p class="answer__label">{ui.shortAnswer}</p>
+            <p class="answer__text">{data.summary}</p>
+          </div>
+        )
+      }
       <Content />
     </article>
   </div>
 
   {data.faq?.length && <FAQ items={data.faq} />}
+
+  {
+    (prev || next) && (
+      <nav class="container pager" aria-label={ui.guideEyebrow}>
+        {prev && (
+          <a class="pager__link" href={localizePath(prev.data.url, lang)} rel="prev">
+            <span class="pager__dir"><Icon name="chevron-left" /> {ui.prevArticle}</span>
+            <span class="pager__title">{labelOf(prev)}</span>
+          </a>
+        )}
+        {next && (
+          <a class="pager__link pager__link--next" href={localizePath(next.data.url, lang)} rel="next">
+            <span class="pager__dir">{ui.nextArticle} <Icon name="chevron-right" /></span>
+            <span class="pager__title">{labelOf(next)}</span>
+          </a>
+        )}
+      </nav>
+    )
+  }
 
   {
     more.length > 0 && (
@@ -65,7 +104,7 @@ const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url 
           </div>
           <CardGrid columns={2}>
             {more.map((p) => (
-              <ArticleCard title={labelOf(p)} href={p.data.url} excerpt={p.data.seo.description} image={cardImage(p)} alt={cardImageAlt(p)} minutes={readingTime(p)} />
+              <ArticleCard title={labelOf(p)} href={p.data.url} excerpt={p.data.seo.description ?? p.data.summary} image={cardImage(p)} alt={cardImageAlt(p)} minutes={readingTime(p)} />
             ))}
           </CardGrid>
         </div>
@@ -73,7 +112,7 @@ const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url 
     )
   }
 
-  <CTABand title={ui.guideCtaTitle} text={ui.guideCtaText} primaryLabel={ui.askEngineers} />
+  <CTABand title={cta.title} text={cta.text} primaryLabel={cta.label} />
 </BaseLayout>
 
 <style>
@@ -91,6 +130,8 @@ const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url 
   }
   .article-layout {
     display: grid;
+    /* minmax(0, …): wide tables scroll inside the article instead of widening the page */
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--sp-6);
     align-items: start;
   }
@@ -102,6 +143,74 @@ const more = (await childrenOf('/padel-guide/', lang)).filter((p) => p.data.url 
     .toc {
       position: sticky;
       inset-block-start: calc(var(--header-h) + var(--sp-4));
+    }
+  }
+  .answer {
+    margin-block-end: var(--sp-6);
+    padding: var(--sp-4) var(--sp-5);
+    border-inline-start: 4px solid var(--lime-500);
+    background: var(--bg-surface);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .prose .answer__label {
+    margin: 0 0 var(--sp-1);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .prose .answer__text {
+    margin: 0;
+    font-size: var(--fs-500);
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+  .pager {
+    display: grid;
+    gap: var(--sp-4);
+    padding-block: var(--sp-6);
+  }
+  @media (min-width: 768px) {
+    .pager {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .pager__link {
+    display: grid;
+    gap: var(--sp-1);
+    padding: var(--sp-4) var(--sp-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  .pager__link--next {
+    grid-column: -2;
+    text-align: end;
+  }
+  .pager__dir {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .pager__link--next .pager__dir {
+    justify-content: flex-end;
+  }
+  .pager__title {
+    font-weight: 600;
+  }
+  @media (hover: hover) {
+    .pager__link:hover {
+      border-color: var(--lime-500);
+    }
+    .pager__link:hover .pager__title {
+      color: var(--link-hover);
     }
   }
   .toc {

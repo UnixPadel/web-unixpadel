@@ -52,6 +52,8 @@ Jeder Padelplatz ist einzigartig – und damit auch seine Anforderungen an Wartu
 
 Bei Unixpadel stehen wir in allen Bereichen unserer Reparatur- und Zubehörleistungen für kompromisslose Qualität. Von der Auswahl hochwertiger Materialien bis zur Erfahrung unserer Techniker hat Qualität für uns oberste Priorität, damit wir Ihre Erwartungen übertreffen. Verlassen Sie sich auf erstklassige Verarbeitung, langlebige Lösungen und einen Service, der unseren Anspruch an Ihre volle Zufriedenheit widerspiegelt.
 
+Für die tägliche Pflege zwischen den Reparaturen folgen Sie unserem [Wartungsplan für Padelplätze](/padel-guide/padel-court-maintenance-tips/).
+
 #### Kontaktieren Sie uns noch heute
 
 Lassen Sie nicht zu, dass Verschleiß die Spieleigenschaften und die Optik Ihres Padelplatzes beeinträchtigt. Nutzen Sie unsere zuverlässigen Reparatur- und Wartungsleistungen sowie unser hochwertiges Zubehör, um Ihren Platz in einwandfreiem Zustand zu erhalten. Kontaktieren Sie Unixpadel noch heute, um einen Beratungstermin zu vereinbaren oder sich über unsere Leistungen zu informieren. Wir sind Ihr verlässlicher Partner, wenn es darum geht, Ihren Padelplatz in bestem Zustand zu halten und Ihr Spielerlebnis zu verbessern.

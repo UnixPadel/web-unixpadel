@@ -1,78 +1,89 @@
 ---
 url: /padel-guide/padel-court-maintenance-tips/
 slug: padel-guide__padel-court-maintenance-tips
-title: "Padel Kortu Bakımı: Uzun Ömürlü Performans İçin İpuçları"
-navLabel: Padel kortu bakım ipuçları
+title: "Padel Kortu Bakımı: Takvim, Kontroller ve Onarımlar"
+navLabel: Padel kortu bakımı
 parent: /padel-guide/
-order: 6
+order: 11
 orphan: false
 wpId: 1869
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T13:22:29+00:00
 seo:
-  title: "Padel Kortu Bakımı: Uzun Ömürlü Performans İçin İpuçları - Unixpadel"
-  description: Güvenli oyun ve uzun ömürlü performans için temel padel kortu bakım ipuçlarını, rutin bakım protokollerini ve onarım yöntemlerini keşfedin.
-  ogImage: null
+  title: "Padel Kortu Bakımı: Bakım Takvimi ve Kontrol Listesi"
+  description: "Padel kortu bakım takvimi: çim, kum, cam, tel örgü, file, ankrajlar ve aydınlatma için günlük, haftalık, aylık ve yıllık işler ile sık yapılan onarımlar."
+  ogImage: /wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.23.45-1.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+summary: "Bir padel kortu basit bir rutinle güvenli kalır ve iyi oynanır: kirleri her gün temizleyin, çimi her hafta fırçalayıp kumu yeniden dağıtın, camı, contaları, tel örgüyü, file yüksekliğini ve ankrajları her ay kontrol edin; çimi de 6 ila 12 ayda bir gevşettirip kumunu takviye ettirin."
+faq:
+  - q: Padel kortu çimi ne sıklıkla fırçalanmalıdır?
+    a: "Silis kumunu eşit şekilde dağıtmak ve lifleri dik tutmak için en az haftada bir; yoğun kullanılan veya rüzgâra açık kortlarda daha sık."
+  - q: Bir padel kortuna ne sıklıkla kum eklenmelidir?
+    a: "Çıplak lifler görünmeye başladığında ve 6 ila 12 ayda bir yapılan derin temizliğin bir parçası olarak silis kumunu takviye edin. Açık ve rüzgârlı kortlar kumu daha hızlı kaybeder."
+  - q: Cam panellerde neler kontrol edilmelidir?
+    a: "Kenarlarda çatlak veya kırık olup olmadığına bakın; cam ile çelik arasındaki kauçuk contaların sağlam ve bağlantıların sıkı olduğundan emin olun. Bozulan bir conta camın çeliğe temas etmesine ve kırılmasına yol açabilir."
+  - q: Unixpadel başka üreticilerin kortlarını onarıyor mu?
+    a: "Fotoğraflar ve kort bilgileriyle ekibimizle iletişime geçin; yedek cam, tel örgü paneller, çim, file ve aksesuar tedarik ediyor, onarım konusunda yol gösteriyoruz."
 media:
   - order: 1
     type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 9
+    src: /wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.23.45-1.jpeg
+    alt: Gece projektörlerle aydınlatılmış, yoğun kullanılan mavi ve yeşil çimli çok kortlu padel kulübü
+    section: 1
 legacyUrls:
   - /padel-court-maintenance-tips/
   - /padel-guide__trashed/padel-court-maintenance-tips/
 ---
 
-Doğru bakım, her padel kortunun uzun ömürlü, güvenli ve en yüksek performansla çalışmasının anahtarıdır. Düzenli kum dağıtımından yapısal kontrollere kadar tutarlı bir bakım rutini uygulamak yatırımınızı korur ve oyunculara premium bir oyun deneyimi sunar.
+Bir padel kortu her gün saatlerce kullanılır; açık alanda her hava koşulunda, kapalı alanda ise kesintisiz oyun altında. Küçük ve düzenli kontroller sekmeyi tutarlı tutar, sakatlıkları önler ve yatırımı korur. İşlerin çoğu birkaç dakika sürer ve kulüp personeli tarafından yapılabilir; birkaçı ise yılda bir veya iki kez bir uzman gerektirir.
 
-## Rutin Bakım Protokolleri
+## Bir padel kortunun bakım takvimi nasıldır?
 
-Kort zeminini turnuvaya hazır durumda tutmak için standart bakım; günlük, haftalık ve aylık görevlere ayrılmalıdır. Bu, sentetik çimin erken yıpranmasını önler ve tutarlı bir top sekmesi sağlar.
+| Sıklık | İş |
+|---|---|
+| Günlük | Yaprakları, tozu ve kirleri temizleyin; kapıları ve koruyucu pedleri kontrol edin |
+| Haftalık | Kumu eşit dağıtmak ve lifleri kaldırmak için çimi fırçalayın |
+| İki haftada bir | Cam panelleri temizleyin |
+| Aylık | Cam kenarlarını ve contaları, tel örgü panelleri, file yüksekliğini ve gerginliğini, ankrajları ve aydınlatmayı kontrol edin |
+| 6–12 ayda bir | Derin temizlik: gevşetme, kum takviyesi, yosun ve ot uygulaması, ek yeri kontrolü |
+| Yıllık | Tam yapısal kontrol ve kaplama kontrolü; hasarların rötuşu |
 
-### Günlük Zemin Süpürme
+![Gece projektörlerle aydınlatılmış, yoğun kullanılan mavi ve yeşil çimli çok kortlu padel kulübü](/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.23.45-1.jpeg)
 
-Yaprakları, kirleri ve organik maddeleri her gün temizleyin. Kortta bırakılan kirler drenaj sorunlarına yol açabilir ve yosun oluşumunu teşvik ederek kaygan, güvensiz oyun koşulları yaratır.
+## Çimin ve kumun bakımını nasıl yaparsınız?
 
-### Silis Kumunun Yeniden Dağıtılması
+**Günlük süpürme:** yapraklar ve organik maddeler drenajı tıkar ve yüzeyi kaygan hâle getiren yosunlanmayı teşvik eder.
 
-Oyun sırasında kum doğal olarak kenarlara ve file hattına doğru itilir. İpliklerin yatmasını önlemek için silis kumunu her hafta geniş, yumuşak kıllı bir fırçayla monofilament çimin tamamına eşit şekilde yeniden dağıtın.
+**Haftalık fırçalama:** oyun sırasında kum duvarlara ve fileye doğru kayar. Geniş, yumuşak bir fırça veya çekilir tip bir fırça kumu yeniden dağıtır; böylece tutuş ve sekme homojen kalır, lifler yatmaz.
 
-### Cam Panel Temizliği
+**6 ila 12 ayda bir derin temizlik:**
 
-Temperli cam panelleri iki haftada bir standart cam temizleyicileri ve çekpas ile temizleyin. Lekeli cam görüşü azaltır ve doğru duvar sekmeleri için gereken sürtünmeyi değiştirir.
+- **Gevşetme:** sıkışmış kumu gevşeterek yumuşaklığı ve drenajı geri kazandırın.
+- **Kum takviyesi:** rüzgâr, yağmur ve ayakkabılar nedeniyle kaybedilen kumu aynı yuvarlak taneli silis kumuyla yenileyin.
+- **Yosun ve ot uygulaması:** kenarlar boyunca suni çime uygun bir ürün uygulayın.
+- **Ek yeri kontrolü:** yapıştırılmış birleşimleri ve işlenmiş çizgileri, oyuncuları tökezletebilecek kalkmış kenarlara karşı kontrol edin.
 
-## Derin Temizlik ve Sentetik Çim Bakımı
+Çim seçiminin bakımı nasıl etkilediği [padel kortu zeminleri](/padel-guide/padel-court-surface/) yazımızda açıklanmaktadır.
 
-Günlük süpürmenin ötesinde sentetik çim, 6 ila 12 ayda bir profesyonel derin temizlik gerektirir. Bu süreç şunları kapsar:
+## Cam, tel örgü ve filenin bakımını nasıl yaparsınız?
 
-- **Dekompaksiyon:** Kortun darbe sönümleme özelliklerini geri kazandırmak ve oyuncu sakatlıklarını önlemek için sıkışmış kumun gevşetilmesi.
-- **Yabani Ot ve Mantar Uygulaması:** Yosun, alg ve yabani ot oluşumunu durdurmak için çevreye özel, korozif olmayan biyositlerin uygulanması.
-- **Kum Takviyesi:** Rüzgâr, ayakkabılar ve yağmur nedeniyle kaybedilen malzemenin yerine yeni silis kumu eklenmesi. Standart 10x20m'lik bir kort, optimum çekiş için hassas kum seviyeleri gerektirir.
-- **Ek Yeri Kontrolü:** Sentetik çim rulolarının yapıştırılmış birleşim yerlerinin, takılıp düşme tehlikesi yaratabilecek kalkık kenarlar olmadığından emin olmak için kontrol edilmesi.
+**Cam:** oyuncuların ve seyircilerin net görmesi için iki haftada bir standart bir cam temizleyici ve çekçekle temizleyin. Her ay kenarlarda kırık olup olmadığını kontrol edin; cam ile çelik arasındaki kauçuk contaların sağlam, bağlantıların sıkı olduğundan emin olun. Hasarlı contaları hemen değiştirin; cam asla çeliğe temas etmemelidir.
 
-## Yapısal Kontrol ve Onarım Yöntemleri
+**Tel örgü ve kaynaklar:** gevşek panellere, takırdayan bağlantılara, hasarlı kaplamaya veya pas lekelerine bakın. Yüzeysel pası zımparalayın, çinkoca zengin bir astar ve uyumlu bir son kat boya uygulayın. Kırık kaynaklar profesyonel onarım gerektirir.
 
-Oyuncuların tel örgü ve camlara sık sık yüksek darbeyle çarptığı düşünüldüğünde, padel kortunun yapısal bütünlüğü güvenlik açısından hayati önem taşır.
+**File:** ortada 0.88 m, uçlarda 0.92 m yüksekliğinde olduğunu, kablo gergisinin tuttuğunu ve üst bandın yırtılmadığını kontrol edin. Teknik özelliklerin tamamı [file ve tel örgü rehberinde](/padel-guide/padel-net-and-mesh-systems-quality-guide/) yer alır.
 
-### Temperli Cam Bakımı
+## Yapısal kontrol neleri kapsamalıdır?
 
-10mm veya 12mm cam panelleri her ay mikro çatlaklar ve kenar kırıkları açısından kontrol edin. Camı metal konstrüksiyondan ayıran neopren contaların sağlam olduğundan emin olun. Bir conta işlevini yitirirse cam darbe anında kırılabilir. _Onarım Yöntemi:_ Yıpranmış contaları derhal değiştirin ve tüm tutucu braketleri sıkın.
+- Zamanla gevşeyebilen taban plakalarındaki ankraj cıvataları.
+- Özellikle fırtınalardan sonra kolonların şakülü ve hizası.
+- Kolonlar, kirişler ve tel örgü çerçeveleri üzerindeki kaplamanın durumu.
+- Giriş açıklıklarındaki ve file direklerindeki kapı menteşeleri, kilitler ve koruyucu pedler.
+- Projektör bağlantıları, yönlendirmesi ve kablolaması.
 
-### Metal Tel Örgü ve Kaynaklar
+Deniz kenarındaki kortlar daha sık durulama ve kaplama kontrolü gerektirir; [kıyı padel kortları](/padel-guide/coastal-padel-courts-construction/) yazımıza bakın.
 
-Elektrik kaynaklı tel örgü yoğun top darbelerine maruz kalır. Oksidasyon (pas) belirtilerini veya kopmuş kaynak noktalarını kontrol edin. _Onarım Yöntemi:_ Yüzeysel pası zımparalayın, korozyon önleyici astar uygulayın ve birebir eşleşen yapısal boya ile yeniden boyayın. Kopmuş kaynaklar profesyonel olarak yeniden kaynatılmalıdır.
+## Ne zaman bir uzman çağırmalısınız?
 
-### Ankrajlar ve File Gerginliği
-
-Orta filenin gerginliğini düzenli olarak kontrol edin; file ortada 88cm, direklerde 92cm olmalıdır. Yapıyı beton temele sabitleyen taban dübel cıvatalarının zamanla gevşemediğinden emin olmak için kontrol edin.
-
-## Profesyonel Kort Bakımına mı İhtiyacınız Var?
-
-Unixpadel teknik ekibi, kortlarınızı kusursuz durumda tutmak için dünya genelinde uzman bakım hizmetleri sunar.
-
-[**Bize ulaşın**](/contact-us/)
-
-[**İnceleyin**](/repair-and-accessories/)
+Çatlak veya kırık cam, kırık kaynaklar, sürekli kalkan çim ek yerleri, yağmur sonrası biriken su ya da fırçalamanın düzeltmediği düzensiz bir sekme durumunda bir uzman çağırın. Unixpadel teknik ekibi, [onarım ve aksesuarlar](/repair-and-accessories/) hizmetiyle yedek cam, tel örgü paneller, çim, file ve aksesuar tedarik eder ve dünya genelinde kulüplere danışmanlık verir. Sorunun fotoğraflarıyla [ekibimizle iletişime geçin](/contact-us/).

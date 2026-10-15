@@ -11,8 +11,10 @@ interface Props {
   alt?: string;
   minutes?: number;
   headingLevel?: 'h2' | 'h3';
+  /** Short tag above the title (e.g. "Start here" on the guide's first article). */
+  badge?: string;
 }
-const { title, href, excerpt, image, alt = '', minutes, headingLevel = 'h3' } = Astro.props;
+const { title, href, excerpt, image, alt = '', minutes, headingLevel = 'h3', badge } = Astro.props;
 const Heading = headingLevel;
 const ui = t(langOf(Astro.url));
 const src = mediaUrl(image);
@@ -28,9 +30,14 @@ const src = mediaUrl(image);
   }
   <div class="post__body">
     {
-      minutes && (
+      (minutes || badge) && (
         <p class="post__meta">
-          <Icon name="clock" /> {ui.minRead(minutes)}
+          {badge && <span class="post__badge">{badge}</span>}
+          {minutes && (
+            <>
+              <Icon name="clock" /> {ui.minRead(minutes)}
+            </>
+          )}
         </p>
       )
     }
@@ -68,6 +75,16 @@ const src = mediaUrl(image);
     gap: var(--sp-1);
     font-size: var(--fs-200);
     color: var(--text-secondary);
+  }
+  .post__badge {
+    margin-inline-end: var(--sp-2);
+    padding: 2px var(--sp-2);
+    border-radius: var(--radius-sm, 4px);
+    background: var(--lime-500);
+    color: var(--navy-800);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
   .post__title {
     font-size: var(--fs-600);

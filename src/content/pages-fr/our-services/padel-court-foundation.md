@@ -140,6 +140,8 @@ Les hivers rigoureux rendent la protection contre le gel incontournable. La prof
 
 **Écourter les 28 jours de cure** : c'est toute la structure qui s'en trouve fragilisée.
 
+Pour l'ensemble des étapes de construction, des permis à la réception, consultez [comment construire un terrain de padel](/padel-guide/how-to-build-a-padel-court/).
+
 ## Vous préparez un projet de terrain de padel ?
 
 Qu'il s'agisse d'une dalle en béton dimensionnée sur mesure ou d'un terrain Flat Floor sans béton, Unixpadel adapte les fondations à votre site, à votre climat et à votre modèle économique.

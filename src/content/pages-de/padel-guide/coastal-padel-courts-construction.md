@@ -1,105 +1,102 @@
 ---
 url: /padel-guide/coastal-padel-courts-construction/
 slug: padel-guide__coastal-padel-courts-construction
-title: "Padelplätze an der Küste: Sind sie in feuchten Regionen möglich?"
-navLabel: Padelplätze in Küsten- und Feuchtgebieten?
+title: "Padelplätze an der Küste: Bauen bei Salz, Feuchtigkeit und Wind"
+navLabel: Küsten- und Feuchtstandorte
 parent: /padel-guide/
-order: 1
+order: 10
 orphan: false
 wpId: 1854
 postType: post
-lastmod: 2026-07-22T08:54:31+00:00
+lastmod: 2026-10-15T09:00:00+00:00
 published: 2026-07-21T12:38:23+00:00
 seo:
-  title: "Padelplätze an der Küste: Bau in feuchten Regionen - Unixpadel"
-  description: "So trotzen Padelplätze an der Küste Feuchtigkeit und Salzsprühnebel: feuerverzinkter Stahl, C5-Beschichtungen und windfeste Konstruktionen."
+  title: "Padelplätze an der Küste: Salz, Feuchtigkeit und Wind"
+  description: "Lassen sich Padelplätze am Meer bauen? Ja, mit dem richtigen Korrosionsschutz, Edelstahl-Befestigungen und Windauslegung. Was Sie für Küstenstandorte vorgeben."
   ogImage: /wp-content/uploads/2026/07/coastal-padel.png
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-hero:
-  video: null
-  poster: null
-  image: /wp-content/uploads/2026/07/coastal-padel.png
-  tagline: null
+summary: "Padelplätze lassen sich am Meer und in feuchten Klimazonen sicher bauen, wenn der Stahl feuerverzinkt und für die Korrosivitätskategorie des Standorts beschichtet ist (C4–C5 nach ISO 9223/12944), die Befestigungen aus Edelstahl A4 (316) bestehen und die Konstruktion für den örtlichen Wind berechnet ist. Regelmäßiges Abspülen mit Süßwasser verhindert Salzablagerungen."
+faq:
+  - q: Können Padelplätze in Meeresnähe gebaut werden?
+    a: "Ja. Mit feuerverzinktem Stahl, einem für die Korrosivitätskategorie C4–C5 ausgelegten Beschichtungssystem, Befestigungen aus Edelstahl A4 und einer für den örtlichen Wind berechneten Konstruktion halten Küstenplätze viele Jahre."
+  - q: Was bedeutet die Korrosivitätskategorie C5?
+    a: "ISO 9223 und ISO 12944 stufen Atmosphären von C1 (sehr gering) bis C5 (sehr hoch) und CX (extrem, offshore) ein. Küstenstandorte mit Salzsprühnebel liegen typischerweise bei C4 oder C5."
+  - q: Brauchen Küstenplätze Rahmen aus Edelstahl?
+    a: "Nein. Ein stärkeres Duplex-System auf Baustahl schützt den Rahmen; Edelstahl wird dort eingesetzt, wo er den größten Nutzen bringt: bei Schrauben und Muttern."
+  - q: Wie sollte ein Padelplatz an der Küste gewartet werden?
+    a: "Spülen Sie Konstruktion, Gitter und Glas regelmäßig mit Süßwasser ab, prüfen Sie die Beschichtung alle paar Monate und bessern Sie Kratzer umgehend aus, bevor sich Rost ausbreiten kann."
 media:
   - order: 1
-    type: background
-    src: /wp-content/uploads/2026/07/coastal-padel.png
-    alt: ""
-    section: 2
-  - order: 2
     type: image
     src: /wp-content/uploads/2026/07/coastal-padel.png
-    alt: Speziell konstruierte Padelplätze an einem Standort direkt am Meer
-    section: 3
+    alt: Panorama-Padelplatz am Meer mit Palmen und Sonnenuntergang über dem Wasser
+    section: 1
+  - order: 2
+    type: image
+    src: /wp-content/uploads/2026/04/SnapInsta.to_671743659_18082190798574854_8781156476965671478_n.jpg
+    alt: Panoramaplatz von Unixpadel auf einer Hangterrasse mit Blick auf eine Meeresbucht
+    section: 2
   - order: 3
     type: image
     src: /wp-content/uploads/2026/07/hot-dip-galvanized.png
-    alt: Feuerverzinkter Rahmen als Korrosionsschutz für Padelplätze in Meeresnähe
+    alt: Feuerverzinkter und pulverbeschichteter Padelplatz-Rahmen mit Gitterelementen
     section: 3
-  - order: 4
-    type: image
-    src: https://secure.gravatar.com/avatar/e92d2e5f45ed06fd80c978c216d76e0a325907d5bb1c31e9bdc2a3ea81008739?s=64&d=mm&r=g
-    alt: Unixpadel
-    section: 7
 legacyUrls:
   - /coastal-padel-courts-construction/
 ---
 
-Der Bau von **Padelplätzen an der Küste** oder in tropischen Regionen bringt erhebliche klimatische Herausforderungen mit sich. Salzhaltiger Sprühnebel, hohe Luftfeuchtigkeit und starke Seewinde setzen herkömmlichen Metallkonstruktionen schnell zu. Mit gezielter Ingenieursplanung und korrosionsbeständigen Materialien lassen sich langlebige **Padelplätze an der Küste** jedoch sicher realisieren.
+![Panorama-Padelplatz am Meer mit Palmen und Sonnenuntergang über dem Wasser](/wp-content/uploads/2026/07/coastal-padel.png)
 
-![Speziell konstruierte Padelplätze an einem Standort direkt am Meer](/wp-content/uploads/2026/07/coastal-padel.png)
+Beachclubs, Hotels am Meer und tropische Resorts gehören zu den besten Standorten für Padelplätze – und zu den härtesten Umgebungen für Stahl und Glas. Salz, Feuchtigkeit und Wind greifen einen Platz jeden Tag an. Die gute Nachricht: Mit der richtigen Spezifikation hält ein Küstenplatz genauso lange wie einer im Binnenland.
 
-## Herausforderungen für Padelplätze an der Küste: Salz, Feuchtigkeit und Wind
+## Was macht Küstenstandorte so belastend für Padelplätze?
 
-Standardplätze werden in der Regel aus einfach lackiertem Stahl gefertigt. In Küstennähe greifen mikroskopisch kleine Salzpartikel und Feuchtigkeit eine solche Standardlackierung bereits innerhalb weniger Monate an. In der Folge schwächt Rost die einfache Rahmenkonstruktion rasch. Zudem müssen Padelplätze in feuchten Regionen starken Windböen standhalten, die die Glasscheiben enorm belasten.
+- **Salz:** Chloride aus der Luft lagern sich auf der Konstruktion ab und beschleunigen die Korrosion überall dort, wo blanker Stahl freiliegt: an Kratzern, Schnittkanten, Schweißnähten und Befestigungen.
+- **Feuchtigkeit und Kondensation:** Feuchtigkeit bleibt länger auf den Oberflächen, besonders in Hohlprofilen und unter Befestigungen.
+- **Wind:** An offenen Küsten wehen starke, böige Winde, die Glasscheiben und Verankerungen belasten.
+- **Sonne und UV-Strahlung:** Sie lassen Beschichtungen, Kunstrasen und Netze schneller ausbleichen als im Binnenland.
 
-- **Oxidation:** Salz wirkt als starker Katalysator für Rost. Ungeschütztes Metall zerstört unbehandelte Padelplätze an der Küste daher in kurzer Zeit.
-- **Windlasten:** Standardrahmen versagen bei Küstenstürmen häufig, weil ihnen verstärkte Pfosten und massive Fundamente fehlen.
+![Panoramaplatz von Unixpadel auf einer Hangterrasse mit Blick auf eine Meeresbucht](/wp-content/uploads/2026/04/SnapInsta.to_671743659_18082190798574854_8781156476965671478_n.jpg)
 
-![Feuerverzinkter Rahmen als Korrosionsschutz für Padelplätze in Meeresnähe](/wp-content/uploads/2026/07/hot-dip-galvanized.png)
+## Wie schützen Sie einen Padelplatz am Meer?
 
-## Technische Lösungen für einen meerwasserbeständigen Padelplatz
+Beginnen Sie mit der Einstufung des Standorts. ISO 9223 und ISO 12944 stufen Atmosphären von C1 (sehr gering) bis C5 (sehr hoch) und CX (extrem, offshore) ein. Die meisten Standorte direkt am Meer liegen bei **C4 oder C5**, und das Beschichtungssystem sollte für diese Kategorie ausgelegt sein.
 
-Um aggressiven Küstenbedingungen standzuhalten, muss jede Komponente des Platzes aufgewertet werden. Bei Unixpadel folgen wir dafür strengen Fertigungsvorgaben gemäß [ISO 12944 C5 für maritime Umgebungen](https://www.iso.org/) bei Installationen mit hoher Luftfeuchtigkeit:
+Auf dieser Grundlage sollte ein Küstenplatz Folgendes kombinieren:
 
-- **Feuerverzinkter Stahl oder Aluminium:** Wir tauchen hochbelastbaren Stahl in flüssiges Zink und erzeugen so eine dichte Rostschutzbarriere für robuste Padelplätze am Meer.
-- **C5-Marine-Beschichtungssystem:** Zusätzlich tragen wir eine C5-M-zertifizierte thermoplastische Pulverbeschichtung auf, wie sie auch auf Offshore-Ölplattformen gegen Salzschäden eingesetzt wird.
-- **Verbindungselemente aus Edelstahl A4:** Außerdem verwenden wir Schrauben und Muttern aus Edelstahl A4 (316L), damit an Padelplätzen an der Küste keine Rostfahnen entstehen.
+- **Stückverzinkung nach der Fertigung (ISO 1461):** jede Oberfläche, innen und außen, einschließlich Schweißnähten und Schnittkanten, mit Zink überzogen.
+- **Ein stärkeres Pulverbeschichtungssystem** auf dem Zink, ausgelegt für die Korrosivitätskategorie des Standorts.
+- **Schrauben und Muttern aus Edelstahl A4 (316)**, die Rostfahnen rund um die Befestigungen vermeiden.
+- **EPDM-Gummidichtungen** zwischen Glas und Stahl, die UV-Strahlung und Salz widerstehen.
+- **Entwässerung und Belüftung der Hohlprofile**, damit sich im Rahmen kein Wasser sammeln kann.
 
-Komponente
+## Worin unterscheidet sich eine Küstenspezifikation von einem Standard-Platz?
 
-Standardplatz
+| Komponente | Standard-Platz von Unixpadel | Küstenspezifikation von Unixpadel |
+|---|---|---|
+| Rahmenschutz | Feuerverzinkt (ISO 1461) + Pulverbeschichtung | Feuerverzinkt + stärkeres Beschichtungssystem für C4–C5 |
+| Befestigungen | Verzinkter Stahl | Edelstahl A4 (316) |
+| Glasdichtungen | Gummidichtungen | EPDM-Dichtungen |
+| Konstruktion | Stützen und Träger 100 x 50 mm, Ecken mit drei Stützen, Windlast 120–140 km/h | Standortspezifische statische Berechnung; verstärkter [WP Challenge](/wp-challenge-padel-court/) Rahmen für sehr exponierte Standorte |
+| Kunstrasen und Netz | UV-stabilisiert | UV-stabilisiert, häufiger kontrolliert |
 
-Padelplätze an der Küste
+Schon der Standard-Platz von Unixpadel ist feuerverzinkt und pulverbeschichtet; die Küstenspezifikation schafft zusätzliche Reserven dort, wo Salz und Wind am stärksten sind. Warum verzinkter Baustahl Edelstahlrahmen vorgezogen wird, erklärt der Artikel zu [Stahlsorten für Padelplätze](/padel-guide/steel-types-for-padel-courts/).
 
-Rahmenbehandlung
+![Feuerverzinkter und pulverbeschichteter Padelplatz-Rahmen mit Gitterelementen](/wp-content/uploads/2026/07/hot-dip-galvanized.png)
 
-Vorverzinkt + Standardlackierung
+## Und der Wind?
 
-Feuerverzinkt + C5-Marine-Beschichtung
+Der Küstenwind ist oft das größere Risiko. Fordern Sie eine statische Berechnung für Ihren genauen Standort an: Unixpadel-Plätze werden mit einer von der Technischen Universität Istanbul (ITU) geprüften statischen Berechnung geliefert. An exponierten Standorten halten ein Platz mit verstärkten Ecken wie der [WP Challenge Platz](/wp-challenge-padel-court/) und ein gut verankerter Randbalken das Glas stabil. Wenn Sie eine [Überdachung](/canopy/) planen, muss sie für denselben Wind berechnet werden.
 
-Schrauben und Bolzen
+## Wie sollte ein Küstenplatz gewartet werden?
 
-Galvanisch verzinkt (A2)
+- Spülen Sie Rahmen, Gitter und Glas alle paar Wochen sowie nach Stürmen mit Süßwasser ab.
+- Prüfen Sie die Beschichtung alle drei Monate und bessern Sie jeden Kratzer aus, bevor sich Rost ausbreitet.
+- Kontrollieren Sie Befestigungen und Dichtungen zweimal im Jahr.
+- Bürsten Sie den Kunstrasen häufiger und füllen Sie Sand nach, da der Wind ihn schneller abträgt.
 
-Edelstahl A4 (316L)
+Die vollständige Routine finden Sie unter [Wartung von Padelplätzen](/padel-guide/padel-court-maintenance-tips/).
 
-Pfostenwandstärke
+## Sie planen ein Padelprojekt an der Küste?
 
-2mm – 3mm
-
-Verstärkt auf 3mm+ für hohe Windlasten
-
-Glasbefestigung
-
-Standard-Neopren
-
-EPDM-Dichtungen in Marinequalität
-
-## Fazit: langlebige Padelplätze an der Küste bauen
-
-Padelplätze an der Küste lassen sich in feuchten und meeresnahen Umgebungen erfolgreich realisieren. Meerwasserbeständige Konstruktionen erfordern zwar eine etwas höhere Anfangsinvestition, senken die Wartungskosten auf lange Sicht jedoch erheblich. Mit speziell entwickelten Korrosionsschutzmaterialien bleibt Ihr Club am Strand über Jahre hinweg profitabel.
-
-## Planen Sie ein Padelprojekt an der Küste?
-
-Bitte [kontaktieren Sie das Ingenieurteam von Unixpadel](/contact-us/), um Windlastberechnungen und meerwasserbeständige Materialien für Ihren Standort zu besprechen.
+Senden Sie uns Lage und Exposition des Standorts (Entfernung zum Meer, vorherrschender Wind), und das [Ingenieurteam von Unixpadel](/contact-us/) empfiehlt Ihnen Konstruktion, Beschichtung und Befestigungen für Ihren Platz.

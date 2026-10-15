@@ -74,3 +74,5 @@ legacyUrls:
   - /full-padel-court-canopy-campaign/
 ---
 ## Unixpadel offers great Canopies. We offer different types of Canopy Design for your needs!
+
+Planning a covered or indoor club? Our guide explains [how much clear height a padel court needs](/padel-guide/ideal-ceiling-height-padel-court/) under a roof.

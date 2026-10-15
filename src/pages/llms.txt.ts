@@ -21,7 +21,8 @@ const SECTION_TITLES: Record<string, string> = {
 export const GET: APIRoute = async ({ site }) => {
   const abs = (p: string) => new URL(p, site).href;
   const line = (p: Page) => {
-    const d = describe(p);
+    // Guide articles carry an answer-first summary, which suits answer engines better than the meta description.
+    const d = p.data.summary ?? describe(p);
     return `- [${labelOf(p)}](${abs(p.data.url)})${d ? `: ${d}` : ''}`;
   };
   const pages = (await allPages()).filter(isIndexable);

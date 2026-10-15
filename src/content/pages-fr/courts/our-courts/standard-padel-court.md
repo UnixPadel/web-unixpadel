@@ -166,6 +166,8 @@ Conçu pour la durabilité et la rentabilité commerciale, il répond à toutes 
 
 Notre terrain offre une grande stabilité structurelle, une durabilité inégalée et une expérience de jeu fluide pour les joueurs de tous niveaux. Chaque système est conçu pour durer et résister à l'épreuve du temps. Contactez-nous dès aujourd'hui pour demander un devis ou consulter notre équipe d'ingénieurs !
 
+Vous préparez le budget et le site ? Consultez [combien coûte un terrain de padel](/padel-guide/how-much-does-a-padel-court-cost/) et les [dimensions officielles d'un terrain de padel](/padel-guide/padel-court-dimensions/).
+
 [**Demander un devis**](/contact-us/)
 
 [**Nous contacter**](https://wa.me/905466653656?text=)

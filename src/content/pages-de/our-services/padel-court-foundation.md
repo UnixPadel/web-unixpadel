@@ -140,6 +140,8 @@ Kalte Winter machen Frostschutz unverzichtbar. Die Frostgrenze liegt typischerwe
 
 **Verkürzte 28-tägige Aushärtung**: schwächt die gesamte Konstruktion.
 
+Den vollständigen Bauablauf von der Genehmigung bis zur Übergabe beschreibt der Artikel [So bauen Sie einen Padelplatz](/padel-guide/how-to-build-a-padel-court/).
+
 ## Sie planen einen Padelplatz?
 
 Ob statisch berechnete Betonplatte oder betonfreie Flat-Floor-Lösung: Unixpadel stimmt das Fundament auf Ihren Standort, Ihr Klima und Ihr Geschäftsmodell ab.

@@ -87,6 +87,17 @@ export const SITE = {
   ],
 } as const;
 
+// Tracking tags the old WordPress site printed (Site Kit / WPCode / theme hooks), copied 2026-10-15. Rendered by
+// src/components/Analytics.astro in production builds only.
+export const TRACKING = {
+  ga4: 'G-7FZMGNSMLZ',
+  googleAds: 'AW-16529251966',
+  // "MDM - Sayfa Görüntüleme" conversion, sent on every page view.
+  adsPageView: 'AW-16529251966/E4JGCNCMu84ZEP684ck9',
+  metaPixel: '1246409712666569',
+  googleSiteVerification: 'nCVyt-yTQVCrQkloc9QqfAs3d20osGhIiNlg809B2bw',
+} as const;
+
 /** Pre-filled WhatsApp chat link. */
 export const whatsappUrl = (text?: string) =>
   `https://wa.me/${SITE.whatsappNumber}${text ? `?text=${encodeURIComponent(text)}` : ''}`;

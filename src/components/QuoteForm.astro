@@ -329,6 +329,7 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
           ? `mailto:${form.dataset.email}?subject=${encodeURIComponent(msg.subject)}&body=${encodeURIComponent(text)}`
           : `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(text)}`;
       say(channel === 'email' ? msg.openingMail : msg.openingWa);
+      if (channel !== 'email') document.dispatchEvent(new Event('upx:whatsapp')); // Ads conversion (Analytics.astro)
       window.open(url, channel === 'email' ? '_self' : '_blank', 'noopener');
     });
   }

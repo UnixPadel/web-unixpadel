@@ -7,6 +7,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SkipLink from '../components/SkipLink.astro';
 import IconSprite from '../components/IconSprite.astro';
+import Analytics from '../components/Analytics.astro';
 import { SITE } from '../data/site';
 import { MEDIA_ORIGIN, mediaUrl } from '../lib/media';
 import { organization } from '../lib/jsonld';
@@ -102,6 +103,8 @@ const ld = [organization(), ...jsonLd];
         } catch (e) {}
       })();
     </script>
+
+    <Analytics />
 
     {ld.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
     {shell && <Fragment set:html={M.slot('jsonld')} />}

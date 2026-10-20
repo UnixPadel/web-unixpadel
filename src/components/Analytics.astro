@@ -1,0 +1,42 @@
+---
+// Google Analytics 4, Google Ads, Meta Pixel and the Search Console verification tag, the same set the old WordPress
+// site printed. Production builds only, so local dev and previews don't count as visits.
+import { TRACKING } from '../data/site';
+
+const { ga4, googleAds, adsPageView, metaPixel, googleSiteVerification } = TRACKING;
+---
+
+{
+  import.meta.env.PROD && (
+    <>
+      <meta name="google-site-verification" content={googleSiteVerification} />
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} />
+      <script is:inline define:vars={{ ga4, googleAds, adsPageView, metaPixel }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', ga4);
+        gtag('config', googleAds);
+        gtag('event', 'conversion', { send_to: adsPageView });
+
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+          t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', metaPixel);
+        fbq('track', 'PageView');
+
+        // WhatsApp contact = Ads conversion, as on the old site (it counted clicks on the Chaty WhatsApp button).
+        // Links to wa.me, plus the quote form's "send via WhatsApp" (QuoteForm dispatches upx:whatsapp once valid).
+        function waConversion() { gtag('event', 'conversion', { send_to: googleAds }); }
+        document.addEventListener('click', function (e) {
+          var a = e.target instanceof Element && e.target.closest('a[href*="wa.me/"]');
+          if (a) waConversion();
+        });
+        document.addEventListener('upx:whatsapp', waConversion);
+      </script>
+    </>
+  )
+}

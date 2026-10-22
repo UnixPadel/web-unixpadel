@@ -7,8 +7,10 @@
  * Requires PHP:      7.4
  * Author:            Unixpadel
  * License:           Proprietary
+ * Update URI:        https://github.com/UnixPadel/web-unixpadel
  *
  * Built {{BUILT}} from site/ (npm run build:wp). Do not edit the copy inside the ZIP; edit site/wp-plugin/unixpadel-static.php.
+ * Updates come from GitHub releases (includes/github-deploy.php), never from WordPress.org.
  */
 
 if (!defined('ABSPATH')) {
@@ -57,6 +59,8 @@ define('UPX_SHELL_PATH', '#^(?:/(?:tr|de|fr|ar|ru))?/upx-shell(?:/|$)#i');
 // post type is registered before upx_maybe_serve runs (both on init, priority 0).
 require_once __DIR__ . '/includes/refs-render.php';
 require_once __DIR__ . '/includes/refs-store.php';
+// Updates from GitHub (signed REST call, hourly cron, settings section): loaded on every request.
+require_once __DIR__ . '/includes/github-deploy.php';
 if (is_admin()) {
 	require_once __DIR__ . '/includes/refs-admin.php';
 	require_once __DIR__ . '/includes/refs-import.php';
@@ -510,6 +514,10 @@ function upx_uninstall() {
 	delete_option(UPX_OPT_QUOTE_TO); // saved quote requests stay (Quote requests → Trash to remove them)
 	delete_option(UPX_OPT_QUOTE_TO_LEGACY);
 	delete_option(UPX_OPT_REFS);     // references stay as posts; the index is rebuilt when the plugin comes back
+	foreach (array(UPX_OPT_GH_REPO, UPX_OPT_GH_TOKEN, UPX_OPT_DEPLOY_SECRET, UPX_OPT_DEPLOY_AUTO, UPX_OPT_DEPLOY_LOG, UPX_OPT_DEPLOY_PREVIOUS) as $option) {
+		delete_option($option);
+	}
+	wp_clear_scheduled_hook(UPX_DEPLOY_CRON);
 }
 register_uninstall_hook(__FILE__, 'upx_uninstall');
 
@@ -597,6 +605,7 @@ function upx_settings_page() {
 			</form>
 			<?php upx_refs_import_section(); ?>
 		<?php endif; ?>
+		<?php upx_deploy_section(); ?>
 	</div>
 	<?php
 }

@@ -224,7 +224,7 @@ if (contract.length) {
   process.exit(1);
 }
 
-const stamp = new Date().toISOString().replace(/\D/g, '').slice(0, 12); // yyyymmddhhmm (UTC)
+const stamp = new Date().toISOString().replace(/\D/g, '').slice(0, 14); // yyyymmddhhmmss (UTC)
 const version = `${pkg.version}.${stamp}`;
 const phpString = (s) => `'${String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 // Language twins of the redirects: the old Weglot URL /<lang>/<old>/ goes to /<lang>/<new>/ when that page was
@@ -273,4 +273,6 @@ if (UNPACKED) {
   console.log(`\n${path.relative(ROOT, zipPath)}`);
   console.log(summary);
   console.log(`  ${(zip.length / 1024 / 1024).toFixed(2)} MB (check the host's upload limit under Media → Add New)`);
+  // GitHub Actions (.github/workflows/deploy-wp.yml) publishes this ZIP as a release.
+  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `version=${version}\nzip=${zipPath}\n`);
 }

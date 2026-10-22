@@ -1,0 +1,70 @@
+# Builds the WordPress plugin ZIP on every push to main, publishes it as a GitHub Release and tells the live site to
+# install it (wp-plugin/includes/github-deploy.php). The site also checks for new releases every hour, so a missed call
+# only delays the update. Repository secret WP_DEPLOY_SECRET: copy it from WP admin → Settings → Unixpadel Static.
+name: Deploy to WordPress
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-wp
+  cancel-in-progress: true
+
+permissions:
+  contents: write # create releases
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build plugin ZIP
+        id: build
+        run: npm run build:wp
+
+      - name: Publish release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.build.outputs.version }}
+          ZIP: ${{ steps.build.outputs.zip }}
+        run: |
+          sha=$(sha256sum "$ZIP" | cut -d' ' -f1)
+          tag="wp-$VERSION"
+          gh release create "$tag" "$ZIP" --target "$GITHUB_SHA" --title "$tag" \
+            --notes "$(printf 'sha256: %s\ncommit: %s' "$sha" "$GITHUB_SHA")"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          # Keep the last 10 plugin releases (the site rolls back to the previous one).
+          gh release list --limit 100 --json tagName --jq '.[].tagName | select(startswith("wp-"))' | tail -n +11 |
+            while read -r old; do gh release delete "$old" --cleanup-tag --yes; done
+
+      - name: Tell WordPress to update
+        env:
+          SECRET: ${{ secrets.WP_DEPLOY_SECRET }}
+          URL: ${{ secrets.WP_DEPLOY_URL }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          if [ -z "$SECRET" ]; then
+            echo "::notice::WP_DEPLOY_SECRET is not set: the site picks up $TAG on its hourly check."
+            exit 0
+          fi
+          body=$(printf '{"tag":"%s","ts":%s}' "$TAG" "$(date +%s)")
+          sig=$(printf '%s' "$body" | openssl dgst -sha256 -hmac "$SECRET" -r | cut -d' ' -f1)
+          answer=$(curl --silent --show-error --fail-with-body --max-time 300 \
+            -H 'Content-Type: application/json' -H "X-Upx-Signature: sha256=$sig" \
+            --data "$body" "${URL:-https://www.unixpadel.com/?rest_route=/unixpadel/v1/deploy}") || { echo "$answer"; exit 1; }
+          echo "$answer"
+          case "$answer" in
+            *'"paused":true'*) echo "::warning::Automatic updates are paused in WP admin: $TAG was not installed." ;;
+          esac

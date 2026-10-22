@@ -58,6 +58,7 @@ const ui: UI = {
     'MobilFOLD X-TEND': 'MobilFOLD X-TEND',
     'Wheel Canopy System': 'Tekerlekli Kanopi Sistemi',
     'Retractable Side and Roof Canopy System': 'Açılır Yan ve Çatı Kanopi Sistemi',
+    'Sandwich Panel System': 'Sandviç Panel Sistemi',
     Turfs: 'Sentetik Çim',
     Services: 'Hizmetler',
     Consulting: 'Danışmanlık',

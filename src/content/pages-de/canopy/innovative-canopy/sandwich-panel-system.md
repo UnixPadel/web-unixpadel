@@ -34,43 +34,33 @@ specsIntro: Eine vollständig geschlossene Padelhalle, die die Plätze in jeder 
 media:
   - order: 1
     type: image
-    src: /wp-content/uploads/2026/10/1.jpg
-    alt: Sandwichpaneel-Padelhalle, Eckansicht von Giebel und Eingangsseite
+    src: /wp-content/uploads/2026/10/3.jpg.jpeg
+    alt: Sandwichpaneel-Padelhalle, Eckansicht von Giebel und Seiteneingang
     section: 1
   - order: 2
     type: image
-    src: /wp-content/uploads/2026/10/2.jpg
-    alt: Lange Fassade mit zwei überdachten, verglasten Eingängen
+    src: /wp-content/uploads/2026/10/6.jpg.jpeg
+    alt: Innenkorridor zwischen Hallen-Padelplätzen unter dem Stahlrahmen
     section: 1
   - order: 3
     type: image
-    src: /wp-content/uploads/2026/10/3.jpg
-    alt: Giebelseite und Seitenwand mit hohen Fenstern
+    src: /wp-content/uploads/2026/10/4.jpg.jpeg
+    alt: Lange Seitenfassade der Halle mit rechteckigen Fenstern und gedämmten Paneelen
     section: 1
   - order: 4
     type: image
-    src: /wp-content/uploads/2026/10/5.jpg
-    alt: Giebelansicht mit 9,8 m Firsthöhe
+    src: /wp-content/uploads/2026/10/5.jpg.jpeg
+    alt: Hallen-Padelplätze auf Spielfeldhöhe mit hoher Satteldachkonstruktion und Beleuchtung
     section: 1
   - order: 5
     type: image
-    src: /wp-content/uploads/2026/10/6.jpg
-    alt: Eingangsdetail mit Doppeltür und Vordach
+    src: /wp-content/uploads/2026/10/2.jpg.jpeg
+    alt: Giebelseitige Ansicht der Sandwichpaneel-Halle mit Unix-Padel-Logo
     section: 1
   - order: 6
     type: image
-    src: /wp-content/uploads/2026/10/7.jpg
-    alt: Padelplätze in der Halle auf Spielfeldhöhe
-    section: 1
-  - order: 7
-    type: image
-    src: /wp-content/uploads/2026/10/8.jpg
-    alt: Stahldachrahmen und gedämmte Dachpaneele über den Plätzen
-    section: 1
-  - order: 8
-    type: image
-    src: /wp-content/uploads/2026/10/9.jpg
-    alt: Dachgrundriss, 37,1 m × 25,7 m mit zwei 4,33 m breiten Eingangsvordächern
+    src: /wp-content/uploads/2026/10/1.jpg.jpeg
+    alt: Vorderfassade mit zwei überdachten Glaseingängen und Unix-Padel-Club-Schriftzug
     section: 1
 ---
 

@@ -34,43 +34,33 @@ specsIntro: Une halle de padel entièrement fermée qui garde les terrains rése
 media:
   - order: 1
     type: image
-    src: /wp-content/uploads/2026/10/1.jpg
-    alt: Halle de padel en panneaux sandwich, vue d'angle du pignon et de la façade d'entrée
+    src: /wp-content/uploads/2026/10/3.jpg.jpeg
+    alt: Halle de padel en panneaux sandwich, vue d'angle du pignon et de l'entrée latérale
     section: 1
   - order: 2
     type: image
-    src: /wp-content/uploads/2026/10/2.jpg
-    alt: Longue façade avec deux entrées vitrées et couvertes
+    src: /wp-content/uploads/2026/10/6.jpg.jpeg
+    alt: Allée centrale intérieure entre terrains de padel sous la charpente métallique
     section: 1
   - order: 3
     type: image
-    src: /wp-content/uploads/2026/10/3.jpg
-    alt: Pignon et mur latéral avec de hautes fenêtres
+    src: /wp-content/uploads/2026/10/4.jpg.jpeg
+    alt: Longue façade latérale de la halle avec fenêtres rectangulaires et panneaux isolants
     section: 1
   - order: 4
     type: image
-    src: /wp-content/uploads/2026/10/5.jpg
-    alt: Élévation du pignon avec un faîtage à 9,8 m
+    src: /wp-content/uploads/2026/10/5.jpg.jpeg
+    alt: Terrains de padel intérieurs vus au niveau du court avec haut plafond à deux pans et éclairage
     section: 1
   - order: 5
     type: image
-    src: /wp-content/uploads/2026/10/6.jpg
-    alt: Détail de l'entrée avec porte double et auvent
+    src: /wp-content/uploads/2026/10/2.jpg.jpeg
+    alt: Élévation du pignon de la halle en panneaux sandwich avec logo Unix Padel
     section: 1
   - order: 6
     type: image
-    src: /wp-content/uploads/2026/10/7.jpg
-    alt: Terrains de padel à l'intérieur de la halle, à hauteur de jeu
-    section: 1
-  - order: 7
-    type: image
-    src: /wp-content/uploads/2026/10/8.jpg
-    alt: Portiques acier et panneaux de toiture isolés au-dessus des terrains
-    section: 1
-  - order: 8
-    type: image
-    src: /wp-content/uploads/2026/10/9.jpg
-    alt: Plan de toiture, 37,1 m × 25,7 m avec deux auvents d'entrée de 4,33 m
+    src: /wp-content/uploads/2026/10/1.jpg.jpeg
+    alt: Façade avant avec deux entrées vitrées couvertes et enseigne Unix Padel Club
     section: 1
 ---
 

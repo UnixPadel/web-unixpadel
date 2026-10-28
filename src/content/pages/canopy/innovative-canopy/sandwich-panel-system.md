@@ -34,43 +34,33 @@ specsIntro: A fully enclosed padel hall that keeps the courts bookable in every 
 media:
   - order: 1
     type: image
-    src: /wp-content/uploads/2026/10/1.jpg
-    alt: Sandwich panel padel hall, corner view of the gable and the entrance side
+    src: /wp-content/uploads/2026/10/3.jpg.jpeg
+    alt: Sandwich panel padel hall, corner view of the gable and side entrance
     section: 1
   - order: 2
     type: image
-    src: /wp-content/uploads/2026/10/2.jpg
-    alt: Long façade with two covered, glazed entrances
+    src: /wp-content/uploads/2026/10/6.jpg.jpeg
+    alt: Interior walkway between indoor padel courts under the steel frame
     section: 1
   - order: 3
     type: image
-    src: /wp-content/uploads/2026/10/3.jpg
-    alt: Gable end and side wall with tall windows
+    src: /wp-content/uploads/2026/10/4.jpg.jpeg
+    alt: Long side façade of the hall with rectangular windows and insulated panels
     section: 1
   - order: 4
     type: image
-    src: /wp-content/uploads/2026/10/5.jpg
-    alt: Gable elevation with a 9.8 m ridge height
+    src: /wp-content/uploads/2026/10/5.jpg.jpeg
+    alt: Indoor padel courts viewed at court level with high gable ceiling and lighting
     section: 1
   - order: 5
     type: image
-    src: /wp-content/uploads/2026/10/6.jpg
-    alt: Entrance detail with double doors and canopy
+    src: /wp-content/uploads/2026/10/2.jpg.jpeg
+    alt: Gable end elevation of the sandwich panel hall with Unix Padel logo
     section: 1
   - order: 6
     type: image
-    src: /wp-content/uploads/2026/10/7.jpg
-    alt: Padel courts inside the hall at court level
-    section: 1
-  - order: 7
-    type: image
-    src: /wp-content/uploads/2026/10/8.jpg
-    alt: Steel roof frames and insulated roof panels above the courts
-    section: 1
-  - order: 8
-    type: image
-    src: /wp-content/uploads/2026/10/9.jpg
-    alt: Roof plan, 37.1 m by 25.7 m with two 4.33 m entrance canopies
+    src: /wp-content/uploads/2026/10/1.jpg.jpeg
+    alt: Front façade with two covered glazed entrances and Unix Padel Club signage
     section: 1
 ---
 

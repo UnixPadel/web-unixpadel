@@ -34,43 +34,33 @@ specsIntro: Kortları her mevsim kiralanabilir tutan, onay için gereken hesap v
 media:
   - order: 1
     type: image
-    src: /wp-content/uploads/2026/10/1.jpg
-    alt: Sandviç panel padel holü, alın ve giriş cephesinin köşe görünümü
+    src: /wp-content/uploads/2026/10/3.jpg.jpeg
+    alt: Sandviç panel padel holü, alın ve yan giriş cephesinin köşe görünümü
     section: 1
   - order: 2
     type: image
-    src: /wp-content/uploads/2026/10/2.jpg
-    alt: İki saçaklı ve camlı girişi olan uzun cephe
+    src: /wp-content/uploads/2026/10/6.jpg.jpeg
+    alt: Çelik çerçeve altındaki kapalı padel kortları arasındaki iç koridor
     section: 1
   - order: 3
     type: image
-    src: /wp-content/uploads/2026/10/3.jpg
-    alt: Yüksek pencereli alın ve yan duvar
+    src: /wp-content/uploads/2026/10/4.jpg.jpeg
+    alt: Dikdörtgen pencereli ve yalıtımlı panelli uzun yan cephe
     section: 1
   - order: 4
     type: image
-    src: /wp-content/uploads/2026/10/5.jpg
-    alt: 9,8 m mahya yüksekliğiyle alın cephesi
+    src: /wp-content/uploads/2026/10/5.jpg.jpeg
+    alt: Yüksek beşik çatı ve aydınlatmalı, kort seviyesinden kapalı padel kortları
     section: 1
   - order: 5
     type: image
-    src: /wp-content/uploads/2026/10/6.jpg
-    alt: Çift kanatlı kapı ve saçaklı giriş detayı
+    src: /wp-content/uploads/2026/10/2.jpg.jpeg
+    alt: Unix Padel logolu sandviç panel holünün alın cephesi görünümü
     section: 1
   - order: 6
     type: image
-    src: /wp-content/uploads/2026/10/7.jpg
-    alt: Hol içindeki padel kortları, kort seviyesinden
-    section: 1
-  - order: 7
-    type: image
-    src: /wp-content/uploads/2026/10/8.jpg
-    alt: Kortların üzerindeki çelik çatı çerçeveleri ve yalıtımlı çatı panelleri
-    section: 1
-  - order: 8
-    type: image
-    src: /wp-content/uploads/2026/10/9.jpg
-    alt: Çatı planı, 37,1 m × 25,7 m, iki adet 4,33 m giriş saçağı
+    src: /wp-content/uploads/2026/10/1.jpg.jpeg
+    alt: İki saçaklı cam girişli ve Unix Padel Club tabelalı ön cephe
     section: 1
 ---
 

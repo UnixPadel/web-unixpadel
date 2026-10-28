@@ -34,43 +34,33 @@ specsIntro: Полностью закрытый падел-зал, в котор
 media:
   - order: 1
     type: image
-    src: /wp-content/uploads/2026/10/1.jpg
-    alt: Падел-зал из сэндвич-панелей, угловой вид фронтона и входного фасада
+    src: /wp-content/uploads/2026/10/3.jpg.jpeg
+    alt: Падел-зал из сэндвич-панелей, угловой вид фронтона и бокового входа
     section: 1
   - order: 2
     type: image
-    src: /wp-content/uploads/2026/10/2.jpg
-    alt: Длинный фасад с двумя крытыми остеклёнными входами
+    src: /wp-content/uploads/2026/10/6.jpg.jpeg
+    alt: Внутренний проход между крытыми падел-кортами под стальным каркасом
     section: 1
   - order: 3
     type: image
-    src: /wp-content/uploads/2026/10/3.jpg
-    alt: Фронтон и боковая стена с высокими окнами
+    src: /wp-content/uploads/2026/10/4.jpg.jpeg
+    alt: Длинный боковой фасад зала с прямоугольными окнами и утеплёнными панелями
     section: 1
   - order: 4
     type: image
-    src: /wp-content/uploads/2026/10/5.jpg
-    alt: Фасад фронтона с высотой конька 9,8 м
+    src: /wp-content/uploads/2026/10/5.jpg.jpeg
+    alt: Крытые падел-корты на уровне площадки с высоким двускатным потолком и освещением
     section: 1
   - order: 5
     type: image
-    src: /wp-content/uploads/2026/10/6.jpg
-    alt: Деталь входа с двустворчатой дверью и козырьком
+    src: /wp-content/uploads/2026/10/2.jpg.jpeg
+    alt: Фасад фронтона зала из сэндвич-панелей с логотипом Unix Padel
     section: 1
   - order: 6
     type: image
-    src: /wp-content/uploads/2026/10/7.jpg
-    alt: Падел-корты внутри зала на уровне площадки
-    section: 1
-  - order: 7
-    type: image
-    src: /wp-content/uploads/2026/10/8.jpg
-    alt: Стальные рамы кровли и утеплённые кровельные панели над кортами
-    section: 1
-  - order: 8
-    type: image
-    src: /wp-content/uploads/2026/10/9.jpg
-    alt: План кровли 37,1 м × 25,7 м с двумя входными козырьками по 4,33 м
+    src: /wp-content/uploads/2026/10/1.jpg.jpeg
+    alt: Главный фасад с двумя крытыми остеклёнными входами и вывеской Unix Padel Club
     section: 1
 ---
 

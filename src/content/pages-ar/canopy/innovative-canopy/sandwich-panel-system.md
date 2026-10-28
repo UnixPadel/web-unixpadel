@@ -34,43 +34,33 @@ specsIntro: صالة بادل مغلقة بالكامل تبقي الملاعب 
 media:
   - order: 1
     type: image
-    src: /wp-content/uploads/2026/10/1.jpg
-    alt: صالة بادل من ألواح ساندويتش، منظر زاوية للواجهة الجملونية وواجهة المدخل
+    src: /wp-content/uploads/2026/10/3.jpg.jpeg
+    alt: صالة بادل من ألواح ساندويتش، منظر زاوية للواجهة الجملونية والمدخل الجانبي
     section: 1
   - order: 2
     type: image
-    src: /wp-content/uploads/2026/10/2.jpg
-    alt: الواجهة الطويلة مع مدخلين مسقوفين ومزججين
+    src: /wp-content/uploads/2026/10/6.jpg.jpeg
+    alt: ممر داخلي بين ملاعب البادل المغطاة تحت الهيكل الفولاذي
     section: 1
   - order: 3
     type: image
-    src: /wp-content/uploads/2026/10/3.jpg
-    alt: الواجهة الجملونية والجدار الجانبي بنوافذ طويلة
+    src: /wp-content/uploads/2026/10/4.jpg.jpeg
+    alt: الواجهة الجانبية الطويلة للصالة مع نوافذ مستطيلة وألواح معزولة
     section: 1
   - order: 4
     type: image
-    src: /wp-content/uploads/2026/10/5.jpg
-    alt: الواجهة الجملونية بارتفاع قمة 9.8 م
+    src: /wp-content/uploads/2026/10/5.jpg.jpeg
+    alt: ملاعب البادل المغطاة من مستوى الملعب مع سقف جمالوني مرتفع وإضاءة
     section: 1
   - order: 5
     type: image
-    src: /wp-content/uploads/2026/10/6.jpg
-    alt: تفصيل المدخل مع باب مزدوج ومظلة
+    src: /wp-content/uploads/2026/10/2.jpg.jpeg
+    alt: الواجهة الجملونية لصالة ألواح الساندويتش مع شعار يونيكس بادل
     section: 1
   - order: 6
     type: image
-    src: /wp-content/uploads/2026/10/7.jpg
-    alt: ملاعب البادل داخل الصالة على مستوى الملعب
-    section: 1
-  - order: 7
-    type: image
-    src: /wp-content/uploads/2026/10/8.jpg
-    alt: إطارات السقف الفولاذية وألواح السقف المعزولة فوق الملاعب
-    section: 1
-  - order: 8
-    type: image
-    src: /wp-content/uploads/2026/10/9.jpg
-    alt: مخطط السقف، 37.1 م × 25.7 م مع مظلتي مدخل بعرض 4.33 م
+    src: /wp-content/uploads/2026/10/1.jpg.jpeg
+    alt: الواجهة الأمامية مع مدخلين زجاجيين مسقوفين ولافتة نادي يونيكس بادل
     section: 1
 ---
 

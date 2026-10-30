@@ -13,20 +13,25 @@ published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 ans d'Unixpadel : succès et étapes d'ingénierie"
   description: "10 ans d'Unixpadel : d'une vision audacieuse à des terrains de padel de classe mondiale dans 94 pays. Nous célébrons notre équipe et notre passion."
-  ogImage: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
+  ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
   - order: 1
     type: embed
-    src: https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y
+    src: https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0
     alt: null
     section: 1
   - order: 2
     type: image
+    src: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
+    alt: "10 ans d'Unixpadel"
+    section: 1
+  - order: 3
+    type: image
     src: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
     alt: "10 ans d'Unixpadel : l'équipe réunie sur le Bosphore"
     section: 1
-  - order: 3
+  - order: 4
     type: image
     src: /wp-content/uploads/2026/09/VRA09720-scaled.jpg
     alt: "Moments forts de la célébration des 10 ans d'Unixpadel"
@@ -41,7 +46,9 @@ Pour marquer cette étape historique, toute la famille Unixpadel s'est réunie l
 
 « Derrière chaque terrain, il y a de l'ingénierie. Dans chaque projet, il y a une solide expérience. Et surtout, derrière les 10 ans d'Unixpadel, il y a des personnes engagées : nos collaborateurs, notre équipe. »
 
-<iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y"></iframe>
+<div class="embed">
+  <iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0" title="10 ans d'Unixpadel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Revivez les temps forts : une soirée inoubliable sur le Bosphore pour célébrer 10 ans de passion partagée et d'esprit d'équipe.
 
@@ -52,6 +59,8 @@ Depuis dix ans, nous repoussons les limites de la performance structurelle et de
 ### Une soirée mémorable sur le Bosphore
 
 Les grandes étapes se partagent avec celles et ceux qui les rendent possibles. Sous les ponts emblématiques d'Istanbul, nos concepteurs, techniciens d'usine, chefs de projet et dirigeants se sont réunis pour célébrer l'élan collectif qui fait avancer Unixpadel chaque jour.
+
+![10 ans d'Unixpadel : l'équipe réunie sur le Bosphore](/wp-content/uploads/2026/09/VRA09923-scaled.jpg)
 
 ### Derrière chaque projet, des personnes
 

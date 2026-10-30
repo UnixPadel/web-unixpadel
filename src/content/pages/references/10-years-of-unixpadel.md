@@ -13,20 +13,25 @@ published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 Years of Unixpadel: Success & Engineering Milestones"
   description: "Discover 10 Years of Unixpadel: From a bold vision to building world-class padel courts in 94 countries, we celebrate our team, engineering, and passion."
-  ogImage: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
+  ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
   - order: 1
     type: embed
-    src: https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y
+    src: https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0
     alt: null
     section: 1
   - order: 2
     type: image
+    src: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
+    alt: 10 Years of Unixpadel
+    section: 1
+  - order: 3
+    type: image
     src: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
     alt: 10 Years of Unixpadel team celebration on the Bosphorus
     section: 1
-  - order: 3
+  - order: 4
     type: image
     src: /wp-content/uploads/2026/09/VRA09720-scaled.jpg
     alt: 10 Years of Unixpadel celebration moments
@@ -41,7 +46,9 @@ To honor this historic milestone, the entire Unixpadel family gathered for an un
 
 “Behind every court, there is engineering. In addition, within every project, there is deep experience. Above all, behind 10 Years of Unixpadel, there are dedicated people—our people, our team.”
 
-<iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y"></iframe>
+<div class="embed">
+  <iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0" title="10 Years of Unixpadel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Watch the highlights: An unforgettable evening on the Bosphorus honoring 10 years of shared passion and teamwork.
 
@@ -52,6 +59,8 @@ For ten years, we have pushed the boundaries of structural performance and padel
 ### A Night to Remember on the Bosphorus
 
 Furthermore, milestones are best shared with the ones who make them real. Under the iconic bridges of Istanbul, our designers, factory technicians, project managers, and executive leaders came together to celebrate the collective heartbeat that drives Unixpadel forward every single day.
+
+![10 Years of Unixpadel team celebration on the Bosphorus](/wp-content/uploads/2026/09/VRA09923-scaled.jpg)
 
 ### Behind Every Project, There Are People
 

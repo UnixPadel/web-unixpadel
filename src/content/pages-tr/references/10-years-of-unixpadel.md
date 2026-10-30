@@ -13,20 +13,25 @@ published: 2026-09-16T09:11:55+00:00
 seo:
   title: "Unixpadel'de 10 Yıl: Başarı ve Mühendislik Kilometre Taşları"
   description: "Unixpadel'in 10 yılı: cesur bir vizyondan 94 ülkede dünya standartlarında padel kortlarına uzanan yolculuğu, ekibimizi ve mühendisliğimizi kutluyoruz."
-  ogImage: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
+  ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
   - order: 1
     type: embed
-    src: https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y
+    src: https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0
     alt: null
     section: 1
   - order: 2
     type: image
+    src: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
+    alt: Unixpadel'in 10. Yılı
+    section: 1
+  - order: 3
+    type: image
     src: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
     alt: Unixpadel'in 10. yılı, Boğaz'da ekip kutlaması
     section: 1
-  - order: 3
+  - order: 4
     type: image
     src: /wp-content/uploads/2026/09/VRA09720-scaled.jpg
     alt: Unixpadel'in 10. yıl kutlamasından kareler
@@ -41,7 +46,9 @@ Bu tarihi dönüm noktasını onurlandırmak için tüm Unixpadel ailesi, Boğaz
 
 “Her kortun arkasında mühendislik vardır. Her projenin içinde derin bir tecrübe vardır. Ve hepsinden önemlisi, Unixpadel'in 10 yılının arkasında kendini işine adamış insanlar vardır: bizim insanlarımız, bizim ekibimiz.”
 
-<iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y"></iframe>
+<div class="embed">
+  <iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0" title="Unixpadel'in 10. Yılı" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Öne çıkan anları izleyin: 10 yıllık ortak tutkuyu ve takım ruhunu onurlandıran, Boğaz'da unutulmaz bir akşam.
 
@@ -52,6 +59,8 @@ On yıldır yapısal performansın ve padel kortu mimarisinin sınırlarını zo
 ### Boğaz'da Unutulmaz Bir Gece
 
 Kilometre taşları, en güzel onları gerçeğe dönüştürenlerle paylaşılır. İstanbul'un simgesi köprülerin altında tasarımcılarımız, fabrika teknisyenlerimiz, proje yöneticilerimiz ve üst yönetimimiz; Unixpadel'i her gün ileriye taşıyan ortak heyecanı kutlamak için bir araya geldi.
+
+![Unixpadel'in 10. yılı, Boğaz'da ekip kutlaması](/wp-content/uploads/2026/09/VRA09923-scaled.jpg)
 
 ### Her Projenin Arkasında İnsanlar Var
 

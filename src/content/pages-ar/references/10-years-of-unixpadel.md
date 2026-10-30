@@ -13,20 +13,25 @@ published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 سنوات من Unixpadel: محطات النجاح والتميّز الهندسي"
   description: "10 سنوات من Unixpadel: من رؤية جريئة إلى ملاعب بادل عالمية المستوى في 94 دولة. نحتفي بفريقنا وهندستنا وشغفنا."
-  ogImage: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
+  ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
   - order: 1
     type: embed
-    src: https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y
+    src: https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0
     alt: null
     section: 1
   - order: 2
     type: image
+    src: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
+    alt: 10 سنوات من Unixpadel
+    section: 1
+  - order: 3
+    type: image
     src: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
     alt: فريق Unixpadel يحتفل بمرور 10 سنوات على ضفاف البوسفور
     section: 1
-  - order: 3
+  - order: 4
     type: image
     src: /wp-content/uploads/2026/09/VRA09720-scaled.jpg
     alt: لحظات من احتفال Unixpadel بمرور 10 سنوات
@@ -41,7 +46,9 @@ legacyUrls:
 
 «وراء كل ملعب هندسة، وفي كل مشروع خبرة عميقة. وفوق كل ذلك، وراء 10 سنوات من Unixpadel أشخاص مخلصون — أهلنا، وفريقنا.»
 
-<iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y"></iframe>
+<div class="embed">
+  <iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0" title="10 سنوات من Unixpadel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 شاهد أبرز اللحظات: أمسية لا تُنسى على البوسفور احتفاءً بعشر سنوات من الشغف المشترك والعمل الجماعي.
 
@@ -52,6 +59,8 @@ legacyUrls:
 ### ليلة لا تُنسى على البوسفور
 
 تكتمل فرحة الإنجازات حين نتقاسمها مع من صنعوها. فتحت جسور إسطنبول الشهيرة، اجتمع مصممونا وفنيو مصنعنا ومديرو مشاريعنا وقياداتنا التنفيذية للاحتفاء بالنبض الجماعي الذي يدفع Unixpadel إلى الأمام كل يوم.
+
+![فريق Unixpadel يحتفل بمرور 10 سنوات على ضفاف البوسفور](/wp-content/uploads/2026/09/VRA09923-scaled.jpg)
 
 ### وراء كل مشروع أشخاص
 

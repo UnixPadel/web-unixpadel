@@ -13,20 +13,25 @@ published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 Jahre Unixpadel: Erfolge und technische Meilensteine"
   description: "10 Jahre Unixpadel: von einer mutigen Vision zu Padelplätzen auf Weltniveau in 94 Ländern. Wir feiern unser Team, unsere Technik und unsere Leidenschaft."
-  ogImage: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
+  ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
   - order: 1
     type: embed
-    src: https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y
+    src: https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0
     alt: null
     section: 1
   - order: 2
     type: image
+    src: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
+    alt: 10 Jahre Unixpadel
+    section: 1
+  - order: 3
+    type: image
     src: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
     alt: Das Unixpadel-Team feiert 10 Jahre Unixpadel auf dem Bosporus
     section: 1
-  - order: 3
+  - order: 4
     type: image
     src: /wp-content/uploads/2026/09/VRA09720-scaled.jpg
     alt: Momente der Jubiläumsfeier 10 Jahre Unixpadel
@@ -41,7 +46,9 @@ Um diesen historischen Meilenstein zu würdigen, kam die gesamte Unixpadel-Famil
 
 „Hinter jedem Platz steht Ingenieurskunst. In jedem Projekt steckt tiefe Erfahrung. Und hinter 10 Jahren Unixpadel stehen engagierte Menschen – unsere Mitarbeiter, unser Team.“
 
-<iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y"></iframe>
+<div class="embed">
+  <iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0" title="10 Jahre Unixpadel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Die Highlights im Video: ein unvergesslicher Abend auf dem Bosporus zu Ehren von 10 Jahren gemeinsamer Leidenschaft und Teamarbeit.
 
@@ -52,6 +59,8 @@ Seit zehn Jahren erweitern wir die Grenzen der statischen Leistungsfähigkeit un
 ### Ein unvergesslicher Abend auf dem Bosporus
 
 Meilensteine teilt man am besten mit denen, die sie möglich machen. Unter den markanten Brücken Istanbuls kamen unsere Designer, Fertigungstechniker, Projektleiter und Führungskräfte zusammen, um den gemeinsamen Herzschlag zu feiern, der Unixpadel jeden Tag antreibt.
+
+![Das Unixpadel-Team feiert 10 Jahre Unixpadel auf dem Bosporus](/wp-content/uploads/2026/09/VRA09923-scaled.jpg)
 
 ### Hinter jedem Projekt stehen Menschen
 

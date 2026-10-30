@@ -135,6 +135,15 @@
   background: var(--navy-900);
 }
 
+.prose iframe {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-2);
+}
+
 .prose .embed {
   position: relative;
   aspect-ratio: 16 / 9;

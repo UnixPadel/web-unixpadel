@@ -13,20 +13,25 @@ published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 лет Unixpadel: успех и инженерные достижения"
   description: "10 лет Unixpadel: от смелой идеи до падел-кортов мирового уровня в 94 странах. Отмечаем вклад команды, инженерную школу и нашу страсть к делу."
-  ogImage: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
+  ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
   - order: 1
     type: embed
-    src: https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y
+    src: https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0
     alt: null
     section: 1
   - order: 2
     type: image
+    src: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
+    alt: 10 лет Unixpadel
+    section: 1
+  - order: 3
+    type: image
     src: /wp-content/uploads/2026/09/VRA09923-scaled.jpg
     alt: Команда Unixpadel отмечает 10-летие на Босфоре
     section: 1
-  - order: 3
+  - order: 4
     type: image
     src: /wp-content/uploads/2026/09/VRA09720-scaled.jpg
     alt: Моменты празднования 10-летия Unixpadel
@@ -41,7 +46,9 @@ legacyUrls:
 
 «За каждым кортом стоит инженерия. В каждом проекте — глубокий опыт. Но прежде всего за 10 годами Unixpadel стоят преданные делу люди — наши люди, наша команда».
 
-<iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?si=0O069Hirg-mP216Y"></iframe>
+<div class="embed">
+  <iframe src="https://www.youtube.com/embed/zkEOM0pYXpc?autoplay=1&mute=1&playsinline=1&rel=0" title="10 лет Unixpadel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Смотрите лучшие моменты: незабываемый вечер на Босфоре в честь 10 лет общей увлечённости и командной работы.
 
@@ -52,6 +59,8 @@ legacyUrls:
 ### Незабываемый вечер на Босфоре
 
 Важными событиями лучше всего делиться с теми, кто делает их реальностью. Под знаменитыми мостами Стамбула собрались наши дизайнеры, технические специалисты завода, руководители проектов и топ-менеджмент, чтобы отпраздновать общий ритм, который каждый день движет Unixpadel вперёд.
+
+![Команда Unixpadel отмечает 10-летие на Босфоре](/wp-content/uploads/2026/09/VRA09923-scaled.jpg)
 
 ### За каждым проектом стоят люди
 

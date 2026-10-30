@@ -59,6 +59,9 @@ define('UPX_SHELL_PATH', '#^(?:/(?:tr|de|fr|ar|ru))?/upx-shell(?:/|$)#i');
 // post type is registered before upx_maybe_serve runs (both on init, priority 0).
 require_once __DIR__ . '/includes/refs-render.php';
 require_once __DIR__ . '/includes/refs-store.php';
+require_once __DIR__ . '/includes/refs-ai.php';
+require_once __DIR__ . '/includes/class-upx-ig-extractor.php';
+require_once __DIR__ . '/includes/refs-ig.php';
 // Updates from GitHub (signed REST call, hourly cron, settings section): loaded on every request.
 require_once __DIR__ . '/includes/github-deploy.php';
 if (is_admin()) {
@@ -514,7 +517,7 @@ function upx_uninstall() {
 	delete_option(UPX_OPT_QUOTE_TO); // saved quote requests stay (Quote requests → Trash to remove them)
 	delete_option(UPX_OPT_QUOTE_TO_LEGACY);
 	delete_option(UPX_OPT_REFS);     // references stay as posts; the index is rebuilt when the plugin comes back
-	foreach (array(UPX_OPT_GH_REPO, UPX_OPT_GH_TOKEN, UPX_OPT_DEPLOY_SECRET, UPX_OPT_DEPLOY_AUTO, UPX_OPT_DEPLOY_LOG, UPX_OPT_DEPLOY_PREVIOUS) as $option) {
+	foreach (array(UPX_OPT_GH_REPO, UPX_OPT_GH_TOKEN, UPX_OPT_DEPLOY_SECRET, UPX_OPT_DEPLOY_AUTO, UPX_OPT_DEPLOY_LOG, UPX_OPT_DEPLOY_PREVIOUS, UPX_OPT_GEMINI_KEY, UPX_OPT_GEMINI_MODEL, UPX_OPT_AI_AUTO_TRANSLATE) as $option) {
 		delete_option($option);
 	}
 	wp_clear_scheduled_hook(UPX_DEPLOY_CRON);
@@ -542,6 +545,23 @@ function upx_register_setting() {
 		'sanitize_callback' => function ($value) {
 			$emails = upx_parse_emails($value);
 			return $emails ? implode(', ', $emails) : UPX_QUOTE_TO_DEFAULT;
+		},
+	));
+	register_setting('upx_static', UPX_OPT_GEMINI_KEY, array(
+		'type'              => 'string',
+		'default'           => UPX_DEFAULT_GEMINI_KEY,
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	register_setting('upx_static', UPX_OPT_GEMINI_MODEL, array(
+		'type'              => 'string',
+		'default'           => UPX_DEFAULT_GEMINI_MODEL,
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	register_setting('upx_static', UPX_OPT_AI_AUTO_TRANSLATE, array(
+		'type'              => 'string',
+		'default'           => '1',
+		'sanitize_callback' => function ($value) {
+			return $value === '1' ? '1' : '0';
 		},
 	));
 }
@@ -579,6 +599,56 @@ function upx_settings_page() {
 			<p class="description">Every request is also saved under <a href="<?php echo esc_url(admin_url('edit.php?post_type=' . UPX_QUOTE_POST_TYPE)); ?>">Quote requests</a>
 				(<?php echo (int) wp_count_posts(UPX_QUOTE_POST_TYPE)->private; ?> so far), so none is lost if an email does not arrive.
 				If mails land in spam or never arrive, configure an SMTP plugin (e.g. WP Mail SMTP) for this site.</p>
+			<h2>AI & Translation (Google Gemini)</h2>
+			<p>Used to write English reference drafts from short notes and translate references to <strong>Turkish, German, French, Arabic, and Russian</strong> with a single click or automatically on publish.</p>
+			<table class="form-table" role="presentation">
+				<tr>
+					<th scope="row"><label for="upx-gemini-key">Gemini API Key</label></th>
+					<td>
+						<?php if (defined('UPX_GEMINI_KEY')) : ?>
+							<p>Configured in <code>wp-config.php</code> (UPX_GEMINI_KEY).</p>
+						<?php else : ?>
+							<input type="password" id="upx-gemini-key" class="large-text code" name="<?php echo esc_attr(UPX_OPT_GEMINI_KEY); ?>" value="<?php echo esc_attr(upx_gemini_key()); ?>" autocomplete="off">
+						<?php endif; ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="upx-gemini-model">Gemini Model</label></th>
+					<td>
+						<select id="upx-gemini-model" name="<?php echo esc_attr(UPX_OPT_GEMINI_MODEL); ?>">
+							<?php
+							$cur_model = upx_gemini_model();
+							$models = array(
+								'gemini-3.5-flash-lite' => 'gemini-3.5-flash-lite (Fast & Recommended)',
+								'gemini-3.5-flash'      => 'gemini-3.5-flash (Balanced)',
+								'gemini-2.5-flash'      => 'gemini-2.5-flash (Standard)',
+								'gemini-flash-latest'   => 'gemini-flash-latest (Latest alias)',
+							);
+							foreach ($models as $val => $lbl) {
+								printf('<option value="%s"%s>%s</option>', esc_attr($val), selected($cur_model, $val, false), esc_html($lbl));
+							}
+							?>
+						</select>
+						<p class="description">Automatic fallback to alternative models is enabled if Google returns temporary 503 or 404.</p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">Automatic translation</th>
+					<td>
+						<label>
+							<input type="checkbox" name="<?php echo esc_attr(UPX_OPT_AI_AUTO_TRANSLATE); ?>" value="1" <?php checked(upx_ai_auto_translate_enabled()); ?>>
+							Automatically translate missing languages (TR, DE, FR, AR, RU) when clicking Publish or Save Draft
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">Connection test</th>
+					<td>
+						<button type="button" class="button" id="upx-test-gemini" data-nonce="<?php echo esc_attr(wp_create_nonce('upx_ai_test')); ?>">Test Gemini connection</button>
+						<span id="upx-test-gemini-result" style="margin-left:8px"></span>
+					</td>
+				</tr>
+			</table>
 			<?php submit_button('Save settings'); ?>
 		</form>
 		<?php if ($mode === 'preview') : ?>

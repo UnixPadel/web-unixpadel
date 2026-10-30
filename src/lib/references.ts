@@ -30,29 +30,40 @@ export async function menuLabelOf(url: string, lang: Lang): Promise<string> {
 // Court types named in a project's English title/description (else the opening of its body). Most project texts
 // never link to the product page, so links alone miss them. Specific names come before the generic ones they contain.
 const COURT_WORDS: [RegExp, string][] = [
+  // Specific / compound court models first
+  [/single[\s-]full[\s-]panoramic/i, '/single-full-panoramic-padel-court/'],
+  [/single[\s-]panoramic/i, '/single-panoramic-padel-court/'],
   [/full[\s-]panoramic/i, '/full-panoramic-padel-court/'],
   [/panoramic plate/i, '/panaromic-plate-padel-court/'],
-  [/\bplate\b/i, '/plate-standard-padel-court/'],
+  [/\bplate standard\b|\bplate\b/i, '/plate-standard-padel-court/'],
   [/panoramic/i, '/panoramic-padel-court/'],
+  [/wp[\s-]challenge/i, '/wp-challenge-padel-court/'],
+  [/padel[\s-]court[\s-]cover/i, '/padel-court-cover/'],
+  [/portable/i, '/portable-padel-court/'],
   [/flat[\s-]floor/i, '/innovative-courts/flat-floor-padel-court/'],
   [/floating/i, '/floating-floor-padel-court/'],
   [/mobil\s?fold/i, '/mobilfold-padel-court/'],
   [/standard (?:padel )?courts?/i, '/standard-padel-court/'],
   [/single (?:padel )?courts?/i, '/single-padel-court/'],
+  [/padbol/i, '/padbols/'],
+  [/pickleball/i, '/our-courts/pickleball-court/'],
+  // Canopy / Cover systems
   [/membrane/i, '/full-membrane-cover/'],
   [/sandwich[\s-]panel/i, '/sandwich-panel-full-covered/'],
   [/retractable/i, '/retractable-roof-cover-system/'],
   [/roof[\s-]?top/i, '/roof-top-canopy/'],
   [/half[\s–-]+close/i, '/half-close-canopy/'],
-  [/pickleball/i, '/our-courts/pickleball-court/'],
 ];
 /** Product pages a project can name as its court type (the WordPress reference editor offers these). */
 export const COURT_TYPE_URLS = [...new Set(COURT_WORDS.map(([, url]) => url))];
 
 // A specific match makes its generic sibling redundant ("Full Panoramic" already says "Panoramic").
 const COVERS: Record<string, string[]> = {
+  '/single-full-panoramic-padel-court/': ['/single-padel-court/', '/single-panoramic-padel-court/', '/panoramic-padel-court/', '/full-panoramic-padel-court/'],
+  '/single-panoramic-padel-court/': ['/single-padel-court/', '/panoramic-padel-court/'],
   '/full-panoramic-padel-court/': ['/panoramic-padel-court/'],
   '/panaromic-plate-padel-court/': ['/panoramic-padel-court/', '/plate-standard-padel-court/'],
+  '/plate-standard-padel-court/': ['/standard-padel-court/'],
 };
 
 function namedCourts(en: Page): string[] {

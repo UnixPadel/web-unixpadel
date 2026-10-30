@@ -1,4 +1,4 @@
-// Site-wide data that is not part of the scraped content (contact details, offices, social links, stats).
+﻿// Site-wide data that is not part of the scraped content (contact details, offices, social links, stats).
 // Addresses and numbers mirror the live contact page as of 2026-10-01.
 
 export const SITE = {
@@ -87,14 +87,9 @@ export const SITE = {
   ],
 } as const;
 
-// Tracking tags the old WordPress site printed (Site Kit / WPCode / theme hooks), copied 2026-10-15. Rendered by
-// src/components/Analytics.astro in production builds only.
+// Search Console verification tag and Google Tag Manager container ID.
 export const TRACKING = {
-  ga4: 'G-7FZMGNSMLZ',
-  googleAds: 'AW-16529251966',
-  // "MDM - Sayfa Görüntüleme" conversion, sent on every page view.
-  adsPageView: 'AW-16529251966/E4JGCNCMu84ZEP684ck9',
-  metaPixel: '1246409712666569',
+  gtmId: 'GTM-WFKTCNC4',
   googleSiteVerification: 'nCVyt-yTQVCrQkloc9QqfAs3d20osGhIiNlg809B2bw',
 } as const;
 

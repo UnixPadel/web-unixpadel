@@ -69,23 +69,29 @@ add_action('after_setup_theme', 'upx_reference_thumbnails', 99);
 /* ---------- Fields ---------- */
 
 function upx_ref_meta($id) {
-	$m = get_post_meta($id, UPX_META_REF, true);
-	$m = is_array($m) ? $m : array();
+	$m     = get_post_meta($id, UPX_META_REF, true);
+	$m     = is_array($m) ? $m : array();
+	$is_ig = get_post_meta($id, '_source', true) === 'instagram';
+	$kind  = isset($m['kind']) ? (string) $m['kind'] : ($is_ig ? '' : 'project');
+	if ($kind !== 'news' && $kind !== 'project') {
+		$kind = $is_ig ? '' : 'project';
+	}
 	return array(
-		'country'   => isset($m['country']) ? (string) $m['country'] : '',
-		'types'     => isset($m['types']) && is_array($m['types']) ? array_values($m['types']) : array(),
-		'seo_title' => isset($m['seo_title']) ? (string) $m['seo_title'] : '',
-		'seo_desc'  => isset($m['seo_desc']) ? (string) $m['seo_desc'] : '',
+		'country'         => isset($m['country']) ? (string) $m['country'] : '',
+		'types'           => isset($m['types']) && is_array($m['types']) ? array_values($m['types']) : array(),
+		'seo_title'       => isset($m['seo_title']) ? (string) $m['seo_title'] : '',
+		'seo_desc'        => isset($m['seo_desc']) ? (string) $m['seo_desc'] : '',
+		'focus_keyphrase' => isset($m['focus_keyphrase']) ? (string) $m['focus_keyphrase'] : '',
 		// attachment IDs; imported references may also hold /wp-content/… paths of photos not in the media library
-		'gallery'   => isset($m['gallery']) && is_array($m['gallery']) ? array_values(array_map(function ($g) {
+		'gallery'         => isset($m['gallery']) && is_array($m['gallery']) ? array_values(array_map(function ($g) {
 			return is_numeric($g) ? (int) $g : (string) $g;
 		}, $m['gallery'])) : array(),
-		'kind'      => isset($m['kind']) && $m['kind'] === 'news' ? 'news' : 'project',
+		'kind'            => $kind,
 		// imported references keep the order of the built list (unix time; new ones sort by their date)
-		'sort'      => isset($m['sort']) ? (int) $m['sort'] : 0,
+		'sort'            => isset($m['sort']) ? (int) $m['sort'] : 0,
 		// imported main photo that is not in the media library (a /wp-content/… path), used until a Main photo is set
-		'image_url' => isset($m['image_url']) ? (string) $m['image_url'] : '',
-		'image_alt' => isset($m['image_alt']) ? (string) $m['image_alt'] : '',
+		'image_url'       => isset($m['image_url']) ? (string) $m['image_url'] : '',
+		'image_alt'       => isset($m['image_alt']) ? (string) $m['image_alt'] : '',
 	);
 }
 
@@ -233,7 +239,7 @@ function upx_ref_entry($post, $autosave = null) {
 	return array(
 		'id'       => (int) $post->ID,
 		'slug'     => $slug !== '' ? $slug : 'reference-' . $post->ID,
-		'kind'     => $meta['kind'],
+		'kind'     => $meta['kind'] === 'news' ? 'news' : 'project',
 		'sort'     => $meta['sort'] ? $meta['sort'] : $date,
 		'date'     => $date,
 		'modified' => (int) get_post_modified_time('U', true, $post),

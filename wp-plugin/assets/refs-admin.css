@@ -86,3 +86,358 @@
 .upx-pages__none {
 	color: #646970;
 }
+
+/* AI Assistant & Instagram Import Tabs */
+.upx-ai-box {
+	background: #f6f7f7;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 12px 14px;
+}
+.upx-ai-tabs {
+	display: flex;
+	gap: 4px;
+	border-bottom: 1px solid #c3c4c7;
+	margin: -12px -14px 12px -14px;
+	padding: 8px 12px 0;
+	background: #fff;
+	border-radius: 4px 4px 0 0;
+}
+.upx-ai-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 7px 14px;
+	border: 1px solid transparent;
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+	background: transparent;
+	color: #50575e;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-bottom: -1px;
+}
+.upx-ai-tab:hover {
+	color: #135e96;
+	background: #f0f6fc;
+}
+.upx-ai-tab.is-active {
+	background: #f6f7f7;
+	border-color: #c3c4c7;
+	color: #1d2327;
+}
+.upx-ai-tab .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+.upx-ai-pane {
+	display: none;
+}
+.upx-ai-pane.is-active {
+	display: block;
+}
+.upx-ig-url-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin: 8px 0;
+}
+.upx-ig-url-bar input[type="url"] {
+	flex: 1 1 320px;
+	max-width: 560px;
+}
+
+/* Preview / Approval Step */
+.upx-ig-preview {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #dcdcde;
+}
+.upx-ig-banner {
+	padding: 8px 12px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	font-size: 13px;
+	font-weight: 500;
+}
+.upx-ig-banner.is-success {
+	background: #edfaef;
+	border: 1px solid #00a32a;
+	color: #005c12;
+}
+.upx-ig-banner.is-warning {
+	background: #fcf9e8;
+	border: 1px solid #dba617;
+	color: #614200;
+}
+.upx-ig-preview__field {
+	margin-bottom: 12px;
+}
+.upx-ig-tray-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-bottom: 6px;
+}
+.upx-ig-tray {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 8px 0;
+	padding: 0;
+	list-style: none;
+}
+.upx-ig-tray li {
+	position: relative;
+	width: 124px;
+	height: 148px;
+	margin: 0;
+	border: 2px solid #c3c4c7;
+	border-radius: 4px;
+	background: #fff;
+	overflow: hidden;
+	cursor: move;
+	display: flex;
+	flex-direction: column;
+}
+.upx-ig-tray li.is-cover {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+.upx-ig-tray li img {
+	width: 100%;
+	height: 116px;
+	object-fit: cover;
+	display: block;
+}
+.upx-ig-tray__cover-btn {
+	width: 100%;
+	height: 32px;
+	border: 0;
+	border-top: 1px solid #dcdcde;
+	background: #f6f7f7;
+	color: #2271b1;
+	font-size: 11px;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 0 4px;
+}
+.upx-ig-tray__cover-btn:hover {
+	background: #f0f6fc;
+}
+.upx-ig-tray__cover-btn.is-active {
+	background: #2271b1;
+	color: #fff;
+}
+.upx-ig-tray__remove {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.72);
+	color: #fff;
+	line-height: 22px;
+	cursor: pointer;
+	font-size: 14px;
+}
+.upx-ig-tray__video-badge {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	background: rgba(179, 45, 46, 0.9);
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	padding: 2px 5px;
+	border-radius: 3px;
+}
+
+.upx-ai-box textarea {
+	font-size: 13px;
+	line-height: 1.5;
+	border-color: #8c8f94;
+}
+.upx-ai-actions {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.upx-ai-status {
+	font-size: 13px;
+	color: #50575e;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+.upx-ai-status.is-loading::before {
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid #2271b1;
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: upx-spin 0.7s linear infinite;
+}
+.upx-ai-status.is-success {
+	color: #007017;
+	font-weight: 600;
+}
+.upx-ai-status.is-error {
+	color: #d63638;
+	font-weight: 600;
+}
+@keyframes upx-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* Phase 5 & 6: AI Suggestions, Stale Content Bar & Publish Gate */
+.upx-ig-source-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px;
+	background: #f0f6fc;
+	border: 1px solid #c5d9ed;
+	border-radius: 4px;
+	padding: 8px 12px;
+	margin-bottom: 12px;
+}
+.upx-ig-source-bar__info {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+}
+.upx-ig-missing-box {
+	background: #fcf9e8;
+	border-left: 4px solid #dba617;
+	padding: 8px 12px;
+	margin-bottom: 12px;
+	font-size: 12.5px;
+}
+.upx-ig-missing-box ul {
+	margin: 4px 0 0 18px;
+	list-style: disc;
+}
+.upx-ig-missing-box li {
+	margin-bottom: 2px;
+}
+.upx-ig-stale-bar {
+	background: #fcf0f1;
+	border: 1px solid #d63638;
+	border-left-width: 4px;
+	border-radius: 4px;
+	padding: 10px 12px;
+	margin-bottom: 14px;
+}
+.upx-ig-stale-bar__text {
+	font-size: 13px;
+	margin-bottom: 8px;
+	color: #1d2327;
+}
+.upx-ig-stale-bar__actions {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.upx-req {
+	color: #d63638;
+	font-weight: 700;
+}
+.upx-ai-suggestion {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-left: 8px;
+	padding: 2px 8px;
+	background: #f0f6fc;
+	border: 1px solid #c5d9ed;
+	border-radius: 12px;
+	font-size: 12px;
+	color: #1d2327;
+}
+.upx-ai-suggestion--none {
+	background: #f6f7f7;
+	border-color: #dcdcde;
+	color: #646970;
+}
+.upx-ai-conf {
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: 1px 5px;
+	border-radius: 3px;
+}
+.upx-ai-conf--high {
+	background: #edfaef;
+	color: #007017;
+}
+.upx-ai-conf--medium {
+	background: #fcf9e8;
+	color: #996800;
+}
+.upx-ai-conf--low {
+	background: #fcf0f1;
+	color: #b32d2e;
+}
+.upx-apply-single {
+	font-weight: 600;
+	text-decoration: none;
+}
+.upx-ig-publish-gate {
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 10px 12px;
+	margin-bottom: 10px;
+	font-size: 12.5px;
+}
+.upx-ig-checklist {
+	margin: 6px 0 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	gap: 4px 12px;
+}
+.upx-ig-checklist li.is-ok {
+	color: #007017;
+	font-weight: 600;
+}
+.upx-ig-checklist li.is-pending {
+	color: #b32d2e;
+	font-weight: 600;
+}
+#publish.upx-publish-locked {
+	opacity: 0.65;
+}
+
+.upx-ref__ai-bar {
+	background: #f0f6fc;
+	border: 1px solid #cce5ff;
+	border-radius: 4px;
+	padding: 10px 12px;
+}
+.upx-ref__advanced-seo {
+	background: #fafafa;
+	border: 1px solid #e2e4e7;
+	border-radius: 4px;
+	padding: 8px 12px;
+	cursor: pointer;
+}
+.upx-ref__advanced-seo summary {
+	font-size: 13px;
+	outline: none;
+}

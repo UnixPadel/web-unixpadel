@@ -272,6 +272,20 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
         const json = await res.json().catch(() => null);
         if (!res.ok || !json?.ok) throw new Error(String(res.status));
         say(msg.sent, 'sent');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'quote_submit',
+          user_data: {
+            email: data.email,
+            phone_number: data.phone,
+          },
+          lead: {
+            country: data.country,
+            project_type: data.projectType,
+            product: data.product,
+            language: data.lang,
+          },
+        });
         form.reset();
         clearErrors();
         mailFallback.hidden = true;
@@ -329,7 +343,10 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
           ? `mailto:${form.dataset.email}?subject=${encodeURIComponent(msg.subject)}&body=${encodeURIComponent(text)}`
           : `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(text)}`;
       say(channel === 'email' ? msg.openingMail : msg.openingWa);
-      if (channel !== 'email') document.dispatchEvent(new Event('upx:whatsapp')); // Ads conversion (Analytics.astro)
+      if (channel === 'whatsapp') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'whatsapp_click' });
+      }
       window.open(url, channel === 'email' ? '_self' : '_blank', 'noopener');
     });
   }

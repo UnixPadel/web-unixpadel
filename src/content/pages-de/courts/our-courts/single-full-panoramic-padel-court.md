@@ -16,22 +16,28 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.53.34.jpeg#1287
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Spielfeldmaße
-    value: Innere Spielfläche 20.00m (Länge) x 6.00m (Breite).
+  - label: Fundamentfläche
+    value: 7m x 21m Stahlbeton-Fundamentfläche
+  - label: Spielfläche
+    value: 6m x 20m FIP-Standard-Einzelspielfläche
   - label: Konstruktion
-    value: Pfosten 100x50x3 mm, an den Ecken elektroverschweißt und mit Spreizdübeln verankert.
-  - label: Gitterpaneele
-    value: Elektrogeschweißtes Gitter 50x50x4 mm, in die Konstruktion integriert.
+    value: 100x50x3mm Stahlstützen, mit Fußplatten verschweißt oder verschraubt
+  - label: Sekundärprofile
+    value: 80x40x3mm Sekundär-Stahlprofile
+  - label: Träger
+    value: RHS 100x50x2mm (Glasbereich) und RHS 80x40x3mm Stahlträger
   - label: Glaswände
-    value: Hochwertiges 12 mm Einscheibensicherheitsglas (ESG), konform mit EN 12150-1.
-  - label: Kunstrasen-Optionen
-    value: Monofilament- oder texturierter Kunstrasen mit Quarzsand-Verfüllung.
-  - label: Beleuchtungssystem
-    value: 200W-LED-Flutlichtstrahler mit 26,000 Lumen pro Leuchte.
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Gitterpaneele
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
   - label: Lichtmasten
-    value: Gerade T-Form, geschwungene K-Form oder ovale D-Form.
+    value: RHS 60x40x3mm und RHS 60x60x5mm Stahl-Lichtmasten
   - label: Oberfläche
-    value: Pulverbeschichtete, galvanisch verzinkte Oberfläche, optional feuerverzinkt für maximalen Korrosionsschutz.
+    value: Feuerverzinkung + elektrostatische Pulverbeschichtung
 specsIntro: Jede Komponente ist nach internationalen Standards für Sicherheit, Langlebigkeit und turniertaugliches Spiel konstruiert.
 media:
   - order: 1

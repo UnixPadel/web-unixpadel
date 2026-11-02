@@ -46,6 +46,25 @@ media:
     src: /wp-content/uploads/2026/05/HANGAR.mp4
     alt: null
     section: 3
+specs:
+  - label: Main Pillars
+    value: HEA structural steel profiles
+  - label: Beams
+    value: IPE structural steel beams
+  - label: Purlins
+    value: RHS structural steel purlins
+  - label: Braces & Truss
+    value: RHS reinforced structural steel braces
+  - label: Cover Type
+    value: Insulated PIR/PUR sandwich panels (60–100 mm)
+  - label: Snow Load
+    value: 150 kg/m² (1.50 kN/m²) horizontal projection
+  - label: Wind Load
+    value: 75–110 km/h wind resistance
+  - label: Rain Load
+    value: 60 m³ drainage capacity
+  - label: Maximum Height
+    value: 9m peak clearance height
 ---
 
 A fully enclosed, steel-framed padel court system engineered with insulated sandwich panels  delivering year-round comfort, superior thermal performance, and a durable, weather-resistant structure.

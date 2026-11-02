@@ -22,22 +22,28 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Gesamtrahmen
-    value: Stahlrahmen 100x50x3mm
-  - label: Bodenauflager
-    value: U-Profil 50x100x2.5mm
-  - label: Dreiecksstützen
-    value: 100x50x2.5mm
-  - label: Flanschmaße
-    value: 200x100x10mm
-  - label: Rechteckprofil
-    value: 200x50x4mm
-  - label: Verbindungstechnik
-    value: Nahtlos ineinandergreifende Schiebeverbindungen
-  - label: Glaspaneele
-    value: Hoch stoßfestes Einscheibensicherheitsglas (ESG), 10-12mm
-  - label: Stahlgitter
-    value: Elektrogeschweißt, 100x50x3mm
+  - label: Fundamentfläche
+    value: Kein Fundament erforderlich (freistehendes modulares System)
+  - label: Spielfläche
+    value: 10m x 20m Standard-Spielfläche (200 m²)
+  - label: Hauptprofile
+    value: 100x100x3mm hochbelastbare Stahlprofile
+  - label: Sekundärprofile
+    value: 100x50x3mm Stahlprofile
+  - label: Träger
+    value: 100x50x3mm (Längsseite) und 100x100x3mm (Querseite)
+  - label: Glaswände
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Gitterpaneele
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 150W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
+  - label: Lichtmasten
+    value: RHS 60x40x3mm und RHS 60x60x5mm Stahl-Lichtmasten
+  - label: Verbindungen
+    value: Präzise ineinandergreifende Schiebeverbindungen
 specsIntro: Mit Präzision und Blick auf Langlebigkeit gebaut – für intensives Spiel und raue Bedingungen im Freien.
 media:
   - order: 1

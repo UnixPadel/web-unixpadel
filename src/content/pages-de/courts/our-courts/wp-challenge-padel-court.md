@@ -69,7 +69,7 @@ faq:
   - q: Was macht den WP Challenge Padelplatz besonders windbeständig?
     a: Er verfügt über verstärkte Eckpfosten aus Stahlrohr 100x50x3mm, eine Drei-Pfosten-Rahmenkonstruktion und eine von der İTÜ zertifizierte Windlastklasse B (0.42 kN/m²).
   - q: Welche Maße und Fundamentanforderungen hat der WP Challenge Platz?
-    a: Die innere Spielfläche misst 20.00m x 10.00m, das empfohlene Betonfundament 20.80m x 10.80m.
+    a: Die innere Spielfläche misst 20.00m x 10.00m, das empfohlene Betonfundament 21m x 11m.
   - q: Ist der Kunstrasen FIP-zugelassen?
     a: Ja. Alle WP Challenge Padelplätze von Unixpadel sind mit offiziell FIP-zugelassenem Kunstrasen für das Spiel auf Turnierniveau ausgestattet.
   - q: Wurde der WP Challenge Platz unabhängig statisch geprüft?
@@ -119,7 +119,7 @@ Wissenschaftliche Institutionen haben unsere Konstruktion eingehend auf ihre Wid
 
 - Offiziell FIP-zugelassener Kunstrasen für authentisches Absprungverhalten und Griffigkeit.
 - Innere Spielfeldmaße 20.00m x 10.00m.
-- Empfohlene Betonfundamentfläche 20.80m x 10.80m.
+- Empfohlene Betonfundamentfläche 21m x 11m.
 
 ### Weltweite Projekte
 

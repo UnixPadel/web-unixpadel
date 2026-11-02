@@ -46,6 +46,27 @@ media:
     src: /wp-content/uploads/2025/08/WhatsApp-Image-2025-08-01-at-16.55.47.jpeg
     alt: ""
     section: 2
+specs:
+  - label: Основные стойки
+    value: RHS 100x100x3mm (короткая сторона) и RHS 150x100x4mm (длинная сторона)
+  - label: Фермы
+    value: Фермы из профиля RHS 50x50x2.5mm
+  - label: Балки
+    value: Стальные балки RHS 120x80x3mm
+  - label: Связи
+    value: Кровельные связи 120x80x3mm
+  - label: Тип покрытия
+    value: Двухслойная огнестойкая ПВХ-мембрана 650 г/м²
+  - label: Снеговая нагрузка
+    value: 80 kg/m²
+  - label: Ветровая нагрузка
+    value: 100 km/h
+  - label: Дождевая нагрузка
+    value: 60 m³
+  - label: Максимальная высота
+    value: 9.5m
+  - label: Привод
+    value: Автоматический электромоторный рельсовый привод
 ---
 
 #### 3. Производство и сварка

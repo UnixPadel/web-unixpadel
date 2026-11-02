@@ -46,6 +46,25 @@ media:
     src: /wp-content/uploads/2026/05/HANGAR.mp4
     alt: null
     section: 3
+specs:
+  - label: Piliers principaux
+    value: Profilés acier HEA
+  - label: Poutres
+    value: Profilés acier IPE
+  - label: Pannes
+    value: Pannes en acier RHS
+  - label: Contreventements
+    value: Contreventements en acier RHS
+  - label: Type de couverture
+    value: Panneaux sandwich isolés PIR/PUR (60–100 mm)
+  - label: Charge de neige
+    value: 150 kg/m² (1.50 kN/m²)
+  - label: Charge de vent
+    value: 75–110 km/h
+  - label: Charge de pluie
+    value: 60 m³
+  - label: Hauteur maximale
+    value: 9m
 ---
 
 Un système de terrain de padel entièrement fermé, à ossature en acier et panneaux sandwich isolants, qui offre un confort toute l'année, des performances thermiques supérieures et une structure durable, résistante aux intempéries.

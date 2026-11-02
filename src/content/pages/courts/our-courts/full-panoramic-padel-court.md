@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Dimensions
-    value: Standard 20.00m (Length) x 10.00m (Width) playing area (200 sqm).
+  - label: Foundation Area
+    value: 11m x 21m reinforced concrete perimeter base
+  - label: Playing Area
+    value: 10m x 20m internal playing area (FIP standard)
   - label: Structure
-    value: Pillars measuring 100x50x3mm, electro-welded or bolted to baseplates.
+    value: Pillars measuring 100x50x3mm, electro-welded or bolted to baseplates
+  - label: Secondary Columns
+    value: 80x40x3mm secondary steel columns
+  - label: Beams
+    value: RHS 100x50x3mm (glass area) and RHS 80x40x3mm steel beams
   - label: Baseplate Anchors
-    value: 200x200x10mm steel baseplates anchored with high-strength bolts.
+    value: 200x200x10mm steel baseplates anchored with high-strength bolts
+  - label: Glass Walls
+    value: 12mm CE-certified tempered safety glass (EN 12150-1 standard)
   - label: Mesh Panels
-    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels.
-  - label: Safety Glass
-    value: 12mm CE-certified tempered safety glass (EN 12150-1 standard).
-  - label: Turf System
-    value: 12mm-15mm monofilament or textured artificial turf filled with silica sand.
-  - label: Lighting System
-    value: 4 or 8 LED floodlights (300-500 Lux output; up to 750 Lux for broadcasting).
-  - label: Finish Protection
-    value: Hot-dip galvanization + electro-static powder coating or high-gloss paint.
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W IP66-rated all-weather aluminum housing LED floodlights
+  - label: Lighting Poles
+    value: RHS 60x40x3mm and RHS 60x60x5mm structural steel poles
+  - label: Finish
+    value: Hot-dip galvanization + electrostatic powder coating
 specsIntro: Every component is engineered to international standards for safety, durability, and tournament-grade play.
 media:
   - order: 1

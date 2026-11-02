@@ -20,7 +20,7 @@ faq:
   - q: Bir padel kortu ne büyüklüktedir?
     a: "Duvarların iç yüzünden ölçüldüğünde 20 m uzunluğunda ve 10 m genişliğindedir; tolerans %0.5'tir. Single kort ise 20 m x 6 m'dir."
   - q: Bir padel kortu için ne kadar arsa gerekir?
-    a: "Kort ve konstrüksiyonu için yaklaşık 20.8 m x 10.8 m'lik bir taban planlayın; buna giriş, aydınlatma direkleri ve sirkülasyon alanı ekleyin. Kort dışı oyuna izin verilecekse her yan açıklığın dışında en az 3 m (önerilen 4 m) x 4 m'lik boş bir alan bırakın."
+    a: "Kort ve konstrüksiyonu için yaklaşık 21m x 11m'lik bir taban planlayın; buna giriş, aydınlatma direkleri ve sirkülasyon alanı ekleyin. Kort dışı oyuna izin verilecekse her yan açıklığın dışında en az 3 m (önerilen 4 m) x 4 m'lik boş bir alan bırakın."
   - q: Padel kortunun duvarları ne kadar yüksektir?
     a: "Arka duvarlar 4 m yüksekliktedir: 3 m cam veya dolu duvar ve üstünde 1 m metal tel örgü. Yan duvarlar, seçilen düzene bağlı olarak köşelerden fileye doğru kademeli olarak alçalır."
   - q: Padel kortunda file ne kadar yüksektir?
@@ -73,7 +73,7 @@ Tel örgü her zaman camın iç yüzüyle aynı hizadadır; böylece oyun yüzey
 
 ## Bir padel kortu ne kadar alan gerektirir?
 
-Konstrüksiyon, 20 x 10 m'lik oyun alanına genişlik ve uzunluk ekler. Pratik bir değer olarak kort başına yaklaşık **20.8 m x 10.8 m**'lik düz bir taban ve ankrajlar için donatılı bir çevre kirişi planlayın; döşeme seçenekleri [temel rehberimizde](/padel-court-foundation/) anlatılmaktadır.
+Konstrüksiyon, 20 x 10 m'lik oyun alanına genişlik ve uzunluk ekler. Pratik bir değer olarak kort başına yaklaşık **21m x 11m**'lik düz bir taban ve ankrajlar için donatılı bir çevre kirişi planlayın; döşeme seçenekleri [temel rehberimizde](/padel-court-foundation/) anlatılmaktadır.
 
 Bu tabanın çevresinde şunlar için pay bırakın:
 

@@ -21,22 +21,24 @@ hero:
   image: null
   tagline: Klassische Standard-Padelkonstruktion auf einem Stahlboden. Kein Betonfundament erforderlich.
 specs:
-  - label: Platzmaße
-    value: Standard-Spielfläche 20m x 10m, FIP-konform.
-  - label: Hochbelastbarer Stahl-Unterbau
-    value: Unterkonstruktion aus verzinktem Stahl, ausgelegt für maximale Laststabilität.
-  - label: Beleuchtungssystem
-    value: Hocheffiziente LED-Beleuchtung für eine gleichmäßige Ausleuchtung des gesamten Platzes.
-  - label: Gitter- und Glaspaneele
-    value: Zertifiziertes Einscheibensicherheitsglas (ESG) kombiniert mit hochbelastbaren Gitterpaneelen aus Stahldraht mit Verletzungsschutz.
+  - label: Spielfläche
+    value: Standard 20m x 10m Spielfläche nach FIP-Norm
+  - label: Stahlunterbau
+    value: Kaltgeformter Stahl-Unterrahmen RHS 120x80x3mm und RHS 100x60x3mm
+  - label: Geländeausgleich
+    value: Stahl-Subframe; Nivelliersystem gleicht Bodenunebenheiten von 6 bis 24 cm aus
+  - label: Bodenmodule
+    value: 20 vorgefertigte Stahlmodule im 5×4-Verbund (~2.1m × 5.0m) mit Kopfbolzen verbunden
+  - label: Unterboden
+    value: Wetterfeste Sperrholzplatten auf dem Stahltragwerk verlegt
+  - label: Stützfüße
+    value: 300 mm verstellbare Stützpfosten mit Höhenausgleichsfüßen
+  - label: Verankerung
+    value: Mechanische Anker abgestimmt auf die lokalen Bodenverhältnisse
+  - label: Platzaufbau
+    value: Kompatibel mit Standard- und Panorama-Rahmen 100x50x3mm
   - label: Kunstrasen
-    value: Hochdichter Kunstrasen aus Polyethylen mit Quarzsand-Verfüllung für optimalen Ballabsprung und hohen Spielkomfort.
-  - label: Stützen und Verankerung
-    value: Pfosten und Anker aus starkwandigem Stahl für hervorragende Stabilität.
-  - label: Modularer Aufbau
-    value: Vorgefertigtes modulares Design für schnelle Montage, einfache Wartung und bei Bedarf eine spätere Versetzung des Platzes.
-  - label: Windbeständigkeit
-    value: Für Windlasten ausgelegt – für einen sicheren Betrieb im Außenbereich.
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
 media:
   - order: 1
     type: video

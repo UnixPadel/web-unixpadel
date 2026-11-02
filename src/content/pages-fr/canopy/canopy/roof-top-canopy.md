@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2025/12/3-scaled.jpg
     alt: ""
     section: 3
+specs:
+  - label: Piliers principaux
+    value: Poteaux acier RHS 150x100x4mm
+  - label: Poutres
+    value: Fermes treillis acier RHS 120x80x3mm
+  - label: Pannes
+    value: Pannes acier RHS 50x50x2.5mm
+  - label: Contreventements
+    value: Tirants de treillis RHS 60x60x3mm
+  - label: Type de couverture
+    value: Membrane PVC 1100 g/m²
+  - label: Charge de neige
+    value: 90 kg/m²
+  - label: Charge de vent
+    value: 110 km/h
+  - label: Charge de pluie
+    value: 60 m³
+  - label: Hauteur maximale
+    value: 9m
 ---
 
 #### 2. Fabrication de l'acier et protection des surfaces
@@ -78,7 +97,7 @@ media:
 - Largeur : 12 m
 - Longueur : 22 m
 - Hauteur utile : 7–7.4 m
-- Hauteur au centre : 9.40 m minimum
+- Hauteur au centre : 9.00 m minimum
 
 #### 4. Responsabilités du client (paragraphe)
 
@@ -160,7 +179,7 @@ Hauteur latérale
 
 Hauteur au centre
 
-9.2 – 9.9 m
+9.0 m
 
 Poteaux principaux
 

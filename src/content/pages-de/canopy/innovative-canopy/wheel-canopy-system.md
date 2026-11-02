@@ -51,6 +51,27 @@ media:
     src: /wp-content/uploads/2024/09/wheel-system-canopie-3.jpeg
     alt: Überdachung mit Radsystem
     section: 6
+specs:
+  - label: Hauptstützen
+    value: RHS 80x140x6mm schwere Stahlprofile
+  - label: Fachwerk
+    value: RHS 40x40x2.5mm Stahlfachwerk
+  - label: Träger
+    value: RHS 80x140x6mm Stahlträger
+  - label: Verbände
+    value: RHS 40x40x2.5mm Stahlverbände
+  - label: Dacheindeckung
+    value: Wasserdichte UV-geschützte PVC-Membran
+  - label: Schneelast
+    value: 76.45 kg/m²
+  - label: Windlast
+    value: 72 km/h
+  - label: Regenlast
+    value: 60 m³
+  - label: Maximale Höhe
+    value: 9.5–10m
+  - label: Schienensystem
+    value: Korrosionsbeständige U-Profilschienen
 ---
 
 ## Die Radsystem-Überdachung von UnixPadel

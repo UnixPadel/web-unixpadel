@@ -21,14 +21,22 @@ hero:
   image: null
   tagline: Präzisionstechnik. Strukturelle Integrität. Dauerhafte Leistung.
 specs:
+  - label: Bodenplattensystem
+    value: "Modulares feuerverzinktes Stahl-Bodenplattensystem: 505–765 mm breite Abschnitte verschraubt"
+  - label: Knoten- & Eckbleche
+    value: 24 Stk. 300×180 mm (10 mm stark, Ø12.5 mm) & 4 Stk. 175×180 mm (10 mm stark)
+  - label: Spielfläche
+    value: Standard 20m x 10m Spielfläche (FIP-Norm)
   - label: Stahlkonstruktion
-    value: Lasergeschnittene, vorverzinkte Stahlstützen und Querträger (>=3 mm), durch Ankerplatten verstärkt für eine außergewöhnliche Tragfähigkeit.
-  - label: Seitenpaneele
-    value: Massive Stahlblechpaneele (in der Regel 3 mm, anpassbar), direkt mit dem Rahmen verschweißt oder verschraubt; sie reduzieren den Windeinfall um bis zu 80 %.
+    value: 100x50x3mm Stahlstützen und Träger (baugleich mit Standard/Panorama)
   - label: Glaswände
-    value: 10 mm oder 12 mm Einscheibensicherheitsglas (ESG) mit Zertifizierung für den Padelsport, hochfesten Befestigungen und polierten Kanten.
-  - label: Modulare Montage
-    value: Modulare Bauweise für schnelle Montage und einfachen Transport; die Konstruktion hält dynamischen Lasten wie Wind und Anprall stand.
+    value: 10mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Gitterpaneele
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 150W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
 media:
   - order: 1
     type: video

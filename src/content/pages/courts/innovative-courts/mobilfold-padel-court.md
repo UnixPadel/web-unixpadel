@@ -21,18 +21,28 @@ hero:
   image: null
   tagline: Introducing our revolutionary mobile padel court – a game-changing solution for sports enthusiasts everywhere!
 specs:
-  - label: Dimensions & Structure
-    value: 10m x 10m and 10m x 6m (10m x 6m for single, 10m x 10m for larger venue projects).
-  - label: Steel Frame Options
-    value: 100mm x 100mm x 3mm – Heavy-duty support frame to ensure structural stability and durability without excessive bulk.
-  - label: High-Quality Glass
-    value: 12mm Tempered Glass – Safety and clarity combined, offering a premium finish that enhances both aesthetics and functionality.
-  - label: Power Solutions
-    value: 10/100 Power capability ensures energy efficiency and reliable performance for lighting, heating, or other operational needs.
-  - label: Optional Flooring Solutions
-    value: Elevate your design with optional flooring over the wooden decking, offering enhanced insulation, durability, and tactical support.
-  - label: Design Flexibility
-    value: Choose from T-shape, K-shape, and D-shape designs to suit your architectural vision and spatial requirements.
+  - label: Foundation Area
+    value: None required (freestanding modular system)
+  - label: Playing Area
+    value: 10m x 20m standard playing area (200 sqm)
+  - label: Main Metallic Profiles
+    value: 100x100x3mm heavy-duty steel profiles
+  - label: Secondary Profiles
+    value: 100x50x3mm structural steel profiles
+  - label: Beams
+    value: 100x50x3mm (long side) and 100x100x3mm (short side)
+  - label: Glass Walls
+    value: 12mm CE-certified tempered safety glass
+  - label: Mesh Panels
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 150W IP66-rated all-weather aluminum housing LED floodlights
+  - label: Lighting Poles
+    value: RHS 60x40x3mm and RHS 60x60x5mm structural steel poles
+  - label: Joint Design
+    value: Seamlessly interlocking precision sliding joints
 media:
   - order: 1
     type: video

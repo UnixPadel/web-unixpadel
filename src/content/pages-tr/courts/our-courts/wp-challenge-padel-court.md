@@ -25,7 +25,7 @@ specs:
   - label: Oyun Alanı Ölçüleri
     value: 20.00m (Uzunluk) x 10.00m (Genişlik) iç oyun alanı.
   - label: Temel Alanı
-    value: Önerilen beton zemin ölçüsü 20.80m (Uzunluk) x 10.80m (Genişlik).
+    value: Önerilen beton zemin ölçüsü 21m (Uzunluk) x 11m (Genişlik).
   - label: Köşe Takviyesi
     value: Köşe dikmeleri ilave 100x50x3mm çelik boru profil ile takviye edilir.
   - label: Konstrüksiyon Yapısı
@@ -69,7 +69,7 @@ faq:
   - q: WP Challenge Padel Kortu'nu rüzgâra karşı bu kadar dayanıklı kılan nedir?
     a: Kort; 100x50x3mm çelik boru profil ile takviye edilmiş köşe dikmelerine, 3 dikmeli konstrüksiyon yapısına ve İTÜ onaylı B Sınıfı rüzgâr yükü değerine (0.42 kN/m²) sahiptir.
   - q: WP Challenge Kort'un ölçüleri ve zemin gereksinimleri nelerdir?
-    a: İç oyun alanı 20.00m x 10.00m ölçülerindedir; önerilen beton zemin ölçüsü ise 20.80m x 10.80m'dir.
+    a: İç oyun alanı 20.00m x 10.00m ölçülerindedir; önerilen beton zemin ölçüsü ise 21m x 11m'dir.
   - q: Sentetik çim FIP onaylı mı?
     a: Evet. Tüm Unixpadel WP Challenge Padel Kortlarında turnuva seviyesinde oyun için resmî FIP onaylı sentetik çim kullanılır.
   - q: WP Challenge Kort bağımsız yapısal testlerden geçti mi?
@@ -119,7 +119,7 @@ Konstrüksiyonumuz, zorlu çevresel etkilere ve yüksek rüzgâr yüklerine kar�
 
 - Gerçek top sekmesi ve tutuş için resmî FIP onaylı sentetik çim.
 - 20.00m x 10.00m iç kort oyun alanı ölçüleri.
-- Önerilen beton zemin ölçüsü 20.80m x 10.80m.
+- Önerilen beton zemin ölçüsü 21m x 11m.
 
 ### Küresel Proje Ağı
 

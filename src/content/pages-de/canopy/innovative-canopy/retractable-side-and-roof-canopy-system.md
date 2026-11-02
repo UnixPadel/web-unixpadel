@@ -46,6 +46,27 @@ media:
     src: /wp-content/uploads/2025/08/WhatsApp-Image-2025-08-01-at-16.55.47.jpeg
     alt: ""
     section: 2
+specs:
+  - label: Hauptstützen
+    value: RHS 100x100x3mm (Querseite) und RHS 150x100x4mm (Längsseite)
+  - label: Fachwerk
+    value: RHS 50x50x2.5mm Stahlfachwerk
+  - label: Träger
+    value: RHS 120x80x3mm Stahlträger
+  - label: Verbände
+    value: Dachverbände 120x80x3mm
+  - label: Dacheindeckung
+    value: Doppellagige 650 g/m² flammhemmende PVC-Membran
+  - label: Schneelast
+    value: 80 kg/m²
+  - label: Windlast
+    value: 100 km/h
+  - label: Regenlast
+    value: 60 m³
+  - label: Maximale Höhe
+    value: 9.5m
+  - label: Antrieb
+    value: Automatischer elektromotorischer Schienenantrieb
 ---
 
 #### 3. Fertigung und Schweißen

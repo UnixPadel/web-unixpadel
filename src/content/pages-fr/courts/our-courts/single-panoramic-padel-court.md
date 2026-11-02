@@ -16,22 +16,30 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
+  - label: Surface de fondation
+    value: 7m x 21m semelle béton armé
+  - label: Aire de jeu
+    value: 6m x 20m intérieur conforme aux normes FIP
   - label: Structure
-    value: Le terrain de padel single panoramique Unixpadel est doté de poteaux de 80x80x3 mm, doublés aux angles et solidement ancrés au sol par des ancrages structurels. Les ancrages structurels d'extrémité présentent un profil de 100x100x3 mm, ou de 100x100x4 mm dans une zone de 8M.
-  - label: Grillage
-    value: Grillage électrosoudé à maille de 50x50x4 mm, intégré aux poteaux pour renforcer la sécurité des joueurs et assurer un rebond régulier de la balle pendant le jeu.
-  - label: Verre
-    value: Verre trempé de haute qualité de 12 mm, offrant une excellente visibilité, une grande durabilité et un aspect haut de gamme raffiné.
-  - label: Gazon
-    value: Au choix, gazon synthétique monofilament ou texturé, tous deux conçus pour offrir de bonnes performances de jeu et une durabilité à long terme.
+    value: Profilés principaux en acier 100x50x3mm
+  - label: Profilés secondaires
+    value: Profilés secondaires en acier 80x40x3mm
+  - label: Poutres
+    value: RHS 100x50x2mm (zone vitrée) et RHS 80x40x3mm poutres acier
+  - label: Parois vitrées
+    value: Verre trempé de sécurité 12mm certifié CE (norme EN 12150-1)
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec remplissage de sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 200W IP66 boîtier aluminium étanche
   - label: Mâts d'éclairage
-    value: Disponible en forme droite en T, sigmoïde en K ou ovale en D, pour une répartition optimale de l'éclairage sur le terrain.
-  - label: Éclairage
-    value: Équipé de 8 projecteurs LED de 200W, produisant chacun 26,000 lumens, pour une excellente visibilité en soirée et par faible luminosité.
-  - label: Options de couleur
-    value: Choix de couleurs personnalisé, notamment bleu, noir, vert, terracotta, blanc et argent, pour une personnalisation complète.
+    value: Profilés RHS 60x40x3mm et RHS 60x60x4mm
   - label: Finition
-    value: Finition galvanisée thermolaquée durable pour résister aux intempéries, avec une finition galvanisée à chaud en option pour une protection renforcée.
+    value: Galvanisation à chaud + thermolaquage poudre électrostatique
+  - label: Options de couleur
+    value: Nuancier RAL complet au choix
 specsIntro: Conçu selon les normes internationales pour garantir sécurité, durabilité et haute performance.
 media:
   - order: 1

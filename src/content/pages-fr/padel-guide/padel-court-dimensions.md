@@ -20,7 +20,7 @@ faq:
   - q: "Quelle est la taille d'un terrain de padel ?"
     a: "20 m de long et 10 m de large, mesurés à l'intérieur des parois, avec une tolérance de 0.5 %. Un terrain Single mesure 20 m x 6 m."
   - q: "Quelle surface faut-il prévoir pour un terrain de padel ?"
-    a: "Prévoyez une base d'environ 20.8 m x 10.8 m pour le terrain et sa structure, plus l'espace nécessaire aux accès, aux mâts d'éclairage et à la circulation. Si le jeu hors du terrain est autorisé, réservez une zone dégagée d'au moins 3 m (4 m recommandés) sur 4 m au-delà de chaque ouverture latérale."
+    a: "Prévoyez une base d'environ 21m x 11m pour le terrain et sa structure, plus l'espace nécessaire aux accès, aux mâts d'éclairage et à la circulation. Si le jeu hors du terrain est autorisé, réservez une zone dégagée d'au moins 3 m (4 m recommandés) sur 4 m au-delà de chaque ouverture latérale."
   - q: "Quelle est la hauteur des parois d'un terrain de padel ?"
     a: "Les parois de fond mesurent 4 m de haut : 3 m de verre ou de paroi pleine surmontés de 1 m de grillage métallique. Les parois latérales descendent par paliers des angles vers le filet, selon la configuration choisie."
   - q: "Quelle est la hauteur du filet sur un terrain de padel ?"
@@ -73,7 +73,7 @@ Le grillage est toujours aligné sur la face intérieure du verre, de sorte que 
 
 ## De quelle surface un terrain de padel a-t-il besoin ?
 
-La structure ajoute de la largeur et de la longueur à l'aire de jeu de 20 x 10 m. Comme ordre de grandeur, prévoyez une base plane d'environ **20.8 m x 10.8 m** par terrain, avec une poutre périphérique armée pour les ancrages ; notre [guide des fondations](/padel-court-foundation/) présente les options de dalle.
+La structure ajoute de la largeur et de la longueur à l'aire de jeu de 20 x 10 m. Comme ordre de grandeur, prévoyez une base plane d'environ **21m x 11m** par terrain, avec une poutre périphérique armée pour les ancrages ; notre [guide des fondations](/padel-court-foundation/) présente les options de dalle.
 
 Autour de cette base, prévoyez :
 

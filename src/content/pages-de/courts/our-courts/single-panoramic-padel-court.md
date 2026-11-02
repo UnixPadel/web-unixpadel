@@ -16,22 +16,30 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
+  - label: Fundamentfläche
+    value: 7m x 21m Stahlbeton-Fundamentfläche
+  - label: Spielfläche
+    value: 6m x 20m FIP-Standard-Einzelspielfläche
   - label: Konstruktion
-    value: Der Single-Panorama-Padelplatz von Unixpadel verfügt über Pfosten 80x80x3 mm, an den Ecken doppelt ausgeführt und mit Konstruktionsankern sicher im Boden verankert. Die Endanker haben ein Profil von 100x100x3 mm bzw. 100x100x4 mm bei einer Fläche von 8M.
-  - label: Gitter
-    value: Elektrogeschweißtes Gitter mit Maschenweite 50x50x4 mm, in die Pfosten eingelassen – für mehr Spielersicherheit und einen gleichmäßigen Ballrückprall.
-  - label: Glas
-    value: Hochwertiges 12 mm Einscheibensicherheitsglas (ESG) mit hervorragender Sicht, Langlebigkeit und edler Premium-Optik.
+    value: Robuste 100x50x3mm Haupt-Stahlprofile
+  - label: Sekundärprofile
+    value: 80x40x3mm Sekundär-Stahlprofile
+  - label: Träger
+    value: RHS 100x50x2mm (Glasbereich) und RHS 80x40x3mm Stahlträger
+  - label: Glaswände
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Gitterpaneele
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
   - label: Kunstrasen
-    value: Wahlweise Monofilament- oder texturierter Kunstrasen, beide auf Spielqualität und Langlebigkeit ausgelegt.
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
   - label: Lichtmasten
-    value: Erhältlich in gerader T-Form, geschwungener K-Form oder ovaler D-Form für eine optimale Lichtverteilung auf dem Platz.
-  - label: Beleuchtung
-    value: Ausgestattet mit 8 x 200W-LED-Strahlern mit je 26,000 Lumen für hervorragende Sicht am Abend und bei schwachem Licht.
-  - label: Farboptionen
-    value: Individuelle Farbauswahl, u. a. Blau, Schwarz, Grün, Terrakotta, Weiß und Silber, für volle Gestaltungsfreiheit.
+    value: RHS 60x40x3mm und RHS 60x60x4mm Stahl-Lichtmasten
   - label: Oberfläche
-    value: Langlebige, pulverbeschichtete verzinkte Lackierung für Witterungsbeständigkeit, optional feuerverzinkt für zusätzlichen Schutz.
+    value: Feuerverzinkung + elektrostatische Pulverbeschichtung
+  - label: Farboptionen
+    value: Komplette RAL-Farbpalette
 specsIntro: Nach internationalen Standards konstruiert – für Sicherheit, Langlebigkeit und hohe Leistung.
 media:
   - order: 1

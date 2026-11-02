@@ -19,24 +19,32 @@ hero:
   video: /wp-content/uploads/2023/07/Logosuz-Standard-Court.mp4
   poster: /wp-content/uploads/2026/08/greece_ref-2.jpg
   image: null
-  tagline: Kalite, yapısal stabilite ve turnuva oyununda küresel referans. Her kortu ağır hizmet tipi 100x50x2mm çelik profillerle üretiyoruz.
+  tagline: Kalite, yapısal stabilite ve turnuva oyununda küresel referans. Her kortu ağır hizmet tipi 100x50x3mm çelik profillerle üretiyoruz.
 specs:
+  - label: Temel Alanı
+    value: 11m x 21m betonarme çevre hatılı / temel alanı
+  - label: Oyun Alanı
+    value: 10m x 20m iç oyun alanı (FIP resmî standart)
   - label: Konstrüksiyon
-    value: "Kalın cidarlı çelik profiller: ana dikmelerde 100x50x2mm, kirişlerde 100x50x3mm; ağır hizmet tipi dübel cıvatalarla ankraj."
+    value: "Kalın cidarlı çelik dikmeler: 100x50x3mm ana metal profiller"
+  - label: Tali Dikmeler
+    value: 80x40x3mm tali çelik dikmeler
+  - label: Kirişler
+    value: Cam alanında RHS 100x50x2mm ve taşıyıcıda RHS 80x40x3mm çelik kirişler
   - label: Tel Örgü Paneller
-    value: Yüksek yapısal rijitliğe sahip, yaralanma önleyici, elektro kaynaklı 50x50x4mm çelik tel örgü paneller.
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü paneller
   - label: Cam Duvarlar
-    value: EN 12150-1 Avrupa güvenlik standartlarına göre üretilmiş 10mm temperli güvenlik camı paneller.
-  - label: Çim Seçenekleri
-    value: Optimum top sekmesi ve eklem konforu için silis kumu dolgulu, birinci sınıf monofilament veya tekstüre sentetik çim.
-  - label: Aydınlatma Sistemi
-    value: Kamaşma olmadan homojen aydınlatma sağlayan entegre 4 veya 8 direkli LED aydınlatma sistemi.
+    value: 10mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
   - label: Aydınlatma Armatürleri
-    value: Yüksek performanslı akşam oyunları için en az 300 ile 500 Lux sağlayan yüksek verimli LED projektörler.
-  - label: Renk Seçenekleri
-    value: Kurumsal kimliğinize özel tam RAL renk kartelası seçimi (Siyah, Antrasit, Lacivert, Sinyal Beyazı).
+    value: 150W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: RHS 60x40x3mm ve RHS 60x60x3mm çelik aydınlatma direkleri
   - label: Boya ve Kaplama
-    value: "Sıcak daldırma galvaniz + elektrostatik toz boya: %100 korozyon koruması."
+    value: Sıcak daldırma galvaniz + elektrostatik toz boya (%100 korozyon koruması)
+  - label: Renk Seçenekleri
+    value: Tam RAL renk kartelası seçimi
 specsIntro: Her bileşeni güvenlik, dayanıklılık ve turnuva standardında oyun için uluslararası standartlara göre tasarlıyoruz.
 media:
   - order: 1
@@ -88,7 +96,7 @@ faq:
   - q: Kort renklerini tesisimizin kurumsal kimliğine göre kişiselleştirebilir miyim?
     a: Kesinlikle. Tüm standart RAL renklerinde (Siyah, Antrasit, Lacivert ve Sinyal Beyazı gibi) özel elektrostatik toz boya uyguluyoruz.
   - q: Unixpadel Standart Kort'un rüzgâr dayanım kapasitesi nedir?
-    a: Kortu, 120-140 km/h'ye kadar rüzgâr yüklerine dayanacak şekilde ağır hizmet tipi 100x50x2mm çelik taşıyıcı dikmeler ve 3 dikmeli köşe sistemiyle tasarlıyoruz.
+    a: Kortu, 120-140 km/h'ye kadar rüzgâr yüklerine dayanacak şekilde ağır hizmet tipi 100x50x3mm çelik taşıyıcı dikmeler ve 3 dikmeli köşe sistemiyle tasarlıyoruz.
   - q: Kort duvarlarında hangi kalınlıkta güvenlik camı kullanıyorsunuz?
     a: EN 12150-1 Avrupa güvenlik standardına tam uyumlu 10mm CE sertifikalı temperli güvenlik camı kullanıyoruz.
   - q: Standart padel kortu FIP standartlarına uygun mu?
@@ -101,7 +109,7 @@ Kalite ve dayanıklılıkta referans noktası olan UNIXPADEL Standart Padel Kort
 
 ### Eşsiz Yapısal Stabilite
 
-Unixpadel Standart Padel Kortunu yapısal stabiliteyi ön planda tutarak üretiyoruz. Tüm ana taşıyıcı elemanlar kalın cidarlı çelik profillerden oluşur: 100 x 50 x 2 mm dikmeler ve 100 x 50 x 3 mm kirişler. Bu takviye, yoğun oyun sırasında maksimum stabilite sağlayarak işletmecilere ve oyunculara tam güven verir.
+Unixpadel Standart Padel Kortunu yapısal stabiliteyi ön planda tutarak üretiyoruz. Tüm ana taşıyıcı elemanlar kalın cidarlı çelik profillerden oluşur: 100 x 50 x 3 mm dikmeler ve 100 x 50 x 3 mm kirişler. Bu takviye, yoğun oyun sırasında maksimum stabilite sağlayarak işletmecilere ve oyunculara tam güven verir.
 
 ### Takviyeli Üç Dikmeli Konstrüksiyon
 
@@ -115,7 +123,7 @@ Avrupa'daki spor tesislerinde faaliyette olan tamamlanmış Unixpadel kort proje
 
 ### Halkida, Yunanistan
 
-Yoğun ticari kulüp maçları için ağır hizmet tipi 100x50x2mm takviyeli çelik dikmelerle üretilen üç profesyonel standart padel kortunu teslim ettik.
+Yoğun ticari kulüp maçları için ağır hizmet tipi 100x50x3mm takviyeli çelik dikmelerle üretilen üç profesyonel standart padel kortunu teslim ettik.
 
 ### Anahtar Teslim Akdeniz Tesisi
 
@@ -125,9 +133,9 @@ Mühendislik ekibimiz bu tesisi özellikle Akdeniz kıyı iklimine göre tasarla
 
 Çevresel kuvvetlere, yüksek rüzgâr yüklerine ve yoğun turnuva temposuna dayanacak şekilde üretildi.
 
-### 100x50x2mm Çelik Profiller
+### 100x50x3mm Çelik Profiller
 
-- Ana taşıyıcı dikmeler ağır hizmet tipi 100x50x2mm çelik profillerden oluşur.
+- Ana taşıyıcı dikmeler ağır hizmet tipi 100x50x3mm çelik profillerden oluşur.
 - Kuvvetli rüzgârlara ve oyuncu kaynaklı dinamik darbelere karşı üstün direnç.
 - Yoğun rallilerde tam oyuncu güvenliği sağlayan maksimum rijitlik.
 
@@ -151,7 +159,7 @@ Mühendislik ekibimiz bu tesisi özellikle Akdeniz kıyı iklimine göre tasarla
 
 ## Eşsiz Performans İçin Unixpadel Standart Kortu Tercih Edin
 
-Yüksek rüzgâr yüklerine dayanan olağanüstü konstrüksiyonu, sağlam 100x50x2mm çelik profilleri ve kapsamlı güvenlik önlemleriyle bu kort, dünya genelindeki padel tesisleri için standardı belirler.
+Yüksek rüzgâr yüklerine dayanan olağanüstü konstrüksiyonu, sağlam 100x50x3mm çelik profilleri ve kapsamlı güvenlik önlemleriyle bu kort, dünya genelindeki padel tesisleri için standardı belirler.
 
 Dayanıklılık ve ticari verimlilik için tasarlanan kort, kulübünüzün tüm beklentilerini karşılar, oyuncu deneyimini güçlendirir ve zamana meydan okur.
 

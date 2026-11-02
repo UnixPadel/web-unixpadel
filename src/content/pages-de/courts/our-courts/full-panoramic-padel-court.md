@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Abmessungen
-    value: Standard-Spielfläche 20.00m (Länge) x 10.00m (Breite) (200 m²).
+  - label: Fundamentfläche
+    value: 11m x 21m Stahlbeton-Fundamentfläche
+  - label: Spielfläche
+    value: 10m x 20m FIP-Standard-Spielfläche
   - label: Konstruktion
-    value: Pfosten 100x50x3mm, mit den Fußplatten elektroverschweißt oder verschraubt.
-  - label: Verankerung der Fußplatten
-    value: Stahl-Fußplatten 200x200x10mm, verankert mit hochfesten Bolzen.
+    value: 100x50x3mm Stahlstützen, mit Fußplatten verschweißt oder verschraubt
+  - label: Sekundärstützen
+    value: 80x40x3mm Sekundär-Stahlstützen
+  - label: Träger
+    value: RHS 100x50x3mm (Glasbereich) und RHS 80x40x3mm Stahlträger
+  - label: Verankerung
+    value: 200x200x10mm Stahl-Fußplatten mit Schwerlastankern
+  - label: Glaswände
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
   - label: Gitterpaneele
-    value: Elektrogeschweißte Stahldraht-Gitterpaneele 50x50x4mm mit Verletzungsschutz.
-  - label: Sicherheitsglas
-    value: 12mm CE-zertifiziertes Einscheibensicherheitsglas (ESG) nach EN 12150-1.
-  - label: Kunstrasensystem
-    value: 12mm-15mm Monofilament- oder texturierter Kunstrasen mit Quarzsand-Verfüllung.
-  - label: Beleuchtungssystem
-    value: 4 oder 8 LED-Flutlichtstrahler (300-500 Lux; bis zu 750 Lux für TV-Übertragungen).
-  - label: Oberflächenschutz
-    value: Feuerverzinkung + elektrostatische Pulverbeschichtung oder Hochglanzlackierung.
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
+  - label: Lichtmasten
+    value: RHS 60x40x3mm und RHS 60x60x5mm Stahl-Lichtmasten
+  - label: Oberfläche
+    value: Feuerverzinkung + elektrostatische Pulverbeschichtung
 specsIntro: Jede Komponente ist nach internationalen Standards für Sicherheit, Langlebigkeit und turniertaugliches Spiel konstruiert.
 media:
   - order: 1

@@ -19,24 +19,32 @@ hero:
   video: /wp-content/uploads/2023/07/Logosuz-Standard-Court.mp4
   poster: /wp-content/uploads/2026/08/greece_ref-2.jpg
   image: null
-  tagline: Ein weltweiter Maßstab für Qualität, Stabilität und Turnierspiel. Jeder Platz wird mit hochbelastbaren Stahlprofilen 100x50x2mm konstruiert.
+  tagline: Ein weltweiter Maßstab für Qualität, Stabilität und Turnierspiel. Jeder Platz wird mit hochbelastbaren Stahlprofilen 100x50x3mm konstruiert.
 specs:
+  - label: Fundamentfläche
+    value: 11m x 21m Stahlbeton-Fundamentfläche
+  - label: Spielfläche
+    value: 10m x 20m FIP-Standard-Spielfläche
   - label: Konstruktion
-    value: "Starkwandige Stahlprofile: 100x50x2mm für die Hauptstützen des Rahmens und 100x50x3mm für die Träger, verankert mit hochbelastbaren Spreizdübeln."
+    value: "Robuste Stahlstützen: 100x50x3mm Hauptprofile"
+  - label: Sekundärstützen
+    value: 80x40x3mm Sekundär-Stahlstützen
+  - label: Träger
+    value: RHS 100x50x2mm (Glasbereich) und RHS 80x40x3mm Stahlträger
   - label: Gitterpaneele
-    value: Elektrogeschweißte Stahldraht-Gitterpaneele 50x50x4mm mit Verletzungsschutz und hoher Steifigkeit.
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
   - label: Glaswände
-    value: Paneele aus 10mm Einscheibensicherheitsglas (ESG), gefertigt nach der europäischen Sicherheitsnorm EN 12150-1.
-  - label: Kunstrasen-Optionen
-    value: Hochwertiger Monofilament- oder texturierter Kunstrasen mit Quarzsand-Verfüllung für optimalen Ballabsprung und gelenkschonendes Spiel.
-  - label: Beleuchtungssystem
-    value: Integriertes LED-System mit 4 oder 8 Masten für eine gleichmäßige, blendfreie Ausleuchtung.
+    value: 10mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
   - label: Leuchten
-    value: Hocheffiziente LED-Flutlichtstrahler mit mindestens 300 bis 500 Lux für leistungsstarkes Spiel am Abend.
-  - label: Farboptionen
-    value: Komplette RAL-Farbpalette (Schwarz, Anthrazit, Marineblau, Signalweiß) für Ihr individuelles Branding.
+    value: 150W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
+  - label: Lichtmasten
+    value: RHS 60x40x3mm und RHS 60x60x3mm Stahl-Lichtmasten
   - label: Oberfläche
-    value: Feuerverzinkung + elektrostatisch aufgetragene Pulverbeschichtung für 100 % Korrosionsschutz.
+    value: Feuerverzinkung + elektrostatische Pulverbeschichtung
+  - label: Farboptionen
+    value: Komplette RAL-Farbpalette
 specsIntro: Jede Komponente konstruieren wir nach internationalen Standards für Sicherheit, Langlebigkeit und turniertaugliches Spiel.
 media:
   - order: 1
@@ -88,7 +96,7 @@ faq:
   - q: Kann ich die Platzfarben an das Branding meiner Anlage anpassen?
     a: Selbstverständlich. Wir bieten eine individuelle elektrostatische Pulverbeschichtung in jeder Standard-RAL-Farbe an (z. B. Schwarz, Anthrazit, Marineblau und Signalweiß).
   - q: Wie hoch ist die Windbeständigkeit des Unixpadel-Standardplatzes?
-    a: Der Platz ist mit hochbelastbaren Stahlpfosten 100x50x2mm und einem Drei-Pfosten-Ecksystem konstruiert und hält Windlasten bis zu 120-140 km/h stand.
+    a: Der Platz ist mit hochbelastbaren Stahlpfosten 100x50x3mm und einem Drei-Pfosten-Ecksystem konstruiert und hält Windlasten bis zu 120-140 km/h stand.
   - q: Welche Stärke hat das Sicherheitsglas der Platzwände?
     a: Wir verbauen 10mm CE-zertifiziertes Einscheibensicherheitsglas (ESG), das die europäische Sicherheitsnorm EN 12150-1 strikt erfüllt.
   - q: Entspricht der Standard-Padelplatz den FIP-Standards?
@@ -101,7 +109,7 @@ Willkommen beim UNIXPADEL Standard-Padelplatz – einem Maßstab für Qualität 
 
 ### Herausragende Stabilität
 
-Beim Unixpadel Standard-Padelplatz steht die Stabilität im Mittelpunkt. Starkwandige Stahlprofile bilden alle tragenden Hauptbauteile: Stützen 100 x 50 x 2 mm und Träger 100 x 50 x 3 mm. Diese Verstärkung sorgt für maximale Stabilität bei intensivem Spiel und gibt Betreibern und Spielern volles Vertrauen.
+Beim Unixpadel Standard-Padelplatz steht die Stabilität im Mittelpunkt. Starkwandige Stahlprofile bilden alle tragenden Hauptbauteile: Stützen 100 x 50 x 3 mm und Träger 100 x 50 x 3 mm. Diese Verstärkung sorgt für maximale Stabilität bei intensivem Spiel und gibt Betreibern und Spielern volles Vertrauen.
 
 ### Verstärkte Drei-Pfosten-Rahmenkonstruktion
 
@@ -115,7 +123,7 @@ Entdecken Sie fertiggestellte Unixpadel-Projekte, die in Sportanlagen in ganz Eu
 
 ### Chalkida, Griechenland
 
-Wir haben drei professionelle Standard-Padelplätze mit hochbelastbaren, verstärkten Stahlpfosten 100x50x2mm geliefert – gebaut für stark frequentierten Clubbetrieb.
+Wir haben drei professionelle Standard-Padelplätze mit hochbelastbaren, verstärkten Stahlpfosten 100x50x3mm geliefert – gebaut für stark frequentierten Clubbetrieb.
 
 ### Schlüsselfertige Anlage am Mittelmeer
 
@@ -125,9 +133,9 @@ Unser Engineering-Team hat diese Anlage speziell für das Küstenklima am Mittel
 
 Gebaut für Umwelteinflüsse, hohe Windlasten und intensiven Turnierbetrieb.
 
-### Stahlprofile 100x50x2mm
+### Stahlprofile 100x50x3mm
 
-- Hochbelastbare Stahlprofile 100x50x2mm bilden die tragenden Hauptpfosten.
+- Hochbelastbare Stahlprofile 100x50x3mm bilden die tragenden Hauptpfosten.
 - Hervorragende Widerstandskraft gegen starken Wind und dynamischen Spieleranprall.
 - Maximale Steifigkeit für volle Spielersicherheit bei intensiven Ballwechseln.
 
@@ -151,7 +159,7 @@ Gebaut für Umwelteinflüsse, hohe Windlasten und intensiven Turnierbetrieb.
 
 ## Unixpadel-Standardplatz – für überragende Leistung
 
-Mit einer außergewöhnlichen Konstruktion, die hohen Windlasten standhält, robusten Stahlprofilen 100x50x2mm und umfassenden Sicherheitsmaßnahmen setzt dieser Platz weltweit Maßstäbe für Padelanlagen.
+Mit einer außergewöhnlichen Konstruktion, die hohen Windlasten standhält, robusten Stahlprofilen 100x50x3mm und umfassenden Sicherheitsmaßnahmen setzt dieser Platz weltweit Maßstäbe für Padelanlagen.
 
 Auf Langlebigkeit und wirtschaftlichen Betrieb ausgelegt, erfüllt er alle Erwartungen Ihres Clubs, verbessert das Spielerlebnis und hat dauerhaft Bestand.
 

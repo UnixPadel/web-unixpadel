@@ -16,18 +16,22 @@ seo:
   ogImage: /wp-content/uploads/2026/08/Plated-Padel-Raw-Render-1-scaled.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Çelik Şasi
-    value: Takviyeli, lazer kesim çelik dikmeler ve imzamız olan alt ankraj plakaları; derin beton temellere ihtiyaç duymadan stabil.
-  - label: Kaplama
-    value: Maksimum hava koşulu dayanımı için şık, premium siyah elektrostatik toz boyalı yüzey.
+  - label: Taban Plaka Sistemi
+    value: "Modüler sıcak daldırma galvanizli çelik taban plakası: Uç uca cıvatalı 505–765 mm genişlikte sac paneller"
+  - label: Köşe ve Kuşak Plakaları
+    value: 24 adet 300×180 mm (10 mm kalınlık, Ø12.5 mm) ve 4 adet 175×180 mm (10 mm kalınlık)
+  - label: Oyun Alanı
+    value: 20m x 10m standart oyun alanı (FIP standardı)
+  - label: Çelik Konstrüksiyon
+    value: 100x50x3mm panoramik dikmeler ve 80x40x3mm tali dikmeler
   - label: Cam Duvarlar
-    value: Kesintisiz, panoramik görüş için geniş 12mm temperli güvenlik camı; yüksek darbe emilimi için tasarlanmıştır.
-  - label: Tel Örgü
-    value: Düzensiz top sekmelerini önlemek için camla hizalanmış, yaralanma önleyici elektro kaynaklı tel örgü.
-  - label: Aydınlatma
-    value: Yüksek performanslı LED projektörlerle donatılmış dört açılı aydınlatma direği.
-  - label: Modüler Montaj
-    value: Modüler tasarım hızlı montaj ve hassas hizalama imkânı sunar.
+    value: 12mm EN 12150-1 standardında CE sertifikalı panoramik temperli güvenlik camı
+  - label: Tel Örgü Paneller
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm tel örgü
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 200W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
 media:
   - order: 1
     type: image

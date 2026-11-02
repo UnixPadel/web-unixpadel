@@ -20,7 +20,7 @@ faq:
   - q: What size is a padel court?
     a: "20 m long and 10 m wide, measured from the inside of the walls, with a tolerance of 0.5%. A single court is 20 m x 6 m."
   - q: How much land do I need for one padel court?
-    a: "Plan a base of about 20.8 m x 10.8 m for the court and its structure, plus space for access, lighting posts and circulation. If out-of-court play is allowed, keep a clear area of at least 3 m (4 m recommended) by 4 m beyond each side opening."
+    a: "Plan a base of about 21m x 11m for the court and its structure, plus space for access, lighting posts and circulation. If out-of-court play is allowed, keep a clear area of at least 3 m (4 m recommended) by 4 m beyond each side opening."
   - q: How high are the walls of a padel court?
     a: "The back walls are 4 m high: 3 m of glass or solid wall and 1 m of metal mesh on top. The side walls step down from the corners towards the net, depending on the layout chosen."
   - q: How high is the net on a padel court?
@@ -73,7 +73,7 @@ The mesh always sits in line with the inner face of the glass, so the playing su
 
 ## How much space does a padel court need?
 
-The structure adds width and length to the 20 x 10 m playing area. As a working figure, plan a level base of about **20.8 m x 10.8 m** per court, with a reinforced perimeter beam for the anchors; our [foundation guide](/padel-court-foundation/) explains the slab options.
+The structure adds width and length to the 20 x 10 m playing area. As a working figure, plan a level base of about **21m x 11m** per court, with a reinforced perimeter beam for the anchors; our [foundation guide](/padel-court-foundation/) explains the slab options.
 
 Around that base, allow for:
 

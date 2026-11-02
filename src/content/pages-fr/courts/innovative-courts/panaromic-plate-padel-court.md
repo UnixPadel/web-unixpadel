@@ -16,18 +16,22 @@ seo:
   ogImage: /wp-content/uploads/2026/08/Plated-Padel-Raw-Render-1-scaled.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Ossature en acier
-    value: Poteaux en acier renforcés découpés au laser et platines d'ancrage inférieures caractéristiques ; stabilité absolue sans fondations béton profondes.
-  - label: Finition
-    value: Finition thermolaquée noire haut de gamme, pour une résistance maximale aux intempéries.
+  - label: Système de platines
+    value: "Système modulaire en acier galvanisé à chaud: sections de 505–765 mm boulonnées"
+  - label: Platines de renfort
+    value: 24 pcs 300×180 mm (ép. 10 mm, Ø12.5 mm) & 4 pcs 175×180 mm (ép. 10 mm)
+  - label: Aire de jeu
+    value: 10m x 20m surface conforme aux normes FIP
+  - label: Structure acier
+    value: Profilés panoramiques 100x50x3mm et secondaires 80x40x3mm
   - label: Parois vitrées
-    value: Grandes surfaces en verre de sécurité trempé de 12mm pour une vision panoramique dégagée, conçues pour une forte absorption des chocs.
-  - label: Grillage
-    value: Grillage électrosoudé anti-blessures, aligné avec le verre pour éviter les rebonds irréguliers.
-  - label: Éclairage
-    value: Quatre mâts d'éclairage inclinés équipés de projecteurs LED haute performance.
-  - label: Montage modulaire
-    value: Conception modulaire pour un montage rapide et un alignement précis.
+    value: Verre trempé de sécurité 12mm certifié CE
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 200W IP66 boîtier étanche
 media:
   - order: 1
     type: image

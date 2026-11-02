@@ -51,6 +51,27 @@ media:
     src: /wp-content/uploads/2024/09/wheel-system-canopie-3.jpeg
     alt: Навес на колёсной системе
     section: 6
+specs:
+  - label: Основные стойки
+    value: Стальные профили RHS 80x140x6mm
+  - label: Фермы
+    value: Фермы из профиля RHS 40x40x2.5mm
+  - label: Балки
+    value: Стальные балки RHS 80x140x6mm
+  - label: Связи
+    value: Связи RHS 40x40x2.5mm
+  - label: Тип покрытия
+    value: Водонепроницаемая ПВХ-мембрана с защитой от УФ
+  - label: Снеговая нагрузка
+    value: 76.45 kg/m²
+  - label: Ветровая нагрузка
+    value: 72 km/h
+  - label: Дождевая нагрузка
+    value: 60 m³
+  - label: Максимальная высота
+    value: 9.5–10m
+  - label: Рельсовая система
+    value: Коррозионностойкие направляющие U-профиля
 ---
 
 ## Крыша UnixPadel на колёсной системе

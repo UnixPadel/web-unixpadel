@@ -21,22 +21,28 @@ hero:
   image: null
   tagline: Die Spitze unter den Panorama-Padelplätzen. Freie 360-Grad-Sicht für Zuschauer und hochbelastbare Stahlprofile 100x50x3mm.
 specs:
-  - label: Abmessungen
-    value: Spielfläche 20.00m (Länge) x 10.00m (Breite) mit 4m hohen Eckglaswänden.
-  - label: Stahlrahmen-Profile
-    value: Hochbelastbare, feuerverzinkte Stahlstützen 100x50x3mm.
-  - label: Glaspaneele
-    value: 12mm CE-zertifiziertes Einscheibensicherheitsglas (ESG) nach EN 12150-1.
+  - label: Fundamentfläche
+    value: 11m x 21m Stahlbeton-Fundamentfläche
+  - label: Spielfläche
+    value: 10m x 20m FIP-Standard-Spielfläche
+  - label: Konstruktion
+    value: Hochbelastbare feuerverzinkte 100x50x3mm Stahlstützen
+  - label: Sekundärstützen
+    value: 80x40x3mm Sekundär-Stahlstützen
+  - label: Träger
+    value: RHS 100x50x3mm (Glasbereich) und RHS 80x40x3mm Stahlträger
+  - label: Glaswände
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
   - label: Gitterpaneele
-    value: Elektrogeschweißte Stahldraht-Gitterpaneele 50x50x4mm mit Verletzungsschutz.
-  - label: Kunstrasensystem
-    value: 12mm-15mm Monofilament-Kunstrasen mit Quarzsand-Verfüllung.
-  - label: Beleuchtungssystem
-    value: 4 oder 8 LED-Flutlichtstrahler (300-500 Lux, blendfrei).
-  - label: Verankerung der Fußplatten
-    value: Stahl-Fußplatten 100x50x3mm mit hochfesten Ankerbolzen.
-  - label: Normkonformität
-    value: Profi-Turnierstandards der FIP (Internationaler Padelverband).
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
+  - label: Lichtmasten
+    value: RHS 60x40x3mm und RHS 60x60x4mm Stahl-Lichtmasten
+  - label: Normen
+    value: Konform mit FIP-Profispiel- und Turnierstandards
 specsIntro: Jede Komponente ist nach internationalen Standards für Sicherheit, Langlebigkeit und turniertaugliches Spiel konstruiert.
 media:
   - order: 1

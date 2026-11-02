@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2025/12/3-scaled.jpg
     alt: ""
     section: 3
+specs:
+  - label: Main Pillars
+    value: RHS 150x100x4mm structural steel columns
+  - label: Beams
+    value: RHS 120x80x3mm structural steel truss
+  - label: Purlins
+    value: RHS 50x50x2.5mm steel purlins
+  - label: Braces Truss
+    value: RHS 60x60x3mm steel truss braces
+  - label: Cover Type
+    value: Heavy-duty 1100 g/m² PVC membrane
+  - label: Snow Load
+    value: 90 kg/m² snow load resistance
+  - label: Wind Load
+    value: 110 km/h wind resistance (EN 1991-1-4)
+  - label: Rain Load
+    value: 60 m³ drainage capacity
+  - label: Maximum Height
+    value: 9m peak clearance height
 ---
 
 #### 2. Steel Fabrication & Surface Protection
@@ -78,7 +97,7 @@ media:
 - Width: 12 m
 - Length: 22 m
 - Useful Height: 7–7.4 m
-- Center Height: minimum 9.40 m
+- Center Height: minimum 9.00 m
 
 #### 4. Customer Responsibilities (Paragraph)
 
@@ -160,7 +179,7 @@ Side Height
 
 Center Height
 
-9.2 – 9.9 m
+9.0 m
 
 Main Columns
 

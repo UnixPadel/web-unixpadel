@@ -17,12 +17,24 @@ seo:
   ogImage: null
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Размеры
-    value: Игровая зона 10x6 m на основании 10.9x6.9 m.
-  - label: Сетка
-    value: Электросварная сетка 50×50×4 mm.
+  - label: Габариты
+    value: 6m x 10m игровая площадка (фундамент 10.9m x 6.9m)
+  - label: Стальные профили
+    value: Усиленные стальные профили 100x50x3mm
+  - label: Вторичные профили
+    value: Стальные профили 80x80x3mm
+  - label: Балки
+    value: Нижняя балка 80x40x3mm, верхняя 100x50x3mm
   - label: Стекло
-    value: Закалённое стекло 12 mm.
+    value: 12mm закаленное безопасное стекло
+  - label: Сетка
+    value: Сварная сетка 50x50x4mm
+  - label: Искусственный газон
+    value: 12mm искусственный газон с кварцевым песком
+  - label: Осветительные приборы
+    value: Светодиодные прожекторы 200W
+  - label: Опоры освещения
+    value: Интегрированные в стойки длинных сторон профили 80x80x3mm
 media:
   - order: 1
     type: image

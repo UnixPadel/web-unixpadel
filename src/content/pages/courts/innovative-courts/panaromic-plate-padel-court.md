@@ -16,18 +16,22 @@ seo:
   ogImage: /wp-content/uploads/2026/08/Plated-Padel-Raw-Render-1-scaled.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Steel Frame
-    value: Reinforced, laser-cut steel columns with signature bottom anchor plates; stable without deep concrete foundations.
-  - label: Finish
-    value: Sleek, premium black powder-coated finish for maximum weather resistance.
+  - label: Base Plate System
+    value: "Modular hot-dip galvanized steel base plate system: 505–765 mm wide sections bolted end-to-end"
+  - label: Gusset & Bracing Plates
+    value: "Corner plates: 24 pcs 300×180 mm (10 mm thick, Ø12.5 mm) & 4 pcs 175×180 mm (10 mm thick)"
+  - label: Court Dimensions
+    value: Standard 20m x 10m playing area (FIP standard)
+  - label: Steel Structure
+    value: 100x50x3mm panoramic columns with 80x40x3mm secondary columns
   - label: Glass Walls
-    value: Expansive 12mm tempered safety glass for an unobstructed, panoramic view, engineered for high impact absorption.
-  - label: Mesh
-    value: Anti-injury electro-welded wire mesh, aligned with the glass to prevent irregular bounces.
-  - label: Lighting
-    value: Four angled lighting poles equipped with high-performance LED projectors.
-  - label: Modular Assembly
-    value: Modular design allows for rapid assembly and precise alignment.
+    value: 12 mm CE-certified panoramic tempered safety glass (EN 12150-1 standard)
+  - label: Mesh Panels
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W IP66-rated all-weather aluminum housing LED floodlights
 media:
   - order: 1
     type: image

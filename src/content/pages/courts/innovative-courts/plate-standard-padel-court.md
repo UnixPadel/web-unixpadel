@@ -21,14 +21,22 @@ hero:
   image: null
   tagline: Precision engineering. Structural integrity. Long-term performance.
 specs:
+  - label: Base Plate System
+    value: "Modular hot-dip galvanized steel base plate system: 505–765 mm wide sections bolted end-to-end"
+  - label: Gusset & Bracing Plates
+    value: "Corner plates: 24 pcs 300×180 mm (10 mm thick, Ø12.5 mm) & 4 pcs 175×180 mm (10 mm thick)"
+  - label: Court Dimensions
+    value: Standard 20m x 10m playing area (FIP standard)
   - label: Steel Structure
-    value: Laser-cut pre-galvanized steel columns and crossbeams (>=3 mm), reinforced with anchor plates for exceptional load-bearing capacity.
-  - label: Side Panels
-    value: Solid steel sheet panels (typically 3 mm, customizable), welded or bolted directly to the frame; they cut wind penetration by up to 80%.
+    value: Laser-cut 100x50x3mm steel columns and crossbeams (same profiles as Standard/Panoramic)
   - label: Glass Walls
-    value: 10 mm or 12 mm tempered safety glass with padel-use certification, high-strength fasteners and polished edges.
-  - label: Modular Assembly
-    value: Modular design for rapid assembly and easy transport; the structure withstands dynamic loads such as wind and impacts.
+    value: 10 mm CE-certified tempered safety glass (EN 12150-1 standard)
+  - label: Mesh Panels
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 150W IP66-rated all-weather aluminum housing LED floodlights
 media:
   - order: 1
     type: video

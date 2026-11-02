@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2026/01/half_close_7.jpeg
     alt: "Auvent semi-fermé Unixpadel : structure en acier robuste, conception résistante au vent, membrane anti-UV et finition soignée."
     section: 5
+specs:
+  - label: Piliers principaux
+    value: Profilés acier RHS ou HEA
+  - label: Poutres
+    value: Poutres acier RHS ou IPE
+  - label: Pannes
+    value: Pannes acier RHS
+  - label: Fermes & Contreventements
+    value: Treillis et tirants acier RHS
+  - label: Type de couverture
+    value: Membrane PVC haute résistance
+  - label: Charge de neige
+    value: 150 kg/m²
+  - label: Charge de vent
+    value: 75–110 km/h
+  - label: Charge de pluie
+    value: 60 m³
+  - label: Hauteur maximale
+    value: 9m
 ---
 
 #### Découvrez l'auvent semi-fermé Unixpadel
@@ -49,7 +68,7 @@ Profitez d'une fabrication de haute qualité et d'une protection fiable avec not
 
 #### Construction robuste :
 
-L'auvent atteint 6 mètres de hauteur et repose sur des tubes verticaux parallèles (89 x 3mm), solidement soudés sur des platines à 18 Gijon et écrous (15mm).
+L'auvent atteint 9 mètres de hauteur et repose sur des tubes verticaux parallèles (89 x 3mm), solidement soudés sur des platines à 18 Gijon et écrous (15mm).
 
 Il est ancré dans une base en béton réalisée lors de la préparation de la sous-couche, ce qui garantit stabilité et durabilité.
 

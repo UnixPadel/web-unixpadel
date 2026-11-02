@@ -21,14 +21,22 @@ hero:
   image: null
   tagline: Hassas mühendislik. Yapısal bütünlük. Uzun vadeli performans.
 specs:
+  - label: Taban Plaka Sistemi
+    value: "Modüler sıcak daldırma galvanizli çelik taban plakası: Uç uca cıvatalı 505–765 mm genişlikte sac paneller"
+  - label: Köşe ve Kuşak Plakaları
+    value: 24 adet 300×180 mm (10 mm kalınlık, Ø12.5 mm) ve 4 adet 175×180 mm (10 mm kalınlık)
+  - label: Oyun Alanı
+    value: 20m x 10m standart oyun alanı (FIP standardı)
   - label: Çelik Konstrüksiyon
-    value: Lazer kesim, ön galvanizli çelik dikmeler ve kirişler (>=3 mm); olağanüstü taşıma kapasitesi için ankraj plakalarıyla güçlendirilir.
-  - label: Yan Paneller
-    value: Som çelik sac paneller (tipik olarak 3 mm, özelleştirilebilir); doğrudan şasiye kaynakla veya cıvatayla sabitlenir ve rüzgâr girişini %80'e kadar azaltır.
+    value: 100x50x3mm çelik dikmeler ve kirişler (Standart/Panoramik ile aynı profiller)
   - label: Cam Duvarlar
-    value: Padel kullanım sertifikalı, yüksek mukavemetli bağlantı elemanlarına ve rodajlı kenarlara sahip 10 mm veya 12 mm temperli güvenlik camı.
-  - label: Modüler Montaj
-    value: Hızlı montaj ve kolay nakliye için modüler tasarım; yapı rüzgâr ve darbeler gibi dinamik yüklere dayanır.
+    value: 10mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
+  - label: Tel Örgü Paneller
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm tel örgü
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 150W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
 media:
   - order: 1
     type: video

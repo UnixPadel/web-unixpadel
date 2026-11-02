@@ -16,22 +16,30 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
+  - label: Foundation Area
+    value: 7m x 21m reinforced concrete perimeter footprint
+  - label: Playing Area
+    value: 6m x 20m internal playing area (FIP standard)
   - label: Structure
-    value: The Unixpadel Single Panoramic Padel Court features pillars measuring 80x80x3 mm, duplicated at the corners and securely anchored to the ground using structural anchors. End structural anchors feature a 100x100x3 mm profile, or 100x100x4 mm if in an 8M area.
-  - label: Mesh
-    value: Electro-welded mesh mesh size 50x50x4 mm, embedded into the pillars to enhance player safety and ensure consistent ball rebound during gameplay.
-  - label: Glass
-    value: High-quality 12 mm tempered glass, offering excellent visibility, durability, and a refined premium appearance.
+    value: Heavy-gauge 100x50x3mm main metallic profiles
+  - label: Secondary Profiles
+    value: 80x40x3mm secondary steel profiles
+  - label: Beams
+    value: RHS 100x50x2mm (glass area) and RHS 80x40x3mm steel beams
+  - label: Glass Walls
+    value: High-quality 12mm tempered safety glass (EN 12150-1 standard)
+  - label: Mesh Panels
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels
   - label: Turf
-    value: Choice of monofilament or textured artificial turf, both engineered to provide playing performance and long-lasting durability.
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W IP66-rated all-weather aluminum housing LED floodlights
   - label: Lighting Poles
-    value: Available in Straight T Shape, Sigmoidal K Shape, or Oval D Shape, ensuring optimal lighting distribution across the court.
-  - label: Lighting
-    value: Equipped with 8 x 200W LED spotlights, producing 26,000 lumens each, providing excellent visibility for evening and low-light conditions.
-  - label: Color Options
-    value: Custom color choices, including Blue, Black, Green, Terracotta, White, and Silver, allowing full customization.
+    value: RHS 60x40x3mm and RHS 60x60x4mm structural steel poles
   - label: Finish
-    value: Durable powder-coated galvanized paint finish for weather resistance, with an optional hot-dip galvanized finish for enhanced protection.
+    value: Hot-dip galvanization + electrostatic powder coating
+  - label: Color Options
+    value: Full RAL color chart selection
 specsIntro: Engineered to international standards for safety, durability, and high performance.
 media:
   - order: 1

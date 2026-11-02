@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Kort Ölçüleri
-    value: 20.00m (Uzunluk) x 6.00m (Genişlik) iç oyun alanı.
-  - label: Çelik Konstrüksiyon Profilleri
-    value: "Ağır hizmet tipi galvanizli çelik profiller: 100x50x2mm dikmeler ve 100x50x3mm kirişler."
+  - label: Temel Alanı
+    value: 7m x 21m betonarme çevre hatılı / temel alanı
+  - label: Oyun Alanı
+    value: 6m x 20m iç oyun alanı (FIP resmî tekler standardı)
+  - label: Çelik Konstrüksiyon
+    value: Kalın cidarlı 100x50x3mm ana metal profiller
+  - label: Tali Profiller
+    value: 80x40x3mm tali çelik profiller
+  - label: Kirişler
+    value: Cam alanında RHS 100x50x2mm ve taşıyıcıda RHS 80x40x3mm çelik kirişler
   - label: Tel Örgü Paneller
-    value: Yaralanma önleyici, elektro kaynaklı 50x50x4mm çelik tel örgü paneller.
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü paneller
   - label: Cam Duvarlar
-    value: 10mm CE sertifikalı temperli güvenlik camı (EN 12150-1 standardı).
+    value: 10mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
   - label: Sentetik Çim
-    value: Silis kumu dolgulu, 12mm-15mm monofilament veya tekstüre sentetik çim.
-  - label: Aydınlatma Sistemi
-    value: 6m aydınlatma direklerine monte edilen 4 x 200W LED projektör.
-  - label: Köşe Taban Plakaları
-    value: Dübel ankraj cıvatalı, takviyeli 200x200x10mm çelik taban plakaları.
-  - label: Standartlara Uygunluk
-    value: FIP (Uluslararası Padel Federasyonu) single kort standardına uygun.
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 150W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: RHS 60x40x3mm ve RHS 60x60x3mm çelik aydınlatma direkleri
+  - label: Taban Plakası Ankrajı
+    value: 200x200x10mm takviyeli çelik taban plakaları ve dübel ankrajları
+  - label: Uygunluk
+    value: Uluslararası Padel Federasyonu (FIP) tekler kort standardına tam uyumlu
 specsIntro: Her bileşen maksimum güvenlik, dayanıklılık ve turnuva standardında oyun sunmak üzere tasarlanır ve üretilir.
 media:
   - order: 1

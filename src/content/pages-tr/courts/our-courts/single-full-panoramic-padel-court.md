@@ -16,22 +16,28 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.53.34.jpeg#1287
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Oyun Alanı Ölçüleri
-    value: 20.00m (Uzunluk) x 6.00m (Genişlik) iç oyun alanı.
+  - label: Temel Alanı
+    value: 7m x 21m betonarme çevre hatılı / temel alanı
+  - label: Oyun Alanı
+    value: 6m x 20m iç oyun alanı (FIP resmî tekler standardı)
   - label: Konstrüksiyon
-    value: Köşelerde elektro kaynaklı, dübel cıvatalarla ankrajlanan 100x50x3 mm dikmeler.
-  - label: Tel Örgü Paneller
-    value: Konstrüksiyona entegre, 50x50x4 mm elektro kaynaklı tel örgü.
+    value: 100x50x3mm çelik dikmeler, taban plakalarına kaynaklı veya cıvatalı
+  - label: Tali Profiller
+    value: 80x40x3mm tali çelik profiller
+  - label: Kirişler
+    value: Cam alanında RHS 100x50x2mm ve taşıyıcıda RHS 80x40x3mm çelik kirişler
   - label: Cam Duvarlar
-    value: Yüksek kaliteli 12 mm temperli güvenlik camı (EN 12150-1 uyumlu).
-  - label: Çim Seçenekleri
-    value: Silis kumu dolgulu monofilament veya tekstüre sentetik çim.
-  - label: Aydınlatma Sistemi
-    value: Armatür başına 26.000 lümen sağlayan 200W LED projektörler.
+    value: 12mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
+  - label: Tel Örgü Paneller
+    value: Elektro kaynaklı 50x50x4mm çelik tel örgü paneller
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 200W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
   - label: Aydınlatma Direkleri
-    value: Düz T Tipi, Sigmoid K Tipi veya Oval D Tipi.
+    value: RHS 60x40x3mm ve RHS 60x60x5mm çelik aydınlatma direkleri
   - label: Boya ve Kaplama
-    value: Elektro galvanizli ve elektrostatik toz boyalı yüzey; maksimum korozyon direnci için opsiyonel sıcak daldırma galvaniz.
+    value: Sıcak daldırma galvaniz + elektrostatik toz boya
 specsIntro: Her bileşen; güvenlik, dayanıklılık ve turnuva standardında oyun için uluslararası standartlara göre tasarlanır.
 media:
   - order: 1

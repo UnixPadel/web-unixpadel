@@ -22,22 +22,28 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Overall Frame
-    value: 100x50x3mm thick steel frame
-  - label: Base Supports
-    value: U-profile 50x100x2.5mm thick
-  - label: Triangular Supports
-    value: 100x50x2.5mm thick
-  - label: Flange Dimensions
-    value: 200x100x10mm thick
-  - label: Rectangle Section
-    value: 200x50x4mm thick
+  - label: Foundation Area
+    value: None required (freestanding modular system)
+  - label: Playing Area
+    value: 10m x 20m standard playing area (200 sqm)
+  - label: Main Metallic Profiles
+    value: 100x100x3mm heavy-duty steel profiles
+  - label: Secondary Profiles
+    value: 100x50x3mm structural steel profiles
+  - label: Beams
+    value: 100x50x3mm (long side) and 100x100x3mm (short side)
+  - label: Glass Walls
+    value: 12mm CE-certified tempered safety glass
+  - label: Mesh Panels
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 150W IP66-rated all-weather aluminum housing LED floodlights
+  - label: Lighting Poles
+    value: RHS 60x40x3mm and RHS 60x60x5mm structural steel poles
   - label: Joint Design
-    value: Seamlessly interlocking sliding joints
-  - label: Glass Panels
-    value: High-impact 10-12mm safety tempered glass
-  - label: Steel Mesh
-    value: Electrowelded 100x50x3mm thick
+    value: Seamlessly interlocking precision sliding joints
 specsIntro: Constructed with precision and durability in mind to withstand rigorous play and harsh outdoor conditions.
 media:
   - order: 1
@@ -100,7 +106,7 @@ Engineered with precision for maximum portability, fast assembly, and unyielding
 
 ### Unwavering Frame Support
 
-- Strong 100x50x3mm thick steel frame for maximum rally stability.
+- Strong 100x100x3mm thick steel frame for maximum rally stability.
 - U-profile 50x100x2.5mm base supports for unyielding ground contact.
 - 100x50x2.5mm triangular supports for extra structural rigidity.
 

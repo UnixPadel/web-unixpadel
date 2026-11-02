@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Platzmaße
-    value: Innere Spielfläche 20.00m (Länge) x 6.00m (Breite).
-  - label: Stahlrahmen-Profile
-    value: "Hochbelastbare verzinkte Stahlprofile: Stützen 100x50x2mm und Träger 100x50x3mm."
+  - label: Fundamentfläche
+    value: 7m x 21m Stahlbeton-Fundamentfläche
+  - label: Spielfläche
+    value: 6m x 20m FIP-Standard-Einzelspielfläche
+  - label: Stahlkonstruktion
+    value: Robuste 100x50x3mm Haupt-Stahlprofile
+  - label: Sekundärprofile
+    value: 80x40x3mm Sekundär-Stahlprofile
+  - label: Träger
+    value: RHS 100x50x2mm (Glasbereich) und RHS 80x40x3mm Stahlträger
   - label: Gitterpaneele
-    value: Elektrogeschweißte Stahldraht-Gitterpaneele 50x50x4mm mit Verletzungsschutz.
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
   - label: Glaswände
-    value: 10mm CE-zertifiziertes Einscheibensicherheitsglas (ESG) nach EN 12150-1.
+    value: 10mm ESG-Sicherheitsglas nach EN 12150-1
   - label: Kunstrasen
-    value: 12mm-15mm Monofilament- oder texturierter Kunstrasen mit Quarzsand-Verfüllung.
-  - label: Beleuchtungssystem
-    value: 4 x 200W LED-Flutlichtstrahler auf 6m hohen Lichtmasten.
-  - label: Eck-Fußplatten
-    value: Verstärkte Stahl-Fußplatten 200x200x10mm mit Spreizanker-Bolzen.
-  - label: Normkonformität
-    value: Konform mit dem FIP-Standard (Internationaler Padelverband) für Single-Plätze.
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 150W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
+  - label: Lichtmasten
+    value: RHS 60x40x3mm und RHS 60x60x3mm Stahl-Lichtmasten
+  - label: Fußplatten
+    value: 200x200x10mm verstärkte Stahl-Fußplatten mit Schwerlastankern
+  - label: Normen
+    value: FIP-konform für Einzel-Turnierspiele
 specsIntro: Jede Komponente ist so konstruiert und gefertigt, dass sie maximale Sicherheit, Langlebigkeit und turniertaugliche Spielqualität bietet.
 media:
   - order: 1

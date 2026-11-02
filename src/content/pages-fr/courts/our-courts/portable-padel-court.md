@@ -22,22 +22,28 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Ossature générale
-    value: Ossature en acier de 100x50x3mm d'épaisseur
-  - label: Supports de base
-    value: Profilé en U de 50x100x2.5mm d'épaisseur
-  - label: Supports triangulaires
-    value: 100x50x2.5mm d'épaisseur
-  - label: Dimensions des platines
-    value: 200x100x10mm d'épaisseur
-  - label: Section rectangulaire
-    value: 200x50x4mm d'épaisseur
-  - label: Conception des jonctions
-    value: Jonctions coulissantes à emboîtement parfait
-  - label: Panneaux vitrés
-    value: Verre de sécurité trempé haute résistance aux chocs de 10-12mm
-  - label: Grillage en acier
-    value: Électrosoudé de 100x50x3mm d'épaisseur
+  - label: Surface de fondation
+    value: Aucune fondation requise (système modulaire autoportant)
+  - label: Aire de jeu
+    value: 10m x 20m aire de jeu standard (200 m²)
+  - label: Profilés principaux
+    value: Profilés acier renforcés 100x100x3mm
+  - label: Profilés secondaires
+    value: Profilés acier 100x50x3mm
+  - label: Poutres
+    value: 100x50x3mm (longueur) et 100x100x3mm (largeur)
+  - label: Parois vitrées
+    value: Verre trempé de sécurité 12mm certifié CE
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec sable de silice
+  - label: Luminaires
+    value: Projecteurs LED 150W IP66 boîtier aluminium étanche
+  - label: Mâts d'éclairage
+    value: Profilés RHS 60x40x3mm et RHS 60x60x5mm
+  - label: Assemblage
+    value: Assemblage coulissant emboîtable sans jeu
 specsIntro: Construit avec précision et pensé pour durer, afin de résister à un jeu intensif et aux conditions extérieures les plus rudes.
 media:
   - order: 1

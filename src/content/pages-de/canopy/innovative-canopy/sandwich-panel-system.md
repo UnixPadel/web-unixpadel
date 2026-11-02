@@ -16,20 +16,24 @@ seo:
   ogImage: null
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Hallenmaße
-    value: Das Referenzlayout umfasst eine Dachfläche von 37,1 m Länge und 25,7 m Breite mit 7,58 m Traufhöhe und 9,8 m Firsthöhe. Jedes Projekt wird an die Anzahl der Plätze angepasst.
-  - label: Stahlkonstruktion
-    value: Hauptrahmen aus S355-H-Profilen (EN 10025) im Abstand von 3,0–5,0 m, feuerverzinkt nach EN ISO 1461 mit mindestens 85 µm Zink.
-  - label: Paneldämmung
-    value: Sandwichpaneele mit PIR- oder PUR-Kern, 60 mm – 100 mm dick, λ ≤ 0,022 W/mK, U-Wert ≤ 0,30 W/m²K am Dach und ≤ 0,35 W/m²K an der Wand.
-  - label: Temperaturbereich
-    value: Tragwerk und Paneele sind für Betriebstemperaturen von -20 °C bis 60 °C ausgelegt.
-  - label: Schnee- und Windlasten
-    value: Schneelast von mindestens 1,50 kN/m² auf die Grundfläche, Wind nach EN 1991-1-4 und Erdbeben nach EN 1998 für den jeweiligen Standort.
-  - label: Brandsicherheit & Akustik
-    value: Brandverhalten B-s2,d0 nach EN 13501-1 und Luftschalldämmung von Rw 25–30 dB.
-  - label: Qualitätszertifizierung
-    value: Ausführungsklasse EXC2 nach EN 1090-2, Schweißen nach EN ISO 3834-2, CE-gekennzeichneter Stahlbau und werkseitig gefertigte Paneele nach EN 14509.
+  - label: Hauptstützen
+    value: HEA-Stahlträgerprofile
+  - label: Träger
+    value: IPE-Stahlträgerprofile
+  - label: Pfetten
+    value: RHS-Stahlpfetten
+  - label: Verbände
+    value: RHS-Stahlverbände
+  - label: Dacheindeckung
+    value: Gedämmte Sandwichpaneele (PIR/PUR 60–100 mm)
+  - label: Schneelast
+    value: 150 kg/m² (1.50 kN/m²)
+  - label: Windlast
+    value: 75–110 km/h
+  - label: Regenlast
+    value: 60 m³
+  - label: Maximale Höhe
+    value: 9m
 specsIntro: Eine vollständig geschlossene Padelhalle, die die Plätze in jeder Jahreszeit buchbar hält, mit den Nachweisen und Zertifikaten für die Genehmigung.
 media:
   - order: 1

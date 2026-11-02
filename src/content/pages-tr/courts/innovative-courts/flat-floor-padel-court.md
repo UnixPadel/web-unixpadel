@@ -21,22 +21,24 @@ hero:
   image: null
   tagline: Çelik taban yüzeyi üzerine kurulan standart padel kortu konstrüksiyonu. Beton temel gerektirmez.
 specs:
-  - label: Kort Ölçüleri
-    value: FIP standartlarına uygun, standart 20m x 10m oyun alanı.
-  - label: Ağır Hizmet Tipi Çelik Alt Şasi
-    value: Maksimum yük stabilitesi için tasarlanmış galvanizli çelik alt konstrüksiyon.
-  - label: Aydınlatma Sistemi
-    value: Kort genelinde homojen aydınlatma sağlayan yüksek verimli LED aydınlatma sistemi.
-  - label: Tel Örgü ve Cam Paneller
-    value: Sertifikalı temperli güvenlik camı ile ağır hizmet tipi, yaralanma önleyici çelik tel örgü paneller.
+  - label: Oyun Alanı
+    value: 20m x 10m standart FIP uyumlu oyun alanı
+  - label: Metal Strüktür
+    value: Soğuk şekillendirilmiş RHS 120x80x3mm ve RHS 100x60x3mm çelik alt karkas
+  - label: Zemin Tesviyesi
+    value: Çelik alt şasi; 6 ila 24 cm zemin kot farklılıklarını tolere eden tesviye sistemi
+  - label: Döşeme Modülleri
+    value: 5 × 4 düzeninde 20 adet prefabrik çelik modül (~2.1m × 5.0m), kaynaklı kayma kamalarıyla bağlı
+  - label: Alt Zemin
+    value: Çelik karkas üzerine serilmiş marin kontrplak (plywood) taban plakaları
+  - label: Taşıyıcı Ayaklar
+    value: Ayarlanabilir vidalı tabanlı 300 mm taşıyıcı ayaklar
+  - label: Ankraj
+    value: Zemin koşullarına göre hesaplanan mekanik zemin ankrajları
+  - label: Üst Yapı
+    value: Standart / Panoramik 100x50x3mm profiller ve 10mm/12mm temperli güvenlik camı
   - label: Sentetik Çim
-    value: Optimum top sekmesi ve oyuncu konforu için silis kumu dolgulu, yüksek yoğunluklu polietilen sentetik çim.
-  - label: Dikmeler ve Ankrajlar
-    value: Üstün stabilite için kalın kesitli çelik taşıyıcı dikmeler ve ankrajlar.
-  - label: Modüler Montaj
-    value: Hızlı kurulum, kolay bakım ve gerektiğinde kortun ileride başka bir yere taşınması için önceden mühendisliği yapılmış modüler tasarım.
-  - label: Rüzgâr Dayanımı
-    value: Açık alanlarda güvenli kullanım için rüzgâr yüklerine dayanacak şekilde tasarlanmıştır.
+    value: 12mm silis kumu dolgulu sentetik padel çimi
 media:
   - order: 1
     type: video

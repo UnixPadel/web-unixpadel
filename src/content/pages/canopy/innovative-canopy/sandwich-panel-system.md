@@ -16,20 +16,24 @@ seo:
   ogImage: null
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Hall Dimensions
-    value: The reference layout covers a roof footprint 37.1 m long and 25.7 m wide, with a 7.58 m eave and a 9.8 m ridge. Each project is resized to its number of courts.
-  - label: Steel Structure
-    value: S355 (EN 10025) H-profile main frames at 3.0–5.0 m spacing, hot-dip galvanized to EN ISO 1461 with at least 85 µm of zinc.
-  - label: Panel Insulation
-    value: PIR or PUR core sandwich panels, 60 mm – 100 mm thick, with λ ≤ 0.022 W/mK and U-values of ≤ 0.30 W/m²K on the roof and ≤ 0.35 W/m²K on the walls.
-  - label: Temperature Range
-    value: Structure and panels are designed for service temperatures from -20 °C to 60 °C.
-  - label: Snow & Wind Loads
-    value: Snow load of at least 1.50 kN/m² on horizontal projection, wind per EN 1991-1-4 and seismic action per EN 1998 for the project site.
-  - label: Fire Safety & Acoustics
-    value: Fire reaction class B-s2,d0 to EN 13501-1 and airborne sound insulation of Rw 25–30 dB.
-  - label: Quality Certification
-    value: Execution class EXC2 to EN 1090-2, welding to EN ISO 3834-2, CE-marked steelwork and EN 14509 factory-made panels.
+  - label: Main Pillars
+    value: HEA structural steel profiles
+  - label: Beams
+    value: IPE structural steel beams
+  - label: Purlins
+    value: RHS structural steel purlins
+  - label: Braces & Truss
+    value: RHS reinforced structural steel braces
+  - label: Cover Type
+    value: Insulated PIR/PUR sandwich panels (60–100 mm)
+  - label: Snow Load
+    value: 150 kg/m² (1.50 kN/m²) horizontal projection
+  - label: Wind Load
+    value: 75–110 km/h wind resistance
+  - label: Rain Load
+    value: 60 m³ drainage capacity
+  - label: Maximum Height
+    value: 9m peak clearance height
 specsIntro: A fully enclosed padel hall that keeps the courts bookable in every season, with the calculations and certificates to get it approved.
 media:
   - order: 1

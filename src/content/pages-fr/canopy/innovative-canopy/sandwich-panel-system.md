@@ -16,20 +16,24 @@ seo:
   ogImage: null
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Dimensions de la halle
-    value: L'implantation de référence couvre une toiture de 37,1 m de long sur 25,7 m de large avec 7,58 m à l'égout et 9,8 m au faîtage. Chaque projet est redimensionné selon le nombre de terrains.
-  - label: Ossature acier
-    value: Portiques principaux en profilés H S355 (EN 10025) espacés de 3,0 à 5,0 m, galvanisés à chaud selon EN ISO 1461 avec au moins 85 µm de zinc.
-  - label: Isolation des panneaux
-    value: Panneaux sandwich à âme PIR ou PUR, de 60 mm – 100 mm d'épaisseur, λ ≤ 0,022 W/mK, coefficient U ≤ 0,30 W/m²K en toiture et ≤ 0,35 W/m²K en façade.
-  - label: Plage de température
-    value: La structure et les panneaux sont conçus pour des températures de service de -20 °C à 60 °C.
-  - label: Charges de neige et de vent
-    value: Charge de neige d'au moins 1,50 kN/m² en projection horizontale, vent selon EN 1991-1-4 et séisme selon EN 1998 pour le site du projet.
-  - label: Sécurité incendie & acoustique
-    value: Réaction au feu B-s2,d0 selon EN 13501-1 et isolement aux bruits aériens Rw de 25 à 30 dB.
-  - label: Certification qualité
-    value: Classe d'exécution EXC2 selon EN 1090-2, soudage selon EN ISO 3834-2, charpente marquée CE et panneaux fabriqués en usine selon EN 14509.
+  - label: Piliers principaux
+    value: Profilés acier HEA
+  - label: Poutres
+    value: Profilés acier IPE
+  - label: Pannes
+    value: Pannes en acier RHS
+  - label: Contreventements
+    value: Contreventements en acier RHS
+  - label: Type de couverture
+    value: Panneaux sandwich isolés PIR/PUR (60–100 mm)
+  - label: Charge de neige
+    value: 150 kg/m² (1.50 kN/m²)
+  - label: Charge de vent
+    value: 75–110 km/h
+  - label: Charge de pluie
+    value: 60 m³
+  - label: Hauteur maximale
+    value: 9m
 specsIntro: Une halle de padel entièrement fermée qui garde les terrains réservables en toute saison, livrée avec les calculs et certificats nécessaires à l'autorisation.
 media:
   - order: 1

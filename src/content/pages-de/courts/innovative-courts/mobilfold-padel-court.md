@@ -21,18 +21,28 @@ hero:
   image: null
   tagline: Unser mobiler Padelplatz – eine wegweisende Lösung für Sportbegeisterte, wo immer sie sind.
 specs:
-  - label: Abmessungen und Konstruktion
-    value: 10m x 10m und 10m x 6m (10m x 6m als Single-Platz, 10m x 10m für größere Anlagenprojekte).
-  - label: Stahlrahmen-Optionen
-    value: 100mm x 100mm x 3mm – hochbelastbarer Tragrahmen für strukturelle Stabilität und Langlebigkeit ohne unnötige Masse.
-  - label: Hochwertiges Glas
-    value: 12mm Einscheibensicherheitsglas (ESG) – Sicherheit und Klarheit in einem, mit hochwertigem Finish für Ästhetik und Funktion.
-  - label: Stromversorgung
-    value: Die 10/100-Leistungsauslegung sorgt für Energieeffizienz und zuverlässigen Betrieb von Beleuchtung, Heizung und weiteren Verbrauchern.
-  - label: Optionale Bodenlösungen
-    value: Optionaler Bodenbelag über dem Holzdeck sorgt für bessere Dämmung, Langlebigkeit und Trittsicherheit.
-  - label: Gestaltungsfreiheit
-    value: Wählen Sie zwischen T-, K- und D-Form – passend zu Ihrem architektonischen Konzept und den räumlichen Anforderungen.
+  - label: Fundamentfläche
+    value: Kein Fundament erforderlich (freistehendes modulares System)
+  - label: Spielfläche
+    value: 10m x 20m Standard-Spielfläche (200 m²)
+  - label: Hauptprofile
+    value: 100x100x3mm hochbelastbare Stahlprofile
+  - label: Sekundärprofile
+    value: 100x50x3mm Stahlprofile
+  - label: Träger
+    value: 100x50x3mm (Längsseite) und 100x100x3mm (Querseite)
+  - label: Glaswände
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Gitterpaneele
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 150W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
+  - label: Lichtmasten
+    value: RHS 60x40x3mm und RHS 60x60x5mm Stahl-Lichtmasten
+  - label: Verbindungen
+    value: Präzise ineinandergreifende Schiebeverbindungen
 media:
   - order: 1
     type: video

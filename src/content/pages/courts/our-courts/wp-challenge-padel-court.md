@@ -25,7 +25,7 @@ specs:
   - label: Gameplay Dimensions
     value: 20.00m (Length) x 10.00m (Width) internal playing area.
   - label: Foundation Area
-    value: Recommended 20.80m (Length) x 10.80m (Width) concrete footprint.
+    value: Recommended 21m (Length) x 11m (Width) concrete footprint.
   - label: Corner Reinforcement
     value: Additional 100x50x3mm steel tubing reinforces corner columns.
   - label: Frame Construction
@@ -69,7 +69,7 @@ faq:
   - q: What makes the WP Challenge Padel Court exceptionally wind-resistant?
     a: It features 100x50x3mm reinforced steel tube corner columns, 3-pillar frame construction, and an İTÜ certified wind load rating of Class B (0.42 kN/m²).
   - q: What are the dimensions and foundation requirements for the WP Challenge Court?
-    a: The internal playing area measures 20.00m x 10.00m, while the recommended concrete foundation measures 20.80m x 10.80m.
+    a: The internal playing area measures 20.00m x 10.00m, while the recommended concrete foundation measures 21m x 11m.
   - q: Is the artificial turf FIP approved?
     a: Yes, all Unixpadel WP Challenge Padel Courts feature official FIP Approved Artificial Turf for tournament-level play.
   - q: Has the WP Challenge Court undergone independent structural testing?
@@ -119,7 +119,7 @@ Academic institutions rigorously tested our structure to verify its resistance a
 
 - Official FIP Approved Artificial Turf for authentic bounce and traction.
 - 20.00m x 10.00m internal court gameplay dimensions.
-- Recommended 20.80m x 10.80m concrete foundation footprint.
+- Recommended 21m x 11m concrete foundation footprint.
 
 ### Global Project Footprint
 

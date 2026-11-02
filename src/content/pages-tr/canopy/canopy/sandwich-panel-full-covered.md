@@ -46,6 +46,25 @@ media:
     src: /wp-content/uploads/2026/05/HANGAR.mp4
     alt: null
     section: 3
+specs:
+  - label: Ana Kolonlar
+    value: HEA çelik taşıyıcı kolon profilleri
+  - label: Kirişler
+    value: IPE çelik taşıyıcı kiriş profilleri
+  - label: Aşıklar
+    value: RHS çelik aşıklar
+  - label: Makas ve Kuşaklar
+    value: RHS çelik makas ve rüzgar bağlantıları
+  - label: Çatı Kaplaması
+    value: Yalıtımlı PIR/PUR dolgulu sandviç panel (60–100 mm)
+  - label: Kar Yükü
+    value: 150 kg/m² (1.50 kN/m²) kar yükü dayanımı
+  - label: Rüzgâr Yükü
+    value: 75–110 km/h rüzgar yükü direnci
+  - label: Yağmur Yükü
+    value: 60 m³ entegre yağmur tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9m tepe net açıklık yüksekliği
 ---
 
 Yalıtımlı sandviç panellerle projelendirilmiş, tam kapalı ve çelik konstrüksiyonlu padel kortu sistemi; yıl boyu konfor, üstün ısı performansı ve dayanıklı, hava koşullarına dirençli bir yapı sunar.

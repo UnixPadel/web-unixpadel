@@ -16,20 +16,24 @@ seo:
   ogImage: null
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Hol Ölçüleri
-    value: Referans yerleşim 37,1 m uzunluk ve 25,7 m genişlikte çatı alanı, 7,58 m saçak ve 9,8 m mahya yüksekliğine sahiptir. Her proje kort sayısına göre yeniden boyutlandırılır.
-  - label: Çelik Konstrüksiyon
-    value: 3,0–5,0 m aralıklı S355 (EN 10025) H profil ana çerçeveler, EN ISO 1461'e göre en az 85 µm sıcak daldırma galvaniz kaplamalı.
-  - label: Panel Yalıtımı
-    value: PIR veya PUR çekirdekli sandviç paneller, 60 mm – 100 mm kalınlık, λ ≤ 0,022 W/mK; U değeri çatıda ≤ 0,30 W/m²K, duvarda ≤ 0,35 W/m²K.
-  - label: Sıcaklık Aralığı
-    value: Yapı ve paneller -20 °C ile 60 °C arasındaki kullanım sıcaklıkları için tasarlanır.
-  - label: Kar ve Rüzgâr Yükleri
-    value: Yatay izdüşümde en az 1,50 kN/m² kar yükü; proje sahasına göre EN 1991-1-4 rüzgâr ve EN 1998 deprem hesabı.
-  - label: Yangın Güvenliği ve Akustik
-    value: EN 13501-1'e göre B-s2,d0 yangın sınıfı ve Rw 25–30 dB hava kaynaklı ses yalıtımı.
-  - label: Kalite Sertifikası
-    value: EN 1090-2'ye göre EXC2 uygulama sınıfı, EN ISO 3834-2'ye göre kaynak, CE işaretli çelik ve EN 14509 fabrika üretimi paneller.
+  - label: Ana Kolonlar
+    value: HEA çelik taşıyıcı kolon profilleri
+  - label: Kirişler
+    value: IPE çelik taşıyıcı kiriş profilleri
+  - label: Aşıklar
+    value: RHS çelik aşıklar
+  - label: Makas ve Kuşaklar
+    value: RHS çelik makas ve rüzgar bağlantıları
+  - label: Çatı Kaplaması
+    value: Yalıtımlı PIR/PUR dolgulu sandviç panel (60–100 mm)
+  - label: Kar Yükü
+    value: 150 kg/m² (1.50 kN/m²) kar yükü dayanımı
+  - label: Rüzgâr Yükü
+    value: 75–110 km/h rüzgar yükü direnci
+  - label: Yağmur Yükü
+    value: 60 m³ entegre yağmur tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9m tepe net açıklık yüksekliği
 specsIntro: Kortları her mevsim kiralanabilir tutan, onay için gereken hesap ve sertifikalarla teslim edilen tam kapalı padel holü.
 media:
   - order: 1

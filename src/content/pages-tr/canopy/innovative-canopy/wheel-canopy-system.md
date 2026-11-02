@@ -51,6 +51,27 @@ media:
     src: /wp-content/uploads/2024/09/wheel-system-canopie-3.jpeg
     alt: Tekerlekli Kanopi Sistemi
     section: 6
+specs:
+  - label: Ana Kolonlar
+    value: RHS 80x140x6mm kalın etli çelik profiller
+  - label: Makas
+    value: RHS 40x40x2.5mm çelik makas sistemi
+  - label: Kirişler
+    value: RHS 80x140x6mm çelik taşıyıcı kirişler
+  - label: Kuşaklar
+    value: RHS 40x40x2.5mm çelik rüzgar kuşakları
+  - label: Çatı Kaplaması
+    value: Su geçirmez, UV korumalı PVC membran
+  - label: Kar Yükü
+    value: 76.45 kg/m² kar yükü dayanımı
+  - label: Rüzgâr Yükü
+    value: 72 km/h rüzgar yükü direnci
+  - label: Yağmur Yükü
+    value: 60 m³ yağmur tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9.5–10m ayarlanabilir açıklık yüksekliği
+  - label: Ray Sistemi
+    value: Korozyona dayanıklı U-profil zemin rayları (5.25m modüller)
 ---
 
 ## UnixPadel Tekerlekli Çatı Örtüsü Sistemi

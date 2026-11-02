@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Dimensions du terrain
-    value: Aire de jeu intérieure de 20.00m (longueur) x 6.00m (largeur).
-  - label: Profilés de l'ossature en acier
-    value: "Profilés en acier galvanisé renforcé : poteaux de 100x50x2mm et traverses de 100x50x3mm."
+  - label: Surface de fondation
+    value: 7m x 21m semelle béton armé
+  - label: Aire de jeu
+    value: 6m x 20m intérieur conforme aux normes FIP
+  - label: Structure acier
+    value: Profilés principaux en acier renforcé 100x50x3mm
+  - label: Profilés secondaires
+    value: Profilés secondaires en acier 80x40x3mm
+  - label: Poutres
+    value: RHS 100x50x2mm (zone vitrée) et RHS 80x40x3mm poutres acier
   - label: Panneaux grillagés
-    value: Panneaux grillagés anti-blessures en acier électrosoudé de 50x50x4mm.
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
   - label: Parois vitrées
-    value: Verre de sécurité trempé de 10mm certifié CE (norme EN 12150-1).
+    value: Verre trempé de sécurité 10mm certifié CE (norme EN 12150-1)
   - label: Gazon synthétique
-    value: Gazon synthétique monofilament ou texturé de 12mm-15mm, avec remplissage de sable de silice.
-  - label: Éclairage
-    value: 4 projecteurs LED de 200W montés sur des mâts d'éclairage de 6m.
-  - label: Platines d'angle
-    value: Platines en acier renforcées de 200x200x10mm avec boulons d'ancrage à expansion.
+    value: Gazon synthétique 12mm avec remplissage de sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 150W IP66 boîtier aluminium étanche
+  - label: Mâts d'éclairage
+    value: Profilés RHS 60x40x3mm et RHS 60x60x3mm
+  - label: Platines d'ancrage
+    value: Platines renforcées 200x200x10mm avec chevilles à expansion
   - label: Conformité
-    value: Conforme à la norme FIP (Fédération internationale de padel) pour les terrains single.
+    value: Conforme aux normes FIP pour courts simples
 specsIntro: Chaque composant est conçu et fabriqué pour offrir une sécurité, une durabilité et une jouabilité de niveau compétition maximales.
 media:
   - order: 1

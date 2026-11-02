@@ -21,18 +21,28 @@ hero:
   image: null
   tagline: Devrim niteliğindeki mobil padel kortumuzla tanışın – sporseverler için her yerde oyunun kurallarını değiştiren bir çözüm!
 specs:
-  - label: Ölçüler ve Yapı
-    value: 10m x 10m ve 10m x 6m (tekler için 10m x 6m, daha büyük tesis projeleri için 10m x 10m).
-  - label: Çelik Şasi Seçenekleri
-    value: 100mm x 100mm x 3mm – Gereksiz hacim oluşturmadan yapısal stabilite ve dayanıklılık sağlayan ağır hizmet tipi taşıyıcı şasi.
-  - label: Yüksek Kaliteli Cam
-    value: 12mm Temperli Cam – Güvenlik ve netliği bir araya getiren, estetiği ve işlevselliği güçlendiren premium bir bitiş.
-  - label: Güç ve Enerji Çözümleri
-    value: 10/100 güç kapasitesi; aydınlatma, ısıtma ve diğer işletme ihtiyaçları için enerji verimliliği ve güvenilir performans sağlar.
-  - label: Opsiyonel Zemin Kaplama Çözümleri
-    value: Ahşap döşeme üzerine opsiyonel zemin kaplamasıyla daha iyi yalıtım, dayanıklılık ve oyun desteği elde edin.
-  - label: Tasarım Esnekliği
-    value: Mimari vizyonunuza ve alan gereksinimlerinize uygun T, K ve D tipi tasarımlar arasından seçim yapın.
+  - label: Temel Alanı
+    value: Temel gereksiz (kendi kendini taşıyan zemin bağlantısız sistem)
+  - label: Oyun Alanı
+    value: 10m x 20m standart iç oyun alanı (200 m²)
+  - label: Ana Metal Profiller
+    value: 100x100x3mm ağır hizmet tipi çelik profiller
+  - label: Tali Profiller
+    value: 100x50x3mm çelik profiller
+  - label: Kirişler
+    value: Uzun kenarda 100x50x3mm ve kısa kenarda 100x100x3mm
+  - label: Cam Duvarlar
+    value: 12mm EN 12150-1 CE sertifikalı temperli güvenlik camı
+  - label: Tel Örgü Paneller
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 150W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: RHS 60x40x3mm ve RHS 60x60x5mm çelik aydınlatma direkleri
+  - label: Birleşim Detayı
+    value: Geçmeli hassas kayar bağlantı kilit mekanizması
 media:
   - order: 1
     type: video

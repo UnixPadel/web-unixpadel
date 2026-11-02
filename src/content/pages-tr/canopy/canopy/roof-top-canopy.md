@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2025/12/3-scaled.jpg
     alt: ""
     section: 3
+specs:
+  - label: Ana Kolonlar
+    value: RHS 150x100x4mm çelik taşıyıcı kolonlar
+  - label: Kirişler
+    value: RHS 120x80x3mm çelik kafes makas kirişler
+  - label: Aşıklar
+    value: RHS 50x50x2.5mm çelik aşıklar
+  - label: Makas Kuşakları
+    value: RHS 60x60x3mm çelik makas kuşakları
+  - label: Çatı Kaplaması
+    value: 1100 g/m² UV dayanımlı PVC membran
+  - label: Kar Yükü
+    value: 90 kg/m² kar yükü dayanımı (EN 1991-1-3)
+  - label: Rüzgâr Yükü
+    value: 110 km/h rüzgar direnci (EN 1991-1-4)
+  - label: Yağmur Yükü
+    value: 60 m³ tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9m tepe net açıklık yüksekliği
 ---
 
 #### 2. Çelik İmalat ve Yüzey Koruma
@@ -78,7 +97,7 @@ media:
 - Genişlik: 12 m
 - Uzunluk: 22 m
 - Kullanılabilir Yükseklik: 7–7.4 m
-- Orta Yükseklik: minimum 9.40 m
+- Orta Yükseklik: minimum 9.00 m
 
 #### 4. Müşteri Sorumlulukları (Paragraf)
 
@@ -160,7 +179,7 @@ Yan Yükseklik
 
 Orta Yükseklik
 
-9.2 – 9.9 m
+9.0 m
 
 Ana Kolonlar
 

@@ -21,14 +21,22 @@ hero:
   image: null
   tagline: Ingénierie de précision. Intégrité structurelle. Performance durable.
 specs:
-  - label: Structure en acier
-    value: Poteaux et traverses en acier prégalvanisé découpés au laser (>=3 mm), renforcés par des platines d'ancrage pour une capacité portante exceptionnelle.
-  - label: Panneaux latéraux
-    value: Panneaux en tôle d'acier pleine (généralement 3 mm, personnalisable), soudés ou boulonnés directement sur l'ossature ; ils réduisent jusqu'à 80% la pénétration du vent.
+  - label: Système de platines
+    value: "Système modulaire en acier galvanisé à chaud: sections de 505–765 mm boulonnées"
+  - label: Platines de renfort
+    value: 24 pcs 300×180 mm (ép. 10 mm, Ø12.5 mm) & 4 pcs 175×180 mm (ép. 10 mm)
+  - label: Aire de jeu
+    value: 10m x 20m surface conforme aux normes FIP
+  - label: Structure acier
+    value: Profilés 100x50x3mm (identiques aux modèles Standard et Panoramique)
   - label: Parois vitrées
-    value: Verre de sécurité trempé de 10 mm ou 12 mm certifié pour l'usage padel, avec fixations haute résistance et chants polis.
-  - label: Montage modulaire
-    value: Conception modulaire pour un montage rapide et un transport facile ; la structure résiste aux charges dynamiques telles que le vent et les impacts.
+    value: Verre trempé de sécurité 10mm certifié CE
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 150W IP66 boîtier étanche
 media:
   - order: 1
     type: video

@@ -19,24 +19,32 @@ hero:
   video: /wp-content/uploads/2023/07/Logosuz-Standard-Court.mp4
   poster: /wp-content/uploads/2026/08/greece_ref-2.jpg
   image: null
-  tagline: Une référence mondiale en qualité, en stabilité structurelle et en jeu de compétition. Chaque terrain est conçu avec des profilés en acier renforcés de 100x50x2mm.
+  tagline: Une référence mondiale en qualité, en stabilité structurelle et en jeu de compétition. Chaque terrain est conçu avec des profilés en acier renforcés de 100x50x3mm.
 specs:
+  - label: Surface de fondation
+    value: 11m x 21m semelle béton armé
+  - label: Aire de jeu
+    value: 10m x 20m intérieur conforme aux normes FIP
   - label: Structure
-    value: "Profilés en acier de forte épaisseur : 100x50x2mm pour les poteaux de l'ossature principale et 100x50x3mm pour les traverses, ancrés par des boulons d'expansion renforcés."
+    value: "Poteaux en acier renforcé: profilés principaux 100x50x3mm"
+  - label: Poteaux secondaires
+    value: Poteaux secondaires en acier 80x40x3mm
+  - label: Poutres
+    value: RHS 100x50x2mm (zone vitrée) et RHS 80x40x3mm poutres acier
   - label: Panneaux grillagés
-    value: Panneaux grillagés anti-blessures en acier électrosoudé de 50x50x4mm, à haute rigidité structurelle.
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
   - label: Parois vitrées
-    value: Panneaux en verre de sécurité trempé de 10mm, fabriqués selon la norme de sécurité européenne EN 12150-1.
-  - label: Options de gazon
-    value: Gazon synthétique monofilament ou texturé haut de gamme, avec remplissage de sable de silice pour un rebond optimal et le confort des articulations.
-  - label: Éclairage
-    value: Système d'éclairage LED intégré à 4 ou 8 mâts, pour un éclairage uniforme et sans éblouissement.
+    value: Verre trempé de sécurité 10mm certifié CE (norme EN 12150-1)
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec remplissage de sable siliceux
   - label: Luminaires
-    value: Projecteurs LED haut rendement fournissant au moins 300 à 500 Lux pour un jeu en soirée haute performance.
-  - label: Options de couleur
-    value: Nuancier RAL complet (noir, anthracite, bleu marine, blanc signalisation) pour une personnalisation aux couleurs de votre marque.
+    value: Projecteurs LED 150W IP66 boîtier aluminium étanche
+  - label: Mâts d'éclairage
+    value: Profilés RHS 60x40x3mm et RHS 60x60x3mm
   - label: Finition
-    value: Galvanisation à chaud + thermolaquage électrostatique pour une protection anticorrosion totale.
+    value: Galvanisation à chaud + thermolaquage poudre électrostatique
+  - label: Options de couleur
+    value: Nuancier RAL complet au choix
 specsIntro: Chaque composant est conçu selon les normes internationales pour garantir sécurité, durabilité et un jeu de niveau compétition.
 media:
   - order: 1
@@ -88,7 +96,7 @@ faq:
   - q: Puis-je personnaliser les couleurs du terrain aux couleurs de mon installation ?
     a: Absolument. Nous proposons un thermolaquage électrostatique personnalisé dans toutes les teintes RAL standard (comme le noir, l'anthracite, le bleu marine et le blanc signalisation).
   - q: Quelle est la résistance au vent du terrain standard Unixpadel ?
-    a: Le terrain est conçu avec des poteaux en acier de construction renforcés de 100x50x2mm et un système d'angle à 3 poteaux pour résister à des charges de vent allant jusqu'à 120-140 km/h.
+    a: Le terrain est conçu avec des poteaux en acier de construction renforcés de 100x50x3mm et un système d'angle à 3 poteaux pour résister à des charges de vent allant jusqu'à 120-140 km/h.
   - q: Quelle épaisseur de verre de sécurité installez-vous pour les parois du terrain ?
     a: Nous installons un verre de sécurité trempé de 10mm certifié CE, strictement conforme à la norme de sécurité européenne EN 12150-1.
   - q: Le terrain de padel standard est-il conforme aux normes FIP ?
@@ -101,7 +109,7 @@ Bienvenue sur le terrain de padel standard UNIXPADEL, une référence en matièr
 
 ### Une stabilité structurelle sans égale
 
-Nous construisons le terrain de padel standard Unixpadel en plaçant la stabilité structurelle au premier plan. Des profilés en acier de forte épaisseur constituent l'ensemble des éléments structurels principaux : poteaux de 100 x 50 x 2 mm et traverses de 100 x 50 x 3 mm. Ce renforcement garantit une stabilité maximale pendant le jeu intensif et inspire une totale confiance aux exploitants comme aux joueurs.
+Nous construisons le terrain de padel standard Unixpadel en plaçant la stabilité structurelle au premier plan. Des profilés en acier de forte épaisseur constituent l'ensemble des éléments structurels principaux : poteaux de 100 x 50 x 3 mm et traverses de 100 x 50 x 3 mm. Ce renforcement garantit une stabilité maximale pendant le jeu intensif et inspire une totale confiance aux exploitants comme aux joueurs.
 
 ### Une ossature renforcée à trois poteaux
 
@@ -115,7 +123,7 @@ Découvrez des projets de terrains Unixpadel achevés et en service dans des com
 
 ### Chalkida, Grèce
 
-Nous avons livré trois terrains de padel standard professionnels dotés de poteaux en acier renforcés de 100x50x2mm, conçus pour les matchs de clubs commerciaux à forte fréquentation.
+Nous avons livré trois terrains de padel standard professionnels dotés de poteaux en acier renforcés de 100x50x3mm, conçus pour les matchs de clubs commerciaux à forte fréquentation.
 
 ### Installation clé en main en Méditerranée
 
@@ -125,9 +133,9 @@ Notre équipe d'ingénieurs a conçu cette installation spécialement pour le cl
 
 Conçu pour résister aux contraintes environnementales, aux fortes charges de vent et au jeu de compétition intensif.
 
-### Profilés en acier 100x50x2mm
+### Profilés en acier 100x50x3mm
 
-- Des profilés en acier renforcés de 100x50x2mm forment les poteaux structurels principaux.
+- Des profilés en acier renforcés de 100x50x3mm forment les poteaux structurels principaux.
 - Résistance supérieure aux vents forts et aux impacts dynamiques des joueurs.
 - Rigidité maximale garantissant la sécurité totale des joueurs lors des échanges intenses.
 
@@ -151,7 +159,7 @@ Conçu pour résister aux contraintes environnementales, aux fortes charges de v
 
 ## Choisissez le terrain standard Unixpadel pour des performances inégalées
 
-Avec une structure exceptionnelle qui résiste aux fortes charges de vent, des profilés en acier robustes de 100x50x2mm et des mesures de sécurité complètes, ce terrain fait référence pour les sites de padel du monde entier.
+Avec une structure exceptionnelle qui résiste aux fortes charges de vent, des profilés en acier robustes de 100x50x3mm et des mesures de sécurité complètes, ce terrain fait référence pour les sites de padel du monde entier.
 
 Conçu pour la durabilité et la rentabilité commerciale, il répond à toutes les attentes de votre club, améliore l'expérience des joueurs et résiste à l'épreuve du temps.
 

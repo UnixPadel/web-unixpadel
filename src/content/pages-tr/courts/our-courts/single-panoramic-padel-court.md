@@ -16,22 +16,30 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
+  - label: Temel Alanı
+    value: 7m x 21m betonarme çevre hatılı / temel alanı
+  - label: Oyun Alanı
+    value: 6m x 20m iç oyun alanı (FIP resmî tekler standardı)
   - label: Konstrüksiyon
-    value: Unixpadel Single Panoramik Padel Kortu, köşelerde çiftlenmiş ve yapısal ankrajlarla zemine sağlam şekilde sabitlenmiş 80x80x3 mm dikmelere sahiptir. Uç yapısal ankrajlarda 100x100x3 mm profil, 8M alanlarda ise 100x100x4 mm profil kullanılır.
-  - label: Tel Örgü
-    value: Oyuncu güvenliğini artırmak ve oyun sırasında tutarlı top sekmesi sağlamak için dikmelere gömülü, 50x50x4 mm göz aralıklı elektro kaynaklı tel örgü.
-  - label: Cam
-    value: Mükemmel görüş, dayanıklılık ve rafine, birinci sınıf bir görünüm sunan yüksek kaliteli 12 mm temperli cam.
-  - label: Çim
-    value: Oyun performansı ve uzun ömürlü dayanıklılık için tasarlanmış monofilament veya tekstüre sentetik çim seçeneği.
+    value: Kalın cidarlı 100x50x3mm ana metal profiller
+  - label: Tali Profiller
+    value: 80x40x3mm tali çelik profiller
+  - label: Kirişler
+    value: Cam alanında RHS 100x50x2mm ve taşıyıcıda RHS 80x40x3mm çelik kirişler
+  - label: Cam Duvarlar
+    value: 12mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
+  - label: Tel Örgü Paneller
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü paneller
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 200W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
   - label: Aydınlatma Direkleri
-    value: Kort genelinde optimum ışık dağılımı sağlayan Düz T Tipi, Sigmoid K Tipi veya Oval D Tipi seçenekleri.
-  - label: Aydınlatma
-    value: Akşam saatlerinde ve düşük ışık koşullarında mükemmel görüş sağlayan, her biri 26.000 lümen üreten 8 x 200W LED spot.
-  - label: Renk Seçenekleri
-    value: Mavi, Siyah, Yeşil, Terakota, Beyaz ve Gümüş dahil tam kişiselleştirme imkânı sunan özel renk seçenekleri.
+    value: RHS 60x40x3mm ve RHS 60x60x4mm çelik aydınlatma direkleri
   - label: Boya ve Kaplama
-    value: Hava koşullarına dayanım için dayanıklı, toz boyalı galvanizli boya kaplama; daha yüksek koruma için opsiyonel sıcak daldırma galvaniz.
+    value: Sıcak daldırma galvaniz + elektrostatik toz boya
+  - label: Renk Seçenekleri
+    value: Tam RAL renk kartelası seçimi
 specsIntro: Güvenlik, dayanıklılık ve yüksek performans için uluslararası standartlara göre tasarlandı.
 media:
   - order: 1

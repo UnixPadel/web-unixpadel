@@ -43,6 +43,25 @@ media:
     section: 4
 legacyUrls:
   - /unixpadel-full-membrane-cover/
+specs:
+  - label: Piliers principaux
+    value: Profilés acier renforcés RHS ou HEA
+  - label: Poutres
+    value: Poutres de structure en acier RHS ou IPE
+  - label: Pannes
+    value: Pannes en acier RHS
+  - label: Fermes & Contreventements
+    value: Tirants et fermes en acier RHS
+  - label: Type de couverture
+    value: Membrane PVC 900 g/m² haute résistance avec vernis PVDF
+  - label: Charge de neige
+    value: 150 kg/m² (1.50 kN/m²) de projection horizontale
+  - label: Charge de vent
+    value: Résistance au vent de 75–110 km/h
+  - label: Charge de pluie
+    value: Capacité d'évacuation de 60 m³
+  - label: Hauteur maximale
+    value: Hauteur sous faîtage de 9m
 ---
 
 ## Conçue contre les charges de neige et de vent

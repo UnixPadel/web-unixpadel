@@ -56,6 +56,27 @@ media:
     src: /wp-content/uploads/2026/05/image-5.png
     alt: ""
     section: 4
+specs:
+  - label: الأعمدة الرئيسية
+    value: RHS 100x100x3mm (للجانب القصير) و RHS 150x100x4mm (للجانب الطويل)
+  - label: الجمالون
+    value: جمالون فولاذي RHS 50x50x2.5mm
+  - label: العوارض
+    value: عوارض فولاذية RHS 120x80x3mm
+  - label: الروابط
+    value: روابط السقف بمقاس 120x80x3mm
+  - label: نوع الغطاء
+    value: غشاء PVC مزدوج الطبقات 650 جم/م² مقاوم للهب
+  - label: حمل الثلوج
+    value: 80 kg/m²
+  - label: حمل الرياح
+    value: 100 km/h
+  - label: تصريف الأمطار
+    value: 60 m³
+  - label: أقصى ارتفاع
+    value: 9.5m
+  - label: التشغيل
+    value: محرك كهربائي آلي ونظام سحب ودفع على قضبان
 ---
 
 <video controls preload="metadata" src="/wp-content/uploads/2026/05/output_50mb.mp4"></video>

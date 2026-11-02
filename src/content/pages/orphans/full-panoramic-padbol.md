@@ -18,11 +18,23 @@ seo:
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
   - label: Dimensions
-    value: 10x6 meter playing area, set on a 10.9x6.9 meter foundation.
-  - label: Mesh
-    value: Electrowelded 50×50×4 mm mesh.
+    value: 6m x 10m inner playing area (10.9m x 6.9m foundation footprint)
+  - label: Steel Tubes
+    value: 100x50x3mm heavy-duty steel tubes
+  - label: Secondary Profiles
+    value: 80x80x3mm secondary steel sections
+  - label: Beams
+    value: Ground beam 80x40x3mm, Top beam 100x50x3mm
   - label: Glass
-    value: 12 mm tempered glass.
+    value: 12mm certified tempered safety glass
+  - label: Mesh
+    value: Electrowelded 50x50x4mm wire mesh
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W high-efficiency LED floodlights
+  - label: Lighting Poles
+    value: Integrated into long-side columns using 80x80x3mm steel sections
 media:
   - order: 1
     type: image

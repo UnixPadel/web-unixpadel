@@ -51,6 +51,27 @@ media:
     src: /wp-content/uploads/2024/09/wheel-system-canopie-3.jpeg
     alt: Wheel System Canopie
     section: 6
+specs:
+  - label: Main Pillars
+    value: RHS 80x140x6mm heavy-gauge steel profiles
+  - label: Truss
+    value: RHS 40x40x2.5mm structural steel truss
+  - label: Beams
+    value: RHS 80x140x6mm structural steel beams
+  - label: Braces
+    value: RHS 40x40x2.5mm steel braces
+  - label: Cover Type
+    value: Waterproof UV-resistant PVC membrane
+  - label: Snow Load
+    value: 76.45 kg/m² snow load resistance
+  - label: Wind Load
+    value: 72 km/h wind resistance
+  - label: Rain Load
+    value: 60 m³ drainage capacity
+  - label: Maximum Height
+    value: 9.5–10m adjustable clearance height
+  - label: Track System
+    value: Corrosion-resistant U-profile guide tracks (5.25m modules)
 ---
 
 ## Introducing the UnixPadel Wheel System Roof Cover

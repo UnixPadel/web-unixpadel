@@ -18,11 +18,23 @@ seo:
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
   - label: Dimensions
-    value: Aire de jeu standard de 10x6 mètres, sur une dalle de 10.9x6.9 mètres.
-  - label: Treillis
-    value: Treillis électrosoudé (50×50×4 mm).
+    value: 6m x 10m aire de jeu (fondation 10.9m x 6.9m)
+  - label: Tubes d'acier
+    value: Profilés acier renforcés 100x50x3mm
+  - label: Profilés secondaires
+    value: Profilés secondaires 80x80x3mm
+  - label: Poutres
+    value: Poutre basse 80x40x3mm, Poutre haute 100x50x3mm
   - label: Verre
-    value: Verre trempé de 12 mm.
+    value: Verre trempé de sécurité 12mm certifié
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec sable de silice
+  - label: Luminaires
+    value: Projecteurs LED haute performance 200W
+  - label: Mâts d'éclairage
+    value: Profilés 80x80x3mm intégrés aux colonnes latérales
 media:
   - order: 1
     type: image

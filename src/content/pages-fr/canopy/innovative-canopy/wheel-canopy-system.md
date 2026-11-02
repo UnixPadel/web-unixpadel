@@ -51,6 +51,27 @@ media:
     src: /wp-content/uploads/2024/09/wheel-system-canopie-3.jpeg
     alt: Auvent à système sur roues
     section: 6
+specs:
+  - label: Piliers principaux
+    value: Profilés acier renforcés RHS 80x140x6mm
+  - label: Fermes
+    value: Fermes en acier RHS 40x40x2.5mm
+  - label: Poutres
+    value: Poutres acier RHS 80x140x6mm
+  - label: Contreventements
+    value: Contreventements acier RHS 40x40x2.5mm
+  - label: Type de couverture
+    value: Membrane PVC imperméable anti-UV
+  - label: Charge de neige
+    value: 76.45 kg/m²
+  - label: Charge de vent
+    value: 72 km/h
+  - label: Charge de pluie
+    value: 60 m³
+  - label: Hauteur maximale
+    value: 9.5–10m
+  - label: Système de rails
+    value: Rails en U résistants à la corrosion
 ---
 
 ## Découvrez le toit sur roues UnixPadel

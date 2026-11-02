@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2026/01/half_close_7.jpeg
     alt: "Unixpadel yarı kapalı kanopi: sağlam çelik konstrüksiyon, rüzgâra dayanıklı tasarım, UV korumalı membran ve şık yüzey."
     section: 5
+specs:
+  - label: Ana Kolonlar
+    value: Ağır hizmet tipi RHS veya HEA çelik profiller
+  - label: Kirişler
+    value: RHS veya IPE çelik taşıyıcı kirişler
+  - label: Aşıklar
+    value: RHS çelik aşıklar
+  - label: Makas ve Kuşaklar
+    value: RHS çelik diyagonal makas ve rüzgar kuşakları
+  - label: Çatı Kaplaması
+    value: Ağır hizmet tipi UV korumalı PVC membran
+  - label: Kar Yükü
+    value: 150 kg/m² kar yükü dayanımı
+  - label: Rüzgâr Yükü
+    value: 75–110 km/h rüzgar yükü direnci
+  - label: Yağmur Yükü
+    value: 60 m³ entegre tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9m tepe net açıklık yüksekliği
 ---
 
 #### Unixpadel Yarı Kapalı Kanopiye Hoş Geldiniz

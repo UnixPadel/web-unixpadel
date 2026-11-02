@@ -46,6 +46,25 @@ media:
     src: /wp-content/uploads/2026/05/HANGAR.mp4
     alt: null
     section: 3
+specs:
+  - label: Hauptstützen
+    value: HEA-Stahlträgerprofile
+  - label: Träger
+    value: IPE-Stahlträgerprofile
+  - label: Pfetten
+    value: RHS-Stahlpfetten
+  - label: Verbände
+    value: RHS-Stahlverbände
+  - label: Dacheindeckung
+    value: Gedämmte Sandwichpaneele (PIR/PUR 60–100 mm)
+  - label: Schneelast
+    value: 150 kg/m² (1.50 kN/m²)
+  - label: Windlast
+    value: 75–110 km/h
+  - label: Regenlast
+    value: 60 m³
+  - label: Maximale Höhe
+    value: 9m
 ---
 
 Ein vollständig geschlossenes Padelplatz-System mit Stahlrahmen und gedämmten Sandwichpaneelen – für ganzjährigen Komfort, hervorragende Wärmedämmung und eine langlebige, witterungsbeständige Konstruktion.

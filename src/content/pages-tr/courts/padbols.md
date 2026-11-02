@@ -22,13 +22,23 @@ hero:
   tagline: Standart ve Panoramik modellerden Portatif ve MobileFold sistemlere kadar tüm Padbol kort koleksiyonumuzu keşfedin. Dayanıklılık, görünürlük ve performans için üretildi.
 specs:
   - label: Ölçüler
-    value: 10.9×6.9m sağlam zemin alanı üzerinde 10x6m iç oyun alanı.
-  - label: Çelik Profiller
-    value: 100×50×3 mm ağır hizmet tipi çelik profiller.
+    value: 6m x 10m iç oyun alanı (10.9m x 6.9m temel alanı)
+  - label: Çelik Borular
+    value: 100x50x3mm kalın cidarlı çelik profiller
+  - label: Tali Profiller
+    value: 80x80x3mm tali çelik kesitler
+  - label: Kirişler
+    value: Zemin kirişi 80x40x3mm, Üst kiriş 100x50x3mm
   - label: Cam
-    value: 12 mm sertifikalı temperli cam.
+    value: 12mm sertifikalı temperli güvenlik camı
   - label: Tel Örgü
-    value: Elektro kaynaklı 50×50×4 mm tel örgü.
+    value: Elektro kaynaklı 50x50x4mm tel örgü
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 200W yüksek verimli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: Uzun kenar kolonlarına entegre 80x80x3mm çelik aydınlatma direkleri
 media:
   - order: 1
     type: video

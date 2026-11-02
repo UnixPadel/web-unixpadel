@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2025/12/3-scaled.jpg
     alt: ""
     section: 3
+specs:
+  - label: Hauptstützen
+    value: RHS 150x100x4mm Stahlstützen
+  - label: Träger
+    value: RHS 120x80x3mm Stahlfachwerkträger
+  - label: Pfetten
+    value: RHS 50x50x2.5mm Stahlpfetten
+  - label: Fachwerkverbände
+    value: RHS 60x60x3mm Stahlverbände
+  - label: Dacheindeckung
+    value: 1100 g/m² hochfeste PVC-Membran
+  - label: Schneelast
+    value: 90 kg/m²
+  - label: Windlast
+    value: 110 km/h
+  - label: Regenlast
+    value: 60 m³
+  - label: Maximale Höhe
+    value: 9m
 ---
 
 #### 2. Stahlbau und Oberflächenschutz
@@ -78,7 +97,7 @@ media:
 - Breite: 12 m
 - Länge: 22 m
 - Nutzbare Höhe: 7–7.4 m
-- Firsthöhe: mindestens 9.40 m
+- Firsthöhe: mindestens 9.00 m
 
 #### 4. Leistungen des Kunden
 
@@ -160,7 +179,7 @@ Seitenhöhe
 
 Firsthöhe
 
-9.2 – 9.9 m
+9.0 m
 
 Hauptstützen
 

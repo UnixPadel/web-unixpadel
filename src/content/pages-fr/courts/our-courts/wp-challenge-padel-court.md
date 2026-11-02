@@ -69,7 +69,7 @@ faq:
   - q: Qu'est-ce qui rend le terrain de padel WP Challenge si résistant au vent ?
     a: Il est doté de poteaux d'angle renforcés par des tubes en acier de 100x50x3mm, d'une ossature à 3 poteaux et d'une résistance aux charges de vent de classe B (0.42 kN/m²) certifiée par l'İTÜ.
   - q: Quelles sont les dimensions et les exigences de fondation du terrain WP Challenge ?
-    a: L'aire de jeu intérieure mesure 20.00m x 10.00m, et la dalle béton recommandée mesure 20.80m x 10.80m.
+    a: L'aire de jeu intérieure mesure 20.00m x 10.00m, et la dalle béton recommandée mesure 21m x 11m.
   - q: Le gazon synthétique est-il homologué FIP ?
     a: Oui, tous les terrains de padel WP Challenge Unixpadel sont équipés d'un gazon synthétique officiellement homologué FIP pour un jeu de niveau compétition.
   - q: Le terrain WP Challenge a-t-il fait l'objet d'essais structurels indépendants ?
@@ -119,7 +119,7 @@ Des institutions académiques ont rigoureusement testé notre structure pour vé
 
 - Gazon synthétique officiellement homologué FIP pour un rebond et une adhérence authentiques.
 - Dimensions de jeu intérieures de 20.00m x 10.00m.
-- Emprise de dalle béton recommandée de 20.80m x 10.80m.
+- Emprise de dalle béton recommandée de 21m x 11m.
 
 ### Présence internationale
 

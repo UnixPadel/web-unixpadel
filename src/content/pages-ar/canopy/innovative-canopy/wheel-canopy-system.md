@@ -51,6 +51,27 @@ media:
     src: /wp-content/uploads/2024/09/wheel-system-canopie-3.jpeg
     alt: مظلة بنظام العجلات
     section: 6
+specs:
+  - label: الأعمدة الرئيسية
+    value: مقاطع فولاذية شديدة التحمل RHS 80x140x6mm
+  - label: الجمالون
+    value: جمالون فولاذي RHS 40x40x2.5mm
+  - label: العوارض
+    value: عوارض فولاذية RHS 80x140x6mm
+  - label: الروابط
+    value: روابط فولاذية RHS 40x40x2.5mm
+  - label: نوع الغطاء
+    value: غشاء PVC مقاوم للماء والأشعة فوق البنفسجية
+  - label: حمل الثلوج
+    value: 76.45 kg/m²
+  - label: حمل الرياح
+    value: 72 km/h
+  - label: تصريف الأمطار
+    value: 60 m³
+  - label: أقصى ارتفاع
+    value: 9.5–10m
+  - label: نظام المسارات
+    value: مسارات فولاذية بشكل U مقاومة للتآكل
 ---
 
 ## نقدّم لك غطاء السقف بنظام العجلات من Unixpadel

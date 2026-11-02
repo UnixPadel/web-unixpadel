@@ -22,13 +22,23 @@ hero:
   tagline: Unser komplettes Padbol-Programm – vom Standard- und Panoramamodell bis zu mobilen und MobileFold-Systemen. Gebaut für Langlebigkeit, Sicht und Leistung.
 specs:
   - label: Abmessungen
-    value: Innere Spielfläche 10x6m auf einer stabilen Fundamentfläche von 10.9×6.9m.
-  - label: Stahlrohre
-    value: Hochbelastbare Stahlrohre 100×50×3 mm.
+    value: 6m x 10m Spielfläche (10.9m x 6.9m Fundamentmaß)
+  - label: Stahlprofile
+    value: 100x50x3mm robuste Stahlprofile
+  - label: Sekundärprofile
+    value: 80x80x3mm Stahlprofile
+  - label: Träger
+    value: Bodenträger 80x40x3mm, Obergurt 100x50x3mm
   - label: Glas
-    value: 12 mm zertifiziertes Einscheibensicherheitsglas (ESG).
-  - label: Gitter
-    value: Elektrogeschweißtes Drahtgitter 50×50×4 mm.
+    value: 12mm zertifiziertes ESG-Sicherheitsglas
+  - label: Gitterpaneele
+    value: Elektroverschweißtes 50x50x4mm Drahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W Hochleistungs-LED-Fluter
+  - label: Lichtmasten
+    value: In Längsstützen integrierte 80x80x3mm Stahlmasten
 media:
   - order: 1
     type: video

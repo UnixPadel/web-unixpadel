@@ -21,22 +21,24 @@ hero:
   image: null
   tagline: Structure de terrain de padel standard traditionnelle, installée sur une base en acier. Aucune dalle béton nécessaire.
 specs:
-  - label: Dimensions du terrain
-    value: Aire de jeu standard de 20m x 10m, conforme aux exigences FIP.
-  - label: Châssis porteur en acier renforcé
-    value: Sous-structure en acier galvanisé conçue pour une stabilité maximale sous charge.
-  - label: Éclairage
-    value: Système d'éclairage LED haut rendement assurant un éclairage uniforme sur tout le terrain.
-  - label: Panneaux grillagés et vitrés
-    value: Verre de sécurité trempé certifié associé à des panneaux grillagés en acier renforcés et anti-blessures.
-  - label: Gazon
-    value: Gazon synthétique en polyéthylène haute densité, avec remplissage de sable de silice pour un rebond optimal et un meilleur confort de jeu.
-  - label: Poteaux et ancrages
-    value: Poteaux structurels et ancrages en acier de forte épaisseur pour une stabilité supérieure.
-  - label: Montage modulaire
-    value: Conception modulaire préétudiée pour une installation rapide, un entretien facile et un éventuel déplacement ultérieur du terrain.
-  - label: Résistance au vent
-    value: Conçu pour résister aux charges de vent et garantir une utilisation sûre en extérieur.
+  - label: Aire de jeu
+    value: Aire de jeu standard 20m x 10m conforme FIP
+  - label: Structure métallique
+    value: Sous-châssis en acier formé à froid RHS 120x80x3mm et RHS 100x60x3mm
+  - label: Compensation du sol
+    value: Châssis acier; système de nivellement compensant de 6 à 24 cm de déclivité
+  - label: Modules de plancher
+    value: 20 modules acier préfabriqués en disposition 5 × 4 (~2.1m × 5.0m) reliés par goujons
+  - label: Sous-plancher
+    value: Panneaux de contreplaqué marin posés sur l'ossature métallique
+  - label: Plots de support
+    value: Pieds réglables de 300 mm avec vérins de nivellement
+  - label: Ancrage
+    value: Ancrages mécaniques vérifiés selon la nature du terrain
+  - label: Structure terrain
+    value: Profilés acier 100x50x3mm (Standard ou Panoramique)
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec remplissage de silice
 media:
   - order: 1
     type: video

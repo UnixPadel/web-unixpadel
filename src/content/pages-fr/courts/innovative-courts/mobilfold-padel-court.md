@@ -21,18 +21,28 @@ hero:
   image: null
   tagline: Découvrez notre terrain de padel mobile révolutionnaire, une solution qui change la donne pour tous les passionnés de sport.
 specs:
-  - label: Dimensions et structure
-    value: 10m x 10m et 10m x 6m (10m x 6m pour le single, 10m x 10m pour les projets de plus grande envergure).
-  - label: Options d'ossature en acier
-    value: 100mm x 100mm x 3mm – Ossature porteuse renforcée garantissant stabilité structurelle et durabilité, sans encombrement excessif.
-  - label: Verre haute qualité
-    value: Verre trempé de 12mm – Sécurité et transparence réunies, pour une finition haut de gamme qui sert autant l'esthétique que la fonctionnalité.
-  - label: Solutions d'alimentation
-    value: Une capacité électrique 10/100 assure efficacité énergétique et fiabilité pour l'éclairage, le chauffage ou d'autres besoins d'exploitation.
-  - label: Revêtements de sol en option
-    value: Complétez votre projet avec un revêtement de sol en option sur le plancher bois, pour une isolation, une durabilité et un soutien améliorés.
-  - label: Flexibilité de conception
-    value: Choisissez entre les formes en T, en K et en D selon votre projet architectural et vos contraintes d'espace.
+  - label: Surface de fondation
+    value: Aucune fondation requise (système modulaire autoportant)
+  - label: Aire de jeu
+    value: 10m x 20m aire de jeu standard (200 m²)
+  - label: Profilés principaux
+    value: Profilés acier renforcés 100x100x3mm
+  - label: Profilés secondaires
+    value: Profilés acier 100x50x3mm
+  - label: Poutres
+    value: 100x50x3mm (longueur) et 100x100x3mm (largeur)
+  - label: Parois vitrées
+    value: Verre trempé de sécurité 12mm certifié CE
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec sable de silice
+  - label: Luminaires
+    value: Projecteurs LED 150W IP66 boîtier aluminium étanche
+  - label: Mâts d'éclairage
+    value: Profilés RHS 60x40x3mm et RHS 60x60x5mm
+  - label: Assemblage
+    value: Assemblage coulissant emboîtable sans jeu
 media:
   - order: 1
     type: video

@@ -18,11 +18,23 @@ seo:
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
   - label: Abmessungen
-    value: Spielfläche 10x6 Meter auf einem Fundament von 10.9x6.9 Metern.
-  - label: Gitter
-    value: Elektrogeschweißtes Gitter 50×50×4 mm.
+    value: 6m x 10m Spielfläche (10.9m x 6.9m Fundamentmaß)
+  - label: Stahlprofile
+    value: 100x50x3mm robuste Stahlprofile
+  - label: Sekundärprofile
+    value: 80x80x3mm Stahlprofile
+  - label: Träger
+    value: Bodenträger 80x40x3mm, Obergurt 100x50x3mm
   - label: Glas
-    value: 12 mm Einscheibensicherheitsglas (ESG).
+    value: 12mm zertifiziertes ESG-Sicherheitsglas
+  - label: Gitterpaneele
+    value: Elektroverschweißtes 50x50x4mm Drahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W Hochleistungs-LED-Fluter
+  - label: Lichtmasten
+    value: In Längsstützen integrierte 80x80x3mm Stahlmasten
 media:
   - order: 1
     type: image

@@ -16,18 +16,22 @@ seo:
   ogImage: /wp-content/uploads/2026/08/Plated-Padel-Raw-Render-1-scaled.jpg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Stahlrahmen
-    value: Verstärkte, lasergeschnittene Stahlstützen mit charakteristischen Ankerplatten am Fuß; stabil ohne tiefe Betonfundamente.
-  - label: Beschichtung
-    value: Elegante schwarze Pulverbeschichtung in Premiumqualität für maximale Witterungsbeständigkeit.
+  - label: Bodenplattensystem
+    value: "Modulares feuerverzinktes Stahl-Bodenplattensystem: 505–765 mm breite Abschnitte verschraubt"
+  - label: Knoten- & Eckbleche
+    value: 24 Stk. 300×180 mm (10 mm stark, Ø12.5 mm) & 4 Stk. 175×180 mm (10 mm stark)
+  - label: Spielfläche
+    value: Standard 20m x 10m Spielfläche (FIP-Norm)
+  - label: Stahlkonstruktion
+    value: 100x50x3mm Panoramastützen und 80x40x3mm Sekundärstützen
   - label: Glaswände
-    value: Großflächiges 12mm Einscheibensicherheitsglas (ESG) für freie Panoramasicht, ausgelegt auf hohe Stoßabsorption.
-  - label: Gitter
-    value: Elektrogeschweißtes Drahtgitter mit Verletzungsschutz, exakt auf das Glas ausgerichtet, verhindert unregelmäßige Ballabsprünge.
-  - label: Beleuchtung
-    value: Vier geneigte Lichtmasten mit leistungsstarken LED-Strahlern.
-  - label: Modulare Montage
-    value: Modulares Design für schnellen Aufbau und präzise Ausrichtung.
+    value: 12mm ESG-Sicherheitsglas nach EN 12150-1
+  - label: Gitterpaneele
+    value: Verletzungssichere elektroverschweißte 50x50x4mm Stahldrahtgitter
+  - label: Kunstrasen
+    value: 12mm Kunstrasen mit Quarzsandverfüllung
+  - label: Leuchten
+    value: 200W IP66 wetterfeste LED-Fluter mit Aluminiumgehäuse
 media:
   - order: 1
     type: image

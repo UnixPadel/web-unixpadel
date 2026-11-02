@@ -16,22 +16,28 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.53.34.jpeg#1287
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Dimensions de jeu
-    value: Aire de jeu intérieure de 20.00m (longueur) x 6.00m (largeur).
+  - label: Surface de fondation
+    value: 7m x 21m semelle béton armé
+  - label: Aire de jeu
+    value: 6m x 20m intérieur conforme aux normes FIP
   - label: Structure
-    value: Poteaux de 100x50x3 mm, électrosoudés aux angles et ancrés par boulons d'expansion.
-  - label: Panneaux grillagés
-    value: Grillage électrosoudé de 50x50x4 mm, intégré à la structure.
+    value: Poteaux 100x50x3mm soudés ou boulonnés aux platines
+  - label: Profilés secondaires
+    value: Profilés secondaires en acier 80x40x3mm
+  - label: Poutres
+    value: RHS 100x50x2mm (zone vitrée) et RHS 80x40x3mm poutres acier
   - label: Parois vitrées
-    value: Verre de sécurité trempé de haute qualité de 12 mm (conforme EN 12150-1).
-  - label: Options de gazon
-    value: Gazon synthétique monofilament ou texturé, avec remplissage de sable de silice.
-  - label: Éclairage
-    value: Projecteurs LED de 200W fournissant 26,000 lumens par luminaire.
+    value: Verre trempé de sécurité 12mm certifié CE (EN 12150-1)
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec remplissage de sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 200W IP66 boîtier aluminium étanche
   - label: Mâts d'éclairage
-    value: Forme droite en T, sigmoïde en K ou ovale en D.
+    value: Profilés RHS 60x40x3mm et RHS 60x60x5mm
   - label: Finition
-    value: Finition électrozinguée thermolaquée, avec galvanisation à chaud en option pour une protection anticorrosion maximale.
+    value: Galvanisation à chaud + thermolaquage poudre électrostatique
 specsIntro: Chaque composant est conçu selon les normes internationales pour garantir sécurité, durabilité et un jeu de niveau compétition.
 media:
   - order: 1

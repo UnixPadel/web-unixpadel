@@ -22,13 +22,23 @@ hero:
   tagline: Découvrez notre gamme complète de terrains de Padbol, des modèles standard et panoramiques aux systèmes portables et MobileFold. Conçus pour la durabilité, la visibilité et la performance.
 specs:
   - label: Dimensions
-    value: Aire de jeu intérieure de 10x6m sur une emprise de dalle robuste de 10.9×6.9m.
-  - label: Tubes en acier
-    value: Tubes en acier renforcés de 100×50×3 mm.
+    value: 6m x 10m aire de jeu (fondation 10.9m x 6.9m)
+  - label: Tubes d'acier
+    value: Profilés acier renforcés 100x50x3mm
+  - label: Profilés secondaires
+    value: Profilés secondaires 80x80x3mm
+  - label: Poutres
+    value: Poutre basse 80x40x3mm, Poutre haute 100x50x3mm
   - label: Verre
-    value: Verre trempé certifié de 12 mm.
-  - label: Grillage
-    value: Grillage électrosoudé de 50×50×4 mm.
+    value: Verre trempé de sécurité 12mm certifié
+  - label: Panneaux grillagés
+    value: Treillis électrosoudé 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec sable de silice
+  - label: Luminaires
+    value: Projecteurs LED haute performance 200W
+  - label: Mâts d'éclairage
+    value: Profilés 80x80x3mm intégrés aux colonnes latérales
 media:
   - order: 1
     type: video

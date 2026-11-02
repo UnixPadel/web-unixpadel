@@ -43,6 +43,25 @@ media:
     section: 4
 legacyUrls:
   - /unixpadel-full-membrane-cover/
+specs:
+  - label: Hauptstützen
+    value: Hochbelastbare RHS- oder HEA-Stahlprofile
+  - label: Träger
+    value: RHS- oder IPE-Stahlträger
+  - label: Pfetten
+    value: RHS-Stahlpfetten
+  - label: Verbände & Binder
+    value: RHS-verstärkte Stahlfachwerkbinder
+  - label: Dacheindeckung
+    value: Hochfeste 900 g/m² PVC-Membran mit PVDF-Beschichtung
+  - label: Schneelast
+    value: 150 kg/m² (1.50 kN/m²) horizontale Projektion
+  - label: Windlast
+    value: 75–110 km/h Windbeständigkeit
+  - label: Regenlast
+    value: 60 m³ integrierte Entwässerungskapazität
+  - label: Maximale Höhe
+    value: 9m Firsthöhe
 ---
 
 ## Ausgelegt für Schnee- und Windlast

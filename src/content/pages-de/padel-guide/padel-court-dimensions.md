@@ -20,7 +20,7 @@ faq:
   - q: Wie groß ist ein Padelplatz?
     a: "20 m lang und 10 m breit, gemessen von der Innenseite der Wände, mit einer Toleranz von 0.5 %. Ein Single-Platz misst 20 m x 6 m."
   - q: Wie viel Fläche brauche ich für einen Padelplatz?
-    a: "Planen Sie für den Platz und seine Konstruktion eine Grundfläche von etwa 20.8 m x 10.8 m ein, dazu Raum für Zugänge, Lichtmasten und Verkehrswege. Ist das Spiel außerhalb des Platzes erlaubt, halten Sie hinter jeder seitlichen Öffnung eine freie Fläche von mindestens 3 m (empfohlen 4 m) mal 4 m frei."
+    a: "Planen Sie für den Platz und seine Konstruktion eine Grundfläche von etwa 21m x 11m ein, dazu Raum für Zugänge, Lichtmasten und Verkehrswege. Ist das Spiel außerhalb des Platzes erlaubt, halten Sie hinter jeder seitlichen Öffnung eine freie Fläche von mindestens 3 m (empfohlen 4 m) mal 4 m frei."
   - q: Wie hoch sind die Wände eines Padelplatzes?
     a: "Die Rückwände sind 4 m hoch: 3 m Glas oder massive Wand und darüber 1 m Metallgitter. Die Seitenwände fallen je nach gewählter Variante von den Ecken zum Netz hin stufenweise ab."
   - q: Wie hoch ist das Netz auf einem Padelplatz?
@@ -73,7 +73,7 @@ Das Gitter liegt immer bündig mit der Innenseite des Glases, damit die Spielfl�
 
 ## Wie viel Platz braucht ein Padelplatz?
 
-Die Konstruktion vergrößert das Spielfeld von 20 x 10 m in Breite und Länge. Als Richtwert planen Sie pro Platz eine ebene Grundfläche von etwa **20.8 m x 10.8 m** mit einem bewehrten Randbalken für die Verankerungen ein; unser [Fundament-Leitfaden](/padel-court-foundation/) erläutert die Optionen für die Bodenplatte.
+Die Konstruktion vergrößert das Spielfeld von 20 x 10 m in Breite und Länge. Als Richtwert planen Sie pro Platz eine ebene Grundfläche von etwa **21m x 11m** mit einem bewehrten Randbalken für die Verankerungen ein; unser [Fundament-Leitfaden](/padel-court-foundation/) erläutert die Optionen für die Bodenplatte.
 
 Rund um diese Fläche sollten Sie berücksichtigen:
 

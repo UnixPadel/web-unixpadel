@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Ölçüler
-    value: Standart 20.00m (Uzunluk) x 10.00m (Genişlik) oyun alanı (200 m²).
+  - label: Temel Alanı
+    value: 11m x 21m betonarme çevre hatılı / temel alanı
+  - label: Oyun Alanı
+    value: 10m x 20m iç oyun alanı (FIP resmî standart)
   - label: Konstrüksiyon
-    value: 100x50x3mm dikmeler; taban plakalarına elektro kaynaklı ya da cıvatalı bağlantı.
+    value: 100x50x3mm çelik dikmeler, taban plakalarına kaynaklı veya cıvatalı
+  - label: Tali Dikmeler
+    value: 80x40x3mm tali çelik dikmeler
+  - label: Kirişler
+    value: Cam alanında RHS 100x50x3mm ve taşıyıcıda RHS 80x40x3mm çelik kirişler
   - label: Taban Plakası Ankrajı
-    value: Yüksek mukavemetli cıvatalarla sabitlenen 200x200x10mm çelik taban plakaları.
+    value: 200x200x10mm yüksek mukavemetli cıvatalarla ankrajlanan taban plakaları
+  - label: Cam Duvarlar
+    value: 12mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
   - label: Tel Örgü Paneller
-    value: Yaralanma önleyici, elektro kaynaklı 50x50x4mm çelik tel örgü paneller.
-  - label: Güvenlik Camı
-    value: 12mm CE sertifikalı temperli güvenlik camı (EN 12150-1 standardı).
-  - label: Çim Sistemi
-    value: Silis kumu dolgulu, 12mm-15mm monofilament veya tekstüre sentetik çim.
-  - label: Aydınlatma Sistemi
-    value: 4 veya 8 LED projektör (300-500 Lux; yayın için 750 Lux'e kadar).
-  - label: Koruyucu Kaplama
-    value: Sıcak daldırma galvaniz + elektrostatik toz boya veya yüksek parlaklıkta boya.
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü paneller
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 200W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: RHS 60x40x3mm ve RHS 60x60x5mm çelik aydınlatma direkleri
+  - label: Boya ve Kaplama
+    value: Sıcak daldırma galvaniz + elektrostatik toz boya
 specsIntro: Her bileşen; güvenlik, dayanıklılık ve turnuva standardında oyun için uluslararası standartlara göre tasarlanır.
 media:
   - order: 1

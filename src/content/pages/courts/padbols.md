@@ -22,13 +22,23 @@ hero:
   tagline: Discover our complete collection of Padbol courts — from Standard and Panoramic models to Portable and MobileFold systems. Built for durability, visibility, and performance.
 specs:
   - label: Dimensions
-    value: 10x6m inner playing area on a 10.9×6.9m sturdy foundation footprint.
+    value: 6m x 10m inner playing area (10.9m x 6.9m foundation footprint)
   - label: Steel Tubes
-    value: 100×50×3 mm heavy-duty steel tubes.
+    value: 100x50x3mm heavy-duty steel tubes
+  - label: Secondary Profiles
+    value: 80x80x3mm secondary steel sections
+  - label: Beams
+    value: Ground beam 80x40x3mm, Top beam 100x50x3mm
   - label: Glass
-    value: 12 mm certified tempered glass.
+    value: 12mm certified tempered safety glass
   - label: Mesh
-    value: Electrowelded 50×50×4 mm wire mesh.
+    value: Electrowelded 50x50x4mm wire mesh
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W high-efficiency LED floodlights
+  - label: Lighting Poles
+    value: Integrated into long-side columns using 80x80x3mm steel sections
 media:
   - order: 1
     type: video

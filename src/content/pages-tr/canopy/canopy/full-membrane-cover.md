@@ -43,6 +43,25 @@ media:
     section: 4
 legacyUrls:
   - /unixpadel-full-membrane-cover/
+specs:
+  - label: Ana Kolonlar
+    value: Ağır hizmet tipi RHS veya HEA çelik profiller
+  - label: Kirişler
+    value: RHS veya IPE çelik taşıyıcı kirişler
+  - label: Aşıklar
+    value: RHS çelik aşık profilleri
+  - label: Makas ve Kuşaklar
+    value: RHS takviyeli çelik makas ve rüzgar bağlantıları
+  - label: Çatı Kaplaması
+    value: Ağır hizmet tipi 900 g/m² PVDF korumalı PVC membran
+  - label: Kar Yükü
+    value: 150 kg/m² (1.50 kN/m²) kar yükü dayanımı
+  - label: Rüzgâr Yükü
+    value: 75–110 km/h rüzgar yükü direnci
+  - label: Yağmur Yükü
+    value: 60 m³ entegre yağmur tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9m tepe net açıklık yüksekliği
 ---
 
 ## Kar yüküne ve rüzgâr yüküne karşı

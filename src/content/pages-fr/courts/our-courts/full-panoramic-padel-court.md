@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Dimensions
-    value: Aire de jeu standard de 20.00m (longueur) x 10.00m (largeur), soit 200 m².
+  - label: Surface de fondation
+    value: 11m x 21m semelle béton armé
+  - label: Aire de jeu
+    value: 10m x 20m intérieur conforme aux normes FIP
   - label: Structure
-    value: Poteaux de 100x50x3mm, électrosoudés ou boulonnés sur platines.
-  - label: Platines d'ancrage
-    value: Platines en acier de 200x200x10mm ancrées par boulons haute résistance.
+    value: Poteaux 100x50x3mm soudés ou boulonnés aux platines
+  - label: Poteaux secondaires
+    value: Poteaux secondaires en acier 80x40x3mm
+  - label: Poutres
+    value: RHS 100x50x3mm (zone vitrée) et RHS 80x40x3mm poutres acier
+  - label: Ancrage platines
+    value: Platines acier 200x200x10mm ancrées par boulons haute résistance
+  - label: Parois vitrées
+    value: Verre trempé de sécurité 12mm certifié CE (EN 12150-1)
   - label: Panneaux grillagés
-    value: Panneaux grillagés anti-blessures en acier électrosoudé de 50x50x4mm.
-  - label: Verre de sécurité
-    value: Verre de sécurité trempé de 12mm certifié CE (norme EN 12150-1).
-  - label: Gazon
-    value: Gazon synthétique monofilament ou texturé de 12mm-15mm, avec remplissage de sable de silice.
-  - label: Éclairage
-    value: 4 ou 8 projecteurs LED (300-500 Lux ; jusqu'à 750 Lux pour la retransmission télévisée).
-  - label: Protection de finition
-    value: Galvanisation à chaud + thermolaquage électrostatique ou peinture haute brillance.
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec remplissage de sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 200W IP66 boîtier aluminium étanche
+  - label: Mâts d'éclairage
+    value: Profilés RHS 60x40x3mm et RHS 60x60x5mm
+  - label: Finition
+    value: Galvanisation à chaud + thermolaquage poudre électrostatique
 specsIntro: Chaque composant est conçu selon les normes internationales pour garantir sécurité, durabilité et un jeu de niveau compétition.
 media:
   - order: 1

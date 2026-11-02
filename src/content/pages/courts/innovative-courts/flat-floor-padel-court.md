@@ -22,21 +22,23 @@ hero:
   tagline: Traditional standard padel court structure installed on a steel base surface. No concrete foundation required.
 specs:
   - label: Court Dimensions
-    value: Standard 20m x 10m playing area with FIP compliance.
-  - label: Heavy-Duty Steel Sub-Frame
-    value: Galvanized steel sub-structure engineered for maximum load stability.
-  - label: Lighting System
-    value: High-efficiency LED lighting system providing uniform illumination across the court.
-  - label: Mesh & Glass Panels
-    value: Certified tempered safety glass combined with heavy-duty anti-injury steel wire mesh panels.
+    value: Standard 20m x 10m playing area with FIP compliance
+  - label: Metallic Structure
+    value: Cold-formed RHS 120x80x3mm and RHS 100x60x3mm steel sub-frame
+  - label: Surface Base
+    value: Steel sub-frame; levelling material compensates ground irregularities of 6 to 24 cm
+  - label: Deck Modules
+    value: 20 prefabricated steel modules in a 5 × 4 arrangement (~2.1m × 5.0m), connected by welded shear studs
+  - label: Subfloor
+    value: Marine-grade plywood base boards laid across the steel frame
+  - label: Support Posts
+    value: 300 mm support posts with adjustable leveling feet
+  - label: Anchoring
+    value: Mechanical anchors verified against existing ground conditions
+  - label: Court Superstructure
+    value: Standard or Panoramic 100x50x3mm steel profiles with 10mm/12mm tempered glass
   - label: Turf
-    value: High-density polyethylene artificial turf filled with silica sand for optimal ball bounce and player comfort.
-  - label: Pillars & Anchors
-    value: Heavy-gauge steel structural posts and anchors for superior stability.
-  - label: Modular Assembly
-    value: Pre-engineered modular design for fast installation, easy maintenance, and future court relocation if needed.
-  - label: Wind Resistance
-    value: Engineered to withstand wind loads, ensuring safe operation in outdoor environments.
+    value: 12mm artificial turf filled with silica sand
 media:
   - order: 1
     type: video

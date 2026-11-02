@@ -21,22 +21,28 @@ hero:
   image: null
   tagline: The pinnacle of panoramic padel courts. Unobstructed 360-degree spectator views & heavy-duty 100x50x3mm steel profiles.
 specs:
-  - label: Dimensions
-    value: 20.00m (Length) x 10.00m (Width) playing area with 4m corner glass wall height.
-  - label: Steel Frame Profiles
-    value: Heavy-duty 100x50x3mm hot-dip galvanized steel columns.
-  - label: Glass Panels
-    value: 12mm CE-certified tempered safety glass (EN 12150-1 standard).
+  - label: Foundation Area
+    value: 11m x 21m reinforced concrete perimeter base
+  - label: Playing Area
+    value: 10m x 20m internal playing area (FIP standard)
+  - label: Structure
+    value: Heavy-duty 100x50x3mm hot-dip galvanized steel columns
+  - label: Secondary Columns
+    value: 80x40x3mm secondary steel columns
+  - label: Beams
+    value: RHS 100x50x3mm (glass area) and RHS 80x40x3mm steel beams
+  - label: Glass Walls
+    value: 12mm CE-certified tempered safety glass (EN 12150-1 standard)
   - label: Mesh Panels
-    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels.
-  - label: Turf System
-    value: 12mm-15mm monofilament artificial turf filled with silica sand.
-  - label: Lighting System
-    value: 4 or 8 LED floodlights (300-500 Lux glare-free output).
-  - label: Baseplate Anchors
-    value: 100x50x3mm steel baseplates with high-strength anchor bolts.
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W IP66-rated all-weather aluminum housing LED floodlights
+  - label: Lighting Poles
+    value: RHS 60x40x3mm and RHS 60x60x4mm structural steel poles
   - label: Compliance
-    value: FIP (International Padel Federation) professional tournament standards.
+    value: FIP (International Padel Federation) professional tournament standards
 specsIntro: Every component is engineered to international standards for safety, durability, and tournament-grade play.
 media:
   - order: 1

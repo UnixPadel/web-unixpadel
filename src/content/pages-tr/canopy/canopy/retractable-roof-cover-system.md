@@ -56,6 +56,27 @@ media:
     src: /wp-content/uploads/2026/05/image-5.png
     alt: ""
     section: 4
+specs:
+  - label: Ana Kolonlar
+    value: Kısa kenarda RHS 100x100x3mm, uzun kenarda RHS 150x100x4mm
+  - label: Makas
+    value: RHS 50x50x2.5mm çelik makas sistemi
+  - label: Kirişler
+    value: RHS 120x80x3mm çelik taşıyıcı kirişler
+  - label: Kuşaklar
+    value: Çatı bağlantılarında 120x80x3mm çelik profiller
+  - label: Çatı Kaplaması
+    value: Çift katmanlı 650 g/m² alev yürütmez PVC membran
+  - label: Kar Yükü
+    value: 80 kg/m² kar yükü dayanımı
+  - label: Rüzgâr Yükü
+    value: 100 km/h rüzgar yükü direnci
+  - label: Yağmur Yükü
+    value: 60 m³ yağmur tahliye kapasitesi
+  - label: Maksimum Yükseklik
+    value: 9.5m net açıklık yüksekliği
+  - label: Çalışma Sistemi
+    value: Otomatik elektrik motorlu raylı açılır-kapanır mekanizma
 ---
 
 <video controls preload="metadata" src="/wp-content/uploads/2026/05/output_50mb.mp4"></video>

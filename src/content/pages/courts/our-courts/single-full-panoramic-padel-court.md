@@ -16,22 +16,28 @@ seo:
   ogImage: /wp-content/uploads/2026/01/WhatsApp-Image-2026-01-09-at-14.53.34.jpeg#1287
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 specs:
-  - label: Gameplay Dimensions
-    value: 20.00m (Length) x 6.00m (Width) internal playing area.
+  - label: Foundation Area
+    value: 7m x 21m reinforced concrete perimeter footprint
+  - label: Playing Area
+    value: 6m x 20m internal playing area (FIP standard)
   - label: Structure
-    value: Pillars measuring 100x50x3 mm, electro-welded at the corners and anchored with expansion bolts.
-  - label: Mesh Panels
-    value: Electro-welded mesh measuring 50x50x4 mm, integrated into the structure.
+    value: Pillars measuring 100x50x3mm, electro-welded or bolted to baseplates
+  - label: Secondary Profiles
+    value: 80x40x3mm secondary steel profiles
+  - label: Beams
+    value: RHS 100x50x2mm (glass area) and RHS 80x40x3mm steel beams
   - label: Glass Walls
-    value: High-quality 12 mm tempered safety glass (EN 12150-1 compliant).
-  - label: Turf Options
-    value: Monofilament or textured artificial turf filled with silica sand.
-  - label: Lighting System
-    value: 200W LED floodlights delivering 26,000 lumens per fixture.
+    value: High-quality 12mm tempered safety glass (EN 12150-1 compliant)
+  - label: Mesh Panels
+    value: Electro-welded 50x50x4mm steel wire mesh panels
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 200W IP66-rated all-weather aluminum housing LED floodlights
   - label: Lighting Poles
-    value: Straight T-Shape, Sigmoidal K-Shape, or Oval D-Shape.
+    value: RHS 60x40x3mm and RHS 60x60x5mm structural steel poles
   - label: Finish
-    value: Powder-coated electro-galvanized finish with optional hot-dip galvanization for maximum anti-corrosion.
+    value: Hot-dip galvanization + electrostatic powder coating
 specsIntro: Every component is engineered to international standards for safety, durability, and tournament-grade play.
 media:
   - order: 1

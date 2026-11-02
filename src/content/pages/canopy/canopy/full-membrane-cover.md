@@ -43,6 +43,25 @@ media:
     section: 4
 legacyUrls:
   - /unixpadel-full-membrane-cover/
+specs:
+  - label: Main Pillars
+    value: RHS or HEA heavy-duty structural steel profiles
+  - label: Beams
+    value: RHS or IPE structural steel beams
+  - label: Purlins
+    value: RHS structural steel purlins
+  - label: Braces & Truss
+    value: RHS reinforced structural steel braces
+  - label: Cover Type
+    value: Heavy-duty 900 g/m² PVC membrane with PVDF topcoat
+  - label: Snow Load
+    value: 150 kg/m² (1.50 kN/m²) horizontal projection
+  - label: Wind Load
+    value: 75–110 km/h regional wind resistance
+  - label: Rain Load
+    value: 60 m³ integrated drainage capacity
+  - label: Maximum Height
+    value: 9m peak clearance height
 ---
 
 ## Against snow load and wind load

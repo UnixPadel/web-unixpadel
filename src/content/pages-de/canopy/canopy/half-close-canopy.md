@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2026/01/half_close_7.jpeg
     alt: "Halbgeschlossene Überdachung von Unixpadel: robuste Stahlkonstruktion, windbeständige Bauweise, UV-geschützte Membran und hochwertiges Finish."
     section: 5
+specs:
+  - label: Hauptstützen
+    value: Hochbelastbare RHS- oder HEA-Stahlprofile
+  - label: Träger
+    value: RHS- oder IPE-Stahlträger
+  - label: Pfetten
+    value: RHS-Stahlpfetten
+  - label: Fachwerk & Verbände
+    value: RHS-Stahl-Diagonalstreben
+  - label: Dacheindeckung
+    value: Wetterfeste PVC-Membran
+  - label: Schneelast
+    value: 150 kg/m²
+  - label: Windlast
+    value: 75–110 km/h
+  - label: Regenlast
+    value: 60 m³
+  - label: Maximale Höhe
+    value: 9m
 ---
 
 #### Die halbgeschlossene Überdachung von Unixpadel

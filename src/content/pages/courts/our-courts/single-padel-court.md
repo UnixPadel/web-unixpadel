@@ -22,22 +22,30 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Court Dimensions
-    value: 20.00m (Length) x 6.00m (Width) internal playing area.
-  - label: Steel Frame Profiles
-    value: "Heavy-duty galvanized steel profiles: 100x50x2mm columns and 100x50x3mm beams."
+  - label: Foundation Area
+    value: 7m x 21m reinforced concrete perimeter footprint
+  - label: Playing Area
+    value: 6m x 20m internal playing area (FIP standard)
+  - label: Steel Structure
+    value: Heavy-gauge 100x50x3mm main metallic profiles
+  - label: Secondary Profiles
+    value: 80x40x3mm secondary steel profiles
+  - label: Beams
+    value: RHS 100x50x2mm (glass area) and RHS 80x40x3mm steel beams
   - label: Mesh Panels
-    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels.
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels
   - label: Glass Walls
-    value: 10mm CE-certified tempered safety glass (EN 12150-1 standard).
-  - label: Synthetic Turf
-    value: 12mm-15mm monofilament or textured artificial turf filled with silica sand.
-  - label: Lighting System
-    value: 4 x 200W LED floodlights mounted on 6m lighting posts.
+    value: 10mm CE-certified tempered safety glass (EN 12150-1 standard)
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
+  - label: Lighting Fixtures
+    value: 150W IP66-rated all-weather aluminum housing LED floodlights
+  - label: Lighting Poles
+    value: RHS 60x40x3mm and RHS 60x60x3mm structural steel poles
   - label: Corner Baseplates
-    value: Reinforced 200x200x10mm steel baseplates with expansion anchor bolts.
+    value: Reinforced 200x200x10mm steel baseplates with expansion anchor bolts
   - label: Compliance
-    value: FIP (International Padel Federation) single court standard compliant.
+    value: FIP (International Padel Federation) single court standard compliant
 specsIntro: Every component is engineered and manufactured to deliver maximum safety, durability, and tournament-grade playability.
 media:
   - order: 1

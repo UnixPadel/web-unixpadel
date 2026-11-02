@@ -56,6 +56,27 @@ media:
     src: /wp-content/uploads/2026/05/image-5.png
     alt: ""
     section: 4
+specs:
+  - label: Piliers principaux
+    value: RHS 100x100x3mm (côté court) et RHS 150x100x4mm (côté long)
+  - label: Fermes
+    value: Fermes en acier RHS 50x50x2.5mm
+  - label: Poutres
+    value: Poutres acier RHS 120x80x3mm
+  - label: Contreventements
+    value: Contreventements toiture 120x80x3mm
+  - label: Type de couverture
+    value: Membrane PVC double couche 650 g/m² ignifuge
+  - label: Charge de neige
+    value: 80 kg/m²
+  - label: Charge de vent
+    value: 100 km/h
+  - label: Charge de pluie
+    value: 60 m³
+  - label: Hauteur maximale
+    value: 9.5m
+  - label: Motorisation
+    value: Système d'ouverture/fermeture électrique motorisé sur rails
 ---
 
 <video controls preload="metadata" src="/wp-content/uploads/2026/05/output_50mb.mp4"></video>

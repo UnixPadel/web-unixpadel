@@ -56,6 +56,27 @@ media:
     src: /wp-content/uploads/2026/05/image-5.png
     alt: ""
     section: 4
+specs:
+  - label: Main Pillars
+    value: RHS 100x100x3mm (short side) and RHS 150x100x4mm (long side)
+  - label: Truss
+    value: RHS 50x50x2.5mm structural steel truss
+  - label: Beams
+    value: RHS 120x80x3mm structural steel beams
+  - label: Braces
+    value: Roof 120x80x3mm structural steel braces
+  - label: Cover Type
+    value: Double-layer 650 g/m² flame-retardant PVC membrane
+  - label: Snow Load
+    value: 80 kg/m² snow load resistance
+  - label: Wind Load
+    value: 100 km/h wind resistance
+  - label: Rain Load
+    value: 60 m³ drainage capacity
+  - label: Maximum Height
+    value: 9.5m clearance height
+  - label: Operation
+    value: Automated electric motorized push-pull rail drive
 ---
 
 <video controls preload="metadata" src="/wp-content/uploads/2026/05/output_50mb.mp4"></video>

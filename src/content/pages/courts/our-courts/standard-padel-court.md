@@ -19,24 +19,32 @@ hero:
   video: /wp-content/uploads/2023/07/Logosuz-Standard-Court.mp4
   poster: /wp-content/uploads/2026/08/greece_ref-2.jpg
   image: null
-  tagline: A global benchmark in quality, structural stability, and tournament play. We engineer each court with heavy-duty 100x50x2mm steel profiles.
+  tagline: A global benchmark in quality, structural stability, and tournament play. We engineer each court with heavy-duty 100x50x3mm steel profiles.
 specs:
+  - label: Foundation Area
+    value: 11m x 21m reinforced concrete perimeter base
+  - label: Playing Area
+    value: 10m x 20m internal playing area (FIP standard)
   - label: Structure
-    value: "Heavy-gauge steel profiles: 100x50x2mm for the main frame columns and 100x50x3mm for the beams, anchored with heavy-duty expansion bolts."
+    value: "Heavy-gauge steel profiles: 100x50x3mm main metallic profiles"
+  - label: Secondary Columns
+    value: 80x40x3mm secondary steel columns
+  - label: Beams
+    value: RHS 100x50x2mm (glass area) and RHS 80x40x3mm steel beams
   - label: Mesh Panels
-    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels with high structural rigidity.
+    value: Anti-injury electro-welded 50x50x4mm steel wire mesh panels
   - label: Glass Walls
-    value: 10mm tempered safety glass panels manufactured to EN 12150-1 European safety standards.
-  - label: Turf Options
-    value: Premium monofilament or textured artificial turf filled with silica sand for optimal bounce and joint comfort.
-  - label: Lighting System
-    value: Integrated 4-post or 8-post LED lighting system providing uniform illumination without glare.
+    value: 10mm CE-certified tempered safety glass (EN 12150-1 standard)
+  - label: Turf
+    value: 12mm artificial turf filled with silica sand
   - label: Lighting Fixtures
-    value: High-efficiency LED floodlights delivering at least 300 to 500 Lux for high-performance evening play.
-  - label: Color Options
-    value: Full RAL color chart selection (Black, Anthracite, Navy Blue, Signal White) for custom branding.
+    value: 150W IP66-rated all-weather aluminum housing LED floodlights
+  - label: Lighting Poles
+    value: RHS 60x40x3mm and RHS 60x60x3mm structural steel poles
   - label: Finish
-    value: Hot-dip galvanization + electrostatically applied powder coating for 100% anti-corrosion protection.
+    value: Hot-dip galvanization + electrostatically applied powder coating
+  - label: Color Options
+    value: Full RAL color chart selection
 specsIntro: We engineer every component to international standards for safety, durability, and tournament-grade play.
 media:
   - order: 1
@@ -88,7 +96,7 @@ faq:
   - q: Can I customize the court colors for facility branding?
     a: Absolutely, we offer custom electrostatic powder coating in any standard RAL color (such as Black, Anthracite, Navy Blue, and Signal White).
   - q: What is the wind resistance capacity of the Unixpadel Standard Court?
-    a: We engineer the court with heavy-duty 100x50x2mm structural steel pillars and a 3-pillar corner system to withstand wind loads up to 120-140 km/h.
+    a: We engineer the court with heavy-duty 100x50x3mm structural steel pillars and a 3-pillar corner system to withstand wind loads up to 120-140 km/h.
   - q: What thickness of safety glass do you install for the court walls?
     a: We install 10mm CE-certified tempered safety glass adhering strictly to the EN 12150-1 European safety standard.
   - q: Does the Standard Padel Court comply with FIP standards?
@@ -101,7 +109,7 @@ Welcome to the UNIXPADEL Standard Padel Court, a benchmark in quality and durabi
 
 ### Unparalleled Structural Stability
 
-We build the Unixpadel Standard Padel Court with structural stability in mind. Heavy-gauge steel profiles form all primary structural members: 100 x 50 x 2 mm columns and 100 x 50 x 3 mm beams. This reinforcement ensures maximum stability during intense play, giving operators and players complete confidence.
+We build the Unixpadel Standard Padel Court with structural stability in mind. Heavy-gauge steel profiles form all primary structural members: 100 x 50 x 3 mm columns and 100 x 50 x 3 mm beams. This reinforcement ensures maximum stability during intense play, giving operators and players complete confidence.
 
 ### Reinforced Three-Pillar Frame Construction
 
@@ -115,7 +123,7 @@ Explore completed Unixpadel court projects operating across European sports venu
 
 ### Chalkida, Greece
 
-We delivered three professional Standard Padel Courts with heavy-duty 100x50x2mm reinforced steel pillars, built for high-traffic commercial club matches.
+We delivered three professional Standard Padel Courts with heavy-duty 100x50x3mm reinforced steel pillars, built for high-traffic commercial club matches.
 
 ### Turnkey Mediterranean Facility
 
@@ -125,9 +133,9 @@ Our engineering team designed this facility specifically for coastal Mediterrane
 
 Built to withstand environmental forces, heavy wind loads, and intense tournament play.
 
-### 100x50x2mm Steel Profiles
+### 100x50x3mm Steel Profiles
 
-- Heavy-duty 100x50x2mm steel profiles form the main structural pillars.
+- Heavy-duty 100x50x3mm steel profiles form the main structural pillars.
 - Superior resistance against high winds and dynamic player impacts.
 - Maximum rigidity ensuring complete player safety during intense rallies.
 
@@ -151,7 +159,7 @@ Built to withstand environmental forces, heavy wind loads, and intense tournamen
 
 ## Choose Unixpadel Standard Court for Unmatched Performance
 
-With an exceptional structure that withstands heavy wind loads, robust 100x50x2mm steel profiles, and comprehensive safety measures, this court sets the standard for padel venues worldwide.
+With an exceptional structure that withstands heavy wind loads, robust 100x50x3mm steel profiles, and comprehensive safety measures, this court sets the standard for padel venues worldwide.
 
 Designed for durability and commercial turnover, it meets all your club expectations, enhances player experience, and stands the test of time.
 

@@ -21,22 +21,28 @@ hero:
   image: null
   tagline: Panoramik padel kortlarının zirvesi. Seyirci için engelsiz 360 derece görüş ve ağır hizmet tipi 100x50x3mm çelik profiller.
 specs:
-  - label: Ölçüler
-    value: 20.00m (Uzunluk) x 10.00m (Genişlik) oyun alanı, 4m köşe cam duvar yüksekliği.
-  - label: Çelik Konstrüksiyon Profilleri
-    value: Ağır hizmet tipi 100x50x3mm sıcak daldırma galvanizli çelik dikmeler.
-  - label: Cam Paneller
-    value: 12mm CE sertifikalı temperli güvenlik camı (EN 12150-1 standardı).
+  - label: Temel Alanı
+    value: 11m x 21m betonarme çevre hatılı / temel alanı
+  - label: Oyun Alanı
+    value: 10m x 20m iç oyun alanı (FIP resmî standart)
+  - label: Konstrüksiyon
+    value: Ağır hizmet tipi 100x50x3mm sıcak daldırma galvanizli çelik dikmeler
+  - label: Tali Dikmeler
+    value: 80x40x3mm tali çelik dikmeler
+  - label: Kirişler
+    value: Cam alanında RHS 100x50x3mm ve taşıyıcıda RHS 80x40x3mm çelik kirişler
+  - label: Cam Duvarlar
+    value: 12mm EN 12150-1 standardında CE sertifikalı temperli güvenlik camı
   - label: Tel Örgü Paneller
-    value: Yaralanma önleyici, elektro kaynaklı 50x50x4mm çelik tel örgü paneller.
-  - label: Çim Sistemi
-    value: Silis kumu dolgulu, 12mm-15mm monofilament sentetik çim.
-  - label: Aydınlatma Sistemi
-    value: 4 veya 8 LED projektör (300-500 Lux, kamaşmasız aydınlatma).
-  - label: Taban Plakası Ankrajı
-    value: Yüksek mukavemetli ankraj cıvatalı 100x50x3mm çelik taban plakaları.
-  - label: Standartlara Uygunluk
-    value: FIP (Uluslararası Padel Federasyonu) profesyonel turnuva standartları.
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü paneller
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 200W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: RHS 60x40x3mm ve RHS 60x60x4mm çelik aydınlatma direkleri
+  - label: Uygunluk
+    value: Uluslararası Padel Federasyonu (FIP) profesyonel turnuva standartları
 specsIntro: Her bileşen; güvenlik, dayanıklılık ve turnuva standardında oyun için uluslararası standartlara göre tasarlanır.
 media:
   - order: 1

@@ -20,6 +20,7 @@ const PADEL_DOUBLES: Omit<CourtDims, 'caption'> = {
   serviceFromNet: 6.95,
   notes: [
     { label: 'Playing area', value: '20 × 10 m' },
+    { label: 'Foundation footprint', value: '21 × 11 m' },
     { label: 'Service line', value: '6.95 m from the net' },
     { label: 'Back walls', value: '3 m glass + 1 m mesh' },
     { label: 'Net height', value: '0.88 m centre · 0.92 m posts' },
@@ -33,6 +34,7 @@ const PADEL_SINGLE: Omit<CourtDims, 'caption'> = {
   serviceFromNet: 6.95,
   notes: [
     { label: 'Playing area', value: '20 × 6 m' },
+    { label: 'Foundation footprint', value: '21 × 7 m' },
     { label: 'Service line', value: '6.95 m from the net' },
     { label: 'Back walls', value: '3 m glass + 1 m mesh' },
     { label: 'Net height', value: '0.88 m centre · 0.92 m posts' },

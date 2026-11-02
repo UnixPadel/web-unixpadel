@@ -21,22 +21,28 @@ hero:
   image: null
   tagline: Le summum des terrains de padel panoramiques. Vue dégagée à 360 degrés pour les spectateurs et profilés en acier renforcés de 100x50x3mm.
 specs:
-  - label: Dimensions
-    value: Aire de jeu de 20.00m (longueur) x 10.00m (largeur), avec parois vitrées d'angle de 4m de hauteur.
-  - label: Profilés de l'ossature en acier
-    value: Poteaux renforcés en acier galvanisé à chaud de 100x50x3mm.
-  - label: Panneaux vitrés
-    value: Verre de sécurité trempé de 12mm certifié CE (norme EN 12150-1).
+  - label: Surface de fondation
+    value: 11m x 21m semelle béton armé
+  - label: Aire de jeu
+    value: 10m x 20m intérieur conforme aux normes FIP
+  - label: Structure
+    value: Poteaux en acier galvanisé à chaud renforcés 100x50x3mm
+  - label: Poteaux secondaires
+    value: Poteaux secondaires en acier 80x40x3mm
+  - label: Poutres
+    value: RHS 100x50x3mm (zone vitrée) et RHS 80x40x3mm poutres acier
+  - label: Parois vitrées
+    value: Verre trempé de sécurité 12mm certifié CE (EN 12150-1)
   - label: Panneaux grillagés
-    value: Panneaux grillagés anti-blessures en acier électrosoudé de 50x50x4mm.
-  - label: Gazon
-    value: Gazon synthétique monofilament de 12mm-15mm, avec remplissage de sable de silice.
-  - label: Éclairage
-    value: 4 ou 8 projecteurs LED (300-500 Lux, sans éblouissement).
-  - label: Platines d'ancrage
-    value: Platines en acier de 100x50x3mm avec boulons d'ancrage haute résistance.
+    value: Treillis électrosoudé anti-blessure 50x50x4mm
+  - label: Gazon synthétique
+    value: Gazon synthétique 12mm avec remplissage de sable siliceux
+  - label: Luminaires
+    value: Projecteurs LED 200W IP66 boîtier aluminium étanche
+  - label: Mâts d'éclairage
+    value: Profilés RHS 60x40x3mm et RHS 60x60x4mm
   - label: Conformité
-    value: Normes de compétition professionnelle de la FIP (Fédération internationale de padel).
+    value: Conforme aux normes de tournois officiels de la FIP
 specsIntro: Chaque composant est conçu selon les normes internationales pour garantir sécurité, durabilité et un jeu de niveau compétition.
 media:
   - order: 1

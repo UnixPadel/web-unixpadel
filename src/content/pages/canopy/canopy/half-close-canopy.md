@@ -41,6 +41,25 @@ media:
     src: /wp-content/uploads/2026/01/half_close_7.jpeg
     alt: "Unixpadel half-closed canopy: robust steel structure, wind-resistant design, UV-protected membrane, and sleek finish."
     section: 5
+specs:
+  - label: Main Pillars
+    value: RHS or HEA structural steel profiles
+  - label: Beams
+    value: RHS or IPE structural steel beams
+  - label: Purlins
+    value: RHS structural steel purlins
+  - label: Braces & Truss
+    value: RHS reinforced diagonal truss sections
+  - label: Cover Type
+    value: Heavy-duty weather-resistant PVC membrane
+  - label: Snow Load
+    value: 150 kg/m² snow load resistance
+  - label: Wind Load
+    value: 75–110 km/h wind resistance
+  - label: Rain Load
+    value: 60 m³ drainage capacity
+  - label: Maximum Height
+    value: 9m peak clearance height
 ---
 
 #### Welcome to Unixpadel's Half-Closed Canopy
@@ -49,7 +68,7 @@ Experience superior craftsmanship and reliable protection with our state-of-the-
 
 #### Robust Construction:
 
-The canopy stands tall at 6 meters in height, supported by vertical paralleling pipes (89 x 3mm), securely welded to 18 Gijon and nut (15mm) plates.
+The canopy stands tall at 9 meters in height, supported by vertical paralleling pipes (89 x 3mm), securely welded to 18 Gijon and nut (15mm) plates.
 
 Anchored with a concrete base during the sub-base process, ensuring stability and durability.
 

@@ -22,22 +22,28 @@ hero:
   image: null
   tagline: null
 specs:
-  - label: Ana Konstrüksiyon
-    value: 100x50x3mm et kalınlığında çelik konstrüksiyon
-  - label: Taban Destekleri
-    value: 50x100x2.5mm et kalınlığında U profil
-  - label: Üçgen Destekler
-    value: 100x50x2.5mm et kalınlığında
-  - label: Flanş Ölçüleri
-    value: 200x100x10mm et kalınlığında
-  - label: Dikdörtgen Kesit
-    value: 200x50x4mm et kalınlığında
-  - label: Bağlantı Tasarımı
-    value: Birbirine kusursuz geçen kayar bağlantılar
-  - label: Cam Paneller
-    value: Darbeye yüksek dayanımlı 10-12mm temperli güvenlik camı
-  - label: Çelik Tel Örgü
-    value: Elektro kaynaklı, 100x50x3mm et kalınlığında
+  - label: Temel Alanı
+    value: Temel gereksiz (kendi kendini taşıyan zemin bağlantısız sistem)
+  - label: Oyun Alanı
+    value: 10m x 20m standart iç oyun alanı (200 m²)
+  - label: Ana Metal Profiller
+    value: 100x100x3mm ağır hizmet tipi çelik profiller
+  - label: Tali Profiller
+    value: 100x50x3mm çelik profiller
+  - label: Kirişler
+    value: Uzun kenarda 100x50x3mm ve kısa kenarda 100x100x3mm
+  - label: Cam Duvarlar
+    value: 12mm EN 12150-1 CE sertifikalı temperli güvenlik camı
+  - label: Tel Örgü Paneller
+    value: Yaralanma önleyici elektro kaynaklı 50x50x4mm çelik tel örgü
+  - label: Sentetik Çim
+    value: 12mm silis kumu dolgulu sentetik padel çimi
+  - label: Aydınlatma Armatürleri
+    value: 150W IP66 koruma sınıflı alüminyum gövdeli LED projektörler
+  - label: Aydınlatma Direkleri
+    value: RHS 60x40x3mm ve RHS 60x60x5mm çelik aydınlatma direkleri
+  - label: Birleşim Detayı
+    value: Geçmeli hassas kayar bağlantı kilit mekanizması
 specsIntro: Yoğun oyun temposuna ve zorlu dış ortam koşullarına dayanacak şekilde hassasiyet ve dayanıklılık odaklı üretilir.
 media:
   - order: 1

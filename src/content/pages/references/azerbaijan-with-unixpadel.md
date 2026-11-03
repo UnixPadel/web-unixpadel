@@ -76,7 +76,7 @@ Furthermore, all surfaces are finished with **double-layer electrostatic powder 
 
 **Unixpadel’s Global Power Now in Azerbaijan**
 
-With over **7,800 padel court projects** completed worldwide, Unixpadel is proud to bring its global expertise to Azerbaijan. From Europe to the Middle East, North Africa to Latin America — and now in Baku and beyond — we continue to lead the global padel movement.
+With over **9,600 padel court projects** completed worldwide, Unixpadel is proud to bring its global expertise to Azerbaijan. From Europe to the Middle East, North Africa to Latin America — and now in Baku and beyond — we continue to lead the global padel movement.
 
 ![](/wp-content/uploads/2025/05/55.jpg)
 

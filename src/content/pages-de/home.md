@@ -110,16 +110,16 @@ Bringen Sie Ihr Spiel auf unseren hochwertigen Standard-Padelplätzen auf ein ne
 
 ##### Panoramaplatz
 
-Genießen Sie auf unseren Panorama-Padelplätzen eine beeindruckende Rundumsicht. Bringen Sie Ihr Spiel auf ein neues Niveau!  
-  
+Genießen Sie auf unseren Panorama-Padelplätzen eine beeindruckende Rundumsicht. Bringen Sie Ihr Spiel auf ein neues Niveau!
+
 [MEHR ERFAHREN: Panorama-Padelplatz](/panoramic-padel-court/)
 
 ![Full-Panorama-Platz](/wp-content/uploads/2023/05/full-panoramic_3.png)
 
 ##### Full-Panorama-Platz
 
-Erleben Sie das volle Panorama-Gefühl auf unseren Full-Panorama-Padelplätzen. Spüren Sie die Energie des Spiels wie nie zuvor!  
-  
+Erleben Sie das volle Panorama-Gefühl auf unseren Full-Panorama-Padelplätzen. Spüren Sie die Energie des Spiels wie nie zuvor!
+
 [MEHR ERFAHREN: Full-Panorama-Platz](/full-panoramic-padel-court/)
 
 ![WP Challenge Padel](/wp-content/uploads/2023/07/wp-challenge-courtafadf.png)
@@ -138,7 +138,7 @@ Der Unixpadel WP Challenge Padelplatz bietet außergewöhnliche Standsicherheit 
 
 Export in über 94 Länder und realisierte Projekte in mehr als 800 Städten weltweit.
 
-Über 7,800 montierte Plätze, darunter in nachfragestarken Märkten wie dem Vereinigten Königreich, Frankreich, Saudi-Arabien, den USA, Deutschland, Ghana und Südafrika.
+Über 9,600 montierte Plätze, darunter in nachfragestarken Märkten wie dem Vereinigten Königreich, Frankreich, Saudi-Arabien, den USA, Deutschland, Ghana und Südafrika.
 
 Das Vertrauen von 5-Sterne-Hotels, Behörden und führenden Sportclubs. FIP-Turniere, internationale Turniere, globale Padelturniere.
 

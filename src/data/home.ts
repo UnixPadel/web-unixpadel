@@ -1,12 +1,12 @@
 // Hand-authored home page copy (the old WordPress home was a flat block dump; see home.md for the source).
-// Facts come from the live site: 94+ countries, 800+ cities, 7,800+ courts, 12 courts/day, Adıyaman factory.
+// Facts come from the live site: 96+ countries, 1020+ cities, 9,600+ courts, 12 courts/day, Adıyaman factory.
 
 export const HOME = {
   hero: {
     eyebrow: 'Padel court manufacturer · Türkiye',
     title: 'Padel courts engineered, built and installed by *one factory*.',
     tagline:
-      'Steel structures, tempered glass, turf and canopies made in-house in Adıyaman, shipped to clubs, resorts and municipalities in 94+ countries.',
+      'Steel structures, tempered glass, turf and canopies made in-house in Adıyaman, shipped to clubs, resorts and municipalities in 96+ countries.',
     // Çeşme coastal project, cinematic drone shot (16:9)
     video: '/wp-content/uploads/2026/09/Cinematic-aerial-drone-shot-16-9-of-th.mp4',
     // 2560px / 329 KB and no WordPress size variants: upload a ~1600px version to improve mobile LCP.
@@ -43,7 +43,7 @@ export const HOME = {
     },
   ],
   why: [
-    { icon: 'globe', title: 'Global track record', text: 'Exported to 94+ countries and 800+ cities; trusted by five-star hotels, governments, sports clubs and FIP tournaments.' },
+    { icon: 'globe', title: 'Global track record', text: 'Exported to 96+ countries and 1020+ cities; trusted by five-star hotels, governments, sports clubs and FIP tournaments.' },
     { icon: 'factory', title: 'Everything made in-house', text: 'Our own factory in Adıyaman controls steel, tempered glass, turf and paint. Capacity: 12 courts a day.' },
     { icon: 'shield', title: 'Certified engineering', text: 'Built to FIP standards, KIWA approved, wind and impact tested by Istanbul Technical University, TSE and TÜV tested components.' },
     { icon: 'layers', title: 'Designs you will not find elsewhere', text: 'MobilFLOD flat-floor courts, MobilFOLD X-TEND self-supported canopies, retractable roofs, modular and floating options.' },

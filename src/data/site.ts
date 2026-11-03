@@ -23,9 +23,9 @@ export const SITE = {
     { name: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/unixpadel' },
   ],
   stats: [
-    { value: '94+', label: 'Countries exported' },
-    { value: '800+', label: 'Cities installed' },
-    { value: '7,800+', label: 'Courts delivered' },
+    { value: '96+', label: 'Countries exported' },
+    { value: '1020+', label: 'Cities installed' },
+    { value: '9,600+', label: 'Courts delivered' },
     { value: '12', label: 'Courts produced per day' },
   ],
   certifications: ['FIP approved', 'ISO certified', 'KIWA tested', 'ITU wind & impact tested', 'TSE / TÜV components'],

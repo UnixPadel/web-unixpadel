@@ -237,7 +237,7 @@ const ar: LocaleData = {
     padbol: 'ملاعب Padbol',
     pickleball: 'Pickleball',
     deliveredEyebrow: 'مشاريع منفّذة',
-    deliveredTitle: '7,800 ملعب في 94 دولة. <mark class="hl">وهذه من هذا العام.</mark>',
+    deliveredTitle: '9,600 ملعب في 94 دولة. <mark class="hl">وهذه من هذا العام.</mark>',
     deliveredText: 'أندية ومنتجعات وبلديات من الخليج إلى البلقان. كل ملعب هنا صُنع في أديامان وركّبته فرقنا.',
     systemsEyebrow: 'أنظمة مبتكرة',
     systemsTitle: 'ملاعب لا تحتاج إلى <mark class="hl">قاعدة خرسانية</mark> ولا رافعة ولا موسم.',

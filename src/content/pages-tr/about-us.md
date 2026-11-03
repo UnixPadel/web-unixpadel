@@ -42,11 +42,11 @@ Padel kortu üretiminde global lider. Hassas mühendislikten dünya genelindeki 
 
 [Teklif alın](/contact-us/)
 
-### 94+
+### 96+
 
 İhracat Yapılan Ülke
 
-### 7,800+
+### 9,600+
 
 Dünya Genelinde Kurulan Kort
 

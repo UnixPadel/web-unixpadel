@@ -42,11 +42,11 @@ Leader mondial de la fabrication de terrains de padel. De l'ingénierie de préc
 
 [Demander un devis](/contact-us/)
 
-### 94+
+### 96+
 
 Pays d'exportation
 
-### 7,800+
+### 9,600+
 
 Terrains installés dans le monde
 

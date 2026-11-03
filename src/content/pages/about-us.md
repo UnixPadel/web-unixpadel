@@ -42,11 +42,11 @@ Global leader in padel court manufacturing. From precise engineering to worldwid
 
 [Get a Custom Quote](/contact-us/)
 
-### 94+
+### 96+
 
 Countries Exported
 
-### 7,800+
+### 9,600+
 
 Courts Installed Worldwide
 
@@ -78,7 +78,7 @@ At Unixpadel, we see the court not just as a product, but as a complex structure
 
 ### Our Strategic Pillars
 
-- **1\. Redefining Global Standards:** We strive to establish “Unixpadel Quality” as the benchmark for the entire industry. By applying rigorous civil engineering norms to every project—from static calculations to material durability—we ensure that our courts stand the test of time. Our goal is to lead the market not just in volume, but in safety, structural integrity, and certification compliance across 94+ countries.
+- **1\. Redefining Global Standards:** We strive to establish “Unixpadel Quality” as the benchmark for the entire industry. By applying rigorous civil engineering norms to every project—from static calculations to material durability—we ensure that our courts stand the test of time. Our goal is to lead the market not just in volume, but in safety, structural integrity, and certification compliance across 96+ countries.
 - **2\. Sustainable Innovation & Limitless Technology:** Our vision is to make padel accessible everywhere while protecting the planet we play on. We break physical boundaries with proprietary technologies like the **Floating Court**, **Retractable Roof Systems**, and **Mobile Fold X-Tend**, bringing the game to the world’s most challenging environments. Crucially, we achieve this through eco-friendly engineering—utilizing energy-efficient processes and recyclable materials to ensure that our cutting-edge solutions leave a positive, lasting legacy for future generations.
 
 ## Our Mission

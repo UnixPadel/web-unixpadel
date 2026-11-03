@@ -88,7 +88,7 @@ media:
     section: 8
 faq:
   - q: Where can I see real examples of Unixpadel courts in operation?
-    a: Unixpadel courts are installed in clubs across 94+ countries. Recent European installations include our [panoramic courts in Würzburg, Germany](/references/panoramic-padel-courts-wurzburg-germany/) and our [black turf courts in Bosnia & Herzegovina](/references/black-turf-padel-courts-bosnia/).
+    a: Unixpadel courts are installed in clubs across 96+ countries. Recent European installations include our [panoramic courts in Würzburg, Germany](/references/panoramic-padel-courts-wurzburg-germany/) and our [black turf courts in Bosnia & Herzegovina](/references/black-turf-padel-courts-bosnia/).
   - q: Can the Panoramic Court be installed in windy outdoor weather conditions?
     a: Yes, the Panoramic Court features heavy-gauge 100x50x3mm steel pillars, static-calculated to withstand extreme wind loads (up to 130-150 km/h).
   - q: Is the Panoramic Court suitable for indoor and outdoor venues?

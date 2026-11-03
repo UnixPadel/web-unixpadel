@@ -42,11 +42,11 @@ Ein weltweit führender Hersteller von Padelplätzen. Von präzisem Engineering 
 
 [Angebot anfordern](/contact-us/)
 
-### 94+
+### 96+
 
 Exportländer
 
-### 7,800+
+### 9,600+
 
 Weltweit montierte Plätze
 

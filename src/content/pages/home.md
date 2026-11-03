@@ -110,16 +110,16 @@ Elevate your padel game on our exceptional Standard Padel courts. Unleash your p
 
 ##### Panoramic Court
 
-Immerse yourself in breathtaking panoramic views on our extraordinary Panoramic Padel courts. Take your game to new heights!  
-  
+Immerse yourself in breathtaking panoramic views on our extraordinary Panoramic Padel courts. Take your game to new heights!
+
 [EXPLORE: Panoramic Padel Court](/panoramic-padel-court/)
 
 ![Full Panoramic Court image](/wp-content/uploads/2023/05/full-panoramic_3.png)
 
 ##### Full Panoramic Court
 
-Experience the complete panoramic thrill on our exceptional Full Panoramic Padel courts. Feel the energy of the game like never before!  
-  
+Experience the complete panoramic thrill on our exceptional Full Panoramic Padel courts. Feel the energy of the game like never before!
+
 [EXPLORE: Full Panoramic Court](/full-panoramic-padel-court/)
 
 ![WP Challenge Padel image](/wp-content/uploads/2023/07/wp-challenge-courtafadf.png)
@@ -136,9 +136,9 @@ The Unixpadel WP Challenge Padel Court is designed to provide exceptional struct
 
 ### Global Trust & Proven Experience
 
-Exported to 94+ countries and delivered projects in over 800 cities worldwide.
+Exported to 96+ countries and delivered projects in over 1020 cities worldwide.
 
-Installed 7,800+ courts, including in high-demand markets like the UK, France, Saudi Arabia, America, Germany, Ghana, South Africa
+Installed 9,600+ courts, including in high-demand markets like the UK, France, Saudi Arabia, America, Germany, Ghana, South Africa
 
 Trusted by 5-star hotels, governments, and leading sports clubs. FIP Tournaments, International tournaments, Global padel tournaments
 

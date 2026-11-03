@@ -110,16 +110,16 @@ Exprimez votre talent sur nos terrains de padel single, l'arène idéale pour de
 
 ##### Terrain panoramique
 
-Profitez de vues panoramiques spectaculaires sur nos terrains de padel panoramiques d'exception. Portez votre jeu vers de nouveaux sommets !  
-  
+Profitez de vues panoramiques spectaculaires sur nos terrains de padel panoramiques d'exception. Portez votre jeu vers de nouveaux sommets !
+
 [DÉCOUVRIR : terrain de padel panoramique](/panoramic-padel-court/)
 
 ![Image terrain full panoramique](/wp-content/uploads/2023/05/full-panoramic_3.png)
 
 ##### Terrain full panoramique
 
-Vivez l'expérience panoramique totale sur nos terrains de padel full panoramiques d'exception. Ressentez l'énergie du jeu comme jamais !  
-  
+Vivez l'expérience panoramique totale sur nos terrains de padel full panoramiques d'exception. Ressentez l'énergie du jeu comme jamais !
+
 [DÉCOUVRIR : terrain full panoramique](/full-panoramic-padel-court/)
 
 ![Image WP Challenge Padel](/wp-content/uploads/2023/07/wp-challenge-courtafadf.png)
@@ -138,7 +138,7 @@ Le terrain WP Challenge Padel d'Unixpadel est conçu pour offrir une stabilité 
 
 Exportés dans plus de 94 pays, avec des projets livrés dans plus de 800 villes à travers le monde.
 
-Plus de 7,800 terrains installés, notamment sur des marchés très exigeants comme le Royaume-Uni, la France, l'Arabie saoudite, les États-Unis, l'Allemagne, le Ghana et l'Afrique du Sud
+Plus de 9,600 terrains installés, notamment sur des marchés très exigeants comme le Royaume-Uni, la France, l'Arabie saoudite, les États-Unis, l'Allemagne, le Ghana et l'Afrique du Sud
 
 La confiance d'hôtels 5 étoiles, de gouvernements et de grands clubs sportifs. Tournois FIP, tournois internationaux, tournois de padel mondiaux
 

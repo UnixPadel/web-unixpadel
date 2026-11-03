@@ -40,7 +40,7 @@ const en = {
   waQuestion: 'Hello Unixpadel, I have a question about your padel courts.',
 
   // footer
-  footerAbout: 'Padel courts, canopies and turf engineered in Istanbul and manufactured in our own Adıyaman factory. Delivered and installed in 94+ countries since 2015.',
+  footerAbout: 'Padel courts, canopies and turf engineered in Istanbul and manufactured in our own Adıyaman factory. Delivered and installed in 96+ countries since 2015.',
   socialMedia: 'Social media',
   certsAria: 'Certifications and tests',
   fCourts: 'Courts',
@@ -134,7 +134,7 @@ const en = {
   // templates
   aboutEyebrow: 'About Unixpadel',
   aboutTitle: 'Engineering padel courts *since 2015*',
-  aboutTagline: 'Designed in Istanbul, manufactured in our own Adıyaman factory, installed by our teams and partners in 94+ countries. FIP approved, ISO certified, tested by Istanbul Technical University.',
+  aboutTagline: 'Designed in Istanbul, manufactured in our own Adıyaman factory, installed by our teams and partners in 96+ countries. FIP approved, ISO certified, tested by Istanbul Technical University.',
   seeReferences: 'See references',
   guideEyebrow: 'Padel court guide',
   updated: 'Updated',

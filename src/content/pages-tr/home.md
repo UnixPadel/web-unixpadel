@@ -110,16 +110,16 @@ Yoğun bire bir mücadeleler için ideal arena olan Single padel kortlarımızda
 
 ##### Panoramik Kort
 
-Olağanüstü Panoramik padel kortlarımızda nefes kesen panoramik manzaranın tadını çıkarın. Oyununuzu yeni bir seviyeye taşıyın!  
-  
+Olağanüstü Panoramik padel kortlarımızda nefes kesen panoramik manzaranın tadını çıkarın. Oyununuzu yeni bir seviyeye taşıyın!
+
 [İNCELEYİN: Panoramik Padel Kortu](/panoramic-padel-court/)
 
 ![Full panoramik kort görseli](/wp-content/uploads/2023/05/full-panoramic_3.png)
 
 ##### Full Panoramik Kort
 
-Üstün Full Panoramik padel kortlarımızda panoramik heyecanı eksiksiz yaşayın. Oyunun enerjisini daha önce hiç olmadığı gibi hissedin!  
-  
+Üstün Full Panoramik padel kortlarımızda panoramik heyecanı eksiksiz yaşayın. Oyunun enerjisini daha önce hiç olmadığı gibi hissedin!
+
 [İNCELEYİN: Full Panoramik Kort](/full-panoramic-padel-court/)
 
 ![WP Challenge Padel görseli](/wp-content/uploads/2023/07/wp-challenge-courtafadf.png)
@@ -138,7 +138,7 @@ Unixpadel WP Challenge Padel Kortu, rüzgâr yüklerine ve insan çarpmalarına 
 
 94'ten fazla ülkeye ihracat ve dünya genelinde 800'ü aşkın şehirde tamamlanmış projeler.
 
-Birleşik Krallık, Fransa, Suudi Arabistan, ABD, Almanya, Gana ve Güney Afrika gibi talebin yüksek olduğu pazarlar dahil 7,800'den fazla kort kurulumu.
+Birleşik Krallık, Fransa, Suudi Arabistan, ABD, Almanya, Gana ve Güney Afrika gibi talebin yüksek olduğu pazarlar dahil 9,600'den fazla kort kurulumu.
 
 5 yıldızlı oteller, kamu kurumları ve önde gelen spor kulüplerinin güvendiği marka. FIP turnuvaları, uluslararası turnuvalar ve global padel turnuvaları.
 

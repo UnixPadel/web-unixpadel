@@ -12,14 +12,14 @@ type RawEntry = { title: string; country: string; products: string[]; lat: numbe
 /** Raw country names in the JSON → ISO 3166 code + the English name the site uses. */
 export const COUNTRIES: Record<string, [iso2: string, en: string]> = {
   Angola: ['AO', 'Angola'], Argentina: ['AR', 'Argentina'], Azerbaijan: ['AZ', 'Azerbaijan'], Bahrain: ['BH', 'Bahrain'],
-  Belarus: ['BY', 'Belarus'], Bulgaria: ['BG', 'Bulgaria'], Canada: ['CA', 'Canada'], 'Cape Verde': ['CV', 'Cape Verde'],
-  Chile: ['CL', 'Chile'], Denmark: ['DK', 'Denmark'], England: ['GB', 'United Kingdom'], Estonia: ['EE', 'Estonia'],
+  Belarus: ['BY', 'Belarus'], Benin: ['BJ', 'Benin'], Bulgaria: ['BG', 'Bulgaria'], Canada: ['CA', 'Canada'], 'Cape Verde': ['CV', 'Cape Verde'],
+  Chile: ['CL', 'Chile'], Cyprus: ['CY', 'Cyprus'], Denmark: ['DK', 'Denmark'], England: ['GB', 'United Kingdom'], Estonia: ['EE', 'Estonia'],
   Finland: ['FI', 'Finland'], France: ['FR', 'France'], Germany: ['DE', 'Germany'], Ghana: ['GH', 'Ghana'],
   Greece: ['GR', 'Greece'], Iceland: ['IS', 'Iceland'], India: ['IN', 'India'], Indonesia: ['ID', 'Indonesia'],
-  Iran: ['IR', 'Iran'], Italy: ['IT', 'Italy'], 'Ivory Coast': ['CI', 'Côte d’Ivoire'], Jordan: ['JO', 'Jordan'],
+  Iran: ['IR', 'Iran'], Israel: ['IL', 'Israel'], Italy: ['IT', 'Italy'], 'Ivory Coast': ['CI', 'Côte d’Ivoire'], Japan: ['JP', 'Japan'], Jordan: ['JO', 'Jordan'],
   Kenya: ['KE', 'Kenya'], Kosova: ['XK', 'Kosovo'], Kuwait: ['KW', 'Kuwait'], Kyrgyzstan: ['KG', 'Kyrgyzstan'],
   Latvia: ['LV', 'Latvia'], Lesotho: ['LS', 'Lesotho'], Libya: ['LY', 'Libya'], Lithuania: ['LT', 'Lithuania'],
-  Malaysia: ['MY', 'Malaysia'], Maldives: ['MV', 'Maldives'], Mexico: ['MX', 'Mexico'], Moldova: ['MD', 'Moldova'],
+  Malaysia: ['MY', 'Malaysia'], Maldives: ['MV', 'Maldives'], Mauritius: ['MU', 'Mauritius'], Mexico: ['MX', 'Mexico'], Moldova: ['MD', 'Moldova'],
   Monaco: ['MC', 'Monaco'], Montenegro: ['ME', 'Montenegro'], Morocco: ['MA', 'Morocco'], Namibia: ['NA', 'Namibia'],
   Netherlands: ['NL', 'Netherlands'], 'New Zeland': ['NZ', 'New Zealand'], Nigeria: ['NG', 'Nigeria'], Norway: ['NO', 'Norway'],
   Oman: ['OM', 'Oman'], Pakistan: ['PK', 'Pakistan'], Palestine: ['PS', 'Palestine'], Panama: ['PA', 'Panama'],
@@ -41,6 +41,8 @@ const PRODUCTS: [name: string, url: string][] = [
   ['Roof Top Canopy Court', '/roof-top-canopy/'],
   ['Half Close Canopy', '/half-close-canopy/'],
   ['Canopy', '/canopy/'],
+  ['Full Membrane Cover', '/full-membrane-cover/'],
+  ['Padbol Court', '/padbols/'],
 ];
 
 const norm = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');

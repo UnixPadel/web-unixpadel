@@ -181,6 +181,7 @@ const ui: UI = {
   globeClose: 'Закрыть',
   globeNearby: 'Поблизости',
   globeShowCountry: (c) => `Смотреть проекты: ${c}`,
+  globeCountryTotal: (n, c) => `${c}, всего проектов: ${n}`,
   nProjects: (n) => `Проектов: ${n}`,
   resultsCount: (n) => `Показано проектов: ${n}`,
   showAllProjects: (n) => `Показать все проекты (${n})`,

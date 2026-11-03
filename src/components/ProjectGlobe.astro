@@ -25,6 +25,7 @@ const ui = t(langOf(Astro.url));
         <span data-card-country></span>
       </p>
       <p class="globe__count" data-card-count></p>
+      <p class="globe__total" hidden data-card-total></p>
       <ul class="globe__mix" aria-label={ui.courtType} data-card-mix></ul>
       <div class="globe__nearby" data-card-nearby-wrap hidden>
         <span class="globe__nearby-label">{ui.globeNearby}</span>
@@ -200,6 +201,13 @@ const ui = t(langOf(Astro.url));
   .globe__count {
     color: var(--lime-500);
     font-weight: 700;
+  }
+  .globe__total {
+    color: var(--text-on-inverse-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .globe__total[hidden] {
+    display: none;
   }
   .globe__mix {
     list-style: none;

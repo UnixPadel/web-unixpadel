@@ -182,6 +182,7 @@ const ui: UI = {
   globeClose: 'Fermer',
   globeNearby: 'À proximité',
   globeShowCountry: (c) => `Voir les références : ${c}`,
+  globeCountryTotal: (n, c) => `Total ${c} : ${n} projets`,
   nProjects: (n) => (n === 1 ? '1 projet' : `${n} projets`),
   resultsCount: (n) => (n === 1 ? '1 projet affiché' : `${n} projets affichés`),
   showAllProjects: (n) => `Afficher les ${n} projets`,

@@ -223,6 +223,7 @@ const ui: UI = {
   globeClose: 'Kapatın',
   globeNearby: 'Yakındakiler',
   globeShowCountry: (c) => `${c} referanslarını görün`,
+  globeCountryTotal: (n, c) => `${c} toplamı: ${n} proje`,
   nProjects: (n) => `${n} proje`,
   resultsCount: (n) => `${n} proje gösteriliyor`,
   showAllProjects: (n) => `${n} projenin tümünü gösterin`,

@@ -10,7 +10,7 @@ import land110 from 'world-atlas/land-110m.json';
 type Data = {
   v: 1;
   p: [label: string, href: string][];
-  c: [label: string, slug: string | null, showLabel: string | null, biggest: number][];
+  c: [label: string, slug: string | null, showLabel: string | null, biggest: number, total: string | null][];
   g: [lng: number, lat: number, country: number, place: string | null, n: number, countText: string, mix: number[]][];
 };
 type Colors = { ocean: string; land: string; edge: string; grid: string; rim: string; pin: string; pick: string; halo: string };
@@ -224,6 +224,7 @@ export function initGlobe(root: HTMLElement) {
   const title = card.querySelector<HTMLElement>('[data-card-title]')!;
   const country = card.querySelector<HTMLElement>('[data-card-country]')!;
   const count = card.querySelector<HTMLElement>('[data-card-count]')!;
+  const total = card.querySelector<HTMLElement>('[data-card-total]')!;
   const mix = card.querySelector<HTMLElement>('[data-card-mix]')!;
   const nearbyWrap = card.querySelector<HTMLElement>('[data-card-nearby-wrap]')!;
   const nearby = card.querySelector<HTMLElement>('[data-card-nearby]')!;
@@ -233,10 +234,12 @@ export function initGlobe(root: HTMLElement) {
 
   function fillCard(i: number) {
     const [lng, lat, ci, place, , countText, flat] = data.g[i];
-    const [countryLabel, slug, showLabel] = data.c[ci];
+    const [countryLabel, slug, showLabel, , countryTotal] = data.c[ci];
     title.textContent = place ?? countryLabel;
     country.textContent = place ? countryLabel : '';
     count.textContent = countText;
+    total.textContent = countryTotal ?? '';
+    total.hidden = !countryTotal;
     mix.replaceChildren(
       ...Array.from({ length: Math.min(flat.length / 2, 4) }, (_, k) => {
         const [label, href] = data.p[flat[k * 2]];
@@ -280,8 +283,8 @@ export function initGlobe(root: HTMLElement) {
     const [lng, lat] = data.g[i];
     animate({ rot: [-lng, -Math.max(-80, lat - 22 / ZOOMS[zoom])] });
     if (announce) {
-      const [countryLabel] = data.c[data.g[i][2]];
-      status.textContent = [data.g[i][3], countryLabel, data.g[i][5]].filter(Boolean).join(', ');
+      const [countryLabel, , , , countryTotal] = data.c[data.g[i][2]];
+      status.textContent = [data.g[i][3], countryLabel, data.g[i][5], countryTotal].filter(Boolean).join(', ');
     }
   }
 

@@ -182,6 +182,7 @@ const ui: UI = {
   globeClose: 'إغلاق',
   globeNearby: 'مواقع قريبة',
   globeShowCountry: (c) => `عرض مراجع ${c}`,
+  globeCountryTotal: (n, c) => `إجمالي ${c}: ${n} مشروعًا`,
   nProjects: (n) => `عدد المشاريع: ${n}`,
   resultsCount: (n) => `المشاريع المعروضة: ${n}`,
   showAllProjects: (n) => `عرض جميع المشاريع (${n})`,

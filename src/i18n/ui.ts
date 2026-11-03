@@ -191,6 +191,7 @@ const en = {
   globeClose: 'Close',
   globeNearby: 'Nearby',
   globeShowCountry: (c: string) => `View ${c} references`,
+  globeCountryTotal: (n: string, c: string) => `Total in ${c}: ${n} projects`,
   nProjects: (n: number) => (n === 1 ? '1 project' : `${n} projects`),
   resultsCount: (n: number) => (n === 1 ? '1 project shown' : `${n} projects shown`),
   showAllProjects: (n: number) => `Show all ${n} projects`,

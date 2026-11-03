@@ -110,7 +110,13 @@ async function build(lang: Lang, stories: ReadonlyMap<string, number>): Promise<
     (a, b) => collator.compare(countryLabel(a.raw), countryLabel(b.raw)) || b.entries.length - a.entries.length || collator.compare(a.place, b.place),
   );
 
-  const countryRows: [string, string | null, string | null, number][] = [];
+  // Country total for the pin card (null when the country is a single pin, whose own count already says it).
+  const perCountry = new Map<string, { groups: number; n: number }>();
+  for (const g of groups.values()) {
+    const c = perCountry.get(g.raw) ?? { groups: 0, n: 0 };
+    perCountry.set(g.raw, { groups: c.groups + 1, n: c.n + g.entries.length });
+  }
+  const countryRows: [string, string | null, string | null, number, string | null][] = [];
   const countryAt = new Map<string, number>();
   const rows = sorted.map((g, gi) => {
     const [, en] = COUNTRIES[g.raw];
@@ -119,7 +125,9 @@ async function build(lang: Lang, stories: ReadonlyMap<string, number>): Promise<
       const label = countryLabel(g.raw);
       const hasStories = (stories.get(en) ?? 0) > 0;
       countryAt.set(g.raw, (ci = countryRows.length));
-      countryRows.push([label, hasStories ? countrySlug(en) : null, hasStories ? ui.globeShowCountry(label) : null, gi]);
+      const { groups: nGroups, n } = perCountry.get(g.raw)!;
+      const total = nGroups > 1 ? ui.globeCountryTotal(formatCount(n, lang), label) : null;
+      countryRows.push([label, hasStories ? countrySlug(en) : null, hasStories ? ui.globeShowCountry(label) : null, gi, total]);
     }
     const mix = new Map<number, number>();
     for (const e of g.entries) for (const p of e.products) mix.set(productIndex.get(p)!, (mix.get(productIndex.get(p)!) ?? 0) + 1);
@@ -133,7 +141,7 @@ async function build(lang: Lang, stories: ReadonlyMap<string, number>): Promise<
   if (total !== raw.length) throw new Error(`reference-map: grouped ${total} of ${raw.length} entries`);
 
   const json = JSON.stringify({ v: 1, p: products, c: countryRows, g: rows }).replace(/</g, '\\u003c');
-  if (json.length > 16_000) throw new Error(`reference-map: inline payload grew to ${json.length} bytes`);
+  if (json.length > 18_000) throw new Error(`reference-map: inline payload grew to ${json.length} bytes`);
 
   const projects = formatCount(raw.length, lang);
   const countries = formatCount(countryRows.length, lang);

@@ -57,7 +57,7 @@ export type LocaleData = {
   seals: Record<string, { ring: string; label: string }>;
   /** SITE.stats labels, same order */
   stats: string[];
-  /** thousands separator for the stat figures ("9,600+" → "7.800+") */
+  /** thousands separator for the stat figures ("9,594" → "9.594") */
   thousands?: string;
   hq: string;
   factory: string;

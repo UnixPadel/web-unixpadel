@@ -12,7 +12,7 @@ lastmod: 2026-09-28T11:54:56+00:00
 published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 Years of Unixpadel: Success & Engineering Milestones"
-  description: "Discover 10 Years of Unixpadel: From a bold vision to building world-class padel courts in 94 countries, we celebrate our team, engineering, and passion."
+  description: "Discover 10 Years of Unixpadel: From a bold vision to building world-class padel courts in 96 countries, we celebrate our team, engineering, and passion."
   ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
@@ -74,9 +74,9 @@ Regardless of the challenge or installation complexity, we move as one cohesive 
 
 From local dedication to international industry leadership.
 
-### Global Footprint Across 94 Countries
+### Global Footprint Across 96 Countries
 
-From coastal resorts to indoor clubs and urban rooftops, Unixpadel courts now stand proudly in 94 nations. Consequently, each completed project serves as a testament to our agility in meeting distinct climates, local regulations, and client aspirations.
+From coastal resorts to indoor clubs and urban rooftops, Unixpadel courts now stand proudly in 96 nations. Consequently, each completed project serves as a testament to our agility in meeting distinct climates, local regulations, and client aspirations.
 
 ### Building the Next Decade of Padel
 

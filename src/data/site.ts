@@ -1,5 +1,6 @@
 ﻿// Site-wide data that is not part of the scraped content (contact details, offices, social links, stats).
 // Addresses and numbers mirror the live contact page as of 2026-10-01.
+import { courtsDelivered, groupThousands } from '../lib/courtCounter';
 
 export const SITE = {
   name: 'Unixpadel',
@@ -25,7 +26,7 @@ export const SITE = {
   stats: [
     { value: '96+', label: 'Countries exported' },
     { value: '1020+', label: 'Cities installed' },
-    { value: '9,600+', label: 'Courts delivered' },
+    { value: groupThousands(courtsDelivered(), ','), label: 'Courts delivered' },
     { value: '12', label: 'Courts produced per day' },
   ],
   certifications: ['FIP approved', 'ISO certified', 'KIWA tested', 'ITU wind & impact tested', 'TSE / TÜV components'],

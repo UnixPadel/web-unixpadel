@@ -136,9 +136,9 @@ Der Unixpadel WP Challenge Padelplatz bietet außergewöhnliche Standsicherheit 
 
 ### Weltweites Vertrauen und nachweisliche Erfahrung
 
-Export in über 94 Länder und realisierte Projekte in mehr als 800 Städten weltweit.
+Export in über 96 Länder und realisierte Projekte in mehr als 1020 Städten weltweit.
 
-Über 9,600 montierte Plätze, darunter in nachfragestarken Märkten wie dem Vereinigten Königreich, Frankreich, Saudi-Arabien, den USA, Deutschland, Ghana und Südafrika.
+9.594 montierte Plätze, darunter in nachfragestarken Märkten wie dem Vereinigten Königreich, Frankreich, Saudi-Arabien, den USA, Deutschland, Ghana und Südafrika.
 
 Das Vertrauen von 5-Sterne-Hotels, Behörden und führenden Sportclubs. FIP-Turniere, internationale Turniere, globale Padelturniere.
 

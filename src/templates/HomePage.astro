@@ -10,7 +10,7 @@ import Seal from '../components/graphics/Seal.astro';
 import Numeral from '../components/graphics/Numeral.astro';
 import CourtLines from '../components/graphics/CourtLines.astro';
 import { quoteUrl } from '../data/site';
-import { deliveredFor, homeFor, homeUiFor, productMetaFor, sealsFor, siteFor } from '../i18n/data';
+import { deliveredFor, deliveredTitleFor, homeFor, homeUiFor, productMetaFor, sealsFor, siteFor } from '../i18n/data';
 import { langOf, localizePath, t } from '../i18n';
 import { allPages, childrenOf, cardImage, cardImageAlt, labelOf, readingTime, pageByUrl } from '../lib/collection';
 import { countryOf } from '../lib/countries';
@@ -120,7 +120,7 @@ const n = (i: number) => String(i).padStart(2, '0');
   <PhotoBand
     items={deliveredFor(lang).map((d) => ({ ...d, href: L(d.href) }))}
     eyebrow={`<span class="eyebrow__num">02</span>${hu.deliveredEyebrow}`}
-    title={hu.deliveredTitle}
+    title={deliveredTitleFor(lang)}
     text={hu.deliveredText}
     more={{ label: ui.allReferences, href: L('/references/') }}
   />

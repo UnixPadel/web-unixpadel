@@ -24,7 +24,7 @@ faq:
   - q: Kurulum ne kadar sürer?
     a: "Malzemeler sahaya ulaştığında ve taban hazır olduğunda Unixpadel montaj ekibi, hangi ülkede olursa olsun standart bir kortu yaklaşık 3 ila 5 günde monte eder."
   - q: Türkiye dışına teslimat ve kurulum yapıyor musunuz?
-    a: "Evet. Unixpadel, Adıyaman, Türkiye'de üretim yapar ve anahtar teslim kurulumla 94'ten fazla ülkeye kort teslim etmiştir."
+    a: "Evet. Unixpadel, Adıyaman, Türkiye'de üretim yapar ve anahtar teslim kurulumla 96'dan fazla ülkeye kort teslim etmiştir."
   - q: Standart kort mu yoksa Panoramik kort mu daha uygun fiyatlı?
     a: "Standart kort daha ekonomik seçenektir. Panoramik kort, 12 mm camı ve daha ince ama daha rijit çerçevesi nedeniyle daha pahalıdır; premium kulüpler ve seyircili kortlar için tercih edilir."
 media:

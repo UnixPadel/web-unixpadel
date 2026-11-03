@@ -19,7 +19,7 @@ const en: LocaleData = {
     padbol: 'Padbol courts',
     pickleball: 'Pickleball',
     deliveredEyebrow: 'Delivered',
-    deliveredTitle: '9,600 courts in 94 countries. <mark class="hl">These are from this year.</mark>',
+    deliveredTitle: '{courts} courts in 96 countries. <mark class="hl">These are from this year.</mark>',
     deliveredText: 'Clubs, resorts and municipalities from the Gulf to the Balkans. Every court here was manufactured in Adıyaman and installed by our teams.',
     systemsEyebrow: 'Innovative systems',
     systemsTitle: 'Courts that need no <mark class="hl">concrete slab</mark>, no crane and no season.',

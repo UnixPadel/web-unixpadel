@@ -24,7 +24,7 @@ faq:
   - q: How long does installation take?
     a: "Once the materials are on site and the base is ready, the Unixpadel installation team assembles a standard court in about 3 to 5 days, in any country."
   - q: Do you deliver and install outside Türkiye?
-    a: "Yes. Unixpadel manufactures in Adıyaman, Türkiye, and has delivered courts to more than 94 countries with turnkey installation."
+    a: "Yes. Unixpadel manufactures in Adıyaman, Türkiye, and has delivered courts to more than 96 countries with turnkey installation."
   - q: Is a standard or a panoramic court cheaper?
     a: "The standard court is the more cost-effective choice. The panoramic court costs more because of its 12 mm glass and slimmer, stiffer frame, and is chosen for premium clubs and spectator courts."
 media:

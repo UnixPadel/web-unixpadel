@@ -136,9 +136,9 @@ Unixpadel WP Challenge Padel Kortu, rüzgâr yüklerine ve insan çarpmalarına 
 
 ### Global Güven ve Kanıtlanmış Deneyim
 
-94'ten fazla ülkeye ihracat ve dünya genelinde 800'ü aşkın şehirde tamamlanmış projeler.
+96'dan fazla ülkeye ihracat ve dünya genelinde 1020'yi aşkın şehirde tamamlanmış projeler.
 
-Birleşik Krallık, Fransa, Suudi Arabistan, ABD, Almanya, Gana ve Güney Afrika gibi talebin yüksek olduğu pazarlar dahil 9,600'den fazla kort kurulumu.
+Birleşik Krallık, Fransa, Suudi Arabistan, ABD, Almanya, Gana ve Güney Afrika gibi talebin yüksek olduğu pazarlar dahil 9.594 kort kurulumu.
 
 5 yıldızlı oteller, kamu kurumları ve önde gelen spor kulüplerinin güvendiği marka. FIP turnuvaları, uluslararası turnuvalar ve global padel turnuvaları.
 

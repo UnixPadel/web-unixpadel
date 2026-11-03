@@ -12,7 +12,7 @@ lastmod: 2026-09-28T11:54:56+00:00
 published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 Jahre Unixpadel: Erfolge und technische Meilensteine"
-  description: "10 Jahre Unixpadel: von einer mutigen Vision zu Padelplätzen auf Weltniveau in 94 Ländern. Wir feiern unser Team, unsere Technik und unsere Leidenschaft."
+  description: "10 Jahre Unixpadel: von einer mutigen Vision zu Padelplätzen auf Weltniveau in 96 Ländern. Wir feiern unser Team, unsere Technik und unsere Leidenschaft."
   ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
@@ -74,9 +74,9 @@ Unabhängig von der Herausforderung oder der Komplexität der Montage handeln wi
 
 Vom lokalen Engagement zur internationalen Branchenführerschaft.
 
-### Präsenz in 94 Ländern
+### Präsenz in 96 Ländern
 
-Von Resorts an der Küste über Hallenclubs bis zu urbanen Dachterrassen: Unixpadel-Plätze stehen heute in 94 Ländern. Jedes abgeschlossene Projekt belegt, wie flexibel wir auf unterschiedliche Klimabedingungen, lokale Vorschriften und die Ziele unserer Kunden eingehen.
+Von Resorts an der Küste über Hallenclubs bis zu urbanen Dachterrassen: Unixpadel-Plätze stehen heute in 96 Ländern. Jedes abgeschlossene Projekt belegt, wie flexibel wir auf unterschiedliche Klimabedingungen, lokale Vorschriften und die Ziele unserer Kunden eingehen.
 
 ### Das nächste Padel-Jahrzehnt gestalten
 

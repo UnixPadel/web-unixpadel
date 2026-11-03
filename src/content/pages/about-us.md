@@ -46,7 +46,7 @@ Global leader in padel court manufacturing. From precise engineering to worldwid
 
 Countries Exported
 
-### 9,600+
+### <span data-live-courts=",">9,594</span>
 
 Courts Installed Worldwide
 
@@ -85,7 +85,7 @@ At Unixpadel, we see the court not just as a product, but as a complex structure
 
 - **1\. Deliver Superior Quality:** Produce every padel court with world-class engineering, international certifications and strict quality standards, using **S235/S355 steel**, **ISO 1461 galvanization**, **FIP-approved turf** and **EN12150 tempered glass**.
 - **2\. Innovate Continuously:** Develop industry-leading solutions such as **Flat Floor Court**, **Mobile Fold X-Tend**, **Retractable Roof Systems**, **Floating Court** and **Portable Plate Systems**, expanding R&D investments to create modular and climate-resistant structures.
-- **3\. Expand Global Accessibility:** Serve more than 94 countries with fully customizable systems designed for local wind loads, snow loads and engineering norms, making padel accessible everywhere.
+- **3\. Expand Global Accessibility:** Serve more than 96 countries with fully customizable systems designed for local wind loads, snow loads and engineering norms, making padel accessible everywhere.
 - **4\. Provide Transparent and Reliable Service:** Offer rapid production, accurate technical guidance and professional project support while treating every client as a long-term partner.
 - **5\. Commit to Sustainability:** Implement environmentally responsible manufacturing with energy efficiency, waste reduction and recyclable materials.
 

@@ -77,7 +77,7 @@ Le volet budgétaire, du terrain à la livraison et à l'installation, est trait
 | [Terrain WP Challenge](/wp-challenge-padel-court/) | Angles à trois poteaux, contreventement renforcé | Zones très venteuses |
 | [Terrain Flat Floor](/innovative-courts/flat-floor-padel-court/) | Pose sur une surface plane sans dalle en béton | Toits, parkings, sites temporaires |
 
-Tous les terrains Unixpadel sont conçus, soudés, galvanisés et thermolaqués dans notre propre usine d'Adıyaman, en Türkiye, et ont été installés dans plus de 94 pays.
+Tous les terrains Unixpadel sont conçus, soudés, galvanisés et thermolaqués dans notre propre usine d'Adıyaman, en Türkiye, et ont été installés dans plus de 96 pays.
 
 ## Que faut-il planifier en premier ?
 

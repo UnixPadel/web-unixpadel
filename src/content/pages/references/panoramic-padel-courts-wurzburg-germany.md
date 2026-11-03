@@ -36,7 +36,7 @@ Unixpadel continues its international expansion across Europe with another landm
 
 Combining a modern Anthracite Grey steel framework with striking FIP-approved black artificial turf, this state-of-the-art facility delivers superior playability, modern aesthetic appeal, and long-term structural durability.
 
-Engineered for performance and built for the future — trusted by sports clubs, investors, and municipalities in more than 94 countries worldwide.
+Engineered for performance and built for the future — trusted by sports clubs, investors, and municipalities in more than 96 countries worldwide.
 
 ### FIP-Approved Black Turf
 

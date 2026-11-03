@@ -136,9 +136,9 @@ Le terrain WP Challenge Padel d'Unixpadel est conçu pour offrir une stabilité 
 
 ### Confiance mondiale et expérience reconnue
 
-Exportés dans plus de 94 pays, avec des projets livrés dans plus de 800 villes à travers le monde.
+Exportés dans plus de 96 pays, avec des projets livrés dans plus de 1020 villes à travers le monde.
 
-Plus de 9,600 terrains installés, notamment sur des marchés très exigeants comme le Royaume-Uni, la France, l'Arabie saoudite, les États-Unis, l'Allemagne, le Ghana et l'Afrique du Sud
+9 594 terrains installés, notamment sur des marchés très exigeants comme le Royaume-Uni, la France, l'Arabie saoudite, les États-Unis, l'Allemagne, le Ghana et l'Afrique du Sud
 
 La confiance d'hôtels 5 étoiles, de gouvernements et de grands clubs sportifs. Tournois FIP, tournois internationaux, tournois de padel mondiaux
 

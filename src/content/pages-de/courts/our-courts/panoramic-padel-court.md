@@ -88,7 +88,7 @@ media:
     section: 8
 faq:
   - q: Wo kann ich Unixpadel-Plätze im realen Betrieb sehen?
-    a: Unixpadel-Plätze sind in Clubs in mehr als 94 Ländern installiert. Zu den jüngsten Projekten in Europa zählen unsere [Panoramaplätze in Würzburg, Deutschland](/references/panoramic-padel-courts-wurzburg-germany/) und unsere [Plätze mit schwarzem Kunstrasen in Bosnien und Herzegowina](/references/black-turf-padel-courts-bosnia/).
+    a: Unixpadel-Plätze sind in Clubs in mehr als 96 Ländern installiert. Zu den jüngsten Projekten in Europa zählen unsere [Panoramaplätze in Würzburg, Deutschland](/references/panoramic-padel-courts-wurzburg-germany/) und unsere [Plätze mit schwarzem Kunstrasen in Bosnien und Herzegowina](/references/black-turf-padel-courts-bosnia/).
   - q: Kann der Panoramaplatz auch an windigen Außenstandorten installiert werden?
     a: Ja. Der Panoramaplatz verfügt über starkwandige Stahlstützen 100x50x3mm, die statisch für extreme Windlasten (bis zu 130-150 km/h) berechnet sind.
   - q: Eignet sich der Panoramaplatz für Hallen- und Außenanlagen?

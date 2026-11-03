@@ -77,7 +77,7 @@ The budget side, from the court package to delivery and installation, is covered
 | [WP Challenge court](/wp-challenge-padel-court/) | Three-pillar corners, extra bracing | High wind areas |
 | [Flat Floor court](/innovative-courts/flat-floor-padel-court/) | Sits on a flat surface without a concrete slab | Rooftops, car parks, temporary sites |
 
-All Unixpadel courts are designed, welded, galvanized and powder coated in our own factory in Adıyaman, Türkiye, and have been installed in more than 94 countries.
+All Unixpadel courts are designed, welded, galvanized and powder coated in our own factory in Adıyaman, Türkiye, and have been installed in more than 96 countries.
 
 ## What should you plan first?
 

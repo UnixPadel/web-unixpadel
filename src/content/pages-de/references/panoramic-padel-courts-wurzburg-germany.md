@@ -36,7 +36,7 @@ Unixpadel setzt seine internationale Expansion in Europa mit einem weiteren bede
 
 Eine moderne Stahlkonstruktion in Anthrazitgrau kombiniert mit markantem, FIP-zugelassenem schwarzem Kunstrasen: Die hochmoderne Anlage überzeugt durch hervorragende Spieleigenschaften, zeitgemäße Ästhetik und dauerhafte Tragfähigkeit.
 
-Konstruiert für Leistung, gebaut für die Zukunft – das Vertrauen von Sportclubs, Investoren und Kommunen in mehr als 94 Ländern weltweit.
+Konstruiert für Leistung, gebaut für die Zukunft – das Vertrauen von Sportclubs, Investoren und Kommunen in mehr als 96 Ländern weltweit.
 
 ### FIP-zugelassener schwarzer Kunstrasen
 

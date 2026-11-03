@@ -3,10 +3,19 @@
 // so nothing can stay hidden after fast scrolls, anchor jumps, End key or full-page captures.
 // With reduced motion everything is shown immediately.
 
+import { courtsDelivered, groupThousands } from './courtCounter';
+
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const root = document.documentElement;
 let pending = [...document.querySelectorAll<HTMLElement>('[data-reveal]')];
 let counters = [...document.querySelectorAll<HTMLElement>('[data-count]')];
+
+// The built HTML holds the figure from build day; bring it up to today before any count-up reads it.
+document.querySelectorAll<HTMLElement>('[data-live-courts]').forEach((el) => {
+  const value = groupThousands(courtsDelivered(), el.dataset.liveCourts ?? ',');
+  el.textContent = value;
+  if (el.dataset.count) el.dataset.count = value;
+});
 
 // stagger siblings inside one group: --i = index among revealable siblings (max 5)
 pending.forEach((el) => {

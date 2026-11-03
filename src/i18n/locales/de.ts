@@ -37,7 +37,7 @@ const ui: UI = {
   waProject: 'Guten Tag Unixpadel, ich möchte über ein Padelplatz-Projekt sprechen.',
   waQuestion: 'Guten Tag Unixpadel, ich habe eine Frage zu Ihren Padelplätzen.',
 
-  footerAbout: 'Padelplätze, Überdachungen und Kunstrasen – in Istanbul entwickelt und in unserem eigenen Werk in Adıyaman gefertigt. Seit 2015 in mehr als 94 Länder geliefert und dort montiert.',
+  footerAbout: 'Padelplätze, Überdachungen und Kunstrasen – in Istanbul entwickelt und in unserem eigenen Werk in Adıyaman gefertigt. Seit 2015 in mehr als 96 Länder geliefert und dort montiert.',
   socialMedia: 'Soziale Medien',
   certsAria: 'Zertifizierungen und Prüfungen',
   fCourts: 'Plätze',
@@ -125,7 +125,7 @@ const ui: UI = {
 
   aboutEyebrow: 'Über Unixpadel',
   aboutTitle: 'Padelplätze aus Ingenieurhand – *seit 2015*',
-  aboutTagline: 'Entwickelt in Istanbul, gefertigt im eigenen Werk in Adıyaman, montiert von unseren Teams und Partnern in über 94 Ländern. FIP-zugelassen, ISO-zertifiziert, geprüft von der Technischen Universität Istanbul.',
+  aboutTagline: 'Entwickelt in Istanbul, gefertigt im eigenen Werk in Adıyaman, montiert von unseren Teams und Partnern in über 96 Ländern. FIP-zugelassen, ISO-zertifiziert, geprüft von der Technischen Universität Istanbul.',
   seeReferences: 'Referenzen ansehen',
   guideEyebrow: 'Padelplatz-Leitfaden',
   updated: 'Aktualisiert am',
@@ -236,7 +236,7 @@ const de: LocaleData = {
     padbol: 'Padbol-Plätze',
     pickleball: 'Pickleball',
     deliveredEyebrow: 'Geliefert',
-    deliveredTitle: '7.800 Plätze in 94 Ländern. <mark class="hl">Diese stammen aus diesem Jahr.</mark>',
+    deliveredTitle: '{courts} Plätze in 96 Ländern. <mark class="hl">Diese stammen aus diesem Jahr.</mark>',
     deliveredText: 'Vereine, Resorts und Kommunen vom Golf bis auf den Balkan. Jeder dieser Plätze wurde in Adıyaman gefertigt und von unseren Teams montiert.',
     systemsEyebrow: 'Innovative Systeme',
     systemsTitle: 'Plätze ohne <mark class="hl">Betonplatte</mark>, ohne Kran und ohne Saisonpause.',
@@ -259,7 +259,7 @@ const de: LocaleData = {
     hero: {
       eyebrow: 'Hersteller von Padelplätzen · Türkei',
       title: 'Padelplätze, entwickelt, gefertigt und montiert aus *einem Werk*.',
-      tagline: 'Stahlkonstruktionen, Sicherheitsglas, Kunstrasen und Überdachungen aus eigener Fertigung in Adıyaman – geliefert an Vereine, Resorts und Kommunen in über 94 Ländern.',
+      tagline: 'Stahlkonstruktionen, Sicherheitsglas, Kunstrasen und Überdachungen aus eigener Fertigung in Adıyaman – geliefert an Vereine, Resorts und Kommunen in über 96 Ländern.',
     },
     courtSpecs: [
       '20 × 10 m · 3-Stützen-Rahmen · 10 mm Glas',
@@ -275,7 +275,7 @@ const de: LocaleData = {
       { eyebrow: 'Öffenbares Dach', title: 'Im Sommer Freiluft, im Winter überdacht', text: 'Dach- und Seitensysteme, die sich öffnen und schließen lassen, damit Ihre Plätze bei Regen, Schnee und Hitze buchbar bleiben.' },
     ],
     why: [
-      { title: 'Weltweite Referenzen', text: 'Export in über 94 Länder und mehr als 800 Städte; Partner von Fünf-Sterne-Hotels, Behörden, Sportvereinen und FIP-Turnieren.' },
+      { title: 'Weltweite Referenzen', text: 'Export in über 96 Länder und mehr als 1020 Städte; Partner von Fünf-Sterne-Hotels, Behörden, Sportvereinen und FIP-Turnieren.' },
       { title: 'Alles aus eigener Fertigung', text: 'Unser Werk in Adıyaman steuert Stahl, Sicherheitsglas, Kunstrasen und Lackierung selbst. Kapazität: 12 Plätze pro Tag.' },
       { title: 'Zertifizierte Ingenieurleistung', text: 'Gebaut nach FIP-Standards, KIWA-zugelassen, wind- und stoßgeprüft von der Technischen Universität Istanbul, Komponenten nach TSE und TÜV geprüft.' },
       { title: 'Konstruktionen, die es sonst nicht gibt', text: 'MobilFLOD-Plätze ohne Fundament, freitragende MobilFOLD-X-TEND-Überdachungen, öffenbare Dächer, modulare und schwimmende Bodensysteme.' },

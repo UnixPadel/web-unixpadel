@@ -77,7 +77,7 @@ Die Budgetseite, vom Platzpaket bis zu Lieferung und Montage, behandelt der Arti
 | [WP Challenge Platz](/wp-challenge-padel-court/) | Ecken mit drei Stützen, zusätzliche Aussteifung | Gebiete mit starkem Wind |
 | [Flat Floor Platz](/innovative-courts/flat-floor-padel-court/) | Steht ohne Betonplatte auf einer ebenen Fläche | Dächer, Parkdecks, temporäre Standorte |
 
-Alle Unixpadel-Plätze werden in unserem eigenen Werk in Adıyaman, Türkei, konstruiert, geschweißt, verzinkt und pulverbeschichtet und wurden bereits in mehr als 94 Ländern montiert.
+Alle Unixpadel-Plätze werden in unserem eigenen Werk in Adıyaman, Türkei, konstruiert, geschweißt, verzinkt und pulverbeschichtet und wurden bereits in mehr als 96 Ländern montiert.
 
 ## Was sollten Sie zuerst planen?
 

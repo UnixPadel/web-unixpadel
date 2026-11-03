@@ -46,7 +46,7 @@ Padel kortu üretiminde global lider. Hassas mühendislikten dünya genelindeki 
 
 İhracat Yapılan Ülke
 
-### 9,600+
+### <span data-live-courts=".">9.594</span>
 
 Dünya Genelinde Kurulan Kort
 
@@ -78,14 +78,14 @@ Unixpadel olarak kortu yalnızca bir ürün olarak değil, hassas mühendislik g
 
 ### Stratejik Temellerimiz
 
-- **1\. Global Standartları Yeniden Tanımlamak:** "Unixpadel Kalitesi"ni tüm sektör için referans noktası haline getirmeye çalışıyoruz. Statik hesaplardan malzeme dayanıklılığına kadar her projede titiz inşaat mühendisliği normlarını uygulayarak kortlarımızın yıllara meydan okumasını sağlıyoruz. Hedefimiz, pazara yalnızca hacimde değil, 94'ten fazla ülkede güvenlik, yapısal bütünlük ve sertifika uygunluğunda da liderlik etmektir.
+- **1\. Global Standartları Yeniden Tanımlamak:** "Unixpadel Kalitesi"ni tüm sektör için referans noktası haline getirmeye çalışıyoruz. Statik hesaplardan malzeme dayanıklılığına kadar her projede titiz inşaat mühendisliği normlarını uygulayarak kortlarımızın yıllara meydan okumasını sağlıyoruz. Hedefimiz, pazara yalnızca hacimde değil, 96'dan fazla ülkede güvenlik, yapısal bütünlük ve sertifika uygunluğunda da liderlik etmektir.
 - **2\. Sürdürülebilir İnovasyon ve Sınırsız Teknoloji:** Vizyonumuz, üzerinde oynadığımız gezegeni korurken padeli her yerde erişilebilir kılmaktır. **Floating Court**, **açılır-kapanır çatı sistemleri** ve **Mobile Fold X-Tend** gibi tescilli teknolojilerle fiziksel sınırları aşarak oyunu dünyanın en zorlu ortamlarına taşıyoruz. Bunu çevre dostu mühendislikle, yani enerji verimli süreçler ve geri dönüştürülebilir malzemeler kullanarak gerçekleştiriyor; yenilikçi çözümlerimizin gelecek nesillere olumlu ve kalıcı bir miras bırakmasını sağlıyoruz.
 
 ## Misyonumuz
 
 - **1\. Üstün Kalite Sunmak:** Her padel kortunu **S235/S355 çelik**, **ISO 1461 galvanizleme**, **FIP onaylı sentetik çim** ve **EN12150 temperli cam** kullanarak dünya standartlarında mühendislik, uluslararası sertifikalar ve sıkı kalite standartlarıyla üretmek.
 - **2\. Sürekli Yenilik Yapmak:** **Flat Floor Court**, **Mobile Fold X-Tend**, **açılır-kapanır çatı sistemleri**, **Floating Court** ve **Portable Plate Systems** gibi sektöre yön veren çözümler geliştirmek; modüler ve iklime dayanıklı yapılar için Ar-Ge yatırımlarını artırmak.
-- **3\. Global Erişilebilirliği Artırmak:** Yerel rüzgâr yükleri, kar yükleri ve mühendislik normlarına göre tasarlanmış, tamamen özelleştirilebilir sistemlerle 94'ten fazla ülkeye hizmet vererek padeli her yerde erişilebilir kılmak.
+- **3\. Global Erişilebilirliği Artırmak:** Yerel rüzgâr yükleri, kar yükleri ve mühendislik normlarına göre tasarlanmış, tamamen özelleştirilebilir sistemlerle 96'dan fazla ülkeye hizmet vererek padeli her yerde erişilebilir kılmak.
 - **4\. Şeffaf ve Güvenilir Hizmet Sunmak:** Her müşteriyi uzun vadeli bir iş ortağı olarak görerek hızlı üretim, doğru teknik yönlendirme ve profesyonel proje desteği sağlamak.
 - **5\. Sürdürülebilirliğe Bağlı Kalmak:** Enerji verimliliği, atık azaltımı ve geri dönüştürülebilir malzemelerle çevreye duyarlı üretim uygulamak.
 

@@ -46,7 +46,7 @@ Leader mondial de la fabrication de terrains de padel. De l'ingénierie de préc
 
 Pays d'exportation
 
-### 9,600+
+### <span data-live-courts=" ">9 594</span>
 
 Terrains installés dans le monde
 
@@ -78,14 +78,14 @@ Chez Unixpadel, nous considérons le terrain non pas comme un simple produit, ma
 
 ### Nos piliers stratégiques
 
-- **1\. Redéfinir les standards mondiaux :** nous voulons faire de la « qualité Unixpadel » la référence de tout le secteur. En appliquant des normes de génie civil rigoureuses à chaque projet, de la note de calcul à la durabilité des matériaux, nous garantissons des terrains qui résistent à l'épreuve du temps. Notre objectif : mener le marché non seulement en volume, mais aussi en matière de sécurité, d'intégrité structurelle et de conformité aux certifications dans plus de 94 pays.
+- **1\. Redéfinir les standards mondiaux :** nous voulons faire de la « qualité Unixpadel » la référence de tout le secteur. En appliquant des normes de génie civil rigoureuses à chaque projet, de la note de calcul à la durabilité des matériaux, nous garantissons des terrains qui résistent à l'épreuve du temps. Notre objectif : mener le marché non seulement en volume, mais aussi en matière de sécurité, d'intégrité structurelle et de conformité aux certifications dans plus de 96 pays.
 - **2\. Innovation durable et technologies sans limites :** notre vision est de rendre le padel accessible partout tout en protégeant la planète sur laquelle nous jouons. Nous repoussons les limites physiques grâce à des technologies propriétaires comme le **Floating Court**, les **systèmes de toit rétractable** et le **Mobile Fold X-Tend**, pour amener le jeu dans les environnements les plus exigeants du monde. Surtout, nous y parvenons grâce à une ingénierie respectueuse de l'environnement, avec des procédés économes en énergie et des matériaux recyclables, pour que nos solutions de pointe laissent un héritage positif et durable aux générations futures.
 
 ## Notre mission
 
 - **1\. Offrir une qualité supérieure :** produire chaque terrain de padel avec une ingénierie de classe mondiale, des certifications internationales et des normes de qualité strictes, en utilisant de l'**acier S235/S355**, une **galvanisation ISO 1461**, un **gazon homologué FIP** et du **verre trempé EN12150**.
 - **2\. Innover en permanence :** développer des solutions de référence comme le **Flat Floor Court**, le **Mobile Fold X-Tend**, les **systèmes de toit rétractable**, le **Floating Court** et les **systèmes de plaques portables**, en augmentant nos investissements en R&D pour créer des structures modulaires et résistantes aux aléas climatiques.
-- **3\. Élargir l'accessibilité à l'international :** servir plus de 94 pays avec des systèmes entièrement personnalisables, conçus selon les charges de vent, les charges de neige et les normes d'ingénierie locales, pour rendre le padel accessible partout.
+- **3\. Élargir l'accessibilité à l'international :** servir plus de 96 pays avec des systèmes entièrement personnalisables, conçus selon les charges de vent, les charges de neige et les normes d'ingénierie locales, pour rendre le padel accessible partout.
 - **4\. Offrir un service transparent et fiable :** assurer une production rapide, des conseils techniques précis et un accompagnement de projet professionnel, en considérant chaque client comme un partenaire à long terme.
 - **5\. S'engager pour le développement durable :** mettre en œuvre une fabrication respectueuse de l'environnement, fondée sur l'efficacité énergétique, la réduction des déchets et les matériaux recyclables.
 

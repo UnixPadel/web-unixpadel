@@ -46,7 +46,7 @@ Ein weltweit führender Hersteller von Padelplätzen. Von präzisem Engineering 
 
 Exportländer
 
-### 9,600+
+### <span data-live-courts=".">9.594</span>
 
 Weltweit montierte Plätze
 
@@ -78,14 +78,14 @@ Bei Unixpadel ist ein Platz nicht einfach ein Produkt, sondern eine komplexe Kon
 
 ### Unsere strategischen Säulen
 
-- **1\. Globale Standards neu definieren:** Wir wollen „Unixpadel-Qualität“ als Maßstab für die gesamte Branche etablieren. Indem wir bei jedem Projekt strenge bautechnische Normen anwenden – von der statischen Berechnung bis zur Materialbeständigkeit –, stellen wir sicher, dass unsere Plätze dauerhaft Bestand haben. Unser Ziel ist die Marktführerschaft nicht nur beim Volumen, sondern auch bei Sicherheit, Tragfähigkeit und Zertifizierungskonformität in über 94 Ländern.
+- **1\. Globale Standards neu definieren:** Wir wollen „Unixpadel-Qualität“ als Maßstab für die gesamte Branche etablieren. Indem wir bei jedem Projekt strenge bautechnische Normen anwenden – von der statischen Berechnung bis zur Materialbeständigkeit –, stellen wir sicher, dass unsere Plätze dauerhaft Bestand haben. Unser Ziel ist die Marktführerschaft nicht nur beim Volumen, sondern auch bei Sicherheit, Tragfähigkeit und Zertifizierungskonformität in über 96 Ländern.
 - **2\. Nachhaltige Innovation und Technologie ohne Grenzen:** Wir wollen Padel überall zugänglich machen und zugleich den Planeten schützen, auf dem wir spielen. Mit eigenen Technologien wie dem **Floating Court**, **öffenbaren Dachsystemen** und **Mobile Fold X-Tend** überwinden wir physische Grenzen und bringen das Spiel auch in die anspruchsvollsten Umgebungen der Welt. Entscheidend ist, dass wir dies mit umweltfreundlichem Engineering erreichen – mit energieeffizienten Prozessen und recycelbaren Materialien, damit unsere innovativen Lösungen künftigen Generationen ein positives, dauerhaftes Erbe hinterlassen.
 
 ## Unsere Mission
 
 - **1\. Erstklassige Qualität liefern:** Jeden Padelplatz mit Engineering auf Weltniveau, internationalen Zertifizierungen und strengen Qualitätsstandards fertigen – mit **S235/S355-Stahl**, **Verzinkung nach ISO 1461**, **FIP-zugelassenem Kunstrasen** und **Einscheibensicherheitsglas (ESG) nach EN12150**.
 - **2\. Kontinuierlich innovieren:** Branchenführende Lösungen wie **Flat Floor Court**, **Mobile Fold X-Tend**, **öffenbare Dachsysteme**, **Floating Court** und **Portable Plate Systems** entwickeln und die Investitionen in Forschung und Entwicklung ausbauen, um modulare und klimabeständige Konstruktionen zu schaffen.
-- **3\. Weltweite Verfügbarkeit ausbauen:** Über 94 Länder mit vollständig anpassbaren Systemen beliefern, die auf örtliche Windlasten, Schneelasten und technische Normen ausgelegt sind – damit Padel überall zugänglich wird.
+- **3\. Weltweite Verfügbarkeit ausbauen:** Über 96 Länder mit vollständig anpassbaren Systemen beliefern, die auf örtliche Windlasten, Schneelasten und technische Normen ausgelegt sind – damit Padel überall zugänglich wird.
 - **4\. Transparenten und zuverlässigen Service bieten:** Schnelle Fertigung, präzise technische Beratung und professionelle Projektbegleitung bieten und jeden Kunden als langfristigen Partner behandeln.
 - **5\. Zur Nachhaltigkeit verpflichten:** Eine umweltverantwortliche Fertigung mit Energieeffizienz, Abfallvermeidung und recycelbaren Materialien umsetzen.
 

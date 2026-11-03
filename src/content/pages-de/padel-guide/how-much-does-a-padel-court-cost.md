@@ -24,7 +24,7 @@ faq:
   - q: Wie lange dauert die Montage?
     a: "Sobald das Material vor Ort und der Untergrund vorbereitet ist, montiert das Montageteam von Unixpadel einen Standard-Platz in etwa 3 bis 5 Tagen, in jedem Land."
   - q: Liefern und montieren Sie auch außerhalb der Türkei?
-    a: "Ja. Unixpadel fertigt in Adıyaman, Türkei, und hat Plätze in mehr als 94 Länder geliefert und schlüsselfertig montiert."
+    a: "Ja. Unixpadel fertigt in Adıyaman, Türkei, und hat Plätze in mehr als 96 Länder geliefert und schlüsselfertig montiert."
   - q: Ist ein Standard- oder ein Panoramaplatz günstiger?
     a: "Der Standard-Platz ist die wirtschaftlichere Wahl. Der Panoramaplatz kostet wegen seines 12-mm-Glases und seines schlankeren, steiferen Rahmens mehr und wird für Premium-Clubs und Zuschauerplätze gewählt."
 media:

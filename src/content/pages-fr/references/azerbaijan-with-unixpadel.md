@@ -76,7 +76,7 @@ Toutes les surfaces reçoivent en outre un **thermolaquage électrostatique doub
 
 **La force internationale d'Unixpadel désormais en Azerbaïdjan**
 
-Avec plus de **7 800 projets de terrains de padel** réalisés dans le monde, Unixpadel est fier de mettre son expertise internationale au service de l'Azerbaïdjan. De l'Europe au Moyen-Orient, de l'Afrique du Nord à l'Amérique latine, et désormais à Bakou et au-delà, nous restons à l'avant-garde du développement mondial du padel.
+Avec **<span data-live-courts=" ">9 594</span> projets de terrains de padel** réalisés dans le monde, Unixpadel est fier de mettre son expertise internationale au service de l'Azerbaïdjan. De l'Europe au Moyen-Orient, de l'Afrique du Nord à l'Amérique latine, et désormais à Bakou et au-delà, nous restons à l'avant-garde du développement mondial du padel.
 
 ![](/wp-content/uploads/2025/05/55.jpg)
 

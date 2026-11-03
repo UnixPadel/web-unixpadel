@@ -12,7 +12,7 @@ lastmod: 2026-09-28T11:54:56+00:00
 published: 2026-09-16T09:11:55+00:00
 seo:
   title: "Unixpadel'de 10 Yıl: Başarı ve Mühendislik Kilometre Taşları"
-  description: "Unixpadel'in 10 yılı: cesur bir vizyondan 94 ülkede dünya standartlarında padel kortlarına uzanan yolculuğu, ekibimizi ve mühendisliğimizi kutluyoruz."
+  description: "Unixpadel'in 10 yılı: cesur bir vizyondan 96 ülkede dünya standartlarında padel kortlarına uzanan yolculuğu, ekibimizi ve mühendisliğimizi kutluyoruz."
   ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
@@ -74,9 +74,9 @@ Zorluk ya da kurulum karmaşıklığı ne olursa olsun, tek ve uyumlu bir bütü
 
 Yerel bağlılıktan uluslararası sektör liderliğine.
 
-### 94 Ülkeye Yayılan Küresel Ayak İzi
+### 96 Ülkeye Yayılan Küresel Ayak İzi
 
-Sahil tatil köylerinden kapalı kulüplere ve şehir çatılarına kadar Unixpadel kortları bugün 94 ülkede yükseliyor. Tamamlanan her proje, farklı iklimlere, yerel mevzuata ve müşteri beklentilerine uyum sağlama çevikliğimizin kanıtıdır.
+Sahil tatil köylerinden kapalı kulüplere ve şehir çatılarına kadar Unixpadel kortları bugün 96 ülkede yükseliyor. Tamamlanan her proje, farklı iklimlere, yerel mevzuata ve müşteri beklentilerine uyum sağlama çevikliğimizin kanıtıdır.
 
 ### Padelin Gelecek On Yılını İnşa Ediyoruz
 

@@ -36,7 +36,7 @@ Unixpadel, bir başka önemli proje teslimatıyla Avrupa’daki uluslararası b�
 
 Modern Antrasit Gri çelik konstrüksiyonu, dikkat çekici FIP onaylı siyah sentetik çimle buluşturan bu son teknoloji tesis; üstün oynanabilirlik, modern bir estetik ve uzun ömürlü yapısal dayanıklılık sunuyor.
 
-Performans için tasarlandı, geleceğe göre inşa edildi — dünya genelinde 94’ten fazla ülkede spor kulüpleri, yatırımcılar ve belediyeler tarafından tercih ediliyor.
+Performans için tasarlandı, geleceğe göre inşa edildi — dünya genelinde 96’dan fazla ülkede spor kulüpleri, yatırımcılar ve belediyeler tarafından tercih ediliyor.
 
 ### FIP Onaylı Siyah Sentetik Çim
 

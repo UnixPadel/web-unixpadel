@@ -138,7 +138,7 @@ The Unixpadel WP Challenge Padel Court is designed to provide exceptional struct
 
 Exported to 96+ countries and delivered projects in over 1020 cities worldwide.
 
-Installed 9,600+ courts, including in high-demand markets like the UK, France, Saudi Arabia, America, Germany, Ghana, South Africa
+Installed 9,594 courts, including in high-demand markets like the UK, France, Saudi Arabia, America, Germany, Ghana, South Africa
 
 Trusted by 5-star hotels, governments, and leading sports clubs. FIP Tournaments, International tournaments, Global padel tournaments
 

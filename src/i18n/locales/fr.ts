@@ -38,7 +38,7 @@ const ui: UI = {
   waProject: 'Bonjour Unixpadel, je souhaiterais échanger au sujet d’un projet de terrain de padel.',
   waQuestion: 'Bonjour Unixpadel, j’ai une question sur vos terrains de padel.',
 
-  footerAbout: 'Terrains de padel, couvertures et gazon synthétique conçus à Istanbul et fabriqués dans notre propre usine d’Adıyaman. Livrés et installés dans plus de 94 pays depuis 2015.',
+  footerAbout: 'Terrains de padel, couvertures et gazon synthétique conçus à Istanbul et fabriqués dans notre propre usine d’Adıyaman. Livrés et installés dans plus de 96 pays depuis 2015.',
   socialMedia: 'Réseaux sociaux',
   certsAria: 'Certifications et essais',
   fCourts: 'Terrains',
@@ -126,7 +126,7 @@ const ui: UI = {
 
   aboutEyebrow: 'À propos d’Unixpadel',
   aboutTitle: 'L’ingénierie du terrain de padel *depuis 2015*',
-  aboutTagline: 'Conçus à Istanbul, fabriqués dans notre propre usine d’Adıyaman, installés par nos équipes et partenaires dans plus de 94 pays. Homologués FIP, certifiés ISO, testés par l’Université technique d’Istanbul.',
+  aboutTagline: 'Conçus à Istanbul, fabriqués dans notre propre usine d’Adıyaman, installés par nos équipes et partenaires dans plus de 96 pays. Homologués FIP, certifiés ISO, testés par l’Université technique d’Istanbul.',
   seeReferences: 'Voir les références',
   guideEyebrow: 'Guide du terrain de padel',
   updated: 'Mis à jour le',
@@ -237,7 +237,7 @@ const fr: LocaleData = {
     padbol: 'Terrains de padbol',
     pickleball: 'Pickleball',
     deliveredEyebrow: 'Livrés',
-    deliveredTitle: '7 800 terrains dans 94 pays. <mark class="hl">Ceux-ci datent de cette année.</mark>',
+    deliveredTitle: '{courts} terrains dans 96 pays. <mark class="hl">Ceux-ci datent de cette année.</mark>',
     deliveredText: 'Clubs, complexes hôteliers et collectivités, du Golfe aux Balkans. Chacun de ces terrains a été fabriqué à Adıyaman et installé par nos équipes.',
     systemsEyebrow: 'Systèmes innovants',
     systemsTitle: 'Des terrains sans <mark class="hl">dalle béton</mark>, sans grue et sans saison.',
@@ -260,7 +260,7 @@ const fr: LocaleData = {
     hero: {
       eyebrow: 'Fabricant de terrains de padel · Turquie',
       title: 'Des terrains de padel conçus, fabriqués et installés par *une seule usine*.',
-      tagline: 'Structures en acier, verre trempé, gazon et couvertures fabriqués dans nos propres ateliers d’Adıyaman, livrés à des clubs, complexes hôteliers et collectivités dans plus de 94 pays.',
+      tagline: 'Structures en acier, verre trempé, gazon et couvertures fabriqués dans nos propres ateliers d’Adıyaman, livrés à des clubs, complexes hôteliers et collectivités dans plus de 96 pays.',
     },
     courtSpecs: [
       '20 × 10 m · cadre à 3 poteaux · verre 10 mm',
@@ -276,7 +276,7 @@ const fr: LocaleData = {
       { eyebrow: 'Toit ouvrant', title: 'En plein air l’été, couvert l’hiver', text: 'Des systèmes de toiture et de côtés qui s’ouvrent et se ferment pour que vos terrains restent réservables sous la pluie, la neige et la chaleur.' },
     ],
     why: [
-      { title: 'Références internationales', text: 'Exportés dans plus de 94 pays et 800 villes ; choisis par des hôtels cinq étoiles, des administrations, des clubs sportifs et des tournois FIP.' },
+      { title: 'Références internationales', text: 'Exportés dans plus de 96 pays et 1020 villes ; choisis par des hôtels cinq étoiles, des administrations, des clubs sportifs et des tournois FIP.' },
       { title: 'Tout est fabriqué en interne', text: 'Notre usine d’Adıyaman maîtrise l’acier, le verre trempé, le gazon et la peinture. Capacité : 12 terrains par jour.' },
       { title: 'Ingénierie certifiée', text: 'Construits selon les normes FIP, approuvés KIWA, testés au vent et aux chocs par l’Université technique d’Istanbul, composants testés TSE et TÜV.' },
       { title: 'Des conceptions introuvables ailleurs', text: 'Terrains sans fondation MobilFLOD, couvertures autoportantes MobilFOLD X-TEND, toits ouvrants, options modulaires et sur plots.' },

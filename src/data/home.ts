@@ -1,5 +1,5 @@
 // Hand-authored home page copy (the old WordPress home was a flat block dump; see home.md for the source).
-// Facts come from the live site: 96+ countries, 1020+ cities, 9,600+ courts, 12 courts/day, Adıyaman factory.
+// Facts come from the live site: 96+ countries, 1020+ cities, 9,594 courts, 12 courts/day, Adıyaman factory.
 
 export const HOME = {
   hero: {

@@ -24,7 +24,7 @@ faq:
   - q: "Combien de temps dure l'installation ?"
     a: "Une fois le matériel sur site et la base prête, l'équipe d'installation Unixpadel assemble un terrain standard en 3 à 5 jours environ, dans n'importe quel pays."
   - q: "Livrez-vous et installez-vous en dehors de la Türkiye ?"
-    a: "Oui. Unixpadel fabrique à Adıyaman, en Türkiye, et a livré des terrains dans plus de 94 pays, avec une installation clé en main."
+    a: "Oui. Unixpadel fabrique à Adıyaman, en Türkiye, et a livré des terrains dans plus de 96 pays, avec une installation clé en main."
   - q: "Un terrain standard est-il moins cher qu'un terrain panoramique ?"
     a: "Le terrain standard est le choix le plus économique. Le terrain panoramique coûte plus cher en raison de son verre de 12 mm et de son ossature plus fine et plus rigide ; il est choisi par les clubs premium et pour les terrains à spectateurs."
 media:

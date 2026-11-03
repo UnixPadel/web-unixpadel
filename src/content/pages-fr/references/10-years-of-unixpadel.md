@@ -12,7 +12,7 @@ lastmod: 2026-09-28T11:54:56+00:00
 published: 2026-09-16T09:11:55+00:00
 seo:
   title: "10 ans d'Unixpadel : succès et étapes d'ingénierie"
-  description: "10 ans d'Unixpadel : d'une vision audacieuse à des terrains de padel de classe mondiale dans 94 pays. Nous célébrons notre équipe et notre passion."
+  description: "10 ans d'Unixpadel : d'une vision audacieuse à des terrains de padel de classe mondiale dans 96 pays. Nous célébrons notre équipe et notre passion."
   ogImage: /wp-content/uploads/2026/10/WhatsApp-Image-2026-10-30-at-11.12.26.jpeg
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 media:
@@ -74,9 +74,9 @@ Quels que soient le défi ou la complexité de l'installation, nous avançons co
 
 De l'engagement local au leadership international du secteur.
 
-### Une présence dans 94 pays
+### Une présence dans 96 pays
 
-Des complexes balnéaires aux clubs couverts en passant par les toits-terrasses urbains, les terrains Unixpadel sont aujourd'hui présents dans 94 pays. Chaque projet livré témoigne de notre capacité à nous adapter à des climats, des réglementations locales et des attentes clients très différents.
+Des complexes balnéaires aux clubs couverts en passant par les toits-terrasses urbains, les terrains Unixpadel sont aujourd'hui présents dans 96 pays. Chaque projet livré témoigne de notre capacité à nous adapter à des climats, des réglementations locales et des attentes clients très différents.
 
 ### Construire la prochaine décennie du padel
 

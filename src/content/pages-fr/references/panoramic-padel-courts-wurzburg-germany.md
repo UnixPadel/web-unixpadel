@@ -36,7 +36,7 @@ Unixpadel poursuit son expansion internationale en Europe avec la livraison d’
 
 Associant une ossature moderne en acier gris anthracite à un gazon synthétique noir saisissant homologué FIP, cette installation de pointe offre une jouabilité supérieure, une esthétique contemporaine et une durabilité structurelle à long terme.
 
-Conçus pour la performance et bâtis pour l’avenir, nos terrains ont gagné la confiance de clubs sportifs, d’investisseurs et de municipalités dans plus de 94 pays.
+Conçus pour la performance et bâtis pour l’avenir, nos terrains ont gagné la confiance de clubs sportifs, d’investisseurs et de municipalités dans plus de 96 pays.
 
 ### Gazon noir homologué FIP
 

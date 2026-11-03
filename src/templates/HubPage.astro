@@ -112,7 +112,7 @@ const split =
       isRef && (
         <dl class="hero-stats" aria-label={ui.keyFigures}>
           {siteFor(lang).stats.slice(0, 3).map((s) => (
-            <Numeral value={s.value} label={s.label} size="md" tone="inverse" />
+            <Numeral value={s.value} liveSep={s.liveSep} label={s.label} size="md" tone="inverse" />
           ))}
         </dl>
       )

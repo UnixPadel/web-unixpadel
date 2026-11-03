@@ -77,7 +77,7 @@ Kort paketinden teslimat ve kuruluma kadar bütçe tarafı [bir padel kortunun m
 | [WP Challenge kort](/wp-challenge-padel-court/) | Üç dikmeli köşeler, ek çaprazlama | Kuvvetli rüzgâr alan bölgeler |
 | [Flat Floor kort](/innovative-courts/flat-floor-padel-court/) | Beton döşeme olmadan düz bir yüzeye oturur | Çatılar, otoparklar, geçici alanlar |
 
-Tüm Unixpadel kortları, Adıyaman, Türkiye'deki kendi fabrikamızda tasarlanır, kaynaklanır, galvanizlenir ve elektrostatik toz boyayla kaplanır; 94'ten fazla ülkede kurulmuştur.
+Tüm Unixpadel kortları, Adıyaman, Türkiye'deki kendi fabrikamızda tasarlanır, kaynaklanır, galvanizlenir ve elektrostatik toz boyayla kaplanır; 96'dan fazla ülkede kurulmuştur.
 
 ## İlk olarak neyi planlamalısınız?
 

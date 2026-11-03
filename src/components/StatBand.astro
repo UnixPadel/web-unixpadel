@@ -4,7 +4,7 @@ import CourtLines from './graphics/CourtLines.astro';
 import { langOf, t } from '../i18n';
 
 interface Props {
-  stats: readonly { value: string; label: string }[];
+  stats: readonly { value: string; label: string; liveSep?: string }[];
   /** inverse (navy) by default; surface for light contexts */
   tone?: 'inverse' | 'surface';
   /** render the last figure as a solid lime block */
@@ -22,6 +22,7 @@ const { stats, tone = 'inverse', highlightLast = false } = Astro.props;
           <Numeral
             value={s.value}
             label={s.label}
+            liveSep={s.liveSep}
             size="lg"
             tone={highlightLast && i === stats.length - 1 ? 'lime' : tone === 'inverse' ? 'inverse' : 'light'}
           />

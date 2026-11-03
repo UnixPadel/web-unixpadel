@@ -76,7 +76,7 @@ Ayrıca tüm yüzeyler **çift kat elektrostatik toz boya** ile tamamlanır ve *
 
 **Unixpadel'in Küresel Gücü Artık Azerbaycan'da**
 
-Dünya genelinde tamamlanan **7.800'ü aşkın padel kortu projesiyle** Unixpadel, küresel uzmanlığını Azerbaycan'a taşımaktan gurur duyuyor. Avrupa'dan Orta Doğu'ya, Kuzey Afrika'dan Latin Amerika'ya ve şimdi Bakü ve ötesine kadar küresel padel hareketine öncülük etmeye devam ediyoruz.
+Dünya genelinde tamamlanan **<span data-live-courts=".">9.594</span> padel kortu projesiyle** Unixpadel, küresel uzmanlığını Azerbaycan'a taşımaktan gurur duyuyor. Avrupa'dan Orta Doğu'ya, Kuzey Afrika'dan Latin Amerika'ya ve şimdi Bakü ve ötesine kadar küresel padel hareketine öncülük etmeye devam ediyoruz.
 
 ![](/wp-content/uploads/2025/05/55.jpg)
 

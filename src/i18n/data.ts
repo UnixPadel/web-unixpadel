@@ -6,6 +6,7 @@ import { PRODUCTS, type ProductMeta } from '../data/products';
 import { DELIVERED, type ShowcaseItem } from '../data/showcase';
 import { SEALS } from '../data/seals';
 import { COURT_DIMS, type CourtDims } from '../data/courtDims';
+import { courtsDelivered, groupThousands } from '../lib/courtCounter';
 import { LOCALES } from './locales';
 import { LOCALE, type Lang } from './index';
 
@@ -68,11 +69,19 @@ export function siteFor(lang: Lang) {
   const l = LOCALES[lang];
   const figure = (v: string) => (l.thousands ? v.replace(/(\d),(\d{3})/g, `$1${l.thousands}$2`) : v);
   return {
-    stats: SITE.stats.map((s, i) => ({ value: figure(s.value), label: l.stats[i] ?? s.label })),
+    // index 2 is the live courts figure, refreshed in the browser by motion.ts
+    stats: SITE.stats.map((s, i) => ({ value: figure(s.value), label: l.stats[i] ?? s.label, liveSep: i === 2 ? (l.thousands ?? ',') : undefined })),
     hq: { ...SITE.hq, name: l.hq },
     factory: { ...SITE.factory, name: l.factory },
     offices: SITE.offices.map((o) => ({ ...o, country: countryName(o.country, lang)! })),
   };
+}
+
+/** Home "delivered" heading HTML with its live courts figure filled in for {courts}. */
+export function deliveredTitleFor(lang: Lang) {
+  const sep = LOCALES[lang].thousands ?? ',';
+  const figure = groupThousands(courtsDelivered(), sep);
+  return LOCALES[lang].homeUi.deliveredTitle.replace('{courts}', `<span data-live-courts="${sep}">${figure}</span>`);
 }
 
 export function courtDimsFor(url: string, lang: Lang): CourtDims | undefined {

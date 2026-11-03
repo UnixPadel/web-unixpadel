@@ -76,7 +76,7 @@ Darüber hinaus erhalten alle Oberflächen eine **zweischichtige elektrostatisch
 
 **Die internationale Stärke von Unixpadel jetzt in Aserbaidschan**
 
-Mit über **7.800 weltweit realisierten Padelplatz-Projekten** bringt Unixpadel seine internationale Erfahrung nun nach Aserbaidschan. Von Europa bis in den Nahen Osten, von Nordafrika bis Lateinamerika – und jetzt auch in Baku und darüber hinaus – gestalten wir die weltweite Padel-Bewegung maßgeblich mit.
+Mit **<span data-live-courts=".">9.594</span> weltweit realisierten Padelplatz-Projekten** bringt Unixpadel seine internationale Erfahrung nun nach Aserbaidschan. Von Europa bis in den Nahen Osten, von Nordafrika bis Lateinamerika – und jetzt auch in Baku und darüber hinaus – gestalten wir die weltweite Padel-Bewegung maßgeblich mit.
 
 ![](/wp-content/uploads/2025/05/55.jpg)
 

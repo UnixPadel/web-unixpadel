@@ -79,7 +79,7 @@ const ui: UI = {
   waProject: 'Merhaba Unixpadel, bir padel kortu projesi hakkında görüşmek istiyorum.',
   waQuestion: 'Merhaba Unixpadel, padel kortlarınız hakkında bir sorum var.',
 
-  footerAbout: 'İstanbul’da tasarlanan, Adıyaman’daki kendi fabrikamızda üretilen padel kortları, kanopiler ve sentetik çim sistemleri. 2015’ten bu yana 94’ten fazla ülkede teslim ve kurulum.',
+  footerAbout: 'İstanbul’da tasarlanan, Adıyaman’daki kendi fabrikamızda üretilen padel kortları, kanopiler ve sentetik çim sistemleri. 2015’ten bu yana 96’dan fazla ülkede teslim ve kurulum.',
   socialMedia: 'Sosyal medya',
   certsAria: 'Sertifikalar ve testler',
   fCourts: 'Kortlar',
@@ -167,7 +167,7 @@ const ui: UI = {
 
   aboutEyebrow: 'Unixpadel hakkında',
   aboutTitle: '*2015’ten bu yana* padel kortu mühendisliği',
-  aboutTagline: 'İstanbul’da tasarlanır, Adıyaman’daki kendi fabrikamızda üretilir, ekiplerimiz ve iş ortaklarımızca 94’ten fazla ülkede kurulur. FIP onaylı, ISO sertifikalı, İstanbul Teknik Üniversitesi tarafından test edilmiştir.',
+  aboutTagline: 'İstanbul’da tasarlanır, Adıyaman’daki kendi fabrikamızda üretilir, ekiplerimiz ve iş ortaklarımızca 96’dan fazla ülkede kurulur. FIP onaylı, ISO sertifikalı, İstanbul Teknik Üniversitesi tarafından test edilmiştir.',
   seeReferences: 'Referansları inceleyin',
   guideEyebrow: 'Padel kortu rehberi',
   updated: 'Güncelleme:',
@@ -278,7 +278,7 @@ const tr: LocaleData = {
     padbol: 'Padbol sahaları',
     pickleball: 'Pickleball',
     deliveredEyebrow: 'Teslim edilenler',
-    deliveredTitle: '94 ülkede 7.800 kort. <mark class="hl">Bunlar bu yıldan.</mark>',
+    deliveredTitle: '96 ülkede {courts} kort. <mark class="hl">Bunlar bu yıldan.</mark>',
     deliveredText: 'Körfez’den Balkanlar’a kulüpler, oteller ve belediyeler. Buradaki her kort Adıyaman’da üretildi ve ekiplerimizce kuruldu.',
     systemsEyebrow: 'İnovatif sistemler',
     systemsTitle: '<mark class="hl">Beton plak</mark>, vinç ve mevsim derdi olmayan kortlar.',
@@ -301,7 +301,7 @@ const tr: LocaleData = {
     hero: {
       eyebrow: 'Padel kortu üreticisi · Türkiye',
       title: 'Tek fabrikada tasarlanan, üretilen ve kurulan *padel kortları*.',
-      tagline: 'Çelik konstrüksiyon, temperli cam, sentetik çim ve kanopiler Adıyaman’daki kendi tesisimizde üretilir; 94’ten fazla ülkede kulüplere, otellere ve belediyelere teslim edilir.',
+      tagline: 'Çelik konstrüksiyon, temperli cam, sentetik çim ve kanopiler Adıyaman’daki kendi tesisimizde üretilir; 96’dan fazla ülkede kulüplere, otellere ve belediyelere teslim edilir.',
     },
     courtSpecs: [
       '20 × 10 m · 3 dikmeli çerçeve · 10 mm cam',
@@ -317,7 +317,7 @@ const tr: LocaleData = {
       { eyebrow: 'Açılır-kapanır çatı', title: 'Yazın açık hava, kışın kapalı saha', text: 'Açılıp kapanan çatı ve yan sistemler sayesinde kortlarınız yağmurda, karda ve sıcakta rezervasyona açık kalır.' },
     ],
     why: [
-      { title: 'Küresel referanslar', text: '94’ten fazla ülke ve 800’ü aşkın şehre ihracat; beş yıldızlı oteller, kamu kurumları, spor kulüpleri ve FIP turnuvalarının tercihi.' },
+      { title: 'Küresel referanslar', text: '96’dan fazla ülke ve 1020’yi aşkın şehre ihracat; beş yıldızlı oteller, kamu kurumları, spor kulüpleri ve FIP turnuvalarının tercihi.' },
       { title: 'Tüm üretim kendi tesisimizde', text: 'Adıyaman’daki fabrikamızda çelik, temperli cam, sentetik çim ve boya süreçlerini kendimiz yönetiyoruz. Kapasite: günde 12 kort.' },
       { title: 'Sertifikalı mühendislik', text: 'FIP standartlarında üretim, KIWA onayı, İstanbul Teknik Üniversitesi rüzgâr ve darbe testleri, TSE ve TÜV testli bileşenler.' },
       { title: 'Başka yerde bulamayacağınız tasarımlar', text: 'MobilFLOD düz zemin kortlar, kendi kendini taşıyan MobilFOLD X-TEND kanopiler, açılır-kapanır çatılar, modüler ve yüzer zemin seçenekleri.' },

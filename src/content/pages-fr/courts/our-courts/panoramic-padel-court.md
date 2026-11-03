@@ -88,7 +88,7 @@ media:
     section: 8
 faq:
   - q: Où puis-je voir des exemples concrets de terrains Unixpadel en service ?
-    a: Les terrains Unixpadel équipent des clubs dans plus de 94 pays. Parmi nos récentes installations en Europe figurent nos [terrains panoramiques à Würzburg, en Allemagne](/references/panoramic-padel-courts-wurzburg-germany/) et nos [terrains à gazon noir en Bosnie-Herzégovine](/references/black-turf-padel-courts-bosnia/).
+    a: Les terrains Unixpadel équipent des clubs dans plus de 96 pays. Parmi nos récentes installations en Europe figurent nos [terrains panoramiques à Würzburg, en Allemagne](/references/panoramic-padel-courts-wurzburg-germany/) et nos [terrains à gazon noir en Bosnie-Herzégovine](/references/black-turf-padel-courts-bosnia/).
   - q: Le terrain panoramique peut-il être installé en extérieur dans des conditions venteuses ?
     a: Oui, le terrain panoramique est doté de poteaux en acier de forte épaisseur de 100x50x3mm, dimensionnés par note de calcul pour résister à des charges de vent extrêmes (jusqu'à 130-150 km/h).
   - q: Le terrain panoramique convient-il aux sites couverts comme extérieurs ?

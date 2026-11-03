@@ -88,7 +88,7 @@ media:
     section: 8
 faq:
   - q: Faaliyetteki Unixpadel kortlarının gerçek örneklerini nerede görebilirim?
-    a: Unixpadel kortları 94'ten fazla ülkedeki kulüplerde kuruludur. Avrupa'daki son projelerimiz arasında [Würzburg, Almanya'daki panoramik kortlarımız](/references/panoramic-padel-courts-wurzburg-germany/) ve [Bosna-Hersek'teki siyah çimli kortlarımız](/references/black-turf-padel-courts-bosnia/) yer alır.
+    a: Unixpadel kortları 96'dan fazla ülkedeki kulüplerde kuruludur. Avrupa'daki son projelerimiz arasında [Würzburg, Almanya'daki panoramik kortlarımız](/references/panoramic-padel-courts-wurzburg-germany/) ve [Bosna-Hersek'teki siyah çimli kortlarımız](/references/black-turf-padel-courts-bosnia/) yer alır.
   - q: Panoramik kort rüzgârlı açık alan koşullarında kurulabilir mi?
     a: Evet. Panoramik kort, aşırı rüzgâr yüklerine (130-150 km/h'ye kadar) dayanacak şekilde statik hesabı yapılmış, kalın cidarlı 100x50x3mm çelik dikmelere sahiptir.
   - q: Panoramik kort kapalı ve açık tesisler için uygun mu?

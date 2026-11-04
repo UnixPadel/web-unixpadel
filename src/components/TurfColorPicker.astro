@@ -1,0 +1,231 @@
+---
+// Turf colour picker: cut-out views of the turf next to the colour swatches; choosing one recolours every view.
+// Native radios, so arrow keys work and the choice needs no state of its own. Without JS the default colour stays.
+import { turfImage, type TurfColorId, type TurfPicker } from '../data/turfColors';
+import { langOf, LOCALE, t } from '../i18n';
+
+interface Props {
+  productName: string;
+  picker: TurfPicker;
+}
+const { productName, picker } = Astro.props;
+const lang = langOf(Astro.url);
+const ui = t(lang);
+const uid = Math.random().toString(36).slice(2, 7);
+const nameOf = (id: TurfColorId) => ui.turfColorNames[id];
+const { slug, views, colors, defaultColor } = picker;
+// "12–13" for a range; "12, 13 ve 15" (in the page's language) for discrete options.
+const mm = picker.heightsKind === 'range' ? `${picker.heightsMm[0]}–${picker.heightsMm[1]}` : new Intl.ListFormat(LOCALE[lang].intl, { type: 'conjunction' }).format(picker.heightsMm.map(String));
+---
+
+<section class="turf-picker section section--tight" data-turf-picker aria-labelledby={`tc-${uid}`}>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">{ui.turfColorsEyebrow}</p>
+      <h2 id={`tc-${uid}`}>{ui.turfColorsTitle}</h2>
+      <p>{ui.turfColorsIntro(mm)}</p>
+    </div>
+
+    <div class="turf-picker__layout" data-reveal>
+      <div class="turf-picker__stage">
+        {views.map((view) => {
+          const img = turfImage(slug, view, defaultColor);
+          return (
+            <div class:list={['turf-picker__view', `turf-picker__view--${view}`]}>
+              <img
+                src={img.src}
+                width={img.width}
+                height={img.height}
+                alt={ui.turfColorAlt(productName, nameOf(defaultColor))}
+                loading="lazy"
+                decoding="async"
+                data-view={view}
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      <fieldset class="turf-picker__panel">
+        <legend class="turf-picker__legend">
+          {ui.turfColorLabel}: <strong data-selected>{nameOf(defaultColor)}</strong>
+        </legend>
+        <div class="turf-picker__swatches">
+          {colors.map(({ id, hex }) => (
+            <label class="swatch">
+              <input
+                class="swatch__input"
+                type="radio"
+                name={`turf-color-${uid}`}
+                value={id}
+                checked={id === defaultColor}
+                data-name={nameOf(id)}
+                data-alt={ui.turfColorAlt(productName, nameOf(id))}
+                {...Object.fromEntries(views.map((view) => [`data-${view}`, turfImage(slug, view, id).src]))}
+              />
+              <span class="swatch__chip" style={`--swatch: ${hex}`}></span>
+              <span class="swatch__name">{nameOf(id)}</span>
+            </label>
+          ))}
+        </div>
+        <p class="turf-picker__note">{ui.turfColorsNote}</p>
+      </fieldset>
+    </div>
+  </div>
+</section>
+
+<style>
+  .turf-picker__layout {
+    display: grid;
+    gap: var(--sp-6);
+    align-items: start;
+  }
+  /* With three views the stage outgrows the swatches: they follow along, so the turf is never out of reach. */
+  @media (min-width: 1024px) {
+    .turf-picker__layout {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: var(--sp-8);
+    }
+    .turf-picker__panel {
+      position: sticky;
+      inset-block-start: calc(var(--header-h) + var(--sp-5));
+    }
+  }
+  /* Both views stay side by side on phones too, so the turf is in sight while choosing a colour. */
+  .turf-picker__stage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3);
+    align-items: center;
+  }
+  /* The wide photo of the turf lying flat runs under the other two. */
+  .turf-picker__view--flat {
+    grid-column: 1 / -1;
+    inline-size: min(100%, 640px);
+    justify-self: center;
+  }
+  .turf-picker__view img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    filter: drop-shadow(0 12px 16px rgb(7 13 28 / 22%));
+  }
+  .turf-picker__panel {
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .turf-picker__legend {
+    padding: 0;
+    margin-block-end: var(--sp-4);
+    color: var(--text-secondary);
+  }
+  .turf-picker__legend strong {
+    color: var(--text-primary);
+  }
+  .turf-picker__swatches {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-4) var(--sp-3);
+  }
+  .swatch {
+    position: relative;
+    display: grid;
+    gap: var(--sp-2);
+    justify-items: center;
+    align-content: start;
+    text-align: center;
+    cursor: pointer;
+  }
+  .swatch__input {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .swatch__chip {
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgb(127 127 127 / 40%);
+    border-radius: var(--radius-sm);
+    background: var(--swatch);
+    transition: box-shadow var(--dur-fast) var(--ease-out);
+  }
+  .swatch__name {
+    font-size: var(--fs-300);
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--text-secondary);
+  }
+  @media (hover: hover) {
+    .swatch:hover .swatch__chip {
+      box-shadow: 0 0 0 2px var(--bg-page), 0 0 0 4px var(--border);
+    }
+  }
+  .swatch__input:checked ~ .swatch__chip {
+    box-shadow: 0 0 0 2px var(--bg-page), 0 0 0 4px var(--focus-ring);
+  }
+  .swatch__input:checked ~ .swatch__name {
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .swatch__input:focus-visible ~ .swatch__chip {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 6px;
+  }
+  .turf-picker__note {
+    margin-block-start: var(--sp-5);
+    font-size: var(--fs-300);
+    color: var(--text-secondary);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-turf-picker]').forEach((root) => {
+    const views = [...root.querySelectorAll<HTMLImageElement>('img[data-view]')];
+    const selected = root.querySelector<HTMLElement>('[data-selected]')!;
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const srcOf = (input: HTMLInputElement, img: HTMLImageElement) => input.dataset[img.dataset.view!]!;
+
+    // Renders are fetched on intent, not up front: too many files for a colour most visitors never change.
+    // Waits for the load event, not decode(): decode() can stall for as long as the page is in the background.
+    const preload = (input: HTMLInputElement) =>
+      views.map(
+        (img) =>
+          new Promise((done) => {
+            const next = new Image();
+            next.onload = next.onerror = done;
+            next.src = srcOf(input, img);
+          }),
+      );
+
+    let latest = 0;
+    const choose = async (input: HTMLInputElement) => {
+      const token = ++latest;
+      selected.textContent = input.dataset.name!;
+      // Swap only once loaded, so the old colour stays up meanwhile; a faster later choice wins.
+      await Promise.all(preload(input));
+      if (token !== latest) return;
+      views.forEach((img) => {
+        img.decoding = 'sync'; // paint the new colour in one go, never an empty frame
+        img.src = srcOf(input, img);
+        img.alt = input.dataset.alt!;
+        if (!reduceMotion.matches) img.animate([{ opacity: 0.55 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+      });
+    };
+
+    root.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((input) => {
+      input.addEventListener('change', () => choose(input));
+      input.addEventListener('pointerenter', () => preload(input), { once: true });
+      input.addEventListener('focus', () => preload(input), { once: true });
+    });
+
+    // A reload can restore another radio (form state): match the images to it.
+    const restored = root.querySelector<HTMLInputElement>('input[type="radio"]:checked');
+    if (restored && restored.defaultChecked === false) choose(restored);
+  });
+</script>

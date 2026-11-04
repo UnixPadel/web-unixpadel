@@ -6,6 +6,7 @@ import KeyFacts from '../components/KeyFacts.astro';
 import SpecDiagram from '../components/SpecDiagram.astro';
 import MaterialCards from '../components/MaterialCards.astro';
 import Gallery from '../components/Gallery.astro';
+import TurfColorPicker from '../components/TurfColorPicker.astro';
 import QuoteRail from '../components/QuoteRail.astro';
 import FAQ from '../components/FAQ.astro';
 import CardGrid from '../components/CardGrid.astro';
@@ -15,6 +16,7 @@ import CTABand from '../components/CTABand.astro';
 import LinkTile from '../components/LinkTile.astro';
 import CourtLines from '../components/graphics/CourtLines.astro';
 import { quoteUrl, whatsappUrl } from '../data/site';
+import { turfPickerFor } from '../data/turfColors';
 import { courtDimsFor, productMetaFor, productFamilyFor, siteFor } from '../i18n/data';
 import { langOf, localizePath, t } from '../i18n';
 import { allPages, childrenOf, cardImage, cardImageAlt, labelOf } from '../lib/collection';
@@ -43,8 +45,10 @@ const ctas: Cta[] = [
   { label: 'WhatsApp', href: whatsappUrl(ui.waQuote(title)), variant: 'whatsapp', external: true, icon: 'whatsapp' },
 ];
 
-// Gallery: every content image of the page (icons, flags and avatars excluded), de-duplicated
-const seen = new Set<string>();
+// Gallery: every content image of the page (icons, flags and avatars excluded), de-duplicated.
+// Photos the colour picker shows as cut-outs are left out, so they don't appear twice.
+const turfPicker = turfPickerFor(data.url);
+const seen = new Set<string>(turfPicker?.photos);
 const gallery = data.media
   .filter((m) => m.type === 'image' && !/ikon|icon|unixicon|gravatar|\/avatar\//i.test(m.src))
   .filter((m) => {
@@ -116,6 +120,8 @@ const plate = ['/our-courts/', '/innovative-courts/', '/padbols/'].includes(stri
     </article>
     <QuoteRail productName={title} productUrl={data.url} specsAnchor={specsAnchor} photo={meta.photo ?? null} photoAlt={meta.photoAlt} />
   </div>
+
+  {turfPicker && <TurfColorPicker productName={title} picker={turfPicker} />}
 
   <Gallery images={gallery} title={ui.inDetail(title)} eyebrow={ui.rendersInstallations} />
 

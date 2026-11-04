@@ -77,7 +77,9 @@ Turf comes in two main yarn families:
 
 Pile height for padel turf is usually around 10–15 mm, filled with rounded silica sand.
 
-![Cross-section of blue textured padel turf showing the yarn, sand infill and backing](/wp-content/uploads/2026/07/ffe7ca_6e8ed57e25584b9795c91f5d3ed09510mv2.avif)
+![Cross-section of blue textured padel turf showing the yarn, sand infill and backing](../../../assets/turf/guide/turf-cross-section.webp)
+
+*Want to examine the turf in more detail? Browse our [turf systems](/turfs/).*
 
 ## When does concrete make sense?
 

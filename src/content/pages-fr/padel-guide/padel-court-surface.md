@@ -77,7 +77,9 @@ Il existe deux grandes familles de fibres :
 
 La hauteur de velours d'un gazon de padel se situe généralement autour de 10–15 mm, avec un garnissage de sable de silice roulé.
 
-![Coupe d'un gazon de padel texturé bleu montrant les fibres, le garnissage de sable et le dossier](/wp-content/uploads/2026/07/ffe7ca_6e8ed57e25584b9795c91f5d3ed09510mv2.avif)
+![Coupe d'un gazon de padel texturé bleu montrant les fibres, le garnissage de sable et le dossier](../../../assets/turf/guide/turf-cross-section.webp)
+
+*Pour examiner le gazon plus en détail, découvrez nos [systèmes de gazon](/turfs/).*
 
 ## Quand le béton est-il pertinent ?
 

@@ -112,6 +112,12 @@
   background: var(--media-plate);
 }
 
+/* Repo-built cutouts (bundled into /_astro, served from /_image in dev) are transparent by design: no plate behind them. */
+.prose img[src*="/_astro/"],
+.prose img[src^="/_image"] {
+  background: none;
+}
+
 /* Classic-editor HTML of references written in WordPress (captions, alignment classes). */
 .prose figure {
   max-inline-size: 100%;

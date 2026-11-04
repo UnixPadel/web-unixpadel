@@ -74,7 +74,8 @@ export function rehypeMedia({ origin }) {
         p.loading ??= 'lazy';
         p.decoding ??= 'async';
         // The scrape has no dimensions; a 16:9 hint reserves space (CSS keeps block-size: auto, so no distortion).
-        if (!p.width && !p.height) {
+        // Only for scraped media: images bundled from src/assets get their real size from Astro.
+        if (!p.width && !p.height && String(p.src ?? '').includes('/wp-content/')) {
           p.width = 1200;
           p.height = 675;
         }

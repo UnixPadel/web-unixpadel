@@ -77,7 +77,9 @@ Kunstrasen gibt es in zwei wesentlichen Garnfamilien:
 
 Die Florhöhe von Padel-Kunstrasen liegt meist bei etwa 10–15 mm, verfüllt mit gerundetem Quarzsand.
 
-![Querschnitt durch blauen texturierten Padel-Kunstrasen mit Garn, Sandverfüllung und Trägergewebe](/wp-content/uploads/2026/07/ffe7ca_6e8ed57e25584b9795c91f5d3ed09510mv2.avif)
+![Querschnitt durch blauen texturierten Padel-Kunstrasen mit Garn, Sandverfüllung und Trägergewebe](../../../assets/turf/guide/turf-cross-section.webp)
+
+*Sie möchten den Rasen genauer ansehen? Entdecken Sie unsere [Kunstrasen-Systeme](/turfs/).*
 
 ## Wann ist Beton sinnvoll?
 

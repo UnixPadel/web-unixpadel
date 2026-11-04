@@ -77,7 +77,9 @@ Kum dolgulu suni çim, kulüplerin standardıdır ve profesyonel etkinliklerde k
 
 Padel çiminde hav yüksekliği genellikle 10–15 mm civarındadır ve yuvarlak taneli silis kumuyla doldurulur.
 
-![İplik, kum dolgu ve taban katmanını gösteren mavi dokulu padel çiminin kesiti](/wp-content/uploads/2026/07/ffe7ca_6e8ed57e25584b9795c91f5d3ed09510mv2.avif)
+![İplik, kum dolgu ve taban katmanını gösteren mavi dokulu padel çiminin kesiti](../../../assets/turf/guide/turf-cross-section.webp)
+
+*Çimleri daha detaylı incelemek için [çim sistemlerimize](/turfs/) göz atın.*
 
 ## Beton ne zaman mantıklıdır?
 

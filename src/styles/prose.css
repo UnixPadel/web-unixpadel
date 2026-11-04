@@ -112,8 +112,10 @@
   background: var(--media-plate);
 }
 
-/* Repo-built cutouts (bundled into /_astro, served from /_image in dev) are transparent by design: no plate behind them. */
-.prose img[src*="/_astro/"],
+/* Repo-built cutouts (bundled Astro assets; /_image in dev) are transparent by design: no plate behind them.
+   No leading slash before _astro: it still matches the WordPress plugin's prefixed asset URLs, and the plugin
+   build's guard against root-relative /_astro references (scripts/build-wp-plugin.mjs) stays quiet. */
+.prose img[src*="_astro/"],
 .prose img[src^="/_image"] {
   background: none;
 }

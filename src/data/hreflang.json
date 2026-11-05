@@ -13,13 +13,6 @@
     "ar": "/ar/about-us/",
     "ru": "/ru/about-us/"
   },
-  "/adl-kdk/": {
-    "tr": "/tr/adl-kdk/",
-    "de": "/de/adl-kdk/",
-    "fr": "/fr/adl-kdk/",
-    "ar": "/ar/adl-kdk/",
-    "ru": "/ru/adl-kdk/"
-  },
   "/adlx3t/": {
     "tr": "/tr/adlx3t/",
     "de": "/de/adlx3t/",
@@ -54,13 +47,6 @@
     "fr": "/fr/cesme-panoramic-padel-courts/",
     "ar": "/ar/cesme-panoramic-padel-courts/",
     "ru": "/ru/cesme-panoramic-padel-courts/"
-  },
-  "/cleek/": {
-    "tr": "/tr/cleek/",
-    "de": "/de/cleek/",
-    "fr": "/fr/cleek/",
-    "ar": "/ar/cleek/",
-    "ru": "/ru/cleek/"
   },
   "/consulting/": {
     "tr": "/tr/consulting/",

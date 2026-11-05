@@ -8,7 +8,7 @@ order: 1
 orphan: false
 wpId: 269
 postType: page
-lastmod: 2025-05-09T11:31:44+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T10:51:21+00:00
 seo:
   title: ADLX3T – Yüksek Performanslı Padel Çimi - Unixpadel
@@ -22,11 +22,9 @@ hero:
   tagline: null
 specs:
   - label: İplik Dtex
-    value: 7300 Dtex kıvırcık PP filament
+    value: "7300"
   - label: Hav Yüksekliği
-    value: 12mm-13mm
-  - label: Dolgu
-    value: Silis kumu
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -48,6 +46,10 @@ media:
 Öne çıkan sentetik çimlerimizden biri ADLX3T'dir. Yarı kumlu bu çim, tekstüre edilmiş monofilament ipliklerden oluşan yoğun bir hav yüzeyine sahiptir. İpliklerin özel formu yerinde kalmalarını sağlar ve tutuş ile kayma arasında mükemmel dengeye sahip stabil bir oyun yüzeyi oluşturur. ADLX3T'de kullanılan Unixturf iplik; sürtünme, esneklik ve aşınma direnciyle ilgili özellikleri geliştirir. Bu da onu yoğun hareketleri ve hızlı temposuyla bilinen padel için ideal kılar.
 
 [**Bize ulaşın**](/contact-us/)
+
+#### Uluslararası Padel Federasyonu (FIP) Onaylı:
+
+Unixpadel olarak ürünlerimizin kalitesine ve standartlara uygunluğuna öncelik veriyoruz. Sentetik çimimiz, Uluslararası Padel Federasyonu'nun belirlediği sıkı standartları karşılayan FIP onaylı bir üründür. En yüksek kalite ve performans seviyesini sağlamak için çimimiz Hollanda'daki KIWA laboratuvarında titizlikle test edilmiş ve sertifikalandırılmıştır. Unixpadel'in FIP onaylı Sentetik Çimi ile uluslararası standartları karşılayan bir zeminde oynadığınızdan emin olabilirsiniz.
 
 **Padel Deneyiminizi Geliştirin:** Unixpadel sentetik çimini tercih ettiğinizde dayanıklılık, direnç ve üstün oyun özellikleri sunan bir zemine yatırım yaparsınız. Çimlerimiz padelin zorlu koşullarına dayanacak ve uzun süre en iyi performansı sunacak şekilde tasarlanmıştır. Tutarlı top sekmesi, güvenilir ayak tutuşu ve kusursuz tutuş-kayma dengesiyle tüm dikkatinizi oyununuza verin ve sahadaki her anın keyfini çıkarın.
 

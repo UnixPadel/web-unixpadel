@@ -8,7 +8,7 @@ order: 1
 orphan: false
 wpId: 269
 postType: page
-lastmod: 2025-05-09T11:31:44+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T10:51:21+00:00
 seo:
   title: ADLX3T – Hochleistungs-Kunstrasen für Padel - Unixpadel®
@@ -22,11 +22,9 @@ hero:
   tagline: null
 specs:
   - label: Garnstärke (Dtex)
-    value: 7300 Dtex gekräuseltes PP-Filament
+    value: "7300"
   - label: Florhöhe
-    value: 12mm-13mm
-  - label: Verfüllung
-    value: Sand
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -48,6 +46,10 @@ media:
 Einer unserer bewährten Kunstrasen ist ADLX3T. Dieser teilverfüllte Kunstrasen verfügt über eine dichte Rasenoberfläche mit texturierten Monofilament-Fasern. Die spezielle Form der Fasern sorgt dafür, dass sie in Position bleiben – so entsteht ein stabiler Spielbelag mit der richtigen Balance aus Grip und Gleiten. Das in ADLX3T eingesetzte Unixturf-Filament verbessert Reibung, Rückstellvermögen und Abriebfestigkeit. Damit eignet er sich ideal für Padel, einen Sport mit intensiven Bewegungen und hohem Spieltempo.
 
 [**Kontakt aufnehmen**](/contact-us/)
+
+#### Zugelassen vom Internationalen Padelverband (FIP):
+
+Bei Unixpadel haben Qualität und Normkonformität unserer Produkte Priorität. Unser Kunstrasen ist FIP-zugelassen und erfüllt die strengen Anforderungen des Internationalen Padelverbands. Um höchste Qualität und Leistung sicherzustellen, wurde unser Kunstrasen vom KIWA-Labor in den Niederlanden eingehend geprüft und zertifiziert. Mit dem FIP-zugelassenen Kunstrasen von Unixpadel spielen Sie auf einem Belag, der internationalen Standards entspricht.
 
 **Ihr Padel-Erlebnis aufwerten:** Mit dem Kunstrasen von Unixpadel investieren Sie in einen Belag, der Haltbarkeit, Widerstandsfähigkeit und hervorragende Spieleigenschaften bietet. Unsere Kunstrasen sind auf die Anforderungen des Padelsports ausgelegt und gewährleisten über lange Zeit optimale Leistung. Erleben Sie ein gleichmäßiges Absprungverhalten, zuverlässige Trittsicherheit und die richtige Balance aus Grip und Gleiten – damit Sie sich ganz auf Ihr Spiel konzentrieren können.
 

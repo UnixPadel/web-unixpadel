@@ -8,7 +8,7 @@ order: 1
 orphan: false
 wpId: 269
 postType: page
-lastmod: 2025-05-09T11:31:44+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T10:51:21+00:00
 seo:
   title: "ADLX3T – Gazon de padel haute performance - Unixpadel®"
@@ -22,11 +22,9 @@ hero:
   tagline: null
 specs:
   - label: Dtex du fil
-    value: Fibre PP frisée 7300 Dtex
+    value: "7300"
   - label: Hauteur du fil
-    value: 12mm-13mm
-  - label: Remplissage
-    value: Sable
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -48,6 +46,10 @@ media:
 L'ADLX3T compte parmi nos gazons synthétiques phares. Ce gazon semi-sablé présente une surface dense composée de fibres monofilament texturées. La forme spécifique des fibres leur permet de rester en place, pour une surface de jeu stable offrant l'équilibre parfait entre adhérence et glisse. La fibre Unixturf utilisée dans l'ADLX3T améliore la friction, la résilience et la résistance à l'usure par abrasion. Il est ainsi idéal pour le padel, un sport connu pour ses déplacements intenses et son rythme de jeu rapide.
 
 [**Nous contacter**](/contact-us/)
+
+#### Homologué par la Fédération Internationale de Padel (FIP) :
+
+Chez Unixpadel, la qualité et la conformité de nos produits sont une priorité. Notre gazon synthétique est homologué FIP et répond aux normes strictes fixées par la Fédération Internationale de Padel. Pour garantir le plus haut niveau de qualité et de performance, il a été rigoureusement testé et certifié par le laboratoire KIWA aux Pays-Bas. Avec le gazon synthétique Unixpadel homologué FIP, vous avez l'assurance de jouer sur une surface conforme aux normes internationales.
 
 **Améliorez votre expérience de padel :** en choisissant le gazon synthétique Unixpadel, vous investissez dans une surface durable, résistante et dotée d'excellentes caractéristiques de jeu. Nos gazons sont conçus pour résister aux exigences du padel et garantir des performances optimales sur la durée. Profitez d'un rebond de balle régulier, d'une adhérence fiable et d'un équilibre parfait entre accroche et glisse, pour vous concentrer sur votre jeu et savourer chaque instant sur le terrain.
 

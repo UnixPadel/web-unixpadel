@@ -8,7 +8,7 @@ order: 6
 orphan: false
 wpId: 1646
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-06-22T11:53:51+00:00
 seo:
   title: "How Much Does a Padel Court Cost? Prices Explained"
@@ -93,7 +93,7 @@ Other models answer specific needs: the [WP Challenge court](/wp-challenge-padel
 
 ### Which turf should you choose?
 
-All four Unixpadel turf systems, [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) and [ADL KDK](/adl-kdk/), are FIP approved and sand filled; they differ in yarn type and pile height, which affects ball response and wear. The options are compared in [padel court surfaces](/padel-guide/padel-court-surface/).
+Both Unixpadel turf systems, [ADLX4T](/adlx4t/) and [ADLX3T](/adlx3t/), are FIP approved and sand filled; they differ in yarn type and yarn weight, which affects ball response and wear. The options are compared in [padel court surfaces](/padel-guide/padel-court-surface/).
 
 ## Which costs sit outside the court price?
 

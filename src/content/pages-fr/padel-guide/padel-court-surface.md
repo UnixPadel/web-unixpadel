@@ -8,7 +8,7 @@ order: 7
 orphan: false
 wpId: 1879
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-07-21T13:52:34+00:00
 seo:
   title: "Surface de padel : gazon, béton ou résine synthétique ?"
@@ -87,7 +87,7 @@ Le béton a sa place là où le terrain sera utilisé sans personnel pour l'entr
 
 ## Quel gazon Unixpadel convient à votre projet ?
 
-Unixpadel propose quatre systèmes de gazon homologués FIP et garnis de sable : [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) et [ADL KDK](/adl-kdk/). Ils diffèrent par le type de fibre, le poids de fibre et la hauteur de velours (environ 12–15 mm), ce qui modifie la réponse de la balle, la rétention du sable et le comportement du gazon sous un usage intensif.
+Unixpadel propose deux systèmes de gazon homologués FIP et garnis de sable : [ADLX4T](/adlx4t/) et [ADLX3T](/adlx3t/). Tous deux ont une hauteur de velours de 10–12 mm ; ils diffèrent par le type de fibre et le poids de fibre, ce qui modifie la réponse de la balle, la rétention du sable et le comportement du gazon sous un usage intensif.
 
 Comparez leurs caractéristiques sur la page [systèmes de gazon](/turfs/), ou demandez à notre équipe lequel convient à votre climat, à un usage couvert ou extérieur et à votre niveau de jeu.
 

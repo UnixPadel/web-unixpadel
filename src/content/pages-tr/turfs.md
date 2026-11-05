@@ -8,11 +8,11 @@ order: 4
 orphan: false
 wpId: 331
 postType: page
-lastmod: 2025-05-09T11:29:13+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-20T19:56:53+00:00
 seo:
   title: Padel Kortu Çimi – Premium Sentetik Çim - Unixpadel
-  description: Unixpadel, FIP onaylı ADLX3T, ADLX4T, Cleek ve ADL KDK sentetik çim sistemleriyle padel kortlarınıza üstün performans ve dayanıklılık sunar.
+  description: Unixpadel, FIP onaylı ADLX3T ve ADLX4T sentetik çim sistemleriyle padel kortlarınıza üstün performans ve dayanıklılık sunar.
   ogImage: null
   robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 hero:
@@ -37,11 +37,6 @@ media:
     src: /wp-content/uploads/2023/04/unixicon.png
     alt: ""
     section: 2
-  - order: 4
-    type: image
-    src: /wp-content/uploads/2023/08/Cleek-1.jpg
-    alt: Cleek-1
-    section: 2
   - order: 5
     type: background
     src: /wp-content/uploads/2023/04/unixicon.png
@@ -62,11 +57,6 @@ media:
     src: /wp-content/uploads/2023/04/unixicon.png
     alt: ""
     section: 2
-  - order: 9
-    type: image
-    src: /wp-content/uploads/2023/08/ADL-KDK-1.jpg
-    alt: ADL-KDK-1
-    section: 2
   - order: 10
     type: image
     src: /wp-content/uploads/2023/08/ADLX3T-1.jpg
@@ -77,20 +67,10 @@ media:
     src: /wp-content/uploads/2023/04/unixicon.png
     alt: ""
     section: 3
-  - order: 12
-    type: image
-    src: /wp-content/uploads/2023/08/Cleek-1.jpg
-    alt: Cleek-1
-    section: 3
   - order: 13
     type: background
     src: /wp-content/uploads/2023/04/unixicon.png
     alt: ""
-    section: 3
-  - order: 14
-    type: image
-    src: /wp-content/uploads/2023/08/ADL-KDK-1.jpg
-    alt: ADL-KDK-1
     section: 3
   - order: 15
     type: background

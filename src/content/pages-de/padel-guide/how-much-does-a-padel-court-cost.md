@@ -8,7 +8,7 @@ order: 6
 orphan: false
 wpId: 1646
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-06-22T11:53:51+00:00
 seo:
   title: "Was kostet ein Padelplatz? Preise im Überblick"
@@ -93,7 +93,7 @@ Andere Modelle erfüllen besondere Anforderungen: der [WP Challenge Platz](/wp-c
 
 ### Welchen Kunstrasen sollten Sie wählen?
 
-Alle vier Kunstrasensysteme von Unixpadel, [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) und [ADL KDK](/adl-kdk/), sind FIP-zugelassen und sandverfüllt; sie unterscheiden sich in Garnart und Florhöhe, was Ballverhalten und Verschleiß beeinflusst. Einen Vergleich der Optionen finden Sie unter [Padelplatz-Beläge](/padel-guide/padel-court-surface/).
+Beide Kunstrasensysteme von Unixpadel, [ADLX4T](/adlx4t/) und [ADLX3T](/adlx3t/), sind FIP-zugelassen und sandverfüllt; sie unterscheiden sich in Garnart und Garngewicht, was Ballverhalten und Verschleiß beeinflusst. Einen Vergleich der Optionen finden Sie unter [Padelplatz-Beläge](/padel-guide/padel-court-surface/).
 
 ## Welche Kosten liegen außerhalb des Platzpreises?
 

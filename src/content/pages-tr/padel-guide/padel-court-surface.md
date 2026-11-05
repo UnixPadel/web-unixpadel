@@ -8,7 +8,7 @@ order: 7
 orphan: false
 wpId: 1879
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-07-21T13:52:34+00:00
 seo:
   title: "Padel Kortu Zemini: Suni Çim, Beton ve Sentetik"
@@ -87,7 +87,7 @@ Beton, kortun bakımını üstlenecek personel olmadan kullanılacağı yerlerde
 
 ## Projenize hangi Unixpadel çimi uyar?
 
-Unixpadel, FIP onaylı ve kum dolgulu dört çim sistemi sunar: [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) ve [ADL KDK](/adl-kdk/). Bu sistemler iplik tipi, iplik ağırlığı ve hav yüksekliği (yaklaşık 12–15 mm) bakımından farklılık gösterir; bu da top tepkisini, kum tutma kapasitesini ve çimin yoğun kullanımda nasıl aşındığını değiştirir.
+Unixpadel, FIP onaylı ve kum dolgulu iki çim sistemi sunar: [ADLX4T](/adlx4t/) ve [ADLX3T](/adlx3t/). Her ikisinin de hav yüksekliği 10–12 mm'dir; iplik tipi ve iplik ağırlığı bakımından farklılık gösterirler, bu da top tepkisini, kum tutma kapasitesini ve çimin yoğun kullanımda nasıl aşındığını değiştirir.
 
 Teknik özelliklerini [çim sistemleri](/turfs/) sayfasında karşılaştırın veya iklim koşullarınıza, kapalı ya da açık kullanıma ve oyun seviyenize hangisinin uygun olduğunu ekibimize sorun.
 

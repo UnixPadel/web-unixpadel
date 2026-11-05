@@ -8,7 +8,7 @@ order: 7
 orphan: false
 wpId: 1879
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-07-21T13:52:34+00:00
 seo:
   title: "Padelplatz-Belag: Kunstrasen, Beton oder Kunststoff"
@@ -87,7 +87,7 @@ Beton hat seine Berechtigung dort, wo der Platz ohne Personal zur Pflege genutzt
 
 ## Welcher Kunstrasen von Unixpadel passt zu Ihrem Projekt?
 
-Unixpadel bietet vier FIP-zugelassene, sandverfüllte Kunstrasensysteme an: [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) und [ADL KDK](/adl-kdk/). Sie unterscheiden sich in Garnart, Garngewicht und Florhöhe (etwa 12–15 mm), was Ballverhalten, Sandbindung und Verschleiß bei intensiver Nutzung beeinflusst.
+Unixpadel bietet zwei FIP-zugelassene, sandverfüllte Kunstrasensysteme an: [ADLX4T](/adlx4t/) und [ADLX3T](/adlx3t/). Beide haben eine Florhöhe von 10–12 mm; sie unterscheiden sich in Garnart und Garngewicht, was Ballverhalten, Sandbindung und Verschleiß bei intensiver Nutzung beeinflusst.
 
 Vergleichen Sie ihre Spezifikationen auf der Seite [Kunstrasensysteme](/turfs/), oder fragen Sie unser Team, welches System zu Ihrem Klima, zur Nutzung in Halle oder Freiluft und zu Ihrem Spielniveau passt.
 

@@ -8,7 +8,7 @@ order: 7
 orphan: false
 wpId: 1879
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-07-21T13:52:34+00:00
 seo:
   title: "Padel Court Surface: Turf vs Concrete vs Synthetic"
@@ -87,7 +87,7 @@ Concrete has a place where the court will be used without staff to look after it
 
 ## Which Unixpadel turf fits your project?
 
-Unixpadel offers four FIP-approved, sand-filled turf systems: [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) and [ADL KDK](/adl-kdk/). They differ in yarn type, yarn weight and pile height (about 12–15 mm), which changes ball response, sand retention and how the turf wears under heavy use.
+Unixpadel offers two FIP-approved, sand-filled turf systems: [ADLX4T](/adlx4t/) and [ADLX3T](/adlx3t/). Both have a 10–12 mm pile; they differ in yarn type and yarn weight, which changes ball response, sand retention and how the turf wears under heavy use.
 
 Compare their specifications on the [turf systems](/turfs/) page, or ask our team which suits your climate, indoor or outdoor use and level of play.
 

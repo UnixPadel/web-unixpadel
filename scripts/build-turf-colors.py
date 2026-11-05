@@ -22,8 +22,6 @@ UPLOADS = 'https://www.unixpadel.com/wp-content/uploads/2023/08/'
 PRODUCTS = {
     'adlx3t': {'views': {'roll': 'ADLX3T-2.jpg', 'sheet': 'ADLX3T-3.jpg'}},
     'adlx4t': {'views': {'roll': 'ADLX4T-2.jpg', 'sheet': 'ADLX4T-3.jpg', 'flat': 'ADLX4T-4.jpg'}, 'own': ('red', '#dc2430', 0.65), 'texture': 1.5, 'glint': 0.55},
-    'cleek': {'views': {'roll': 'Cleek-2.jpg', 'sheet': 'Cleek-4.jpg'}},
-    'adl-kdk': {'views': {'roll': 'ADL-KDK-2.jpg', 'sheet': 'ADL-KDK-4.jpg', 'flat': 'ADL-KDK-3.jpg'}, 'own': ('lime', '#76960f', 0.65)},
 }
 # Same colours as the swatches. 'lift' is how much of the fibre sheen is kept: dark colours need more to show any pile.
 COLORS = {

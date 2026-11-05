@@ -8,7 +8,7 @@ order: 6
 orphan: false
 wpId: 1646
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-06-22T11:53:51+00:00
 seo:
   title: "Combien coûte un terrain de padel ? Les prix expliqués"
@@ -93,7 +93,7 @@ D'autres modèles répondent à des besoins spécifiques : le [terrain WP Chall
 
 ### Quel gazon choisir ?
 
-Les quatre systèmes de gazon Unixpadel, [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) et [ADL KDK](/adl-kdk/), sont homologués FIP et garnis de sable ; ils diffèrent par le type de fibre et la hauteur de velours, qui influent sur la réponse de la balle et sur l'usure. Les options sont comparées dans [les surfaces de terrain de padel](/padel-guide/padel-court-surface/).
+Les deux systèmes de gazon Unixpadel, [ADLX4T](/adlx4t/) et [ADLX3T](/adlx3t/), sont homologués FIP et garnis de sable ; ils diffèrent par le type de fibre et le poids de fibre, qui influent sur la réponse de la balle et sur l'usure. Les options sont comparées dans [les surfaces de terrain de padel](/padel-guide/padel-court-surface/).
 
 ## Quels coûts ne sont pas compris dans le prix du terrain ?
 

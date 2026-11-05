@@ -8,7 +8,7 @@ order: 2
 orphan: false
 wpId: 273
 postType: page
-lastmod: 2025-05-09T11:32:57+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T11:09:03+00:00
 seo:
   title: ADLX4T – Premium Artificial Turf for Padel - Unixpadel®
@@ -20,6 +20,11 @@ hero:
   poster: null
   image: /wp-content/uploads/2023/05/page-b.jpg
   tagline: null
+specs:
+  - label: Yarn Dtex
+    value: "9600"
+  - label: Yarn Height
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -57,7 +62,7 @@ At Unixpadel, we prioritize the quality and compliance of our products. Our Arti
 
 #### Designed for Optimal Performance:
 
-The ADLX4T Artificial Turf system is meticulously designed to provide exceptional performance on padel courts. With a yarn height ranging from 12mm to 13mm, our turf offers the perfect balance between comfort and playability. The curled PP filament yarn provides excellent resilience and responsiveness, allowing players to make precise shots and movements with ease. Additionally, the infill of sand further enhances the stability and performance of the turf.
+The ADLX4T Artificial Turf system is meticulously designed to provide exceptional performance on padel courts. With a yarn height ranging from 10mm to 12mm, our turf offers the perfect balance between comfort and playability. The curled PP filament yarn provides excellent resilience and responsiveness, allowing players to make precise shots and movements with ease. Additionally, the infill of sand further enhances the stability and performance of the turf.
 
 #### Versatility for Indoor and Outdoor Use:
 

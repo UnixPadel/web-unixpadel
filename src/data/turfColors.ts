@@ -3,7 +3,7 @@
 const FILES = import.meta.glob<{ default: ImageMetadata }>('../assets/turf/*/*.webp', { eager: true });
 
 export type TurfColor = { id: TurfColorId; hex: string };
-export type TurfColorId = 'light-blue' | 'blue' | 'green' | 'emerald' | 'black' | 'pink' | 'terracotta' | 'purple' | 'gray' | 'red' | 'lime';
+export type TurfColorId = 'light-blue' | 'blue' | 'green' | 'emerald' | 'black' | 'pink' | 'terracotta' | 'purple' | 'gray' | 'red';
 export type TurfView = 'roll' | 'sheet' | 'flat';
 
 /** Swatch order as in the commercial offer. Hex values must match COLORS in scripts/build-turf-colors.py. */
@@ -40,37 +40,19 @@ const PICKERS: Record<string, TurfPicker> = {
     views: ['roll', 'sheet'],
     colors: PALETTE,
     defaultColor: 'blue',
-    heightsMm: [12, 13],
+    heightsMm: [10, 12],
     heightsKind: 'range',
     photos: ['ADLX3T-2.jpg', 'ADLX3T-3.jpg'].map((f) => UPLOADS + f),
   },
-  // The two below are photographed in a colour the palette has nothing close to, so that colour leads their swatches.
+  // Photographed in a colour the palette has nothing close to, so that colour leads its swatches.
   '/adlx4t/': {
     slug: 'adlx4t',
     views: ['roll', 'sheet', 'flat'],
     colors: [{ id: 'red', hex: '#dc2430' }, ...PALETTE],
     defaultColor: 'red',
-    heightsMm: [12, 13],
+    heightsMm: [10, 12],
     heightsKind: 'range',
     photos: ['ADLX4T-2.jpg', 'ADLX4T-3.jpg', 'ADLX4T-4.jpg'].map((f) => UPLOADS + f),
-  },
-  '/cleek/': {
-    slug: 'cleek',
-    views: ['roll', 'sheet'],
-    colors: PALETTE,
-    defaultColor: 'terracotta',
-    heightsMm: [12, 15],
-    heightsKind: 'range',
-    photos: ['Cleek-2.jpg', 'Cleek-4.jpg'].map((f) => UPLOADS + f),
-  },
-  '/adl-kdk/': {
-    slug: 'adl-kdk',
-    views: ['roll', 'sheet', 'flat'],
-    colors: [{ id: 'lime', hex: '#76960f' }, ...PALETTE],
-    defaultColor: 'lime',
-    heightsMm: [12, 13, 15],
-    heightsKind: 'options',
-    photos: ['ADL-KDK-2.jpg', 'ADL-KDK-3.jpg', 'ADL-KDK-4.jpg'].map((f) => UPLOADS + f),
   },
 };
 

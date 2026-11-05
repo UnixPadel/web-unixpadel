@@ -8,7 +8,7 @@ order: 2
 orphan: false
 wpId: 273
 postType: page
-lastmod: 2025-05-09T11:32:57+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T11:09:03+00:00
 seo:
   title: ADLX4T – Padel İçin Premium Sentetik Çim - Unixpadel
@@ -20,6 +20,11 @@ hero:
   poster: null
   image: /wp-content/uploads/2023/05/page-b.jpg
   tagline: null
+specs:
+  - label: İplik Dtex
+    value: "9600"
+  - label: Hav Yüksekliği
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -57,7 +62,7 @@ Unixpadel olarak ürünlerimizin kalitesine ve standartlara uygunluğuna önceli
 
 #### En İyi Performans İçin Tasarlandı:
 
-ADLX4T Sentetik Çim sistemi, padel kortlarında üstün performans sunmak üzere titizlikle tasarlanmıştır. 12mm ile 13mm arasında değişen hav yüksekliğiyle çimimiz konfor ve oynanabilirlik arasında kusursuz bir denge sağlar. Kıvırcık PP filament iplik mükemmel esneklik ve tepki sunarak oyuncuların hassas vuruşlar ve hareketler yapmasını kolaylaştırır. Ayrıca silis kumu dolgu, çimin stabilitesini ve performansını daha da artırır.
+ADLX4T Sentetik Çim sistemi, padel kortlarında üstün performans sunmak üzere titizlikle tasarlanmıştır. 10mm ile 12mm arasında değişen hav yüksekliğiyle çimimiz konfor ve oynanabilirlik arasında kusursuz bir denge sağlar. Kıvırcık PP filament iplik mükemmel esneklik ve tepki sunarak oyuncuların hassas vuruşlar ve hareketler yapmasını kolaylaştırır. Ayrıca silis kumu dolgu, çimin stabilitesini ve performansını daha da artırır.
 
 #### Kapalı ve Açık Sahalar İçin Çok Yönlülük:
 

@@ -8,7 +8,7 @@ order: 2
 orphan: false
 wpId: 273
 postType: page
-lastmod: 2025-05-09T11:32:57+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T11:09:03+00:00
 seo:
   title: ADLX4T – Premium-Kunstrasen für Padel - Unixpadel®
@@ -20,6 +20,11 @@ hero:
   poster: null
   image: /wp-content/uploads/2023/05/page-b.jpg
   tagline: null
+specs:
+  - label: Garnstärke (Dtex)
+    value: "9600"
+  - label: Florhöhe
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -57,7 +62,7 @@ Bei Unixpadel haben Qualität und Normkonformität unserer Produkte Priorität. 
 
 #### Für optimale Leistung entwickelt:
 
-Das ADLX4T Kunstrasensystem ist darauf ausgelegt, auf Padelplätzen hervorragende Leistung zu bieten. Mit einer Florhöhe von 12mm bis 13mm bietet unser Kunstrasen die richtige Balance aus Komfort und Bespielbarkeit. Das Garn aus gekräuseltem PP-Filament sorgt für ein ausgezeichnetes Rückstellvermögen und Ansprechverhalten, sodass Spieler präzise Schläge und Bewegungen mühelos ausführen können. Die Sandverfüllung erhöht zusätzlich Stabilität und Leistung des Kunstrasens.
+Das ADLX4T Kunstrasensystem ist darauf ausgelegt, auf Padelplätzen hervorragende Leistung zu bieten. Mit einer Florhöhe von 10mm bis 12mm bietet unser Kunstrasen die richtige Balance aus Komfort und Bespielbarkeit. Das Garn aus gekräuseltem PP-Filament sorgt für ein ausgezeichnetes Rückstellvermögen und Ansprechverhalten, sodass Spieler präzise Schläge und Bewegungen mühelos ausführen können. Die Sandverfüllung erhöht zusätzlich Stabilität und Leistung des Kunstrasens.
 
 #### Vielseitig für Halle und Außenbereich:
 

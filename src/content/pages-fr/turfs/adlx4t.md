@@ -8,7 +8,7 @@ order: 2
 orphan: false
 wpId: 273
 postType: page
-lastmod: 2025-05-09T11:32:57+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2023-06-08T11:09:03+00:00
 seo:
   title: "ADLX4T – Gazon synthétique premium pour le padel - Unixpadel®"
@@ -20,6 +20,11 @@ hero:
   poster: null
   image: /wp-content/uploads/2023/05/page-b.jpg
   tagline: null
+specs:
+  - label: Dtex du fil
+    value: "9600"
+  - label: Hauteur du fil
+    value: 10-12mm
 media:
   - order: 1
     type: background
@@ -57,7 +62,7 @@ Chez Unixpadel, la qualité et la conformité de nos produits sont une priorité
 
 #### Conçu pour des performances optimales :
 
-Le système de gazon synthétique ADLX4T est minutieusement conçu pour offrir des performances exceptionnelles sur les terrains de padel. Avec une hauteur de fil comprise entre 12mm et 13mm, notre gazon offre l'équilibre parfait entre confort et jouabilité. Le fil en fibre PP frisée apporte une excellente résilience et une grande réactivité, pour des frappes et des déplacements précis en toute facilité. Le remplissage en sable renforce en outre la stabilité et les performances du gazon.
+Le système de gazon synthétique ADLX4T est minutieusement conçu pour offrir des performances exceptionnelles sur les terrains de padel. Avec une hauteur de fil comprise entre 10mm et 12mm, notre gazon offre l'équilibre parfait entre confort et jouabilité. Le fil en fibre PP frisée apporte une excellente résilience et une grande réactivité, pour des frappes et des déplacements précis en toute facilité. Le remplissage en sable renforce en outre la stabilité et les performances du gazon.
 
 #### Polyvalent, en intérieur comme en extérieur :
 

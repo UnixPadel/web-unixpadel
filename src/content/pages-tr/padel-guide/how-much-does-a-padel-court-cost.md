@@ -8,7 +8,7 @@ order: 6
 orphan: false
 wpId: 1646
 postType: post
-lastmod: 2026-10-15T09:00:00+00:00
+lastmod: 2026-11-05T09:00:00+00:00
 published: 2026-06-22T11:53:51+00:00
 seo:
   title: "Padel Kortu Maliyeti Ne Kadar? Fiyatlar Açıklandı"
@@ -93,7 +93,7 @@ Diğer modeller belirli ihtiyaçlara yanıt verir: çok kuvvetli rüzgâr için 
 
 ### Hangi çimi seçmelisiniz?
 
-Dört Unixpadel çim sisteminin tamamı, yani [ADLX4T](/adlx4t/), [ADLX3T](/adlx3t/), [Cleek](/cleek/) ve [ADL KDK](/adl-kdk/), FIP onaylı ve kum dolguludur; iplik tipi ve hav yüksekliği bakımından farklılık gösterirler, bu da top tepkisini ve aşınmayı etkiler. Seçenekler [padel kortu zeminleri](/padel-guide/padel-court-surface/) yazımızda karşılaştırılmaktadır.
+Her iki Unixpadel çim sistemi, yani [ADLX4T](/adlx4t/) ve [ADLX3T](/adlx3t/), FIP onaylı ve kum dolguludur; iplik tipi ve iplik ağırlığı bakımından farklılık gösterirler, bu da top tepkisini ve aşınmayı etkiler. Seçenekler [padel kortu zeminleri](/padel-guide/padel-court-surface/) yazımızda karşılaştırılmaktadır.
 
 ## Hangi maliyetler kort fiyatının dışında kalır?
 

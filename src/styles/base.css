@@ -270,6 +270,16 @@ button {
   --_border: var(--whatsapp);
 }
 
+.btn--whatsapp-secondary {
+  --_bg: transparent;
+  --_fg: var(--text-primary);
+  --_border: var(--whatsapp-border, var(--whatsapp));
+}
+
+.btn--whatsapp-secondary .icon {
+  color: var(--whatsapp-icon, var(--whatsapp));
+}
+
 .btn--ghost {
   --_border: transparent;
   padding-inline: var(--sp-3);
@@ -305,6 +315,11 @@ button {
   .btn--whatsapp:hover {
     --_bg: #0a5a50;
     --_border: #0a5a50;
+  }
+  .btn--whatsapp-secondary:hover {
+    --_bg: rgb(14 107 96 / 12%);
+    --_border: var(--whatsapp-border, var(--whatsapp));
+    --_fg: var(--text-primary);
   }
   .btn--ghost:hover {
     --_bg: var(--bg-surface);

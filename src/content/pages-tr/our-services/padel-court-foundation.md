@@ -57,37 +57,11 @@ Bir padel kortu döşemesi tek tip bir beton dökümü değildir. Çelik konstr�
 
 ## Bir bakışta beton, asfalt ve geçirgen beton
 
-Zemin
-
-Maliyet
-
-Drenaj
-
-En uygun kullanım
-
-Düz beton
-
-Orta
-
-Yerleşik eğim gerektirir (~%1)
-
-Kapalı kortlar
-
-Geçirgen beton
-
-En yüksek
-
-Suyu kendi içinden tahliye eder
-
-Premium açık kortlar
-
-Asfalt
-
-En düşük
-
-İyi (drenajlı asfalt)
-
-Ekonomik bütçe · soğuk iklimler
+| Zemin | Maliyet | Drenaj | En uygun kullanım |
+| --- | --- | --- | --- |
+| Düz beton | Orta | Yerleşik eğim gerektirir (~%1) | Kapalı kortlar |
+| Geçirgen beton | En yüksek | Suyu kendi içinden tahliye eder | Premium açık kortlar |
+| Asfalt | En düşük | İyi (drenajlı asfalt) | Ekonomik bütçe · soğuk iklimler |
 
 Düz beton, kapalı kortlar için standart tercihtir. **Geçirgen beton** ise premium açık kortlar için en iyi seçimdir: yağmur suyu doğrudan zeminden süzülür, kort sağanaktan dakikalar sonra oynanabilir hale gelir ve oyuncuların eklemlerine daha az yük bindirir. Asfalt en ekonomik seçenektir; ancak sıcakta yumuşar ve daha fazla bakım gerektirir.
 
@@ -99,12 +73,18 @@ Her zaman beton bir döşemeye ihtiyacınız yoktur. **Unixpadel Flat Floor** ko
 
 ![Unixpadel Flat Floor ayak sistemli padel kortu](/wp-content/uploads/2026/05/foundation-1.png)
 
-- **Daha düşük ilk yatırım maliyeti**Kazı, donatı ve beton dökümü yok. Saha hazırlık maliyetleri ciddi ölçüde düşer.
-- **Daha hızlı gelir**Kurulum haftalar değil günler içinde tamamlanır; 28 günlük beton kürünü beklemezsiniz.
-- **Konum esnekliği**Çatılar, otoparklar, etkinlik alanları, okullar, tatil köyleri, tarihi merkezler ve eğimli sahalar kullanılabilir hale gelir.
-- **Taşınabilir varlık**Kira sözleşmesi sona erdiğinde veya ziyaretçi trafiği değiştiğinde kort taşınabilir; sermayeniz korunur.
-- **Daha kolay izinler**FIP beton lisansı gerekmez; bu da onay ve kurulum süreçlerini hızlandırır.
-- **Kiralık arazi için ideal**Sahibi olmadığınız bir arazide, sizi bağlayan kalıcı bir döşeme olmadan kort kurun.
+- **Daha düşük ilk yatırım maliyeti**\
+  Kazı, donatı ve beton dökümü yok. Saha hazırlık maliyetleri ciddi ölçüde düşer.
+- **Daha hızlı gelir**\
+  Kurulum haftalar değil günler içinde tamamlanır; 28 günlük beton kürünü beklemezsiniz.
+- **Konum esnekliği**\
+  Çatılar, otoparklar, etkinlik alanları, okullar, tatil köyleri, tarihi merkezler ve eğimli sahalar kullanılabilir hale gelir.
+- **Taşınabilir varlık**\
+  Kira sözleşmesi sona erdiğinde veya ziyaretçi trafiği değiştiğinde kort taşınabilir; sermayeniz korunur.
+- **Daha kolay izinler**\
+  FIP beton lisansı gerekmez; bu da onay ve kurulum süreçlerini hızlandırır.
+- **Kiralık arazi için ideal**\
+  Sahibi olmadığınız bir arazide, sizi bağlayan kalıcı bir döşeme olmadan kort kurun.
 
 ## Önemli değerler (beton döşeme için)
 
@@ -130,15 +110,11 @@ Soğuk kışlar don korumasını vazgeçilmez kılar. Don derinliği genellikle 
 
 ## En pahalıya mal olan beş hata
 
-**Açık sahalarda zemin etüdünü atlamak**: döşeme tahminlere dayanarak hesaplanmış olur.
-
-**Alt temeli yetersiz sıkıştırmak**: oturmalara ve çatlaklara yol açar.
-
-**Düz betonda drenaj eğimi bırakmamak**: biriken su sentetik çim yapıştırıcılarına zarar verir.
-
-**Düzlük toleranslarını aşmak**: topun doğru sekmesini kalıcı olarak bozar.
-
-**28 günlük kür süresini kısaltmak**: tüm yapıyı zayıflatır.
+- **Açık sahalarda zemin etüdünü atlamak**: döşeme tahminlere dayanarak hesaplanmış olur.
+- **Alt temeli yetersiz sıkıştırmak**: oturmalara ve çatlaklara yol açar.
+- **Düz betonda drenaj eğimi bırakmamak**: biriken su sentetik çim yapıştırıcılarına zarar verir.
+- **Düzlük toleranslarını aşmak**: topun doğru sekmesini kalıcı olarak bozar.
+- **28 günlük kür süresini kısaltmak**: tüm yapıyı zayıflatır.
 
 İzinlerden teslime kadar yapım sürecinin tamamı için [padel kortu nasıl yapılır](/padel-guide/how-to-build-a-padel-court/) yazımıza göz atın.
 
@@ -147,4 +123,5 @@ Soğuk kışlar don korumasını vazgeçilmez kılar. Don derinliği genellikle 
 İster mühendislik hesaplı bir beton döşeme ister betonsuz bir Flat Floor kurulumu olsun, Unixpadel zemini sahanıza, iklime ve iş planınıza göre belirler.
 
 [**Bize ulaşın**](/contact-us/)
+
 [**Flat Floor'u inceleyin**](/innovative-courts/flat-floor-padel-court/)

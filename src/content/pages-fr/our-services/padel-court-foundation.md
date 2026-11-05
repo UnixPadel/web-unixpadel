@@ -57,37 +57,11 @@ Une dalle de padel n'est pas un coulage uniforme. La **périphérie**, où la st
 
 ## Béton, enrobé ou poreux : le comparatif en un coup d'œil
 
-Support
-
-Coût
-
-Drainage
-
-Idéal pour
-
-Béton lisse
-
-Modéré
-
-Nécessite une pente intégrée (~1%)
-
-Terrains couverts
-
-Béton poreux
-
-Le plus élevé
-
-Draine à travers sa masse
-
-Extérieur haut de gamme
-
-Enrobé
-
-Le plus bas
-
-Bon (enrobé drainant)
-
-Budgets serrés · climats froids
+| Support | Coût | Drainage | Idéal pour |
+| --- | --- | --- | --- |
+| Béton lisse | Modéré | Nécessite une pente intégrée (~1%) | Terrains couverts |
+| Béton poreux | Le plus élevé | Draine à travers sa masse | Extérieur haut de gamme |
+| Enrobé | Le plus bas | Bon (enrobé drainant) | Budgets serrés · climats froids |
 
 Le béton lisse est la solution standard pour les terrains couverts. Le **béton poreux** est le choix premium en extérieur : la pluie s'évacue directement à travers la dalle, le terrain est jouable quelques minutes après une averse, et il ménage davantage les articulations des joueurs. L'enrobé est le moins cher, mais il se ramollit à la chaleur et demande plus d'entretien.
 
@@ -99,12 +73,18 @@ Une dalle en béton n'est pas toujours nécessaire. Le terrain **Unixpadel Flat 
 
 ![Terrain de padel Unixpadel Flat Floor sur plots](/wp-content/uploads/2026/05/foundation-1.png)
 
-- **Coût initial réduit**Ni terrassement, ni ferraillage, ni coulage de béton. Les dépenses de préparation du site chutent fortement.
-- **Rentabilité plus rapide**Installation en quelques jours au lieu de plusieurs semaines, sans les 28 jours de séchage du béton.
-- **Liberté d'implantation**Toitures, parkings, espaces événementiels, écoles, resorts, centres historiques et terrains irréguliers deviennent exploitables.
-- **Un actif déplaçable**Le terrain peut être déplacé en fin de bail ou si la fréquentation évolue, ce qui protège votre capital.
-- **Autorisations simplifiées**Aucune licence béton FIP requise, ce qui simplifie les démarches et la mise en place.
-- **Idéal sur terrain loué**Construisez sur un terrain dont vous n'êtes pas propriétaire, sans dalle permanente qui vous engage.
+- **Coût initial réduit**\
+  Ni terrassement, ni ferraillage, ni coulage de béton. Les dépenses de préparation du site chutent fortement.
+- **Rentabilité plus rapide**\
+  Installation en quelques jours au lieu de plusieurs semaines, sans les 28 jours de séchage du béton.
+- **Liberté d'implantation**\
+  Toitures, parkings, espaces événementiels, écoles, resorts, centres historiques et terrains irréguliers deviennent exploitables.
+- **Un actif déplaçable**\
+  Le terrain peut être déplacé en fin de bail ou si la fréquentation évolue, ce qui protège votre capital.
+- **Autorisations simplifiées**\
+  Aucune licence béton FIP requise, ce qui simplifie les démarches et la mise en place.
+- **Idéal sur terrain loué**\
+  Construisez sur un terrain dont vous n'êtes pas propriétaire, sans dalle permanente qui vous engage.
 
 ## Les chiffres clés (pour une dalle en béton)
 
@@ -130,15 +110,11 @@ Les hivers rigoureux rendent la protection contre le gel incontournable. La prof
 
 ## Cinq erreurs qui coûtent le plus cher
 
-**Faire l'impasse sur l'étude de sol** en extérieur : la dalle est alors dimensionnée à l'aveugle.
-
-**Compacter insuffisamment la couche de forme** : cela entraîne tassements et fissures.
-
-**Oublier la pente de drainage** sur un béton lisse : l'eau stagnante détruit les colles du gazon.
-
-**Dépasser les tolérances de planéité** : le rebond de la balle est faussé de façon définitive.
-
-**Écourter les 28 jours de cure** : c'est toute la structure qui s'en trouve fragilisée.
+- **Faire l'impasse sur l'étude de sol** en extérieur : la dalle est alors dimensionnée à l'aveugle.
+- **Compacter insuffisamment la couche de forme** : cela entraîne tassements et fissures.
+- **Oublier la pente de drainage** sur un béton lisse : l'eau stagnante détruit les colles du gazon.
+- **Dépasser les tolérances de planéité** : le rebond de la balle est faussé de façon définitive.
+- **Écourter les 28 jours de cure** : c'est toute la structure qui s'en trouve fragilisée.
 
 Pour l'ensemble des étapes de construction, des permis à la réception, consultez [comment construire un terrain de padel](/padel-guide/how-to-build-a-padel-court/).
 
@@ -147,4 +123,5 @@ Pour l'ensemble des étapes de construction, des permis à la réception, consul
 Qu'il s'agisse d'une dalle en béton dimensionnée sur mesure ou d'un terrain Flat Floor sans béton, Unixpadel adapte les fondations à votre site, à votre climat et à votre modèle économique.
 
 [**Nous contacter**](/contact-us/)
+
 [**Découvrir Flat Floor**](/innovative-courts/flat-floor-padel-court/)

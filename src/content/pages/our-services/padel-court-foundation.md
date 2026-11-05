@@ -57,37 +57,11 @@ A padel slab is not one uniform pour. The **perimeter**, where the steel structu
 
 ## Concrete vs. asphalt vs. porous, at a glance
 
-Base
-
-Cost
-
-Drainage
-
-Best for
-
-Smooth concrete
-
-Moderate
-
-Needs a built-in slope (~1%)
-
-Indoor courts
-
-Porous concrete
-
-Highest
-
-Drains through itself
-
-Premium outdoor
-
-Asphalt
-
-Lowest
-
-Good (drainage asphalt)
-
-Budget · cold climates
+| Base | Cost | Drainage | Best for |
+| --- | --- | --- | --- |
+| Smooth concrete | Moderate | Needs a built-in slope (~1%) | Indoor courts |
+| Porous concrete | Highest | Drains through itself | Premium outdoor |
+| Asphalt | Lowest | Good (drainage asphalt) | Budget · cold climates |
 
 Smooth concrete is the default for indoor courts. **Porous concrete** is the premium outdoor pick: rain drains straight through, the court is playable minutes after a downpour, and it’s gentler on players’ joints. Asphalt is cheapest but softens in heat and needs more upkeep.
 
@@ -99,12 +73,18 @@ You don’t always need a concrete slab at all. The **Unixpadel Flat Floor** cou
 
 ![Unixpadel Flat Floor pedestal-based padel court](/wp-content/uploads/2026/05/foundation-1.png)
 
-- **Lower upfront cost**No excavation, rebar or concrete pour. Site-prep spend drops sharply.
-- **Faster to revenue**Install in days, not weeks, and skip the 28-day concrete cure.
-- **Location flexibility**Rooftops, car parks, event spaces, schools, resorts, historic centres and uneven sites all become viable.
-- **Relocatable asset**The court can be moved if a lease ends or footfall shifts, protecting your capital.
-- **Simpler permits**No FIP concrete licence required, which streamlines approvals and setup.
-- **Ideal for leased land**Build on land you don’t own without a permanent slab tying you down.
+- **Lower upfront cost**\
+  No excavation, rebar or concrete pour. Site-prep spend drops sharply.
+- **Faster to revenue**\
+  Install in days, not weeks, and skip the 28-day concrete cure.
+- **Location flexibility**\
+  Rooftops, car parks, event spaces, schools, resorts, historic centres and uneven sites all become viable.
+- **Relocatable asset**\
+  The court can be moved if a lease ends or footfall shifts, protecting your capital.
+- **Simpler permits**\
+  No FIP concrete licence required, which streamlines approvals and setup.
+- **Ideal for leased land**\
+  Build on land you don’t own without a permanent slab tying you down.
 
 ## The numbers that matter (for a concrete slab)
 
@@ -130,15 +110,11 @@ Cold winters make frost protection non-negotiable. The frost line typically sits
 
 ## Five mistakes that cost the most
 
-**Skipping the soil survey** on outdoor sites: the slab ends up calculated on guesswork.
-
-**Under-compacting the sub-base**: leads to settlement and cracks.
-
-**No drainage slope** on smooth concrete: standing water destroys turf adhesives.
-
-**Exceeding flatness tolerances**: ruins true ball bounce permanently.
-
-**Rushing the 28-day cure**: weakens the entire structure.
+- **Skipping the soil survey** on outdoor sites: the slab ends up calculated on guesswork.
+- **Under-compacting the sub-base**: leads to settlement and cracks.
+- **No drainage slope** on smooth concrete: standing water destroys turf adhesives.
+- **Exceeding flatness tolerances**: ruins true ball bounce permanently.
+- **Rushing the 28-day cure**: weakens the entire structure.
 
 For the full build sequence, from permits to handover, see [how to build a padel court](/padel-guide/how-to-build-a-padel-court/).
 
@@ -147,4 +123,5 @@ For the full build sequence, from permits to handover, see [how to build a padel
 Whether it’s an engineered concrete slab or a concrete-free Flat Floor build, Unixpadel matches the foundation to your site, climate and business case.
 
 [**Talk to the Unixpadel team**](/contact-us/)
+
 [**Explore Flat Floor**](/innovative-courts/flat-floor-padel-court/)

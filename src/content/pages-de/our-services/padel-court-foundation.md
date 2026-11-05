@@ -57,37 +57,11 @@ Eine Padel-Bodenplatte ist kein einheitlicher Guss. Der **Randbereich**, in dem 
 
 ## Beton, Asphalt und Drainbeton im Überblick
 
-Untergrund
-
-Kosten
-
-Entwässerung
-
-Geeignet für
-
-Glatter Beton
-
-Mittel
-
-Benötigt ein eingebautes Gefälle (~1%)
-
-Hallenplätze
-
-Drainbeton
-
-Am höchsten
-
-Entwässert durch das Material
-
-Premium-Außenplätze
-
-Asphalt
-
-Am niedrigsten
-
-Gut (Drainasphalt)
-
-Kleines Budget · kalte Klimazonen
+| Untergrund | Kosten | Entwässerung | Geeignet für |
+| --- | --- | --- | --- |
+| Glatter Beton | Mittel | Benötigt ein eingebautes Gefälle (~1%) | Hallenplätze |
+| Drainbeton | Am höchsten | Entwässert durch das Material | Premium-Außenplätze |
+| Asphalt | Am niedrigsten | Gut (Drainasphalt) | Kleines Budget · kalte Klimazonen |
 
 Glatter Beton ist der Standard für Hallenplätze. **Drainbeton** ist die Premiumwahl für Außenplätze: Regen läuft direkt ab, der Platz ist wenige Minuten nach einem Schauer wieder bespielbar, und der Untergrund schont die Gelenke der Spieler. Asphalt ist am günstigsten, wird bei Hitze jedoch weich und erfordert mehr Pflege.
 
@@ -99,12 +73,18 @@ Eine Betonplatte ist nicht immer nötig. Der **Unixpadel Flat Floor** Platz ist 
 
 ![Unixpadel Flat Floor Padelplatz auf Stelzlagern](/wp-content/uploads/2026/05/foundation-1.png)
 
-- **Geringere Anfangsinvestition**Kein Aushub, keine Bewehrung, kein Betonguss. Die Kosten für die Baufeldvorbereitung sinken deutlich.
-- **Schneller zum Umsatz**Montage in Tagen statt Wochen, ohne die 28-tägige Aushärtezeit des Betons.
-- **Flexible Standortwahl**Dachflächen, Parkplätze, Eventflächen, Schulen, Resorts, historische Innenstädte und unebene Grundstücke werden nutzbar.
-- **Versetzbares Anlagegut**Der Platz kann umziehen, wenn ein Pachtvertrag endet oder sich die Besucherströme verlagern – das schützt Ihr Kapital.
-- **Einfachere Genehmigungen**Keine FIP-Betonlizenz erforderlich, was Genehmigung und Aufbau vereinfacht.
-- **Ideal für Pachtflächen**Bauen Sie auf Grundstücken, die Ihnen nicht gehören, ohne sich durch eine dauerhafte Bodenplatte zu binden.
+- **Geringere Anfangsinvestition**\
+  Kein Aushub, keine Bewehrung, kein Betonguss. Die Kosten für die Baufeldvorbereitung sinken deutlich.
+- **Schneller zum Umsatz**\
+  Montage in Tagen statt Wochen, ohne die 28-tägige Aushärtezeit des Betons.
+- **Flexible Standortwahl**\
+  Dachflächen, Parkplätze, Eventflächen, Schulen, Resorts, historische Innenstädte und unebene Grundstücke werden nutzbar.
+- **Versetzbares Anlagegut**\
+  Der Platz kann umziehen, wenn ein Pachtvertrag endet oder sich die Besucherströme verlagern – das schützt Ihr Kapital.
+- **Einfachere Genehmigungen**\
+  Keine FIP-Betonlizenz erforderlich, was Genehmigung und Aufbau vereinfacht.
+- **Ideal für Pachtflächen**\
+  Bauen Sie auf Grundstücken, die Ihnen nicht gehören, ohne sich durch eine dauerhafte Bodenplatte zu binden.
 
 ## Die entscheidenden Kennzahlen (für eine Betonplatte)
 
@@ -130,15 +110,11 @@ Kalte Winter machen Frostschutz unverzichtbar. Die Frostgrenze liegt typischerwe
 
 ## Fünf Fehler, die am teuersten werden
 
-**Verzicht auf das Bodengutachten** bei Außenanlagen: Die Bodenplatte wird dann auf Grundlage von Vermutungen berechnet.
-
-**Unzureichend verdichtete Tragschicht**: führt zu Setzungen und Rissen.
-
-**Kein Entwässerungsgefälle** bei glattem Beton: Stehendes Wasser zerstört die Kunstrasenkleber.
-
-**Überschrittene Ebenheitstoleranzen**: beeinträchtigen das Absprungverhalten des Balls dauerhaft.
-
-**Verkürzte 28-tägige Aushärtung**: schwächt die gesamte Konstruktion.
+- **Verzicht auf das Bodengutachten** bei Außenanlagen: Die Bodenplatte wird dann auf Grundlage von Vermutungen berechnet.
+- **Unzureichend verdichtete Tragschicht**: führt zu Setzungen und Rissen.
+- **Kein Entwässerungsgefälle** bei glattem Beton: Stehendes Wasser zerstört die Kunstrasenkleber.
+- **Überschrittene Ebenheitstoleranzen**: beeinträchtigen das Absprungverhalten des Balls dauerhaft.
+- **Verkürzte 28-tägige Aushärtung**: schwächt die gesamte Konstruktion.
 
 Den vollständigen Bauablauf von der Genehmigung bis zur Übergabe beschreibt der Artikel [So bauen Sie einen Padelplatz](/padel-guide/how-to-build-a-padel-court/).
 
@@ -147,4 +123,5 @@ Den vollständigen Bauablauf von der Genehmigung bis zur Übergabe beschreibt de
 Ob statisch berechnete Betonplatte oder betonfreie Flat-Floor-Lösung: Unixpadel stimmt das Fundament auf Ihren Standort, Ihr Klima und Ihr Geschäftsmodell ab.
 
 [**Kontakt aufnehmen**](/contact-us/)
+
 [**Mehr erfahren**](/innovative-courts/flat-floor-padel-court/)

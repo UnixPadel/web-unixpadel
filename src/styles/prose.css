@@ -1,6 +1,8 @@
 /* Markdown bodies (.prose). The HTML is generated from content, so these rules stay global. */
 .prose {
   max-inline-size: var(--measure);
+  /* As a grid item it could not shrink below a wide table and pushed the page sideways on phones; the table scrolls instead. */
+  min-inline-size: 0;
   font-size: var(--fs-400);
 }
 

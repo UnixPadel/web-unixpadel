@@ -109,9 +109,9 @@ const n = (i: number) => String(i).padStart(2, '0');
         </div>
       </div>
       <p class="range__more">
-        <a class="btn btn--primary" href={L('/our-courts/')}>{hu.allCourts}</a>
-        <a class="btn btn--ghost" href={L('/padbols/')}>{hu.padbol} <Icon name="arrow-right" /></a>
-        <a class="btn btn--ghost" href={L('/our-courts/pickleball-court/')}>{hu.pickleball} <Icon name="arrow-right" /></a>
+        <a class="btn btn--secondary" href={L('/our-courts/')}>{hu.allCourts}</a>
+        <a class="btn btn--link" href={L('/padbols/')}>{hu.padbol} <Icon name="arrow-right" /></a>
+        <a class="btn btn--link" href={L('/our-courts/pickleball-court/')}>{hu.pickleball} <Icon name="arrow-right" /></a>
       </p>
     </div>
   </section>
@@ -158,7 +158,7 @@ const n = (i: number) => String(i).padStart(2, '0');
                       <Numeral value={s.fact.value} unit={s.fact.unit} label={s.fact.label} size="md" icon={s.fact.icon} />
                     </dl>
                   )}
-                  <a class="btn btn--secondary" href={L(s.url)}>
+                  <a class="btn btn--link" href={L(s.url)}>
                     {hu.seeThe(labelOf(s.page))} <Icon name="arrow-right" />
                   </a>
                 </div>
@@ -262,7 +262,7 @@ const n = (i: number) => String(i).padStart(2, '0');
             ))
           }
         </ol>
-        <a class="btn btn--primary" href={L('/padel-guide/')}>{hu.openGuide}</a>
+        <a class="btn btn--secondary" href={L('/padel-guide/')}>{hu.openGuide}</a>
       </aside>
     </div>
   </section>

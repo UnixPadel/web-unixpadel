@@ -41,8 +41,8 @@ const meta = productMetaFor(data.url, lang);
 
 const ctas: Cta[] = [
   { label: ui.getQuote, href: L(quoteUrl(data.url)), variant: 'primary' },
-  ...(specsAnchor ? [{ label: ui.technicalSpecs, href: `#${specsAnchor}` } as Cta] : []),
-  { label: 'WhatsApp', href: whatsappUrl(ui.waQuote(title)), variant: 'whatsapp', external: true, icon: 'whatsapp' },
+  { label: 'WhatsApp', href: whatsappUrl(ui.waQuote(title)), variant: 'inverse', external: true, icon: 'whatsapp' },
+  ...(specsAnchor ? [{ label: ui.technicalSpecs, href: `#${specsAnchor}`, variant: 'link' } as Cta] : []),
 ];
 
 // Gallery: every content image of the page (icons, flags and avatars excluded), de-duplicated.
@@ -66,9 +66,10 @@ const parentPage = data.parent ? pages.find((p) => p.data.url === data.parent) :
 // else the padel court range (root-level products have no catalogue parent).
 const own = await childrenOf(data.url, lang);
 const inCatalog = !!parentPage && ['hub', 'product'].includes(pageTypeOf(parentPage.data));
-const stripParent = own.length ? data.url : inCatalog ? data.parent! : '/our-courts/';
-const stripItems = own.length ? own : (await childrenOf(stripParent, lang)).filter((p) => p.data.url !== data.url);
-const stripTitle = own.length ? ui.modelsInRange : inCatalog ? ui.otherOf(labelOf(parentPage!)) : ui.padelCourts;
+const siblings = inCatalog ? (await childrenOf(data.parent!, lang)).filter((p) => p.data.url !== data.url) : [];
+const stripParent = own.length ? data.url : siblings.length >= 2 ? data.parent! : '/our-courts/';
+const stripItems = own.length ? own : siblings.length >= 2 ? siblings : (await childrenOf('/our-courts/', lang)).filter((p) => p.data.url !== data.url);
+const stripTitle = own.length ? ui.modelsInRange : siblings.length >= 2 ? ui.otherOf(labelOf(parentPage!)) : ui.padelCourts;
 // Court renders and CAD drawings sit on the white plate
 const plate = ['/our-courts/', '/innovative-courts/', '/padbols/'].includes(stripParent);
 ---

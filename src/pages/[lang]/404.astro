@@ -14,7 +14,7 @@ const L = (url: string) => localizePath(url, lang);
 ---
 
 <BaseLayout url={`/${lang}/404/`} seoTitle={`${ui.e404Title} | Unixpadel`} description={ui.e404Tagline} robots="noindex, follow">
-  <Hero eyebrow={ui.e404Eyebrow} title={ui.e404Title} tagline={ui.e404Tagline} size="compact" ctas={[{ label: ui.e404Courts, href: L('/our-courts/'), variant: 'primary' }, { label: ui.e404Refs, href: L('/references/') }, { label: ui.e404Guide, href: L('/padel-guide/') }]} />
+  <Hero eyebrow={ui.e404Eyebrow} title={ui.e404Title} tagline={ui.e404Tagline} size="compact" ctas={[{ label: ui.e404Courts, href: L('/our-courts/'), variant: 'inverse' }, { label: ui.e404Refs, href: L('/references/') }, { label: ui.e404Guide, href: L('/padel-guide/') }]} />
   <div class="container section section--tight">
     <div class="prose">
       <p>{ui.e404Lost} <a href={L('/')}>{ui.e404Home}</a> {ui.e404Or} <a href={L('/contact-us/')}>{ui.e404Contact}</a> {ui.e404End}</p>

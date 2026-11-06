@@ -81,7 +81,7 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
 
   <div class="quote__actions">
     <button class="btn btn--primary quote__btn-submit" type="submit" data-submit="server"><Icon name="mail" /> {ui.qSend}</button>
-    <button class="btn btn--whatsapp-secondary quote__btn-wa" type="submit" data-submit="whatsapp"><Icon name="whatsapp" /> {ui.qSendWa}</button>
+    <button class="btn btn--secondary btn--wa quote__btn-wa" type="submit" data-submit="whatsapp"><Icon name="whatsapp" /> {ui.qSendWa}</button>
     <button class="btn btn--secondary quote__btn-fallback" type="submit" data-submit="email" hidden data-mail-fallback><Icon name="mail" /> {ui.qSendMail}</button>
   </div>
   <p class="quote__status" role="status" aria-live="polite" tabindex="-1" hidden data-status></p>
@@ -201,23 +201,6 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
   .quote__btn-submit {
     min-inline-size: 160px;
     font-weight: 700;
-    box-shadow: 0 4px 14px rgb(243 111 36 / 28%), 0 1px 3px rgb(243 111 36 / 14%);
-    transition:
-      background-color var(--dur-fast) var(--ease-out),
-      border-color var(--dur-fast) var(--ease-out),
-      color var(--dur-fast) var(--ease-out),
-      box-shadow var(--dur-fast) var(--ease-out),
-      transform var(--dur-fast) var(--ease-out);
-  }
-  @media (hover: hover) {
-    .quote__btn-submit:hover {
-      box-shadow: 0 6px 20px rgb(243 111 36 / 40%), 0 2px 6px rgb(243 111 36 / 20%);
-      transform: translateY(-1px);
-    }
-  }
-  .quote__btn-submit:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 6px rgb(243 111 36 / 20%);
   }
   .quote__btn-fallback {
     --_fg: var(--text-secondary);

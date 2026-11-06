@@ -99,6 +99,10 @@ for (const file of walk(DIST)) {
     if (key && [...prose.matchAll(/<img\b[^>]*?src="([^"]+)"/g)].some((m) => sizeless(m[1]) === key)) fail(url, 'hero-image-dup', key.split('/').pop());
   }
 
+  // button hierarchy: no deprecated solid whatsapp or ghost buttons in build
+  if (/class="[^"]*\bbtn--whatsapp\b/.test(html)) fail(url, 'deprecated-btn-whatsapp', 'deprecated solid btn--whatsapp found');
+  if (/class="[^"]*\bbtn--ghost\b/.test(html)) fail(url, 'deprecated-btn-ghost', 'deprecated btn--ghost found');
+
   // card grids: never a lone card on the last row (the reference index uses a featured 2×2 card, skipped)
   for (const m of html.matchAll(/<div\b[^>]*class="[^"]*\bcard-grid\b[^"]*"[^>]*style="--cols:(\d)"/g)) {
     if (/ref-grid/.test(m[0])) continue;

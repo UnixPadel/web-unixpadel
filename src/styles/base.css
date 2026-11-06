@@ -147,6 +147,13 @@ button {
   color: var(--text-on-inverse);
 }
 
+.hero,
+.cta,
+.site-footer,
+.section--inverse {
+  --focus-ring: var(--lime-500);
+}
+
 .section--surface {
   background: var(--bg-surface);
 }
@@ -242,6 +249,10 @@ button {
   transform: translateY(1px);
 }
 
+.btn:focus-visible {
+  border-radius: var(--radius-md);
+}
+
 .btn[aria-disabled='true'],
 .btn:disabled {
   opacity: 0.5;
@@ -264,25 +275,27 @@ button {
   --_border: rgb(255 255 255 / 55%);
 }
 
-.btn--whatsapp {
-  --_bg: var(--whatsapp);
-  --_fg: var(--white);
-  --_border: var(--whatsapp);
+.btn--wa .icon {
+  color: var(--whatsapp);
 }
 
-.btn--whatsapp-secondary {
-  --_bg: transparent;
-  --_fg: var(--text-primary);
-  --_border: var(--whatsapp-border, var(--whatsapp));
+.btn--inverse.btn--wa .icon,
+.section--inverse .btn--wa .icon,
+.hero .btn--wa .icon,
+.cta .btn--wa .icon,
+.site-footer .btn--wa .icon,
+:root:not([data-theme='light']) .btn--wa .icon,
+:root[data-theme='dark'] .btn--wa .icon {
+  color: var(--whatsapp-on-inverse);
 }
 
-.btn--whatsapp-secondary .icon {
-  color: var(--whatsapp-icon, var(--whatsapp));
-}
-
-.btn--ghost {
+.btn--link {
   --_border: transparent;
-  padding-inline: var(--sp-3);
+  --_bg: transparent;
+  --_fg: var(--link);
+  padding-inline: 0;
+  min-block-size: 44px;
+  font-weight: 600;
 }
 
 .btn--icon {
@@ -312,17 +325,19 @@ button {
     --_border: var(--white);
     --_bg: rgb(255 255 255 / 10%);
   }
-  .btn--whatsapp:hover {
-    --_bg: #0a5a50;
-    --_border: #0a5a50;
+  .btn--link:hover {
+    color: var(--link-hover);
+    --_bg: transparent;
+    --_border: transparent;
+    text-decoration: underline;
   }
-  .btn--whatsapp-secondary:hover {
-    --_bg: rgb(14 107 96 / 12%);
-    --_border: var(--whatsapp-border, var(--whatsapp));
-    --_fg: var(--text-primary);
-  }
-  .btn--ghost:hover {
-    --_bg: var(--bg-surface);
+  @media (prefers-reduced-motion: no-preference) {
+    .btn--link:hover .icon {
+      translate: 3px 0;
+    }
+    [dir='rtl'] .btn--link:hover .icon {
+      translate: -3px 0;
+    }
   }
 }
 

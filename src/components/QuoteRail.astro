@@ -34,8 +34,8 @@ const wa = whatsappUrl(ui.waQuote(productName));
   </ul>
   <div class="rail__actions">
     <a class="btn btn--primary" href={localizePath(quoteUrl(productUrl), lang)}>{ui.getQuote}</a>
-    <a class="btn btn--whatsapp" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
-    {specsAnchor && <a class="btn btn--secondary" href={`#${specsAnchor}`}>{ui.technicalSpecs}</a>}
+    <a class="btn btn--secondary btn--wa" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+    {specsAnchor && <a class="btn btn--link" href={`#${specsAnchor}`}>{ui.technicalSpecs} <Icon name="arrow-right" /></a>}
   </div>
   <a class="rail__phone" href={SITE.phoneHref}><Icon name="phone" /> {SITE.phone}</a>
 </aside>

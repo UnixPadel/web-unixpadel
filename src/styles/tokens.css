@@ -23,8 +23,8 @@
   --ink-200: #d9dfe8;
   --white: #ffffff;
   --whatsapp: #0e6b60; /* 6.4:1 with white */
-  --whatsapp-border: var(--whatsapp);
-  --whatsapp-icon: var(--whatsapp);
+  --whatsapp-hover: #0a5a50;
+  --whatsapp-on-inverse: #2ee092;
 
   /* ---- semantic (light) */
   --bg-page: var(--white);
@@ -48,7 +48,7 @@
   --focus-ring: var(--navy-700);
   --cta-bg: var(--orange-500);
   --cta-bg-hover: #e0621b;
-  --cta-text: var(--navy-700);
+  --cta-text: var(--navy-900);
   --media-plate: var(--white);
   --shadow-menu: 0 12px 32px rgb(20 39 78 / 14%);
   --header-bg: rgb(255 255 255 / 92%);
@@ -111,8 +111,6 @@
     --border: var(--navy-500);
     --border-strong: #3d5080;
     --focus-ring: var(--lime-500);
-    --whatsapp-border: #1a8f80;
-    --whatsapp-icon: #2ee092;
     --shadow-menu: none;
     --header-bg: rgb(15 26 51 / 92%);
   }

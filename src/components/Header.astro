@@ -151,7 +151,7 @@ const homeHref = localizePath('/', lang);
     <div class="site-header__actions">
       <LangSwitch currentUrl={currentUrl} hrefs={langHrefs} />
       <ThemeToggle />
-      <a class="btn btn--icon btn--whatsapp header-wa" href={waHref} target="_blank" rel="noopener" aria-label={ui.chatWhatsapp}>
+      <a class="btn btn--icon btn--secondary btn--wa header-wa" href={waHref} target="_blank" rel="noopener" aria-label={ui.chatWhatsapp}>
         <Icon name="whatsapp" />
       </a>
       <a class="btn btn--primary header-cta" href={quoteHref}>{ui.contactUs}</a>
@@ -250,7 +250,7 @@ const homeHref = localizePath('/', lang);
   <div class="nav-drawer__foot">
     <LangSwitch currentUrl={currentUrl} hrefs={langHrefs} variant="drawer" />
     <a class="btn btn--primary" href={quoteHref}>{ui.getQuote}</a>
-    <a class="btn btn--whatsapp" href={waHref} target="_blank" rel="noopener">
+    <a class="btn btn--secondary btn--wa" href={waHref} target="_blank" rel="noopener">
       <Icon name="whatsapp" /> WhatsApp
     </a>
     <a class="nav-drawer__contact" href={SITE.phoneHref}><Icon name="phone" /> {SITE.phone}</a>
@@ -260,7 +260,7 @@ const homeHref = localizePath('/', lang);
 
 <div class="mobile-bar" data-mobile-bar>
   <a class="btn btn--primary" href={quoteHref}>{ui.getQuote}</a>
-  <a class="btn btn--whatsapp" href={waHref} target="_blank" rel="noopener">
+  <a class="btn btn--secondary btn--wa" href={waHref} target="_blank" rel="noopener">
     <Icon name="whatsapp" /> WhatsApp
   </a>
 </div>
@@ -518,7 +518,6 @@ const homeHref = localizePath('/', lang);
       min-block-size: 44px;
     }
     .header-cta {
-      --_fg: var(--white);
       min-block-size: 44px;
       padding-block: var(--sp-2);
     }
@@ -698,7 +697,7 @@ const homeHref = localizePath('/', lang);
     inset-block-end: 0;
     z-index: 90;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: var(--sp-2);
     padding: var(--sp-2) var(--sp-3) calc(var(--sp-2) + env(safe-area-inset-bottom));
     background: var(--header-bg);

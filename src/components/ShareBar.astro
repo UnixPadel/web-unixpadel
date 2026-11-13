@@ -1,5 +1,6 @@
 ---
-// Share row in a reference page's hero: WhatsApp, Facebook, Instagram, LinkedIn, X and "copy link".
+// Share row: WhatsApp, Facebook, Instagram, LinkedIn, X and "copy link". In a reference page's hero it shares the
+// page itself; the references hub puts one in a popover and points it at a card (data-url + a "share:url" event).
 // The links work without JavaScript. `shell` puts the canonical token where the page URL goes, so the WordPress
 // plugin fills it in with the rest of the page (src/lib/upx-contract.mjs); the script then re-encodes every link
 // from <link rel="canonical">. Instagram has no web share link: its button opens the device's share sheet where
@@ -159,8 +160,8 @@ const links = [
   };
 
   document.querySelectorAll<HTMLElement>('[data-share]').forEach((bar) => {
-    const url = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href || location.href.replace(/[?#].*$/, '');
-    const encoded = encodeURIComponent(url);
+    const pageUrl = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href || location.href.replace(/[?#].*$/, '');
+    const target = () => bar.dataset.url || pageUrl;
     const status = bar.querySelector<HTMLElement>('.share__status');
     let timer = 0;
     const say = (msg?: string) => {
@@ -170,19 +171,26 @@ const links = [
       timer = window.setTimeout(() => (status.textContent = ''), 5000);
     };
 
-    bar.querySelectorAll<HTMLAnchorElement>('a[data-net]').forEach((a) => {
-      const make = SHARE[a.dataset.net ?? ''];
-      if (make) a.href = make(encoded);
-    });
+    const sync = () => {
+      const encoded = encodeURIComponent(target());
+      bar.querySelectorAll<HTMLAnchorElement>('a[data-net]').forEach((a) => {
+        const make = SHARE[a.dataset.net ?? ''];
+        if (make) a.href = make(encoded);
+      });
+      if (status) status.textContent = '';
+    };
+    sync();
+    bar.addEventListener('share:url', sync);
 
     bar.querySelector('[data-net="copy"]')?.addEventListener('click', async () => {
-      if (await copy(url)) say(bar.dataset.copied);
+      if (await copy(target())) say(bar.dataset.copied);
     });
 
     bar.querySelector('[data-net="instagram"]')?.addEventListener('click', async () => {
+      const url = target();
       if (navigator.share) {
         try {
-          await navigator.share({ title: document.title, url });
+          await navigator.share({ title: bar.dataset.title || document.title, url });
         } catch {
           // closed by the visitor
         }

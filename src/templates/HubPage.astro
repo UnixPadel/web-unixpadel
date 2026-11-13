@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import CardGrid from '../components/CardGrid.astro';
 import ProductCard from '../components/ProductCard.astro';
 import ReferenceCard from '../components/ReferenceCard.astro';
+import ShareBar from '../components/ShareBar.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ProjectGlobe from '../components/ProjectGlobe.astro';
 import Numeral from '../components/graphics/Numeral.astro';
@@ -188,6 +189,9 @@ const split =
               <template data-upx="hub-card">
                 <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" hub />
               </template>
+              <div class="share-pop" id="share-menu" popover aria-labelledby="share-label">
+                <ShareBar />
+              </div>
               <div class="ref-more">
                 <button class="btn btn--secondary" type="button" data-show-all data-visible={VISIBLE} hidden>
                   {ui.showAllProjects(projects.length)}
@@ -342,6 +346,25 @@ const split =
       color: var(--link-hover);
     }
   }
+  /* Share menu of the reference cards: one popover for the page, placed next to the card's share button */
+  :global(.share-pop) {
+    position: fixed;
+    inset: auto;
+    margin: 0;
+    padding: var(--sp-4);
+    max-inline-size: calc(100vw - 2 * var(--sp-3));
+    color: var(--white);
+    background: var(--navy-900);
+    border: 1px solid rgb(255 255 255 / 18%);
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 35%);
+  }
+  :global(.share-pop .share) {
+    margin: 0;
+  }
+  :global(.share-pop .share__label) {
+    flex-basis: 100%;
+  }
 </style>
 
 <script>
@@ -399,5 +422,41 @@ const split =
 
     const initial = new URL(location.href).searchParams.get('country');
     if (initial) apply(initial);
+  }
+</script>
+
+<script>
+  // Share buttons on the reference cards: one shared menu (ShareBar in a popover), pointed at the clicked card.
+  const menu = document.getElementById('share-menu');
+  const bar = menu?.querySelector<HTMLElement>('[data-share]');
+  if (menu && bar && 'showPopover' in menu) {
+    const place = (btn: HTMLElement) => {
+      const gap = 8;
+      const r = btn.getBoundingClientRect();
+      const m = menu.getBoundingClientRect();
+      const left = Math.min(Math.max(gap, r.right - m.width), window.innerWidth - m.width - gap);
+      const below = r.bottom + gap;
+      const top = below + m.height > window.innerHeight - gap ? Math.max(gap, r.top - m.height - gap) : below;
+      menu.style.left = `${left}px`;
+      menu.style.top = `${top}px`;
+    };
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest<HTMLElement>('[data-share-card]');
+      if (!btn) return;
+      const link = btn.closest('.ref')?.querySelector<HTMLAnchorElement>('.ref__title a');
+      if (!link) return;
+      bar.dataset.url = link.href;
+      bar.dataset.title = link.textContent?.trim() ?? '';
+      bar.dispatchEvent(new Event('share:url'));
+      menu.showPopover();
+      place(btn);
+      bar.querySelector<HTMLElement>('[data-net]')?.focus({ preventScroll: true });
+    });
+    // The menu is fixed to the viewport, so it would drift off its card
+    window.addEventListener('scroll', () => menu.matches(':popover-open') && menu.hidePopover(), { passive: true });
+    window.addEventListener('resize', () => menu.matches(':popover-open') && menu.hidePopover());
+  } else {
+    // No popover support: the page link on each reference page still offers sharing
+    document.querySelectorAll<HTMLElement>('[data-share-card]').forEach((b) => (b.hidden = true));
   }
 </script>

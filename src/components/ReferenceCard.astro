@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { mediaUrl, srcsetFor } from '../lib/media';
-import { langOf, LOCALE } from '../i18n';
+import { langOf, LOCALE, t } from '../i18n';
 import { countryName } from '../i18n/data';
 import { countrySlug } from '../lib/countries';
 
@@ -31,6 +31,7 @@ interface Props {
 const { title, href, image, alt = '', country, date, courtTypes = [], excerpt, headingLevel = 'h3', featured = false, hub = false } = Astro.props;
 const { countryKey, countryLabel, dateIso, dateLabel } = Astro.props;
 const lang = langOf(Astro.url);
+const ui = t(lang);
 const Heading = headingLevel;
 const src = mediaUrl(image);
 const key = countryKey ?? (country ? countrySlug(country) : 'other');
@@ -65,6 +66,14 @@ const sizes = featured ? '(min-width: 1024px) 840px, 100vw' : '(min-width: 1024p
     <Heading class="ref__title"><a href={href}>{title}</a></Heading>
     {excerpt && <p class="ref__excerpt">{excerpt}</p>}
   </div>
+  {
+    /* Hub cards: opens the share menu of the references hub (HubPage.astro) for this card's page. */
+    hub && (
+      <button class="ref__share" type="button" data-share-card aria-haspopup="dialog" aria-label={`${ui.share}: ${title}`} title={ui.share}>
+        <Icon name="share" />
+      </button>
+    )
+  }
 </article>
 
 <style>
@@ -195,6 +204,38 @@ const sizes = featured ? '(min-width: 1024px) 840px, 100vw' : '(min-width: 1024p
   @media (min-width: 1024px) {
     .ref--hub.ref--featured:not(.ref--flat) .ref__media {
       min-block-size: 440px;
+    }
+  }
+
+  /* Share button: over the photo's corner, above the title link that covers the card */
+  .ref__share {
+    position: absolute;
+    inset-block-start: var(--sp-3);
+    inset-inline-end: var(--sp-3);
+    z-index: 2;
+    display: inline-grid;
+    place-items: center;
+    inline-size: 44px;
+    block-size: 44px;
+    padding: 0;
+    color: var(--white);
+    background: rgb(11 19 38 / 72%);
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .ref__share .icon {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+  @media (hover: hover) {
+    .ref__share:hover {
+      color: var(--navy-900);
+      background: var(--lime-500);
+      border-color: var(--lime-500);
     }
   }
 

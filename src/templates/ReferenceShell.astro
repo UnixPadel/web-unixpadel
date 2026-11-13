@@ -11,6 +11,7 @@ import CTABand from '../components/CTABand.astro';
 import Gallery from '../components/Gallery.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import ReferenceFacts from '../components/ReferenceFacts.astro';
+import ShareBar from '../components/ShareBar.astro';
 import { labelOf, pageByUrl } from '../lib/collection';
 import { LANGS, langOf, localizePath, t } from '../i18n';
 import { M, T, SHELL_PATH, langToken } from '../lib/upx-contract.mjs';
@@ -31,6 +32,7 @@ const langHrefs = Object.fromEntries(LANGS.map((l) => [l, langToken(l)]));
   <Hero title={T.TITLE} tagline={T.TAGLINE} eyebrow={T.EYEBROW} poster={T.HERO_SRC} imageAlt={T.HERO_ALT} layout="split" size="compact" lines>
     <Breadcrumbs slot="crumbs" crumbs={crumbs} />
     <ReferenceFacts shell />
+    <ShareBar shell />
   </Hero>
 
   <div class="container section section--tight">

@@ -6,6 +6,7 @@ import CTABand from '../components/CTABand.astro';
 import Gallery from '../components/Gallery.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import ReferenceFacts from '../components/ReferenceFacts.astro';
+import ShareBar from '../components/ShareBar.astro';
 import { isNews } from '../lib/pageType';
 import { cardImage, cardImageAlt, labelOf } from '../lib/collection';
 import { courtTypesOf, morePhotoBand } from '../lib/references';
@@ -39,6 +40,7 @@ const gallery = data.media
   <Hero title={title} tagline={data.hero?.tagline ?? data.seo.description} eyebrow={news ? ui.news : ui.referenceProject} poster={heroImg} imageAlt={cardImageAlt(page)} layout="split" size="compact" lines>
     <Breadcrumbs slot="crumbs" crumbs={crumbs} />
     <ReferenceFacts country={country} date={date} products={products} />
+    <ShareBar url={new URL(L(data.url), Astro.site).href} />
   </Hero>
 
   <div class="container section section--tight">

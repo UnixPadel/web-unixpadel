@@ -1,0 +1,194 @@
+---
+// Share row in a reference page's hero: WhatsApp, Facebook, Instagram, LinkedIn, X and "copy link".
+// The links work without JavaScript. `shell` puts the canonical token where the page URL goes, so the WordPress
+// plugin fills it in with the rest of the page (src/lib/upx-contract.mjs); the script then re-encodes every link
+// from <link rel="canonical">. Instagram has no web share link: its button opens the device's share sheet where
+// there is one (phones list Instagram there) and copies the link elsewhere.
+import Icon from './Icon.astro';
+import { langOf, t } from '../i18n';
+import { T } from '../lib/upx-contract.mjs';
+
+interface Props {
+  /** absolute URL of the page */
+  url?: string;
+  shell?: boolean;
+}
+
+const { url = '', shell = false } = Astro.props;
+const ui = t(langOf(Astro.url));
+// The token is capitals only, so it needs no encoding here; the plugin replaces it with the page URL.
+const u = shell ? T.CANONICAL : encodeURIComponent(url);
+const links = [
+  { net: 'whatsapp', name: 'WhatsApp', href: `https://wa.me/?text=${u}` },
+  { net: 'facebook', name: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${u}` },
+  { net: 'linkedin', name: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}` },
+  { net: 'x', name: 'X', href: `https://twitter.com/intent/tweet?url=${u}` },
+];
+---
+
+<div class="share" data-share data-copied={ui.linkCopied} data-instagram={ui.shareInstagramHint}>
+  <span class="share__label" id="share-label">{ui.share}</span>
+  <ul class="share__list" aria-labelledby="share-label">
+    {
+      links.slice(0, 2).map((l) => (
+        <li>
+          <a class:list={['share__btn', `share__btn--${l.net}`]} href={l.href} data-net={l.net} data-no-localize target="_blank" rel="noopener nofollow" aria-label={ui.shareOn(l.name)} title={ui.shareOn(l.name)}>
+            <Icon name={l.net} />
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <button class="share__btn" type="button" data-net="instagram" aria-label={ui.shareOn('Instagram')} title={ui.shareOn('Instagram')}>
+        <Icon name="instagram" />
+      </button>
+    </li>
+    {
+      links.slice(2).map((l) => (
+        <li>
+          <a class="share__btn" href={l.href} data-net={l.net} data-no-localize target="_blank" rel="noopener nofollow" aria-label={ui.shareOn(l.name)} title={ui.shareOn(l.name)}>
+            <Icon name={l.net} />
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <button class="share__btn" type="button" data-net="copy" aria-label={ui.copyLink} title={ui.copyLink}>
+        <Icon name="link" />
+      </button>
+    </li>
+  </ul>
+  <span class="share__status" role="status" aria-live="polite"></span>
+</div>
+
+<style>
+  .share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2) var(--sp-3);
+    margin-block-start: var(--sp-4);
+  }
+  .share__label {
+    font-size: var(--fs-200);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lime-500);
+  }
+  .share__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+  }
+  .share__btn {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 44px;
+    block-size: 44px;
+    padding: 0;
+    color: var(--white);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+  .share__btn :global(.icon) {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+  .share__btn--whatsapp :global(.icon) {
+    color: var(--whatsapp-on-inverse);
+  }
+  @media (hover: hover) {
+    .share__btn:hover {
+      color: var(--navy-900);
+      background: var(--lime-500);
+      border-color: var(--lime-500);
+    }
+    .share__btn:hover :global(.icon) {
+      color: inherit;
+    }
+  }
+  .share__status {
+    flex-basis: 100%;
+    font-size: var(--fs-200);
+    color: var(--white);
+  }
+  .share__status:empty {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .share__btn {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const SHARE: Record<string, (u: string) => string> = {
+    whatsapp: (u) => `https://wa.me/?text=${u}`,
+    facebook: (u) => `https://www.facebook.com/sharer/sharer.php?u=${u}`,
+    linkedin: (u) => `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+    x: (u) => `https://twitter.com/intent/tweet?url=${u}`,
+  };
+
+  const copy = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Older browsers and non-secure contexts
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.append(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      return ok;
+    }
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-share]').forEach((bar) => {
+    const url = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href || location.href.replace(/[?#].*$/, '');
+    const encoded = encodeURIComponent(url);
+    const status = bar.querySelector<HTMLElement>('.share__status');
+    let timer = 0;
+    const say = (msg?: string) => {
+      if (!status || !msg) return;
+      status.textContent = msg;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => (status.textContent = ''), 5000);
+    };
+
+    bar.querySelectorAll<HTMLAnchorElement>('a[data-net]').forEach((a) => {
+      const make = SHARE[a.dataset.net ?? ''];
+      if (make) a.href = make(encoded);
+    });
+
+    bar.querySelector('[data-net="copy"]')?.addEventListener('click', async () => {
+      if (await copy(url)) say(bar.dataset.copied);
+    });
+
+    bar.querySelector('[data-net="instagram"]')?.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: document.title, url });
+        } catch {
+          // closed by the visitor
+        }
+        return;
+      }
+      if (await copy(url)) say(bar.dataset.instagram);
+    });
+  });
+</script>

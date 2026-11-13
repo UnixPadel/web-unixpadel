@@ -2,7 +2,7 @@
 url: /neon-padel-court/
 slug: neon-padel-court
 title: "ملعب بادل نيون"
-navLabel: "نيون"
+navLabel: "ملعب بادل نيون"
 parent: /innovative-courts/
 order: 6
 orphan: false

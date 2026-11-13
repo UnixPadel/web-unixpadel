@@ -2,7 +2,7 @@
 url: /neon-padel-court/
 slug: neon-padel-court
 title: "Neon-Padelplatz"
-navLabel: "Neon"
+navLabel: "Neon-Padelplatz"
 parent: /innovative-courts/
 order: 6
 orphan: false

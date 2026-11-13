@@ -90,6 +90,11 @@
             "label": "Panaromic Plate Padel Court",
             "url": "/panaromic-plate-padel-court/",
             "type": "page"
+          },
+          {
+            "label": "Neon",
+            "url": "/neon-padel-court/",
+            "type": "page"
           }
         ]
       },

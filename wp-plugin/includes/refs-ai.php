@@ -298,6 +298,7 @@ function upx_ai_detect_court_types($text) {
 		'/single-panoramic-padel-court/'             => '/single[\s-]panoramic/i',
 		'/full-panoramic-padel-court/'               => '/full[\s-]panoramic/i',
 		'/panaromic-plate-padel-court/'              => '/panoramic plate/i',
+		'/neon-padel-court/'                          => '/\bneon\b|phosphorescent/i',
 		'/plate-standard-padel-court/'               => '/\bplate standard\b|\bplate\b/i',
 		'/panoramic-padel-court/'                    => '/panoramic/i',
 		'/wp-challenge-padel-court/'                 => '/wp[\s-]challenge/i',
@@ -322,6 +323,7 @@ function upx_ai_detect_court_types($text) {
 		'/single-panoramic-padel-court/'      => array('/single-padel-court/', '/panoramic-padel-court/'),
 		'/full-panoramic-padel-court/'        => array('/panoramic-padel-court/'),
 		'/panaromic-plate-padel-court/'       => array('/panoramic-padel-court/', '/plate-standard-padel-court/'),
+		'/neon-padel-court/'                   => array('/panoramic-padel-court/'),
 		'/plate-standard-padel-court/'        => array('/standard-padel-court/'),
 	);
 

@@ -35,6 +35,7 @@ const COURT_WORDS: [RegExp, string][] = [
   [/single[\s-]panoramic/i, '/single-panoramic-padel-court/'],
   [/full[\s-]panoramic/i, '/full-panoramic-padel-court/'],
   [/panoramic plate/i, '/panaromic-plate-padel-court/'],
+  [/\bneon\b|phosphorescent/i, '/neon-padel-court/'],
   [/\bplate standard\b|\bplate\b/i, '/plate-standard-padel-court/'],
   [/panoramic/i, '/panoramic-padel-court/'],
   [/wp[\s-]challenge/i, '/wp-challenge-padel-court/'],
@@ -63,6 +64,7 @@ const COVERS: Record<string, string[]> = {
   '/single-panoramic-padel-court/': ['/single-padel-court/', '/panoramic-padel-court/'],
   '/full-panoramic-padel-court/': ['/panoramic-padel-court/'],
   '/panaromic-plate-padel-court/': ['/panoramic-padel-court/', '/plate-standard-padel-court/'],
+  '/neon-padel-court/': ['/panoramic-padel-court/'],
   '/plate-standard-padel-court/': ['/standard-padel-court/'],
 };
 

@@ -357,6 +357,7 @@ const tr: LocaleData = {
     '/floating-floor-padel-court/': { spec: 'Modüler alt zemin · −30 °C ile 70 °C arası' },
     '/plate-standard-padel-court/': { spec: 'Çelik ankraj plakaları · derin temel gerektirmez' },
     '/panaromic-plate-padel-court/': { spec: 'Plaka tabanlı panoramik cam' },
+    '/neon-padel-court/': { spec: 'Fosforlu konstrüksiyon · karanlıkta parlar', photoAlt: 'Karanlıkta yeşil parlayan Unixpadel Neon Padel Kortu' },
     '/mobilfold-padel-court/': { spec: 'Taşıma için katlanır · birkaç saatte kurulur' },
   },
   family: {

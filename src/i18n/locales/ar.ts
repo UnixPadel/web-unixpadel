@@ -316,6 +316,7 @@ const ar: LocaleData = {
     '/floating-floor-padel-court/': { spec: 'أرضية فرعية معيارية · من −30 °C إلى 70 °C' },
     '/plate-standard-padel-court/': { spec: 'ألواح تثبيت فولاذية · دون أساسات عميقة' },
     '/panaromic-plate-padel-court/': { spec: 'زجاج بانورامي على قاعدة ألواح' },
+    '/neon-padel-court/': { spec: 'هيكل فسفوري · يتوهج في الظلام', photoAlt: 'ملعب بادل نيون من Unixpadel يتوهج بالأخضر في الظلام' },
     '/mobilfold-padel-court/': { spec: 'يُطوى للنقل · يُركَّب خلال ساعات' },
   },
   family: {

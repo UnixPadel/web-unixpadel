@@ -316,6 +316,7 @@ const fr: LocaleData = {
     '/floating-floor-padel-court/': { spec: 'Plancher modulaire · −30 °C à 70 °C' },
     '/plate-standard-padel-court/': { spec: 'Platines d’ancrage acier · sans fondation profonde' },
     '/panaromic-plate-padel-court/': { spec: 'Verre panoramique sur base à platines' },
+    '/neon-padel-court/': { spec: 'Structure phosphorescente · brille dans le noir', photoAlt: 'Terrain de padel néon Unixpadel brillant en vert dans le noir' },
     '/mobilfold-padel-court/': { spec: 'Pliable pour le transport · monté en quelques heures' },
   },
   family: {

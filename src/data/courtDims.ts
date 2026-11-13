@@ -62,6 +62,7 @@ export const COURT_DIMS: Record<string, CourtDims> = {
   '/floating-floor-padel-court/': { ...doubles('FIP standard doubles court, plan view'), standardOnly: true },
   '/plate-standard-padel-court/': doubles(),
   '/panaromic-plate-padel-court/': doubles(),
+  '/neon-padel-court/': doubles(),
   '/single-padel-court/': single(),
   '/single-panoramic-padel-court/': single(),
   '/single-full-panoramic-padel-court/': single(),

@@ -315,6 +315,7 @@ const de: LocaleData = {
     '/floating-floor-padel-court/': { spec: 'Modularer Unterboden · −30 °C bis 70 °C' },
     '/plate-standard-padel-court/': { spec: 'Stahl-Ankerplatten · kein tiefes Fundament' },
     '/panaromic-plate-padel-court/': { spec: 'Panoramaglas auf Plattenunterbau' },
+    '/neon-padel-court/': { spec: 'Phosphoreszierender Rahmen · leuchtet im Dunkeln', photoAlt: 'Unixpadel Neon-Padelplatz leuchtet im Dunkeln grün' },
     '/mobilfold-padel-court/': { spec: 'Faltbar für den Transport · in Stunden aufgebaut' },
   },
   family: {

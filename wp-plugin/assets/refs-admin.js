@@ -129,6 +129,7 @@
 		['/single-panoramic-padel-court/', /single[\s-]panoramic/i],
 		['/full-panoramic-padel-court/', /full[\s-]panoramic/i],
 		['/panaromic-plate-padel-court/', /panoramic plate/i],
+		['/neon-padel-court/', /\bneon\b|phosphorescent/i],
 		['/plate-standard-padel-court/', /\bplate standard\b|\bplate\b/i],
 		['/panoramic-padel-court/', /panoramic/i],
 		['/wp-challenge-padel-court/', /wp[\s-]challenge/i],

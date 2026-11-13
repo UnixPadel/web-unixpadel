@@ -315,6 +315,7 @@ const ru: LocaleData = {
     '/floating-floor-padel-court/': { spec: 'Модульное основание · от −30 °C до 70 °C' },
     '/plate-standard-padel-court/': { spec: 'Стальные анкерные пластины · без глубокого фундамента' },
     '/panaromic-plate-padel-court/': { spec: 'Панорамное стекло на пластинчатом основании' },
+    '/neon-padel-court/': { spec: 'Фосфоресцентный каркас · светится в темноте', photoAlt: 'Неоновый падел-корт Unixpadel светится зелёным в темноте' },
     '/mobilfold-padel-court/': { spec: 'Складывается для перевозки · монтаж за часы' },
   },
   family: {

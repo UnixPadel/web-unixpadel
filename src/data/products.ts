@@ -35,6 +35,11 @@ export const PRODUCTS: Record<string, ProductMeta> = {
   '/floating-floor-padel-court/': { spec: 'Modular sub-floor · −30 °C to 70 °C' },
   '/plate-standard-padel-court/': { spec: 'Steel anchor plates · no deep foundation' },
   '/panaromic-plate-padel-court/': { spec: 'Panoramic glass on a plate base' },
+  '/neon-padel-court/': {
+    spec: 'Phosphorescent frame · glows in the dark',
+    photo: '/wp-content/uploads/2026/11/neon-padel-court-4.jpeg',
+    photoAlt: 'Unixpadel Neon Padel Court glowing green in the dark',
+  },
   '/mobilfold-padel-court/': { spec: 'Folds for transport · sets up in hours' },
 };
 

@@ -301,3 +301,16 @@
 .prose--closing > h2:last-of-type ~ :last-child {
   border-end-end-radius: var(--radius-md);
 }
+
+/* Portrait phone clips side by side (e.g. the day / night videos of the Neon court). */
+.prose .clips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-4);
+  margin-block: var(--sp-5);
+}
+
+.prose .clips video {
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}

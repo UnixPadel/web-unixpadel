@@ -35,6 +35,31 @@
 		return parseInt($('.upx-ai-box').attr('data-post-id') || $('#post_ID').val(), 10) || 0;
 	}
 
+	// Type: a two-option switch (radios) on Instagram drafts, a dropdown on other references.
+	var KIND_LABELS = { project: 'Project', news: 'Company news' };
+
+	function getKind() {
+		var $radio = $('input[name="upx_ref[kind]"]:checked');
+		if ($radio.length) return String($radio.val());
+		return $('#upx-kind').val() || '';
+	}
+
+	function setKind(kind) {
+		var $radios = $('input[type="radio"][name="upx_ref[kind]"]');
+		if ($radios.length) {
+			$radios.filter('[value="' + kind + '"]').prop('checked', true).trigger('change');
+		} else {
+			$('#upx-kind').val(kind).trigger('change');
+		}
+	}
+
+	// Replaces the editor page with its saved state, without WordPress' "leave page?" prompt.
+	function reloadEditor() {
+		$(window).off('beforeunload.edit-post');
+		window.onbeforeunload = null;
+		window.location.reload();
+	}
+
 	// Gallery: media library multi-select, drag to reorder, remove. The order is kept in a hidden comma list of IDs.
 	var $list = $('#upx-gallery-list');
 	var $input = $('#upx-gallery');
@@ -464,7 +489,7 @@
 		});
 
 		$igGenBtn.prop('disabled', true);
-		$status.attr('class', 'upx-ai-status is-loading').text('Generating English reference, validating consistency, sideloading photos & translating 5 languages...');
+		$status.attr('class', 'upx-ai-status is-loading').text('Checking whether this is a project or company news, writing the English text, importing photos & translating 5 languages...');
 
 		$.ajax({
 			url: getAjaxUrl(),
@@ -525,71 +550,86 @@
 		else if (kind === 'news') parts.push('Company news');
 		else parts.push('No type');
 
+		// Country and court type are optional for company news, so empty ones are left out of its label.
 		if (country && cMap[country]) parts.push(cMap[country]);
 		else if (country) parts.push(country);
-		else parts.push('No country');
+		else if (kind !== 'news') parts.push('No country');
 
 		if (Array.isArray(types) && types.length > 0) {
 			parts.push(types.map(function (u) { return pMap[u] || u; }).join(' + '));
-		} else {
+		} else if (kind !== 'news') {
 			parts.push('No court type');
 		}
 		return parts.join(' · ');
 	}
 
-	function isSameSelection(a, b) {
-		if (!a || !b) return false;
-		var k1 = a.kind || '';
-		var k2 = b.kind || '';
-		var c1 = a.country || '';
-		var c2 = b.country || '';
-		var t1 = Array.isArray(a.types) ? a.types.slice().sort() : [];
-		var t2 = Array.isArray(b.types) ? b.types.slice().sort() : [];
-		return k1 === k2 && c1 === c2 && t1.join('|') === t2.join('|');
+	// Stale = a selected field differs from what the text was written for (a field not chosen yet is not stale).
+	// Mirrors upx_ig_selection_differs() in refs-ig.php.
+	function selectionDiffers(cur, gen) {
+		if (!gen) return false;
+		var tc = Array.isArray(cur.types) ? cur.types.slice().sort() : [];
+		var tg = Array.isArray(gen.types) ? gen.types.slice().sort() : [];
+		if (cur.kind && cur.kind !== (gen.kind || '')) return true;
+		if (cur.country && cur.country !== (gen.country || '')) return true;
+		return tc.length > 0 && tc.join('|') !== tg.join('|');
+	}
+
+	function currentSelection() {
+		return { kind: getKind(), country: $('#upx-country').val() || '', types: getSelectedCourtTypes() };
+	}
+
+	// Selections still missing before publishing; company news needs only the Type. Mirrors upx_ig_missing_selections().
+	function missingSelections(sel) {
+		var missing = [];
+		if (!sel.kind) missing.push('Type (Project or Company news)');
+		if (sel.kind !== 'news') {
+			if (!sel.country) missing.push('Country');
+			if (sel.types.length === 0) missing.push('At least 1 Court type');
+		}
+		return missing;
 	}
 
 	function evaluateIgConsistency() {
 		if (!isIgPost) return;
 
-		var curKind = $('#upx-kind').val() || '';
-		var curCountry = $('#upx-country').val() || '';
-		var curTypes = getSelectedCourtTypes();
+		var sel = currentSelection();
+		var isNews = sel.kind === 'news';
+		var isStale = selectionDiffers(sel, genMeta);
+		var kindSwitched = isStale && genMeta && sel.kind && sel.kind !== genMeta.kind;
 
-		var anySelected = (curKind !== '' || curCountry !== '' || curTypes.length > 0);
-		var allSelected = (curKind !== '' && curCountry !== '' && curTypes.length > 0);
-		var isStale = false;
-
-		if (anySelected && genMeta) {
-			isStale = !isSameSelection({ kind: curKind, country: curCountry, types: curTypes }, genMeta);
-		}
+		$('.upx-ref').toggleClass('is-news', isNews);
 
 		var $staleBar = $('#upx-ig-stale-bar');
 		if (isStale && genMeta) {
-			$('#upx-ig-stale-gen-label').text(formatSelectionLabel(genMeta.kind, genMeta.country, genMeta.types));
-			$('#upx-ig-stale-cur-label').text(formatSelectionLabel(curKind, curCountry, curTypes));
+			// After a Type switch, the type alone is the message; country and court type details would only add noise.
+			$('#upx-ig-stale-gen-label').text(kindSwitched ? KIND_LABELS[genMeta.kind] || genMeta.kind : formatSelectionLabel(genMeta.kind, genMeta.country, genMeta.types));
+			$('#upx-ig-stale-cur-label').text(kindSwitched ? KIND_LABELS[sel.kind] : formatSelectionLabel(sel.kind, sel.country, sel.types));
+			// A Type switch means a different kind of article, so say so on the button.
+			$('#upx-ig-btn-regenerate-label').text(kindSwitched ? 'Rewrite as ' + KIND_LABELS[sel.kind] : 'Regenerate text (keep images & selections)');
 			$staleBar.slideDown(150);
 		} else {
 			$staleBar.slideUp(150);
 		}
 
 		// Phase 6: Client-side Publish Gate Checklist & Button Lock.
+		var missing = missingSelections(sel);
 		var $gate = $('#upx-ig-publish-gate');
 		if ($gate.length) {
-			var items = [
-				{ ok: curKind !== '', text: '1. Select Type (Project or Company news)' },
-				{ ok: curCountry !== '', text: '2. Select Country' },
-				{ ok: curTypes.length > 0, text: '3. Select at least 1 Court type' },
-				{ ok: allSelected && !isStale, text: '4. Content matches selections (not stale)' }
-			];
+			var items = [{ ok: sel.kind !== '', text: 'Select Type (Project or Company news)' }];
+			if (!isNews) {
+				items.push({ ok: sel.country !== '', text: 'Select Country' });
+				items.push({ ok: sel.types.length > 0, text: 'Select at least 1 Court type' });
+			}
+			items.push({ ok: missing.length === 0 && !isStale, text: 'Content matches selections (not stale)' });
 			var html = '<strong>Publish Readiness Checklist:</strong><ul class="upx-ig-checklist">';
-			items.forEach(function (it) {
-				html += '<li class="' + (it.ok ? 'is-ok' : 'is-pending') + '">' + (it.ok ? '✓ ' : '○ ') + it.text + '</li>';
+			items.forEach(function (it, i) {
+				html += '<li class="' + (it.ok ? 'is-ok' : 'is-pending') + '">' + (it.ok ? '✓ ' : '○ ') + (i + 1) + '. ' + it.text + '</li>';
 			});
 			html += '</ul>';
 			$gate.html(html);
 		}
 
-		var canPublish = allSelected && !isStale;
+		var canPublish = missing.length === 0 && !isStale;
 		var $pubBtn = $('#publish');
 		if ($pubBtn.length && $pubBtn.val() !== 'Update') {
 			$pubBtn.toggleClass('upx-publish-locked', !canPublish);
@@ -603,7 +643,7 @@
 		var val = $(this).attr('data-value');
 
 		if (field === 'type' && val) {
-			$('#upx-kind').val(val).trigger('change');
+			setKind(val);
 		} else if (field === 'country' && val) {
 			$('#upx-country').val(val).trigger('change');
 		} else if (field === 'types' && val) {
@@ -629,7 +669,7 @@
 		var c = $btn.attr('data-country');
 		var typesRaw = $btn.attr('data-types');
 
-		if (t) $('#upx-kind').val(t);
+		if (t) setKind(t);
 		if (c) $('#upx-country').val(c);
 		if (typesRaw) {
 			try {
@@ -647,23 +687,23 @@
 	});
 
 	$('#upx-kind, #upx-country').on('change', evaluateIgConsistency);
+	$('input[type="radio"][name="upx_ref[kind]"]').on('change', evaluateIgConsistency);
 	$('.upx-ref__types').on('change', 'input[type="checkbox"]', evaluateIgConsistency);
 
-	// Phase 5: "Regenerate text" button
+	// Phase 5: "Regenerate text" / "Rewrite as …" button. Only the Type is required; the AI suggests a Country or
+	// Court type that is not chosen yet. The page reloads afterwards so the text, suggestions and notes all match.
 	$('#upx-ig-btn-regenerate').on('click', function () {
-		var curKind = $('#upx-kind').val() || '';
-		var curCountry = $('#upx-country').val() || '';
-		var curTypes = getSelectedCourtTypes();
+		var sel = currentSelection();
 		var $status = $('#upx-ig-stale-status');
 		var $btns = $('#upx-ig-btn-regenerate, #upx-ig-btn-ack-stale');
 
-		if (!curKind || !curCountry || curTypes.length === 0) {
-			$status.attr('class', 'upx-ai-status is-error').text('Please select Type, Country, and at least 1 Court type first.');
+		if (!sel.kind) {
+			$status.attr('class', 'upx-ai-status is-error').text('Choose Project or Company news first.');
 			return;
 		}
 
 		$btns.prop('disabled', true);
-		$status.attr('class', 'upx-ai-status is-loading').text('Regenerating English text & 5 translations for your selections...');
+		$status.attr('class', 'upx-ai-status is-loading').text('Writing the ' + (sel.kind === 'news' ? 'company news article' : 'project text') + ' & 5 translations...');
 
 		$.ajax({
 			url: getAjaxUrl(),
@@ -673,61 +713,34 @@
 				action: 'upx_ig_regenerate',
 				nonce: getAiNonce(),
 				post_id: getPostId(),
-				kind: curKind,
-				country: curCountry,
-				types: curTypes
+				kind: sel.kind,
+				country: sel.country,
+				types: sel.types
 			}
 		}).done(function (res) {
 			if (!res || !res.success || !res.data) {
 				var msg = (res && res.data && res.data.message) ? res.data.message : 'Regeneration failed.';
 				$status.attr('class', 'upx-ai-status is-error').text('Error: ' + msg);
+				$btns.prop('disabled', false);
 				return;
 			}
-			var d = res.data;
-			if (d.title) $('#title').val(d.title);
-			if (d.slug) $('#upx-slug').val(d.slug);
-			if (d.excerpt) $('#excerpt').val(d.excerpt);
-			if (d.body_html) setEditorContent('content', d.body_html);
-			if (d.seo_title) $('#upx-seo-title').val(d.seo_title).trigger('input');
-			if (d.seo_desc) $('#upx-seo-desc').val(d.seo_desc).trigger('input');
-			if (d.focus_keyphrase) $('#upx-focus-keyphrase').val(d.focus_keyphrase);
-
-			if (d.translations && typeof d.translations === 'object') {
-				Object.keys(d.translations).forEach(function (lang) {
-					var t = d.translations[lang];
-					if (!t) return;
-					$('input[name="upx_l10n[' + lang + '][title]"]').val(t.title || '');
-					$('textarea[name="upx_l10n[' + lang + '][excerpt]"]').val(t.excerpt || '');
-					$('input[name="upx_l10n[' + lang + '][seo_title]"]').val(t.seo_title || '');
-					$('textarea[name="upx_l10n[' + lang + '][seo_desc]"]').val(t.seo_desc || '');
-					if (t.body) setEditorContent('upxbody' + lang, t.body);
-				});
-			}
-
-			genMeta = { kind: curKind, country: curCountry, types: curTypes.slice() };
-			$status.attr('class', 'upx-ai-status is-success').text('✓ Text & translations regenerated!');
-			setTimeout(function () {
-				$status.text('');
-				evaluateIgConsistency();
-			}, 1200);
+			$status.attr('class', 'upx-ai-status is-success').text('✓ Text & translations rewritten. Reloading...');
+			reloadEditor();
 		}).fail(function (xhr) {
 			var err = (xhr.responseJSON && xhr.responseJSON.data && xhr.responseJSON.data.message) ? xhr.responseJSON.data.message : 'Server error.';
 			$status.attr('class', 'upx-ai-status is-error').text('Error: ' + err);
-		}).always(function () {
 			$btns.prop('disabled', false);
 		});
 	});
 
 	// Phase 5: "I have checked the text" button
 	$('#upx-ig-btn-ack-stale').on('click', function () {
-		var curKind = $('#upx-kind').val() || '';
-		var curCountry = $('#upx-country').val() || '';
-		var curTypes = getSelectedCourtTypes();
+		var sel = currentSelection();
 		var $status = $('#upx-ig-stale-status');
 		var $btns = $('#upx-ig-btn-regenerate, #upx-ig-btn-ack-stale');
 
-		if (!curKind || !curCountry || curTypes.length === 0) {
-			$status.attr('class', 'upx-ai-status is-error').text('Please select Type, Country, and at least 1 Court type first.');
+		if (!sel.kind) {
+			$status.attr('class', 'upx-ai-status is-error').text('Choose Project or Company news first.');
 			return;
 		}
 
@@ -742,13 +755,13 @@
 				action: 'upx_ig_ack_stale',
 				nonce: getAiNonce(),
 				post_id: getPostId(),
-				kind: curKind,
-				country: curCountry,
-				types: curTypes
+				kind: sel.kind,
+				country: sel.country,
+				types: sel.types
 			}
 		}).done(function (res) {
 			if (res && res.success) {
-				genMeta = { kind: curKind, country: curCountry, types: curTypes.slice() };
+				genMeta = (res.data && res.data.generated_meta) ? res.data.generated_meta : { kind: sel.kind, country: sel.country, types: sel.types.slice() };
 				$status.attr('class', 'upx-ai-status').text('');
 				evaluateIgConsistency();
 			} else {
@@ -763,17 +776,10 @@
 	// Intercept Publish click on Instagram references if required selections are missing or content is stale.
 	$('#publish').on('click', function (e) {
 		if (!isIgPost) return;
-		var curKind = $('#upx-kind').val() || '';
-		var curCountry = $('#upx-country').val() || '';
-		var curTypes = getSelectedCourtTypes();
-		var isStale = genMeta ? !isSameSelection({ kind: curKind, country: curCountry, types: curTypes }, genMeta) : false;
-
-		var missing = [];
-		if (!curKind) missing.push('• Type (Project or Company news)');
-		if (!curCountry) missing.push('• Country');
-		if (curTypes.length === 0) missing.push('• At least 1 Court type');
-		if (curKind && curCountry && curTypes.length > 0 && isStale) {
-			missing.push('• Content is stale (click "Regenerate text" or "I have checked the text")');
+		var sel = currentSelection();
+		var missing = missingSelections(sel).map(function (m) { return '• ' + m; });
+		if (sel.kind && selectionDiffers(sel, genMeta)) {
+			missing.push('• Content is stale (click "' + $('#upx-ig-btn-regenerate-label').text() + '" or "I have checked the text")');
 		}
 
 		if (missing.length > 0) {
@@ -811,7 +817,7 @@
 				action: 'upx_ai_draft',
 				nonce: getAiNonce(),
 				notes: notes,
-				kind: $('#upx-kind').val() || 'project',
+				kind: getKind() || 'project',
 				translate: translateAll ? 1 : 0
 			}
 		}).done(function (res) {
@@ -922,7 +928,8 @@
 				title: title,
 				excerpt: excerpt,
 				body: body,
-				langs: targetLangs
+				langs: targetLangs,
+				kind: getKind()
 			}
 		}).done(function (res) {
 			if (!res || !res.success || !res.data || !res.data.translations) {

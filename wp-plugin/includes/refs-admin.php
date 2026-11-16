@@ -169,6 +169,9 @@ function upx_ref_details_box($post) {
 	$missing_inf = get_post_meta($post->ID, '_ai_missing_info', true);
 	$missing_inf = is_array($missing_inf) ? $missing_inf : array();
 	$consistency = upx_ig_consistency_state($post->ID);
+	$detection   = get_post_meta($post->ID, '_ai_type_detection', true);
+	$detection   = is_array($detection) && isset($detection['type']) ? $detection : null;
+	$kind_labels = array('project' => 'Project', 'news' => 'Company news');
 
 	$sug_type_label    = $sug_type === 'news' ? 'Company news' : ($sug_type === 'project' ? 'Project' : '');
 	$sug_country_label = ($sug_country !== '' && isset($data['l10n']['en']['countries'][$sug_country])) ? $data['l10n']['en']['countries'][$sug_country] : '';
@@ -180,7 +183,7 @@ function upx_ref_details_box($post) {
 	}
 	$has_any_suggestion = ($sug_type !== '' || $sug_country !== '' || !empty($sug_types));
 	?>
-	<div class="upx-ref" data-is-ig="<?php echo $is_ig ? '1' : '0'; ?>" data-generated-for="<?php echo esc_attr($consistency['generated_hash']); ?>">
+	<div class="upx-ref<?php echo $is_ig && $meta['kind'] === 'news' ? ' is-news' : ''; ?>" data-is-ig="<?php echo $is_ig ? '1' : '0'; ?>" data-generated-for="<?php echo esc_attr($consistency['generated_hash']); ?>">
 		<?php if ($is_ig) : ?>
 			<div class="upx-ig-source-bar">
 				<div class="upx-ig-source-bar__info">
@@ -220,7 +223,7 @@ function upx_ref_details_box($post) {
 				</div>
 				<div class="upx-ig-stale-bar__actions">
 					<button type="button" class="button button-primary" id="upx-ig-btn-regenerate">
-						<span class="dashicons dashicons-update" style="vertical-align:text-bottom"></span> Regenerate text (keep images &amp; selections)
+						<span class="dashicons dashicons-update" style="vertical-align:text-bottom"></span> <span id="upx-ig-btn-regenerate-label">Regenerate text (keep images &amp; selections)</span>
 					</button>
 					<button type="button" class="button" id="upx-ig-btn-ack-stale">
 						I have checked the text
@@ -235,29 +238,50 @@ function upx_ref_details_box($post) {
 			<code><?php echo esc_html(home_url('/references/')); ?></code><input type="text" id="upx-slug" name="post_name" value="<?php echo esc_attr($slug); ?>" class="regular-text code" pattern="[a-z0-9-]*" placeholder="made-from-the-title"><code>/</code>
 			<span class="description">Letters a–z, digits and hyphens. Leave empty to make it from the title. Addresses of existing pages get a number added (oman → oman-2).</span>
 		</p>
-		<div class="upx-ref__row">
-			<label for="upx-kind"><strong>Type</strong> <?php if ($is_ig) : ?><span class="upx-req">*</span><?php endif; ?></label>
-			<?php if ($is_ig && $sug_type_label !== '') : ?>
-				<span class="upx-ai-suggestion" id="upx-sug-badge-type">
-					AI suggestion: <strong><?php echo esc_html($sug_type_label); ?></strong>
-					<span class="upx-ai-conf upx-ai-conf--<?php echo esc_attr($sug_conf['type']); ?>"><?php echo esc_html($sug_conf['type']); ?></span>
-					<button type="button" class="button-link upx-apply-single" data-field="type" data-value="<?php echo esc_attr($sug_type); ?>">[Apply]</button>
-				</span>
-			<?php endif; ?>
-			<br>
-			<select id="upx-kind" name="upx_ref[kind]">
-				<?php if ($is_ig) : ?>
-					<option value="" <?php selected($meta['kind'], ''); ?>>— Select type (required to publish) —</option>
+		<?php if ($is_ig) : ?>
+			<?php // Instagram drafts: both types visible at once; picking the other one offers to rewrite the text for it. ?>
+			<div class="upx-ref__row">
+				<span class="upx-ref__label" id="upx-kind-label"><strong>Type</strong> <span class="upx-req">*</span></span>
+				<?php if ($detection) : ?>
+					<span class="upx-ai-suggestion" id="upx-sug-badge-type">
+						AI detected: <strong><?php echo esc_html($kind_labels[$detection['type']]); ?></strong>
+						<span class="upx-ai-conf upx-ai-conf--<?php echo esc_attr($detection['confidence']); ?>"><?php echo esc_html($detection['confidence']); ?></span>
+					</span>
+				<?php elseif ($sug_type_label !== '') : ?>
+					<span class="upx-ai-suggestion" id="upx-sug-badge-type">
+						AI suggestion: <strong><?php echo esc_html($sug_type_label); ?></strong>
+						<span class="upx-ai-conf upx-ai-conf--<?php echo esc_attr($sug_conf['type']); ?>"><?php echo esc_html($sug_conf['type']); ?></span>
+						<button type="button" class="button-link upx-apply-single" data-field="type" data-value="<?php echo esc_attr($sug_type); ?>">[Apply]</button>
+					</span>
 				<?php endif; ?>
-				<option value="project" <?php selected($meta['kind'], 'project'); ?>>Project (card on /references/, the home page and product pages)</option>
-				<option value="news" <?php selected($meta['kind'], 'news'); ?>>Company news (list under the projects on /references/)</option>
-			</select>
-		</div>
+				<div class="upx-kind-switch" role="radiogroup" aria-labelledby="upx-kind-label">
+					<?php foreach ($kind_labels as $k_val => $k_label) : ?>
+						<label class="upx-kind-switch__opt">
+							<input type="radio" name="upx_ref[kind]" value="<?php echo esc_attr($k_val); ?>" <?php checked($meta['kind'], $k_val); ?>>
+							<span><?php echo esc_html($k_label); ?></span>
+						</label>
+					<?php endforeach; ?>
+				</div>
+				<span class="description">
+					<?php if ($detection && $detection['reason'] !== '') : ?><?php echo esc_html(rtrim($detection['reason'], '.')); ?>. <?php endif; ?>
+					Wrong type? Pick the other one and the text can be rewritten for it.
+				</span>
+			</div>
+		<?php else : ?>
+			<div class="upx-ref__row">
+				<label for="upx-kind"><strong>Type</strong></label>
+				<br>
+				<select id="upx-kind" name="upx_ref[kind]">
+					<option value="project" <?php selected($meta['kind'], 'project'); ?>>Project (card on /references/, the home page and product pages)</option>
+					<option value="news" <?php selected($meta['kind'], 'news'); ?>>Company news (list under the projects on /references/)</option>
+				</select>
+			</div>
+		<?php endif; ?>
 		<?php if ($meta['image_url'] !== '' && !has_post_thumbnail($post)) : ?>
 			<p class="upx-ref__row notice notice-info inline">Imported photo, not in the media library: <code><?php echo esc_html($meta['image_url']); ?></code>. It is shown until you set a Main photo.</p>
 		<?php endif; ?>
 		<div class="upx-ref__row">
-			<label for="upx-country"><strong>Country</strong> <?php if ($is_ig) : ?><span class="upx-req">*</span><?php endif; ?></label>
+			<label for="upx-country"><strong>Country</strong> <?php if ($is_ig) : ?><span class="upx-req upx-req--project">*</span><span class="upx-opt-news">(optional for company news)</span><?php endif; ?></label>
 			<?php if ($is_ig && $sug_country_label !== '') : ?>
 				<span class="upx-ai-suggestion" id="upx-sug-badge-country">
 					AI suggestion: <strong><?php echo esc_html($sug_country_label); ?></strong>
@@ -269,7 +293,7 @@ function upx_ref_details_box($post) {
 			<?php endif; ?>
 			<br>
 			<select id="upx-country" name="upx_ref[country]">
-				<option value=""><?php echo $is_ig ? '— Select country (required to publish) —' : '— None (filter “Other”) —'; ?></option>
+				<option value=""><?php echo $is_ig ? '— Select country —' : '— None (filter “Other”) —'; ?></option>
 				<?php foreach ($data['countries'] as $c) : ?>
 					<option value="<?php echo esc_attr($c['slug']); ?>" <?php selected($meta['country'], $c['slug']); ?>><?php echo esc_html($data['l10n']['en']['countries'][$c['slug']]); ?></option>
 				<?php endforeach; ?>
@@ -278,7 +302,7 @@ function upx_ref_details_box($post) {
 		</div>
 		<fieldset class="upx-ref__row upx-ref__types" data-max="<?php echo (int) $data['limits']['types']; ?>">
 			<legend>
-				<strong>Court type</strong> <?php if ($is_ig) : ?><span class="upx-req">*</span><?php endif; ?>
+				<strong>Court type</strong> <?php if ($is_ig) : ?><span class="upx-req upx-req--project">*</span><span class="upx-opt-news">(optional for company news)</span><?php endif; ?>
 				<span class="description">(up to <?php echo (int) $data['limits']['types']; ?>; links to the product pages)</span>
 				<?php if ($is_ig && !empty($sug_types_labels)) : ?>
 					<span class="upx-ai-suggestion" id="upx-sug-badge-types">
@@ -341,7 +365,7 @@ function upx_ref_details_box($post) {
 		</div>
 		<?php if ($is_ig) : ?>
 			<div id="upx-ig-publish-gate" class="upx-ig-publish-gate"></div>
-			<p class="description">Required to publish an Instagram reference: English title, English text, Main photo (at least 1080 px wide), <strong>Type</strong>, <strong>Country</strong>, at least 1 <strong>Court type</strong>, and verified text consistency (not stale).</p>
+			<p class="description">Required to publish an Instagram reference: English title, English text, Main photo (at least 1080 px wide), <strong>Type</strong> and text that matches the selections. Projects also need a <strong>Country</strong> and at least 1 <strong>Court type</strong>.</p>
 		<?php else : ?>
 			<p class="description">Required to publish: English title, English text and a main photo (box “Main photo”, landscape, at least 1600 px wide). The <strong>Excerpt</strong> box is the summary under the title and on the card.</p>
 		<?php endif; ?>
@@ -522,9 +546,9 @@ add_action('save_post_' . UPX_REF_TYPE, 'upx_ref_save', 10, 2);
  * Publishing needs the English title, English text, and a main photo.
  * For Instagram-sourced references (_source = instagram), publishing is ALSO blocked server-side until:
  * 1. Type is selected ('project' or 'news'),
- * 2. Country is selected (non-empty),
- * 3. At least 1 Court type is selected,
- * 4. Content is NOT stale (hash of selected Type + Country + Court types matches _generated_for).
+ * 2. Country is selected (non-empty) — projects only,
+ * 3. At least 1 Court type is selected — projects only,
+ * 4. Content is NOT stale (no selected Type / Country / Court type differs from _generated_for_meta).
  */
 function upx_ref_require_fields($data, $postarr) {
 	if ($data['post_type'] !== UPX_REF_TYPE || !in_array($data['post_status'], array('publish', 'future'), true)) {
@@ -571,19 +595,16 @@ function upx_ref_require_fields($data, $postarr) {
 		$country = isset($in_ref['country']) ? sanitize_title((string) $in_ref['country']) : '';
 		$types   = isset($in_ref['types']) && is_array($in_ref['types']) ? array_values(array_filter(array_map('strval', $in_ref['types']))) : array();
 
-		if ($kind === '') {
-			$missing[] = 'Type selection (Project or Company news)';
-		}
-		if ($country === '') {
-			$missing[] = 'Country selection';
-		}
-		if (empty($types)) {
-			$missing[] = 'at least one Court type selection';
+		$labels = array(
+			'Type'       => 'Type selection (Project or Company news)',
+			'Country'    => 'Country selection',
+			'Court type' => 'at least one Court type selection',
+		);
+		foreach (upx_ig_missing_selections($kind, $country, $types) as $field) {
+			$missing[] = $labels[$field];
 		}
 
-		$gen_hash = (string) get_post_meta($post_id, '_generated_for', true);
-		$cur_hash = upx_ig_selection_hash($kind, $country, $types);
-		if ($kind !== '' && $country !== '' && !empty($types) && $gen_hash !== '' && $cur_hash !== $gen_hash) {
+		if ($kind !== '' && upx_ig_selection_differs(get_post_meta($post_id, '_generated_for_meta', true), $kind, $country, $types)) {
 			$missing[] = 'text consistency verification (click "Regenerate text" or "I have checked the text" in Reference details)';
 		}
 	}
@@ -613,7 +634,11 @@ function upx_ref_notices() {
 	$ig_gen = get_transient('upx_ig_generated_notice_' . $user);
 	if (is_array($ig_gen)) {
 		delete_transient('upx_ig_generated_notice_' . $user);
-		echo '<div class="notice notice-success is-dismissible"><p><strong>Instagram Reference Draft Generated!</strong> Review the English text below, apply or choose <strong>Type</strong>, <strong>Country</strong>, and <strong>Court type</strong> in the <em>Reference details</em> box, and then click <strong>Publish</strong>.</p></div>';
+		if (isset($ig_gen['kind']) && $ig_gen['kind'] === 'news') {
+			echo '<div class="notice notice-success is-dismissible"><p><strong>Company news draft generated.</strong> The AI read this post as <strong>company news</strong> and wrote a news article. Review the text below, then click <strong>Publish</strong>. If it is really a delivered project, pick <strong>Project</strong> under <em>Type</em> in the <em>Reference details</em> box and rewrite.</p></div>';
+		} else {
+			echo '<div class="notice notice-success is-dismissible"><p><strong>Project reference draft generated.</strong> Review the English text below, apply or choose <strong>Country</strong> and <strong>Court type</strong> in the <em>Reference details</em> box, and then click <strong>Publish</strong>. If the post is really company news, pick <strong>Company news</strong> under <em>Type</em> and rewrite.</p></div>';
+		}
 	}
 	$slug = get_transient('upx_slug_notice_' . $user);
 	if (is_array($slug)) {

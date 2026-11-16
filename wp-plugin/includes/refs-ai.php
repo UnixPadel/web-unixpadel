@@ -230,13 +230,14 @@ function upx_ai_generate_draft($notes, $kind = 'project', $translate = true) {
  * @param string[] $target_langs
  * @return array|WP_Error
  */
-function upx_ai_translate_reference($title, $excerpt, $body, $target_langs = array('tr', 'de', 'fr', 'ar', 'ru')) {
+function upx_ai_translate_reference($title, $excerpt, $body, $target_langs = array('tr', 'de', 'fr', 'ar', 'ru'), $kind = 'project') {
 	if (empty($target_langs)) {
 		return array();
 	}
 
+	$is_news    = $kind === 'news';
 	$langs_list = implode(', ', array_map('strtoupper', $target_langs));
-	$prompt = "Translate the following Unixpadel project reference into these languages: {$langs_list}.\n\n"
+	$prompt = "Translate the following Unixpadel " . ($is_news ? 'company news article' : 'project reference') . " into these languages: {$langs_list}.\n\n"
 		. "Source English Content:\n"
 		. "Title: \"\"\"{$title}\"\"\"\n"
 		. "Excerpt: \"\"\"{$excerpt}\"\"\"\n"
@@ -244,6 +245,7 @@ function upx_ai_translate_reference($title, $excerpt, $body, $target_langs = arr
 		. "Instructions:\n"
 		. "1. Preserve all HTML structure (<h2>, <h3>, <p>, <ul>, <li>, <strong>, <a>).\n"
 		. "2. Keep padel court brand and model names natural and accurate (e.g. Panoramik Padel Kortu in TR, Panorama-Padel-Platz in DE, terrain de padel panoramique in FR, ملاعب بادل بانورامية in AR, панорамные корты для паделя in RU).\n"
+		. ($is_news ? "2b. Keep the neutral, third-person news style. Write the title as a natural news headline in each language (no literal word-for-word headline) and keep event, award and company names unchanged.\n" : '')
 		. "3. Return a JSON object with keys for each requested language code (" . implode(', ', array_map(function ($l) {
 			return '"' . $l . '"';
 		}, $target_langs)) . ").\n"
@@ -406,7 +408,8 @@ function upx_ajax_ai_translate() {
 		wp_send_json_error(array('message' => 'English title and text must be filled before translating.'), 400);
 	}
 
-	$result = upx_ai_translate_reference($title, $excerpt, $body, $langs);
+	$kind   = isset($_POST['kind']) && $_POST['kind'] === 'news' ? 'news' : 'project';
+	$result = upx_ai_translate_reference($title, $excerpt, $body, $langs, $kind);
 	if (is_wp_error($result)) {
 		wp_send_json_error(array('message' => $result->get_error_message()), 500);
 	}
@@ -525,7 +528,7 @@ function upx_ai_save_post($post_id, $post) {
 	}
 
 	$running = true;
-	$translations = upx_ai_translate_reference($en_title, $post->post_excerpt, $en_body, $missing);
+	$translations = upx_ai_translate_reference($en_title, $post->post_excerpt, $en_body, $missing, upx_ref_meta($post_id)['kind']);
 	$running = false;
 
 	if (is_array($translations) && !empty($translations)) {

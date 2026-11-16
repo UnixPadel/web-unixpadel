@@ -30,26 +30,37 @@ Because no Meta/Instagram API, login cookies, or third-party scraping services a
 
 ---
 
-## 3. PHP Consistency Validator & 1-Retry Loop
+## 3. Project vs Company News Detection
+Before writing, `upx_ig_classify_post()` sends the caption, location tag and the same downscaled photos to Gemini and gets back `{ type: project | news, confidence, reason }`. If that call fails, `upx_ig_classify_by_keywords()` decides from English/Turkish keywords (low confidence).
+- **`project`** → the existing B2B installation prompt (250–400 words, country in title/slug/meta/lead, court type links, quote CTA).
+- **`news`** → `upx_ig_news_prompt()`: a short press-style article (180–300 words, inverted pyramid, neutral third person, factual headline naming Unixpadel, descriptive `<h2>`s, "About Unixpadel" boilerplate, contact CTA). No invented dates, names or quotes; no relative time words (`today`, `recently`…); Country and Court types are optional and the focus keyphrase is the news topic.
+- The draft's **Type** is pre-set to the detected type and shows `AI detected: <type> (<confidence>)` with the reason. Picking the other type shows the stale bar with **Rewrite as Project / Rewrite as Company news**, which rewrites the text and all 5 translations with the other prompt (only the Type is required; an empty Country or Court type is suggested again by the AI).
+- **Company news needs only the Type to publish** (Country and Court type are optional, matching how news renders on the site); projects still need Country and at least 1 Court type.
+- Stale = a *selected* Type / Country / Court type differs from what the text was written for (`_generated_for_meta`); a field not chosen yet is not stale.
+
+---
+
+## 4. PHP Consistency Validator & 1-Retry Loop
 Before saving generated content, `upx_ig_validate_content()` in `wp-plugin/includes/refs-ig.php` validates:
-1. **Country Consistency:** If `suggested_country` is non-null, its English country name (or recognized variant such as `Türkiye`/`Turkey`, `United Kingdom`/`UK`, `USA`/`United States`) must appear in `title`, `slug`, `meta_description`, and the first `<p>` paragraph of `body_html`.
+1. **Country Consistency:** If `suggested_country` is non-null, its English country name (or recognized variant such as `Türkiye`/`Turkey`, `United Kingdom`/`UK`, `USA`/`United States`) must appear in `title`, `slug`, `meta_description`, and the first `<p>` paragraph of `body_html` (company news: `meta_description` and the first paragraph only).
 2. **Court Type Internal Linking:** Every item in `suggested_court_types` must be linked (`href="/.../"`) inside `body_html`, and no unselected product URL may be linked.
 3. **No Invented Court Counts:** If the caption contains no digits or number words (`one`–`ten`), the generated `title` and `body_html` must not contain any specific court count (e.g. `"4 courts"`).
 4. **No Unverified FIP Claims:** `"FIP-approved"` or `"FIP-certified"` is prohibited unless `"FIP"` appears in the caption.
 5. **Length & Cleanliness:** `title <= 70` chars, `seo_title <= 60` chars, `meta_description` `140–155` chars, `slug` matches `^[a-z0-9-]+$` (`<= 60` chars), and zero `#hashtags` or emojis.
+6. **Company news only:** body 140–380 words, no relative time words, no quotations when the caption has none, and the `focus_keyphrase` in the lead paragraph.
 
 If any rule fails, the exact error list is fed back to Gemini for **1 automatic retry**, followed by deterministic PHP sanitization (`upx_ig_sanitize_final_output()`).
 
 ---
 
-## 4. Cover Image Cropping & Orientation Behavior
+## 5. Cover Image Cropping & Orientation Behavior
 - **Reference Detail Hero (`src/components/Hero.astro`):** Uses `aspect-ratio: 1 / 1` on desktop (`>= 960px`) and `aspect-ratio: 4 / 3` on mobile (`< 960px`) with `object-fit: cover`.
 - **Reference Cards (`src/components/ReferenceCard.astro`):** Uses `aspect-ratio: 1 / 1` on the home page and product pages, and `aspect-ratio: 4 / 3` on the `/references/` hub with `object-fit: cover`.
 - **Handling Instagram Aspect Ratios:** Instagram posts are frequently square (`1080×1080`) or portrait (`1080×1350`). Because all front-end containers use `object-fit: cover`, square and portrait photos do not break the layout. For `_source = instagram`, images `>= 1080px` wide of any orientation are accepted, and if the chosen cover photo is square or portrait (`width <= height`), a non-blocking review note is added reminding the admin to verify the `4:3` card crop in Preview.
 
 ---
 
-## 5. Manual Test Walkthrough
+## 6. Manual Test Walkthrough
 1. **Open Add from Instagram:**
    - Go to **WP Admin → References** and click **Add from Instagram** (or open **Add New Reference** where the **From Instagram link** tab is active).
 2. **Test Mode A (Link Fetch) & Automatic Fallback to Mode B:**
@@ -60,12 +71,13 @@ If any rule fails, the exact error list is fed back to Gemini for **1 automatic 
    - Click **Generate reference**.
 4. **Review Draft & AI Suggestions (Phase 5):**
    - The page reloads into the created draft (`post.php?post=ID&action=edit`).
-   - Scroll to **Reference details**: notice that **Type**, **Country**, and **Court type** start **EMPTY**, each displaying `AI suggestion: <value> (<confidence>) [Apply]`.
+   - Scroll to **Reference details**: **Type** is set to the detected type (`AI detected: … (confidence)` + reason); **Country** and **Court type** start **EMPTY**, each displaying `AI suggestion: <value> (<confidence>) [Apply]`.
    - Click **Apply all AI suggestions** (or click `[Apply]` on individual fields).
 5. **Test Stale Detection & Regeneration:**
    - Change **Country** or **Court type** to a different value than what the AI suggested.
    - The red **Content is stale** banner appears immediately: *"Text was generated for X; you selected Y."*
    - Click **Regenerate text** to rewrite the English article and all 5 translations for your new selection (or click **I have checked the text** to confirm manually).
+   - Switch **Type** (Project ↔ Company news): the banner button becomes **Rewrite as …**; it rewrites with the other prompt and reloads the page.
 6. **Test Publish Gate (Phase 6):**
-   - Try clicking **Publish** while **Type**, **Country**, or **Court type** is empty, or while the **Content is stale** banner is active: client-side validation alerts you and server-side validation (`upx_ref_require_fields`) keeps the post as a `draft`.
-   - Once all 4 checklist items in **Publish Readiness Checklist** are green (`✓`), click **Publish** — the reference goes live across EN, TR, DE, FR, AR, and RU!
+   - Try clicking **Publish** on a project while **Country** or **Court type** is empty, or while the **Content is stale** banner is active: client-side validation alerts you and server-side validation (`upx_ref_require_fields`) keeps the post as a `draft`. Company news publishes with only the Type.
+   - Once every item in **Publish Readiness Checklist** is green (`✓`), click **Publish** — the reference goes live across EN, TR, DE, FR, AR, and RU!

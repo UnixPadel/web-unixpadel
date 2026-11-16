@@ -3,10 +3,14 @@
  * Instagram-to-Reference Pipeline (Phases 1, 3, 4, 5, 6):
  * - Mode A (URL fetch via UPX_Instagram_Post_Extractor) & Mode B (Manual caption + images)
  * - Duplicate check by _ig_shortcode
+ * - Type detection (project vs company news) from the caption + photos, then the matching prompt:
+ *   project → B2B installation reference, news → press-style company news article
  * - Multimodal Gemini structured JSON generation + PHP Consistency Validator (with 1 automatic retry)
  * - Media library sideloading & deduplication (unixpadel-<slug>-<n>.jpg)
- * - Draft creation with empty Type/Country/Court types + AI suggestions + _generated_for consistency hash
- * - Text regeneration ("Regenerate text") and manual verification ("I have checked the text")
+ * - Draft creation with Type pre-set to the detected type, empty Country/Court types + AI suggestions,
+ *   and _generated_for_meta (what the text was written for)
+ * - Text regeneration ("Regenerate text" / "Rewrite as …" after a Type switch) and manual verification
+ *   ("I have checked the text")
  */
 
 if (!defined('ABSPATH')) {
@@ -93,6 +97,11 @@ function upx_ig_selection_label($kind, $country, $types) {
 		$parts[] = 'No country';
 	}
 
+	// Country and court type are optional for company news, so an empty one is left out of the label.
+	if ($kind === 'news' && end($parts) === 'No country') {
+		array_pop($parts);
+	}
+
 	$t_labels = array();
 	if (is_array($types)) {
 		foreach ($types as $u) {
@@ -103,9 +112,64 @@ function upx_ig_selection_label($kind, $country, $types) {
 			}
 		}
 	}
-	$parts[] = !empty($t_labels) ? implode(' + ', $t_labels) : 'No court type';
+	if (!empty($t_labels)) {
+		$parts[] = implode(' + ', $t_labels);
+	} elseif ($kind !== 'news') {
+		$parts[] = 'No court type';
+	}
 
 	return implode(' · ', $parts);
+}
+
+/**
+ * Whether the admin's selections contradict what the text was written for. A field the admin has not chosen yet
+ * is not a contradiction (the publish gate asks for it separately); a chosen field that differs is.
+ *
+ * @param array|mixed $gen_meta _generated_for_meta: { kind, country, types }
+ * @param string      $kind
+ * @param string      $country
+ * @param string[]    $types
+ * @return bool
+ */
+function upx_ig_selection_differs($gen_meta, $kind, $country, $types) {
+	if (!is_array($gen_meta)) {
+		return false;
+	}
+	$g_kind    = isset($gen_meta['kind']) ? (string) $gen_meta['kind'] : '';
+	$g_country = isset($gen_meta['country']) ? (string) $gen_meta['country'] : '';
+	$g_types   = isset($gen_meta['types']) && is_array($gen_meta['types']) ? array_values(array_map('strval', $gen_meta['types'])) : array();
+	$c_types   = is_array($types) ? array_values(array_map('strval', $types)) : array();
+	sort($g_types);
+	sort($c_types);
+
+	if ((string) $kind !== '' && (string) $kind !== $g_kind) {
+		return true;
+	}
+	if ((string) $country !== '' && (string) $country !== $g_country) {
+		return true;
+	}
+	return !empty($c_types) && $c_types !== $g_types;
+}
+
+/**
+ * Selections still missing before an Instagram reference can be published. Company news needs only the Type.
+ *
+ * @return string[]
+ */
+function upx_ig_missing_selections($kind, $country, $types) {
+	$missing = array();
+	if ($kind !== 'project' && $kind !== 'news') {
+		$missing[] = 'Type';
+	}
+	if ($kind !== 'news') {
+		if ((string) $country === '') {
+			$missing[] = 'Country';
+		}
+		if (empty($types)) {
+			$missing[] = 'Court type';
+		}
+	}
+	return $missing;
 }
 
 /**
@@ -118,26 +182,17 @@ function upx_ig_consistency_state($post_id) {
 	$is_ig = get_post_meta($post_id, '_source', true) === 'instagram';
 	$meta  = upx_ref_meta($post_id);
 
-	$missing = array();
-	if ($meta['kind'] !== 'project' && $meta['kind'] !== 'news') {
-		$missing[] = 'Type';
-	}
-	if ($meta['country'] === '') {
-		$missing[] = 'Country';
-	}
-	if (empty($meta['types'])) {
-		$missing[] = 'Court type';
-	}
+	$missing = upx_ig_missing_selections($meta['kind'], $meta['country'], $meta['types']);
 
 	$gen_hash = (string) get_post_meta($post_id, '_generated_for', true);
 	$gen_meta = get_post_meta($post_id, '_generated_for_meta', true);
-	$gen_meta = is_array($gen_meta) ? $gen_meta : array('kind' => '', 'country' => '', 'types' => array());
+	$has_gen  = is_array($gen_meta);
+	$gen_meta = $has_gen ? $gen_meta : array('kind' => '', 'country' => '', 'types' => array());
 
 	$cur_hash = upx_ig_selection_hash($meta['kind'], $meta['country'], $meta['types']);
 
-	// Content is stale if all three fields are selected (or any field is selected) AND the hash differs from _generated_for.
-	$any_selected = ($meta['kind'] !== '' || $meta['country'] !== '' || !empty($meta['types']));
-	$is_stale     = $is_ig && $any_selected && $gen_hash !== '' && $cur_hash !== $gen_hash;
+	// Content is stale when a selected Type, Country or Court type differs from what the text was written for.
+	$is_stale = $is_ig && $has_gen && upx_ig_selection_differs($gen_meta, $meta['kind'], $meta['country'], $meta['types']);
 
 	return array(
 		'is_ig'              => $is_ig,
@@ -250,16 +305,78 @@ function upx_ig_prepare_multimodal_images($image_items) {
 }
 
 /**
- * Generates structured reference JSON from an Instagram caption and images using Gemini.
+ * Decides from the caption and photos whether an Instagram post is a delivered court project or company news,
+ * so the matching prompt writes the text. Falls back to a keyword check when the AI call fails.
+ *
+ * @param string $caption
+ * @param string $location_hint
+ * @param array  $multimodal_images Payload from upx_ig_prepare_multimodal_images().
+ * @return array { type: 'project'|'news', confidence: 'high'|'medium'|'low', reason: string, source: 'ai'|'keywords' }
+ */
+function upx_ig_classify_post($caption, $location_hint = '', $multimodal_images = array()) {
+	$prompt = "Decide what this Instagram post from Unixpadel (@unixpadel), a padel court manufacturer based in Türkiye that exports worldwide, should become on the company website.\n\n"
+		. "Instagram Caption:\n\"\"\"\n" . $caption . "\n\"\"\"\n"
+		. ($location_hint !== '' ? "Instagram Location Tag: " . $location_hint . "\n" : '')
+		. "\nChoose exactly one type:\n"
+		. "- \"project\": the post presents a specific court, canopy or cover system that Unixpadel built, installed or delivered for a client or venue (installation, construction progress, handover, a club opening on Unixpadel courts). The photos usually show finished or in-progress courts at a real site.\n"
+		. "- \"news\": the post is about the company itself rather than one client installation: trade fairs, exhibitions and booths, awards and certificates, anniversaries and milestones, partnerships, distributor or dealer agreements, product launches, market expansion, factory, team or office news, events, tournaments, sponsorships, media coverage.\n\n"
+		. "Rules:\n"
+		. "1. Judge the main subject of the post. A post that showcases one installed court is a project even if it says 'new' or 'proud'.\n"
+		. "2. A product shown at a fair, in the factory or as a launch is news.\n"
+		. "3. Use the attached photos as supporting evidence (booth, stage, award, people at an event → news; courts at a venue → project).\n"
+		. "4. If the evidence is mixed or thin, choose \"project\" with low confidence.\n\n"
+		. "Return ONLY a JSON object: {\"type\": \"project\" | \"news\", \"confidence\": \"high\" | \"medium\" | \"low\", \"reason\": \"one short English sentence (max 20 words) naming the evidence\"}";
+
+	$raw = upx_gemini_call($prompt, '', true, 0.0, is_array($multimodal_images) ? $multimodal_images : array());
+	if (!is_wp_error($raw) && is_array($raw) && isset($raw['type']) && in_array($raw['type'], array('project', 'news'), true)) {
+		$conf = isset($raw['confidence']) ? strtolower((string) $raw['confidence']) : 'medium';
+		return array(
+			'type'       => (string) $raw['type'],
+			'confidence' => in_array($conf, array('high', 'medium', 'low'), true) ? $conf : 'medium',
+			'reason'     => isset($raw['reason']) && is_scalar($raw['reason']) ? mb_substr(sanitize_text_field((string) $raw['reason']), 0, 200, 'UTF-8') : '',
+			'source'     => 'ai',
+		);
+	}
+	return upx_ig_classify_by_keywords($caption);
+}
+
+/**
+ * Keyword fallback for upx_ig_classify_post() (English + Turkish captions). Always low confidence.
+ *
+ * @param string $caption
+ * @return array Same shape as upx_ig_classify_post().
+ */
+function upx_ig_classify_by_keywords($caption) {
+	$news_re    = '/\b(fair|fuar\w*|expo|exhibition|exhibit\w*|booth|hall\s*\d+|award\w*|ödül\w*|anniversary|yıl\s*dönüm\w*|milestone|partnership|distributor|dealer|bayi\w*|agreement|anlaşma\w*|launch\w*|unveil\w*|introduc\w*|lansman\w*|visit us|meet us|ziyaret\w*|conference|summit|congress|sponsor\w*)\b/iu';
+	$project_re = '/\b(install\w*|kurulum\w*|completed|tamamla\w*|delivered|teslim\w*|handover|construction|montaj\w*|club|kulüb\w*|venue|resort|hotel|otel\w*)\b/iu';
+	$news_hits    = preg_match_all($news_re, (string) $caption, $nm);
+	$project_hits = preg_match_all($project_re, (string) $caption, $pm);
+	$is_news      = $news_hits > $project_hits;
+	$hits         = $is_news ? $nm[0] : $pm[0];
+
+	return array(
+		'type'       => $is_news ? 'news' : 'project',
+		'confidence' => 'low',
+		'reason'     => 'AI type check unavailable; keyword check' . (!empty($hits) ? ' found: ' . implode(', ', array_slice(array_unique(array_map('mb_strtolower', $hits)), 0, 3)) : ' found no clear signal') . '.',
+		'source'     => 'keywords',
+	);
+}
+
+/**
+ * Generates structured reference JSON from an Instagram caption and images using Gemini, with the project prompt
+ * (B2B installation reference) or the company news prompt (press-style article).
  *
  * @param string     $caption
  * @param array      $image_items
  * @param string     $location_hint
- * @param array|null $forced_selection Optional ['kind' => string, 'country' => string, 'types' => string[]] for regeneration.
+ * @param array|null $forced_selection Optional ['kind' => string, 'country' => string, 'types' => string[]] for regeneration;
+ *                                     an empty country or types list is left for the AI to suggest.
  * @param string[]   $retry_errors     Validation errors from first attempt (if retrying).
+ * @param string     $kind             'project' | 'news' (a kind in $forced_selection wins).
+ * @param array|null $prepared_images  Multimodal payload already built by upx_ig_prepare_multimodal_images().
  * @return array|WP_Error
  */
-function upx_ig_generate_reference_json($caption, $image_items, $location_hint = '', $forced_selection = null, $retry_errors = array()) {
+function upx_ig_generate_reference_json($caption, $image_items, $location_hint = '', $forced_selection = null, $retry_errors = array(), $kind = 'project', $prepared_images = null) {
 	$data       = upx_data();
 	$img_count  = max(1, count($image_items));
 	$countries  = array();
@@ -294,9 +411,14 @@ function upx_ig_generate_reference_json($caption, $image_items, $location_hint =
 		$country_sample[] = sprintf('"%s" (%s)', $slug, $name);
 	}
 
+	if (is_array($forced_selection) && isset($forced_selection['kind']) && in_array($forced_selection['kind'], array('project', 'news'), true)) {
+		$kind = $forced_selection['kind'];
+	}
+	$kind = $kind === 'news' ? 'news' : 'project';
+
+	// Admin selections on regeneration. Only the chosen fields are forced; the AI suggests the others.
 	$forced_block = '';
 	if (is_array($forced_selection)) {
-		$f_kind    = !empty($forced_selection['kind']) ? $forced_selection['kind'] : 'project';
 		$f_country = !empty($forced_selection['country']) ? $forced_selection['country'] : '';
 		$f_cname   = ($f_country !== '' && isset($c_map[$f_country])) ? $c_map[$f_country] : $f_country;
 		$f_types   = !empty($forced_selection['types']) && is_array($forced_selection['types']) ? $forced_selection['types'] : array();
@@ -305,11 +427,17 @@ function upx_ig_generate_reference_json($caption, $image_items, $location_hint =
 			$f_tlabels[] = isset($p_map[$tu]) ? $p_map[$tu] . ' (' . $tu . ')' : $tu;
 		}
 		$forced_block = "\nMANDATORY ADMIN SELECTIONS (You MUST write the article specifically for these exact selections):\n"
-			. "- suggested_type MUST be: \"" . $f_kind . "\"\n"
-			. "- suggested_country MUST be: " . ($f_country !== '' ? "\"" . $f_country . "\" (" . $f_cname . ")" : "null") . "\n"
-			. "- suggested_court_types MUST be: " . wp_json_encode(array_values($f_types)) . " (" . implode(', ', $f_tlabels) . ")\n"
-			. "- You MUST include the country name \"" . $f_cname . "\" in `title`, `slug`, `meta_description`, and the first paragraph of `body_html`.\n"
-			. "- You MUST mention and link every selected court type in `body_html` using `<a href=\"URL\">Label</a>`.\n";
+			. "- suggested_type MUST be: \"" . $kind . "\"\n";
+		if ($f_country !== '') {
+			$forced_block .= "- suggested_country MUST be: \"" . $f_country . "\" (" . $f_cname . ")\n"
+				. ($kind === 'news'
+					? "- You MUST include the country name \"" . $f_cname . "\" in the lead paragraph of `body_html` and in `meta_description`.\n"
+					: "- You MUST include the country name \"" . $f_cname . "\" in `title`, `slug`, `meta_description`, and the first paragraph of `body_html`.\n");
+		}
+		if (!empty($f_types)) {
+			$forced_block .= "- suggested_court_types MUST be: " . wp_json_encode(array_values($f_types)) . " (" . implode(', ', $f_tlabels) . ")\n"
+				. "- You MUST mention and link every selected court type in `body_html` using `<a href=\"URL\">Label</a>`.\n";
+		}
 	}
 
 	$retry_block = '';
@@ -319,39 +447,8 @@ function upx_ig_generate_reference_json($caption, $image_items, $location_hint =
 			. "Fix EVERY SINGLE ONE of these errors in your new JSON response!\n";
 	}
 
-	$prompt = "Transform this Instagram post from Unixpadel (@unixpadel) into a complete, internally consistent B2B website reference entry.\n\n"
-		. "Instagram Caption:\n\"\"\"\n" . $caption . "\n\"\"\"\n"
-		. ($location_hint !== '' ? "Instagram Location Tag: " . $location_hint . "\n" : '')
-		. "Total images in tray: " . $img_count . "\n"
-		. $forced_block
-		. $retry_block
-		. "\n=== STRICT FACT RULES ===\n"
-		. "1. Use ONLY facts present in the caption (and location tag if provided). Attached images are ONLY for writing `image_alts` and picking `cover_suggestion_index` — NEVER read text, flags, or court counts from images.\n"
-		. "2. NEVER invent: number of courts, client/club name, city, dates, turnaround time, or turf/glass/lighting specs not in the caption.\n"
-		. "3. If the caption contains NO digits/numbers of courts, do NOT write any specific number of courts (like '2 courts', '4 courts', etc.) in `title` or `body_html`.\n"
-		. "4. NEVER write 'FIP-approved' or 'FIP-certified' unless the caption explicitly contains 'FIP'. Safe general statement: Unixpadel manufactures padel courts in Türkiye and exports worldwide.\n"
-		. "5. If the country is unclear from the caption (and not forced above), set `suggested_country` to null, add 'Country not mentioned in caption' to `missing_info`, and write location-neutral copy.\n"
-		. "6. If the court model is unclear from the caption (and not forced above), set `suggested_court_types` to [], add 'Court model not specified in caption' to `missing_info`, and describe the project generally as 'padel court installation'.\n"
-		. "7. List every missing detail in `missing_info`.\n\n"
-		. "=== B2B STYLE & STRUCTURE RULES ===\n"
-		. "1. Strip ALL hashtags (#...), @mentions (@...), emojis, and social phrasing ('Check out…', 'DM us', 'link in bio', 'We are thrilled…').\n"
-		. "2. Write 250–400 words in `body_html` using ONLY allowed HTML tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<a>`, `<ul>`, `<li>` (NO `<h1>`):\n"
-		. "   - Opening `<p>` lead paragraph: include the country/region (if known), the court type(s) (if known), and what was delivered.\n"
-		. "   - `<h2>Project overview</h2>`: `<p>` paragraph + optional `<ul><li>` list of confirmed project details.\n"
-		. "   - `<h2>Court specifications & installation</h2>`: `<p>` explaining the court system and turnkey manufacturing/installation. Link each item in `suggested_court_types` ONCE to its exact product page URL (`<a href=\"/panoramic-padel-court/\">Panoramic Padel Court</a>`) with natural anchor text. Do NOT link any unselected court type.\n"
-		. "   - If `suggested_country` is non-null: `<h2>Padel court supply & installation in {Country Name}</h2>` (`<p>` paragraph on Unixpadel's export & installation service in that country).\n"
-		. "   - Closing `<p>` with a call to action linking to `<a href=\"/contact-us/#quote\">Request a quote</a>`.\n"
-		. "3. Consistency rules:\n"
-		. "   - If `suggested_country` is non-null, its English Country Name MUST appear in `title`, `slug` (slugified), `meta_description`, AND the first `<p>` paragraph of `body_html`. No other country name may appear in `body_html` (except 'Türkiye' when stating Unixpadel manufactures in Türkiye).\n"
-		. "   - `title`: <= 70 characters, plain text, no emojis/hashtags.\n"
-		. "   - `slug`: lowercase a-z, 0-9, and hyphens only, <= 60 characters.\n"
-		. "   - `excerpt`: 1–2 sentences, <= 160 characters.\n"
-		. "   - `seo_title`: <= 60 characters.\n"
-		. "   - `meta_description`: MUST be between 140 and 155 characters (inclusive).\n"
-		. "   - `focus_keyphrase`: e.g. 'padel courts in {Country}' or 'panoramic padel court installation'.\n"
-		. "   - `image_alts`: Array of exactly " . $img_count . " descriptive English alt texts (one per image in order, 8–18 words each, descriptive, no keyword stuffing).\n"
-		. "   - `cover_suggestion_index`: 0-based index (0 to " . ($img_count - 1) . ") of the best wide/clear full-court photo for the cover.\n\n"
-		. "=== AVAILABLE COURT TYPE OPTIONS (pick 0 to 2 URLs for `suggested_court_types`) ===\n"
+	// Shared by both prompts: the allowed values and the JSON contract the normalizer expects.
+	$tail = "=== AVAILABLE COURT TYPE OPTIONS (pick 0 to 2 URLs for `suggested_court_types`) ===\n"
 		. implode("\n", $product_lines) . "\n\n"
 		. "=== AVAILABLE COUNTRY SLUGS (pick 1 slug for `suggested_country` or null) ===\n"
 		. implode(', ', $country_sample) . "\n\n"
@@ -373,14 +470,110 @@ function upx_ig_generate_reference_json($caption, $image_items, $location_hint =
 		. "  \"missing_info\": [\"string\"]\n"
 		. "}";
 
-	$multimodal_images = empty($retry_errors) ? upx_ig_prepare_multimodal_images($image_items) : array();
+	if ($kind === 'news') {
+		$prompt = upx_ig_news_prompt($caption, $location_hint, $img_count, $forced_block, $retry_block) . $tail;
+	} else {
+		$prompt = "Transform this Instagram post from Unixpadel (@unixpadel) into a complete, internally consistent B2B website reference entry.\n\n"
+			. "Instagram Caption:\n\"\"\"\n" . $caption . "\n\"\"\"\n"
+			. ($location_hint !== '' ? "Instagram Location Tag: " . $location_hint . "\n" : '')
+			. "Total images in tray: " . $img_count . "\n"
+			. $forced_block
+			. $retry_block
+			. "\n=== STRICT FACT RULES ===\n"
+			. "1. Use ONLY facts present in the caption (and location tag if provided). Attached images are ONLY for writing `image_alts` and picking `cover_suggestion_index` — NEVER read text, flags, or court counts from images.\n"
+			. "2. NEVER invent: number of courts, client/club name, city, dates, turnaround time, or turf/glass/lighting specs not in the caption.\n"
+			. "3. If the caption contains NO digits/numbers of courts, do NOT write any specific number of courts (like '2 courts', '4 courts', etc.) in `title` or `body_html`.\n"
+			. "4. NEVER write 'FIP-approved' or 'FIP-certified' unless the caption explicitly contains 'FIP'. Safe general statement: Unixpadel manufactures padel courts in Türkiye and exports worldwide.\n"
+			. "5. If the country is unclear from the caption (and not forced above), set `suggested_country` to null, add 'Country not mentioned in caption' to `missing_info`, and write location-neutral copy.\n"
+			. "6. If the court model is unclear from the caption (and not forced above), set `suggested_court_types` to [], add 'Court model not specified in caption' to `missing_info`, and describe the project generally as 'padel court installation'.\n"
+			. "7. List every missing detail in `missing_info`.\n\n"
+			. "=== B2B STYLE & STRUCTURE RULES ===\n"
+			. "1. Strip ALL hashtags (#...), @mentions (@...), emojis, and social phrasing ('Check out…', 'DM us', 'link in bio', 'We are thrilled…').\n"
+			. "2. Write 250–400 words in `body_html` using ONLY allowed HTML tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<a>`, `<ul>`, `<li>` (NO `<h1>`):\n"
+			. "   - Opening `<p>` lead paragraph: include the country/region (if known), the court type(s) (if known), and what was delivered.\n"
+			. "   - `<h2>Project overview</h2>`: `<p>` paragraph + optional `<ul><li>` list of confirmed project details.\n"
+			. "   - `<h2>Court specifications & installation</h2>`: `<p>` explaining the court system and turnkey manufacturing/installation. Link each item in `suggested_court_types` ONCE to its exact product page URL (`<a href=\"/panoramic-padel-court/\">Panoramic Padel Court</a>`) with natural anchor text. Do NOT link any unselected court type.\n"
+			. "   - If `suggested_country` is non-null: `<h2>Padel court supply & installation in {Country Name}</h2>` (`<p>` paragraph on Unixpadel's export & installation service in that country).\n"
+			. "   - Closing `<p>` with a call to action linking to `<a href=\"/contact-us/#quote\">Request a quote</a>`.\n"
+			. "3. Consistency rules:\n"
+			. "   - If `suggested_country` is non-null, its English Country Name MUST appear in `title`, `slug` (slugified), `meta_description`, AND the first `<p>` paragraph of `body_html`. No other country name may appear in `body_html` (except 'Türkiye' when stating Unixpadel manufactures in Türkiye).\n"
+			. "   - `title`: <= 70 characters, plain text, no emojis/hashtags.\n"
+			. "   - `slug`: lowercase a-z, 0-9, and hyphens only, <= 60 characters.\n"
+			. "   - `excerpt`: 1–2 sentences, <= 160 characters.\n"
+			. "   - `seo_title`: <= 60 characters.\n"
+			. "   - `meta_description`: MUST be between 140 and 155 characters (inclusive).\n"
+			. "   - `focus_keyphrase`: e.g. 'padel courts in {Country}' or 'panoramic padel court installation'.\n"
+			. "   - `image_alts`: Array of exactly " . $img_count . " descriptive English alt texts (one per image in order, 8–18 words each, descriptive, no keyword stuffing).\n"
+			. "   - `cover_suggestion_index`: 0-based index (0 to " . ($img_count - 1) . ") of the best wide/clear full-court photo for the cover.\n\n"
+			. $tail;
+	}
+
+	if (!empty($retry_errors)) {
+		$multimodal_images = array();
+	} elseif (is_array($prepared_images)) {
+		$multimodal_images = $prepared_images;
+	} else {
+		$multimodal_images = upx_ig_prepare_multimodal_images($image_items);
+	}
 
 	$raw = upx_gemini_call($prompt, upx_ai_system_instruction(), true, 0.25, $multimodal_images);
 	if (is_wp_error($raw)) {
 		return $raw;
 	}
 
-	return upx_ig_normalize_ai_output($raw, $img_count, $countries, $products, $forced_selection);
+	return upx_ig_normalize_ai_output($raw, $img_count, $countries, $products, $forced_selection, $kind);
+}
+
+/**
+ * Prompt body for a company news article (everything before the shared options + JSON contract).
+ * News reads like a short B2B press release: inverted pyramid, neutral third person, no invented facts or quotes,
+ * evergreen wording (no "today"/"recently"), and SEO fields built around the news topic.
+ *
+ * @param string $caption
+ * @param string $location_hint
+ * @param int    $img_count
+ * @param string $forced_block
+ * @param string $retry_block
+ * @return string
+ */
+function upx_ig_news_prompt($caption, $location_hint, $img_count, $forced_block, $retry_block) {
+	return "Write a company news article for the Unixpadel website (unixpadel.com) from this Instagram post by Unixpadel (@unixpadel). It is published in the 'Company news' list of the References section, so it must read like a concise, professional B2B press release that ranks in search and is easy to quote by AI answer engines.\n\n"
+		. "Instagram Caption:\n\"\"\"\n" . $caption . "\n\"\"\"\n"
+		. ($location_hint !== '' ? "Instagram Location Tag: " . $location_hint . "\n" : '')
+		. "Total images in tray: " . $img_count . "\n"
+		. $forced_block
+		. $retry_block
+		. "\n=== STRICT FACT RULES ===\n"
+		. "1. Use ONLY facts present in the caption (and location tag if provided). Attached images are ONLY for writing `image_alts` and picking `cover_suggestion_index` — NEVER read text, names, dates or numbers from images.\n"
+		. "2. NEVER invent: event names, dates or years, hall or booth numbers, award names or awarding bodies, partner or client names, people's names or job titles, figures, or results.\n"
+		. "3. NEVER invent quotes. Quote a statement only if it appears word for word in the caption.\n"
+		. "4. If the caption contains NO number of courts, do NOT write any specific number of courts.\n"
+		. "5. NEVER write 'FIP-approved' or 'FIP-certified' unless the caption explicitly contains 'FIP'. Safe general statement: Unixpadel manufactures padel courts in Türkiye and exports worldwide.\n"
+		. "6. NEVER use relative time words that age badly ('today', 'yesterday', 'tomorrow', 'this week', 'last month', 'recently', 'soon'). Use the date or year given in the caption; if there is none, write without a time reference.\n"
+		. "7. A country is optional for company news. Set `suggested_country` only when the news clearly took place in, or is about, one country (e.g. the host country of a trade fair or a new market); otherwise null.\n"
+		. "8. Set `suggested_court_types` only when the news is about specific Unixpadel products (e.g. a launch or courts shown at a fair); otherwise [].\n"
+		. "9. List every detail a reader would expect but the caption does not give (e.g. 'Event date not mentioned in caption', 'Event venue not mentioned in caption') in `missing_info`.\n\n"
+		. "=== NEWS & SEO WRITING RULES ===\n"
+		. "1. Strip ALL hashtags (#...), @mentions (@...), emojis, and social phrasing ('Check out…', 'DM us', 'link in bio', 'We are thrilled…', 'Stay tuned').\n"
+		. "2. Journalistic voice: third person ('Unixpadel', 'the company'), active voice, past tense for what happened and present tense for lasting facts. No 'we' or 'our', no hype or superlatives ('amazing', 'incredible', 'revolutionary', 'world-class').\n"
+		. "3. Inverted pyramid: the most newsworthy facts first, background after. Short paragraphs of 2–4 sentences.\n"
+		. "4. `title`: a factual news headline, <= 70 characters, Title Case, naming Unixpadel and saying what happened (e.g. 'Unixpadel Showcases Panoramic Padel Courts at FSB Cologne'). No question, no clickbait, no trailing period.\n"
+		. "5. Write 180–300 words in `body_html` (stay near the lower end when the caption has few facts — never pad with generic filler) using ONLY allowed HTML tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<a>`, `<ul>`, `<li>` (NO `<h1>`):\n"
+		. "   - Lead `<p>` (1–2 sentences, max 45 words): who, what, where and when — only what the caption gives. It must contain the `focus_keyphrase`.\n"
+		. "   - 1–2 `<h2>` sections with specific, descriptive headings (e.g. 'Panoramic Court on Display in Cologne' — never generic headings like 'Overview' or 'Details'), each with `<p>` paragraphs; use a `<ul><li>` list only for 3 or more confirmed facts. Include why the news matters to padel club owners, investors or distributors, without inventing facts.\n"
+		. "   - If `suggested_court_types` is non-empty, link each item ONCE to its exact product page URL (`<a href=\"/panoramic-padel-court/\">Panoramic Padel Court</a>`) with natural anchor text. Do NOT link any unselected court type.\n"
+		. "   - `<h2>About Unixpadel</h2>` followed by one `<p>`: Unixpadel manufactures padel courts, canopies and cover systems in Türkiye and delivers turnkey projects worldwide.\n"
+		. "   - Closing `<p>` inviting readers to <a href=\"/contact-us/\">contact the Unixpadel team</a>.\n"
+		. "6. Consistency rules:\n"
+		. "   - If `suggested_country` is non-null, its English Country Name MUST appear in the lead `<p>` of `body_html` AND in `meta_description`.\n"
+		. "   - `slug`: lowercase a-z, 0-9, and hyphens only, <= 60 characters, built from the headline's key terms without stop words (e.g. 'unixpadel-fsb-cologne-panoramic-padel-courts').\n"
+		. "   - `excerpt`: 1–2 sentences, <= 160 characters, summarising the news (shown under the headline and in the news list).\n"
+		. "   - `seo_title`: <= 60 characters, news topic first (e.g. 'Unixpadel at FSB Cologne: Panoramic Padel Courts').\n"
+		. "   - `meta_description`: MUST be between 140 and 155 characters (inclusive): what happened, where, and why it matters to padel businesses.\n"
+		. "   - `focus_keyphrase`: the main news topic in 2–5 words (e.g. 'Unixpadel FSB Cologne', 'padel court manufacturer award'). It MUST appear in `title` or `seo_title`, in the lead paragraph, and in `meta_description`.\n"
+		. "   - `image_alts`: Array of exactly " . $img_count . " descriptive English alt texts (one per image in order, 8–18 words each, describing what is visible — booth, team, product, ceremony — no keyword stuffing).\n"
+		. "   - `cover_suggestion_index`: 0-based index (0 to " . ($img_count - 1) . ") of the clearest, most representative wide photo for the cover.\n"
+		. "   - `suggested_type` MUST be \"news\".\n\n";
 }
 
 /**
@@ -391,16 +584,13 @@ function upx_ig_generate_reference_json($caption, $image_items, $location_hint =
  * @param string[]   $valid_countries
  * @param string[]   $valid_products
  * @param array|null $forced_selection
+ * @param string     $kind 'project' | 'news' — the prompt that wrote the text, so always the suggested type.
  * @return array
  */
-function upx_ig_normalize_ai_output($raw, $img_count, $valid_countries, $valid_products, $forced_selection = null) {
+function upx_ig_normalize_ai_output($raw, $img_count, $valid_countries, $valid_products, $forced_selection = null, $kind = 'project') {
 	$str = function ($k) use ($raw) {
 		return isset($raw[$k]) && is_scalar($raw[$k]) ? trim((string) $raw[$k]) : '';
 	};
-
-	$sug_type = isset($raw['suggested_type']) && in_array($raw['suggested_type'], array('project', 'news'), true)
-		? (string) $raw['suggested_type']
-		: null;
 
 	$sug_country = isset($raw['suggested_country']) && is_string($raw['suggested_country']) && in_array($raw['suggested_country'], $valid_countries, true)
 		? $raw['suggested_country']
@@ -417,15 +607,15 @@ function upx_ig_normalize_ai_output($raw, $img_count, $valid_countries, $valid_p
 		$sug_types = array_slice($sug_types, 0, 2);
 	}
 
-	// Enforce forced selections when regenerating text in Phase 5.
+	// The text was written with the project or the news prompt, so that is the type.
+	$sug_type = $kind === 'news' ? 'news' : 'project';
+
+	// Enforce forced selections when regenerating text in Phase 5 (fields the admin left empty keep the AI suggestion).
 	if (is_array($forced_selection)) {
-		if (!empty($forced_selection['kind']) && in_array($forced_selection['kind'], array('project', 'news'), true)) {
-			$sug_type = $forced_selection['kind'];
+		if (!empty($forced_selection['country']) && in_array($forced_selection['country'], $valid_countries, true)) {
+			$sug_country = $forced_selection['country'];
 		}
-		$sug_country = (!empty($forced_selection['country']) && in_array($forced_selection['country'], $valid_countries, true))
-			? $forced_selection['country']
-			: null;
-		if (isset($forced_selection['types']) && is_array($forced_selection['types'])) {
+		if (!empty($forced_selection['types']) && is_array($forced_selection['types'])) {
 			$sug_types = array_slice(array_values(array_intersect($forced_selection['types'], $valid_products)), 0, 2);
 		}
 	}
@@ -445,7 +635,7 @@ function upx_ig_normalize_ai_output($raw, $img_count, $valid_countries, $valid_p
 		}
 	}
 	while (count($alts) < $img_count) {
-		$alts[] = 'Unixpadel padel court installation project photo ' . (count($alts) + 1);
+		$alts[] = ($sug_type === 'news' ? 'Unixpadel company news photo ' : 'Unixpadel padel court installation project photo ') . (count($alts) + 1);
 	}
 	$alts = array_slice($alts, 0, $img_count);
 
@@ -491,11 +681,13 @@ function upx_ig_normalize_ai_output($raw, $img_count, $valid_countries, $valid_p
  *
  * @param array  $res     Normalized Gemini output from upx_ig_normalize_ai_output().
  * @param string $caption Original caption text.
+ * @param string $kind    'project' | 'news' — news has its own country rule and news-style checks.
  * @return string[] List of validation error messages (empty array if all passed).
  */
-function upx_ig_validate_content($res, $caption) {
-	$errors = array();
-	$data   = upx_data();
+function upx_ig_validate_content($res, $caption, $kind = 'project') {
+	$errors  = array();
+	$data    = upx_data();
+	$is_news = $kind === 'news';
 
 	$title     = $res['title'];
 	$slug      = $res['slug'];
@@ -539,7 +731,9 @@ function upx_ig_validate_content($res, $caption) {
 			return false;
 		};
 
-		if (!$contains_country($title)) {
+		// Company news names the country in the lead and the description only; a headline like
+		// "Unixpadel Showcases … at FSB Cologne" should not be forced to carry it.
+		if (!$is_news && !$contains_country($title)) {
 			$errors[] = sprintf('Country "%s" is missing from `title`.', $c_name);
 		}
 		$slug_variants = array($c_slug, sanitize_title($c_name));
@@ -550,7 +744,7 @@ function upx_ig_validate_content($res, $caption) {
 				break;
 			}
 		}
-		if (!$slug_has_c) {
+		if (!$is_news && !$slug_has_c) {
 			$errors[] = sprintf('Country slug "%s" is missing from `slug`.', $c_slug);
 		}
 		if (!$contains_country($meta_desc)) {
@@ -622,6 +816,25 @@ function upx_ig_validate_content($res, $caption) {
 	}
 	if (preg_match('/[\x{1F300}-\x{1F9FF}\x{2600}-\x{26FF}\x{2700}-\x{27BF}]/u', $all_output)) {
 		$errors[] = 'Generated text contains emojis. Strip all emojis.';
+	}
+
+	// 7. Company news: length, evergreen wording, no invented quotes, focus keyphrase in the lead.
+	if ($is_news) {
+		$plain = trim(wp_strip_all_tags($body));
+		$words = $plain === '' ? 0 : count(preg_split('/\s+/u', $plain));
+		if ($words < 140 || $words > 380) {
+			$errors[] = sprintf('`body_html` has %d words (company news must be about 180–300 words; never pad with filler).', $words);
+		}
+		if (preg_match('/\b(today|yesterday|tomorrow|this (?:week|month)|last (?:week|month)|next (?:week|month)|recently|soon)\b/i', $title . ' ' . $excerpt . ' ' . $plain . ' ' . $meta_desc, $tm)) {
+			$errors[] = sprintf('Relative time word "%s" ages badly in a news article — use the date from the caption or no time reference.', $tm[0]);
+		}
+		if (!preg_match('/["“”«»]/u', $caption) && preg_match('/["“«][^"”»]{20,}["”»]/u', $plain, $qm)) {
+			$errors[] = sprintf('The caption has no quotes, but the text contains a quotation (%s). Remove invented quotes.', mb_substr($qm[0], 0, 60, 'UTF-8'));
+		}
+		$kp = trim((string) $res['focus_keyphrase']);
+		if ($kp !== '' && mb_stripos($first_p, $kp, 0, 'UTF-8') === false) {
+			$errors[] = sprintf('`focus_keyphrase` "%s" must appear in the lead paragraph of `body_html`.', $kp);
+		}
 	}
 
 	return $errors;
@@ -910,18 +1123,23 @@ function upx_ajax_ig_generate() {
 		$image_items = array_values($image_items);
 	}
 
-	// 4.1 Generate structured JSON via Gemini + 4.2 PHP Consistency Validator (with 1 automatic retry if validation fails).
-	$ai_res = upx_ig_generate_reference_json($caption, $image_items, $location_hint);
+	// 4.0 Decide project vs company news from the caption + photos (the photos are prepared once for both calls).
+	$multimodal = upx_ig_prepare_multimodal_images($image_items);
+	$detection  = upx_ig_classify_post($caption, $location_hint, $multimodal);
+	$kind       = $detection['type'];
+
+	// 4.1 Generate structured JSON via Gemini with the matching prompt + 4.2 PHP Consistency Validator (with 1 automatic retry if validation fails).
+	$ai_res = upx_ig_generate_reference_json($caption, $image_items, $location_hint, null, array(), $kind, $multimodal);
 	if (is_wp_error($ai_res)) {
 		wp_send_json_error(array('message' => $ai_res->get_error_message()), 500);
 	}
 
-	$val_errors = upx_ig_validate_content($ai_res, $caption);
+	$val_errors = upx_ig_validate_content($ai_res, $caption, $kind);
 	if (!empty($val_errors)) {
-		$retry_res = upx_ig_generate_reference_json($caption, $image_items, $location_hint, null, $val_errors);
+		$retry_res = upx_ig_generate_reference_json($caption, $image_items, $location_hint, null, $val_errors, $kind);
 		if (!is_wp_error($retry_res)) {
 			$ai_res     = $retry_res;
-			$val_errors = upx_ig_validate_content($ai_res, $caption);
+			$val_errors = upx_ig_validate_content($ai_res, $caption, $kind);
 		}
 	}
 
@@ -957,8 +1175,9 @@ function upx_ajax_ig_generate() {
 	}
 
 	// 4.3 Sideload images into Media Library & set cover as featured image.
-	$sideload = upx_ig_sideload_images($image_items, $ai_res['slug'], $ai_res['image_alts'], $shortcode, $post_id);
-	$att_ids  = $sideload['attachment_ids'];
+	$sideload    = upx_ig_sideload_images($image_items, $ai_res['slug'], $ai_res['image_alts'], $shortcode, $post_id);
+	$att_ids     = $sideload['attachment_ids'];
+	$media_notes = $sideload['warnings']; // kept apart so a later text rewrite does not drop them
 	foreach ($sideload['warnings'] as $w) {
 		$ai_res['missing_info'][] = $w;
 	}
@@ -974,25 +1193,31 @@ function upx_ajax_ig_generate() {
 	$cover_meta = wp_get_attachment_metadata($cover_att_id);
 	if (is_array($cover_meta) && !empty($cover_meta['width']) && !empty($cover_meta['height'])) {
 		if ((int) $cover_meta['width'] <= (int) $cover_meta['height']) {
-			$ai_res['missing_info'][] = sprintf(
+			$cover_note = sprintf(
 				'Cover photo is %dx%d px (%s). Cards on /references/ use a 4:3 crop (object-fit: cover), so please check the preview to confirm vertical cropping looks good.',
 				(int) $cover_meta['width'],
 				(int) $cover_meta['height'],
 				$cover_meta['width'] == $cover_meta['height'] ? 'square' : 'portrait'
 			);
+			$ai_res['missing_info'][] = $cover_note;
+			$media_notes[]            = $cover_note;
 		}
 	}
 
-	// 4.4 Save provenance & AI suggestion meta. Leave Type, Country, and Court types EMPTY until admin selects them!
+	// 4.4 Save provenance & AI suggestion meta. Type is pre-set to the detected type (the text is written for it and
+	// can be switched + rewritten in Reference details); Country and Court types stay EMPTY until the admin selects them.
 	update_post_meta($post_id, '_source', 'instagram');
 	update_post_meta($post_id, '_input_mode', $input_mode);
 	update_post_meta($post_id, '_ig_shortcode', wp_slash($shortcode));
 	update_post_meta($post_id, '_ig_permalink', esc_url_raw($permalink));
 	update_post_meta($post_id, '_ig_raw_caption', wp_slash($caption));
+	update_post_meta($post_id, '_ig_media_notes', wp_slash(array_values(array_unique($media_notes))));
+	update_post_meta($post_id, '_ai_type_detection', wp_slash($detection));
 
-	$sug_type    = $ai_res['suggested_type'] ? $ai_res['suggested_type'] : 'project';
+	$sug_type    = $kind;
 	$sug_country = $ai_res['suggested_country'] ? $ai_res['suggested_country'] : '';
 	$sug_types   = is_array($ai_res['suggested_court_types']) ? $ai_res['suggested_court_types'] : array();
+	$ai_res['suggestion_confidence']['type'] = $detection['confidence'];
 
 	update_post_meta($post_id, '_ai_suggested_type', wp_slash($sug_type));
 	update_post_meta($post_id, '_ai_suggested_country', wp_slash($sug_country));
@@ -1009,7 +1234,7 @@ function upx_ajax_ig_generate() {
 		'types'   => $sug_types,
 	));
 
-	// Store _upx_ref with Type (''), Country (''), and Court types ([]) left EMPTY!
+	// Store _upx_ref with Type = detected type, Country ('') and Court types ([]) left EMPTY.
 	$ref_meta = array(
 		'country'         => '',
 		'types'           => array(),
@@ -1017,7 +1242,7 @@ function upx_ajax_ig_generate() {
 		'seo_desc'        => $ai_res['meta_description'],
 		'focus_keyphrase' => $ai_res['focus_keyphrase'],
 		'gallery'         => $att_ids,
-		'kind'            => '',
+		'kind'            => $kind,
 		'sort'            => 0,
 		'image_url'       => '',
 		'image_alt'       => '',
@@ -1025,7 +1250,7 @@ function upx_ajax_ig_generate() {
 	update_post_meta($post_id, UPX_META_REF, wp_slash($ref_meta));
 
 	// Run the existing translation pipeline for TR, DE, FR, AR, RU.
-	$translations = upx_ai_translate_reference($ai_res['title'], $ai_res['excerpt'], $ai_res['body_html'], UPX_REF_LANGS);
+	$translations = upx_ai_translate_reference($ai_res['title'], $ai_res['excerpt'], $ai_res['body_html'], UPX_REF_LANGS, $kind);
 	$l10n         = array();
 	$trans_status = array();
 
@@ -1057,6 +1282,7 @@ function upx_ajax_ig_generate() {
 
 	set_transient('upx_ig_generated_notice_' . get_current_user_id(), array(
 		'post_id'      => $post_id,
+		'kind'         => $kind,
 		'missing_info' => array_values(array_unique($ai_res['missing_info'])),
 		'trans_status' => $trans_status,
 	), 300);
@@ -1069,6 +1295,7 @@ function upx_ajax_ig_generate() {
 	wp_send_json_success(array(
 		'post_id'      => $post_id,
 		'edit_url'     => $edit_url,
+		'kind'         => $kind,
 		'missing_info' => $ai_res['missing_info'],
 		'trans_status' => $trans_status,
 	));
@@ -1076,7 +1303,30 @@ function upx_ajax_ig_generate() {
 add_action('wp_ajax_upx_ig_generate', 'upx_ajax_ig_generate');
 
 /**
+ * Reads the Type / Country / Court type selections posted by the review screen (unknown values are dropped).
+ *
+ * @return array { kind: string, country: string, types: string[] }
+ */
+function upx_ig_posted_selection() {
+	$data      = upx_data();
+	$products  = $data ? wp_list_pluck($data['products'], 'url') : array();
+	$countries = $data ? wp_list_pluck($data['countries'], 'slug') : array();
+
+	$kind    = isset($_POST['kind']) && in_array($_POST['kind'], array('project', 'news'), true) ? sanitize_key($_POST['kind']) : '';
+	$country = isset($_POST['country']) ? sanitize_title(wp_unslash($_POST['country'])) : '';
+	$types   = isset($_POST['types']) && is_array($_POST['types']) ? array_values(array_intersect(array_map('strval', wp_unslash($_POST['types'])), $products)) : array();
+
+	return array(
+		'kind'    => $kind,
+		'country' => in_array($country, $countries, true) ? $country : '',
+		'types'   => array_slice($types, 0, 2),
+	);
+}
+
+/**
  * AJAX Phase 5: Regenerate text when admin changes Type, Country, or Court types (keeps images & selections).
+ * Switching the Type rewrites the text with the other prompt (project ↔ company news). Only the Type is required:
+ * a Country or Court type the admin has not chosen is suggested by the AI again.
  */
 function upx_ajax_ig_regenerate() {
 	check_ajax_referer('upx_ai_action', 'nonce');
@@ -1085,17 +1335,11 @@ function upx_ajax_ig_regenerate() {
 		wp_send_json_error(array('message' => 'Unauthorized or invalid post ID.'), 403);
 	}
 
-	$data     = upx_data();
-	$products = $data ? wp_list_pluck($data['products'], 'url') : array();
-	$countries = $data ? wp_list_pluck($data['countries'], 'slug') : array();
-
-	$kind    = isset($_POST['kind']) && in_array($_POST['kind'], array('project', 'news'), true) ? sanitize_key($_POST['kind']) : '';
-	$country = isset($_POST['country']) ? sanitize_title(wp_unslash($_POST['country'])) : '';
-	$types   = isset($_POST['types']) && is_array($_POST['types']) ? array_values(array_intersect(array_map('strval', wp_unslash($_POST['types'])), $products)) : array();
-
-	if ($kind === '' || $country === '' || empty($types)) {
-		wp_send_json_error(array('message' => 'Please select Type, Country, and at least one Court type before regenerating the text.'), 400);
+	$forced = upx_ig_posted_selection();
+	if ($forced['kind'] === '') {
+		wp_send_json_error(array('message' => 'Choose Project or Company news before rewriting the text.'), 400);
 	}
+	$kind = $forced['kind'];
 
 	$caption = (string) get_post_meta($post_id, '_ig_raw_caption', true);
 	if (trim($caption) === '') {
@@ -1103,25 +1347,20 @@ function upx_ajax_ig_regenerate() {
 		$caption = $post ? ($post->post_title . "\n\n" . wp_strip_all_tags($post->post_content)) : '';
 	}
 
-	$forced = array(
-		'kind'    => $kind,
-		'country' => in_array($country, $countries, true) ? $country : '',
-		'types'   => array_slice($types, 0, 2),
-	);
-
 	$meta = upx_ref_meta($post_id);
 	$dummy_images = array(array('type' => 'attachment', 'id' => (int) get_post_thumbnail_id($post_id)));
 
-	$ai_res = upx_ig_generate_reference_json($caption, $dummy_images, '', $forced);
+	$ai_res = upx_ig_generate_reference_json($caption, $dummy_images, '', $forced, array(), $kind);
 	if (is_wp_error($ai_res)) {
 		wp_send_json_error(array('message' => $ai_res->get_error_message()), 500);
 	}
 
-	$val_errors = upx_ig_validate_content($ai_res, $caption);
+	$val_errors = upx_ig_validate_content($ai_res, $caption, $kind);
 	if (!empty($val_errors)) {
-		$retry_res = upx_ig_generate_reference_json($caption, $dummy_images, '', $forced, $val_errors);
+		$retry_res = upx_ig_generate_reference_json($caption, $dummy_images, '', $forced, $val_errors, $kind);
 		if (!is_wp_error($retry_res)) {
-			$ai_res = $retry_res;
+			$ai_res     = $retry_res;
+			$val_errors = upx_ig_validate_content($ai_res, $caption, $kind);
 		}
 	}
 	$ai_res = upx_ig_sanitize_final_output($ai_res, $caption);
@@ -1143,12 +1382,35 @@ function upx_ajax_ig_regenerate() {
 	$meta['focus_keyphrase'] = $ai_res['focus_keyphrase'];
 	update_post_meta($post_id, UPX_META_REF, wp_slash($meta));
 
-	$new_hash = upx_ig_selection_hash($forced['kind'], $forced['country'], $forced['types']);
+	// What the text is now written for: the admin's choices, and the AI's suggestions for fields left empty.
+	$gen_meta = array(
+		'kind'    => $kind,
+		'country' => $ai_res['suggested_country'] ? $ai_res['suggested_country'] : '',
+		'types'   => is_array($ai_res['suggested_court_types']) ? $ai_res['suggested_court_types'] : array(),
+	);
+	$new_hash = upx_ig_selection_hash($gen_meta['kind'], $gen_meta['country'], $gen_meta['types']);
 	update_post_meta($post_id, '_generated_for', $new_hash);
-	update_post_meta($post_id, '_generated_for_meta', $forced);
+	update_post_meta($post_id, '_generated_for_meta', $gen_meta);
+
+	// Refresh the suggestion badges and review notes for the new text (photo notes from the import are kept).
+	$conf = get_post_meta($post_id, '_ai_suggestion_confidence', true);
+	$conf = is_array($conf) ? $conf : array();
+	$conf['country']     = $ai_res['suggestion_confidence']['country'];
+	$conf['court_types'] = $ai_res['suggestion_confidence']['court_types'];
+	$media_notes = get_post_meta($post_id, '_ig_media_notes', true);
+	$notes       = $ai_res['missing_info'];
+	foreach ($val_errors as $ve) {
+		$notes[] = 'Note: ' . $ve;
+	}
+	$notes = array_merge($notes, is_array($media_notes) ? $media_notes : array());
+	update_post_meta($post_id, '_ai_suggested_type', $kind);
+	update_post_meta($post_id, '_ai_suggested_country', wp_slash($gen_meta['country']));
+	update_post_meta($post_id, '_ai_suggested_court_types', wp_slash($gen_meta['types']));
+	update_post_meta($post_id, '_ai_suggestion_confidence', wp_slash($conf));
+	update_post_meta($post_id, '_ai_missing_info', wp_slash(array_values(array_unique($notes))));
 
 	// Re-run translations for all 5 languages so translations stay consistent with the new selections.
-	$translations = upx_ai_translate_reference($ai_res['title'], $ai_res['excerpt'], $ai_res['body_html'], UPX_REF_LANGS);
+	$translations = upx_ai_translate_reference($ai_res['title'], $ai_res['excerpt'], $ai_res['body_html'], UPX_REF_LANGS, $kind);
 	$l10n         = upx_ref_l10n($post_id);
 	if (is_array($translations)) {
 		foreach (UPX_REF_LANGS as $lang) {
@@ -1178,7 +1440,8 @@ function upx_ajax_ig_regenerate() {
 		'focus_keyphrase' => $ai_res['focus_keyphrase'],
 		'translations'    => $l10n,
 		'generated_for'   => $new_hash,
-		'generated_label' => upx_ig_selection_label($forced['kind'], $forced['country'], $forced['types']),
+		'generated_meta'  => $gen_meta,
+		'generated_label' => upx_ig_selection_label($gen_meta['kind'], $gen_meta['country'], $gen_meta['types']),
 	));
 }
 add_action('wp_ajax_upx_ig_regenerate', 'upx_ajax_ig_regenerate');
@@ -1193,38 +1456,35 @@ function upx_ajax_ig_ack_stale() {
 		wp_send_json_error(array('message' => 'Unauthorized or invalid post ID.'), 403);
 	}
 
-	$data      = upx_data();
-	$products  = $data ? wp_list_pluck($data['products'], 'url') : array();
-	$countries = $data ? wp_list_pluck($data['countries'], 'slug') : array();
-
-	$kind    = isset($_POST['kind']) && in_array($_POST['kind'], array('project', 'news'), true) ? sanitize_key($_POST['kind']) : '';
-	$country = isset($_POST['country']) ? sanitize_title(wp_unslash($_POST['country'])) : '';
-	$types   = isset($_POST['types']) && is_array($_POST['types']) ? array_values(array_intersect(array_map('strval', wp_unslash($_POST['types'])), $products)) : array();
-
-	if ($kind === '' || $country === '' || empty($types)) {
-		wp_send_json_error(array('message' => 'Please select Type, Country, and at least one Court type first.'), 400);
+	$sel = upx_ig_posted_selection();
+	if ($sel['kind'] === '') {
+		wp_send_json_error(array('message' => 'Choose Project or Company news first.'), 400);
 	}
 
-	$forced = array(
-		'kind'    => $kind,
-		'country' => in_array($country, $countries, true) ? $country : '',
-		'types'   => array_slice($types, 0, 2),
+	// The checked text now counts as written for every chosen field; fields not chosen keep their previous value.
+	$prev     = get_post_meta($post_id, '_generated_for_meta', true);
+	$prev     = is_array($prev) ? $prev : array();
+	$gen_meta = array(
+		'kind'    => $sel['kind'],
+		'country' => $sel['country'] !== '' ? $sel['country'] : (isset($prev['country']) ? (string) $prev['country'] : ''),
+		'types'   => !empty($sel['types']) ? $sel['types'] : (isset($prev['types']) && is_array($prev['types']) ? $prev['types'] : array()),
 	);
 
-	$new_hash = upx_ig_selection_hash($forced['kind'], $forced['country'], $forced['types']);
+	$new_hash = upx_ig_selection_hash($gen_meta['kind'], $gen_meta['country'], $gen_meta['types']);
 	update_post_meta($post_id, '_generated_for', $new_hash);
-	update_post_meta($post_id, '_generated_for_meta', $forced);
+	update_post_meta($post_id, '_generated_for_meta', $gen_meta);
 
 	// Also persist the selections into _upx_ref so the post is ready to publish immediately.
 	$meta            = upx_ref_meta($post_id);
-	$meta['kind']    = $forced['kind'];
-	$meta['country'] = $forced['country'];
-	$meta['types']   = $forced['types'];
+	$meta['kind']    = $sel['kind'];
+	$meta['country'] = $sel['country'];
+	$meta['types']   = $sel['types'];
 	update_post_meta($post_id, UPX_META_REF, wp_slash($meta));
 
 	wp_send_json_success(array(
 		'generated_for'   => $new_hash,
-		'generated_label' => upx_ig_selection_label($forced['kind'], $forced['country'], $forced['types']),
+		'generated_meta'  => $gen_meta,
+		'generated_label' => upx_ig_selection_label($gen_meta['kind'], $gen_meta['country'], $gen_meta['types']),
 	));
 }
 add_action('wp_ajax_upx_ig_ack_stale', 'upx_ajax_ig_ack_stale');

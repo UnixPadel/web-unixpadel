@@ -16,7 +16,9 @@ export const SHELL_PATH = '/upx-shell/reference/';
 export const SHELL_ROBOTS = 'noindex, nofollow';
 
 /** Hub cards shown before "Show all", cards on the home page and per product page, llms.txt references, court types. */
-export const VISIBLE = 11;
+export const VISIBLE = 8;
+/** …and at two columns (640–1023px), where the featured card takes a whole row: 1 + three rows of two. */
+export const VISIBLE_TABLET = 7;
 export const HOME_REFS = 3;
 export const PRODUCT_REFS = 3;
 export const LLMS_MAX_REFS = 15;

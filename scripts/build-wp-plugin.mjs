@@ -12,7 +12,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { zipSync } from 'fflate';
-import { BAND_FIELDS, BAND_ITEMS, BLOCKS, CONTRACT, HOME_REFS, M, SLOTS, T, TEMPLATES, VISIBLE, bandToken, langToken } from '../src/lib/upx-contract.mjs';
+import { BAND_FIELDS, BAND_ITEMS, BLOCKS, CONTRACT, HOME_REFS, M, SLOTS, T, TEMPLATES, VISIBLE, VISIBLE_TABLET, bandToken, langToken } from '../src/lib/upx-contract.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = path.join(ROOT, 'dist-wp');
@@ -185,9 +185,10 @@ if (migrate) {
     }
   }
 } else contract.push('upx-shell/migrate.json missing');
-// "Show all" hides cards by position (HubPage.astro): nth-child(VISIBLE + 1) must match upx-contract VISIBLE.
+// "Show all" hides cards by position (HubPage.astro): nth-child(VISIBLE + 1), and VISIBLE_TABLET + 1 at two
+// columns, must match upx-contract.
 const css = walk(path.join(OUT_DIR, '_astro')).filter((f) => f.endsWith('.css')).map((f) => fs.readFileSync(f, 'utf8')).join('') + (read('references/index.html') ?? '');
-expect(new RegExp(`\\.ref-grid[^{}]*>\\s*\\.ref:nth-child\\(n\\s*\\+\\s*${VISIBLE + 1}\\)`).test(css), `hub CSS: .ref-grid > .ref:nth-child(n+${VISIBLE + 1}) not found`);
+for (const n of [VISIBLE, VISIBLE_TABLET]) expect(new RegExp(`\\.ref-grid[^{}]*>\\s*\\.ref:nth-child\\(n\\s*\\+\\s*${n + 1}\\)`).test(css), `hub CSS: .ref-grid > .ref:nth-child(n+${n + 1}) not found`);
 let data = null;
 try {
   data = JSON.parse(read('upx-shell/data.json') ?? 'null');

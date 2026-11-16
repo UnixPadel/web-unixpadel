@@ -19,7 +19,7 @@ import { isNews } from '../lib/pageType';
 import { columnsFor } from '../lib/grid';
 import { courtTypesOf, refCardImage, refExcerpt } from '../lib/references';
 import { globeDataFor } from '../lib/referenceMap';
-import { M, T, VISIBLE } from '../lib/upx-contract.mjs';
+import { M, T } from '../lib/upx-contract.mjs';
 import { GUIDE_GROUPS } from '../data/guide';
 import type { TemplateProps } from './_types';
 
@@ -47,9 +47,10 @@ const guideGroups =
     : [];
 
 // Reference index: delivered projects in the grid ("show all"), company news as a list below it.
-// VISIBLE: featured card (2 cells) + 10 → full rows at 2 and 3 columns. The WordPress plugin puts references written
-// in WP admin in front of these cards (between the hub-cards markers, from the templates below the grid), so the
-// script recounts "Show all" from the cards in the page.
+// VISIBLE (upx-contract): featured card (2 cells) + 7 → three full rows at 3 columns (2 + 3 + 3); VISIBLE_TABLET at
+// 2 columns, where the featured card takes a row of its own. The WordPress plugin puts references written in WP admin
+// in front of these cards (between the hub-cards markers, from the templates below the grid), so the script recounts
+// "Show all" from the cards in the page and shows the button whenever the CSS below is hiding one.
 const isRef = kind === 'reference';
 const plural = (fn: (n: number) => string) => ({ one: fn(1), other: fn(987654).replace('987654', '{n}') });
 const results = plural(ui.resultsCount);
@@ -183,6 +184,15 @@ const split =
         {
           isRef && (
             <>
+              {/* Coming back from a project (back/forward) with the list expanded: expand it before the first paint,
+                  so the browser can restore the scroll position. A fresh visit starts collapsed. */}
+              <script is:inline>
+                try {
+                  var nav = performance.getEntriesByType('navigation')[0];
+                  if (nav && nav.type === 'back_forward' && sessionStorage.getItem('upx-refs-expanded') === '1') document.querySelector('.ref-grid').classList.add('is-expanded');
+                  else sessionStorage.removeItem('upx-refs-expanded');
+                } catch (e) {}
+              </script>
               <template data-upx="hub-card-featured">
                 <ReferenceCard title={T.C_TITLE} href={T.C_HREF} image={T.C_SRC} alt={T.C_ALT} countryKey={T.C_KEY} countryLabel={T.C_COUNTRY} courtTypes={[T.C_TYPES]} excerpt={T.C_EXCERPT} headingLevel="h2" featured hub />
               </template>
@@ -193,7 +203,7 @@ const split =
                 <ShareBar />
               </div>
               <div class="ref-more">
-                <button class="btn btn--secondary" type="button" data-show-all data-visible={VISIBLE} hidden>
+                <button class="btn btn--secondary" type="button" data-show-all hidden>
                   {ui.showAllProjects(projects.length)}
                 </button>
               </div>
@@ -281,10 +291,16 @@ const split =
   :global(.ref-grid .ref[hidden]) {
     display: none;
   }
-  /* nth-child(VISIBLE + 1): cards after the first VISIBLE wait behind "Show all" (JS only). By position rather than a
-     class, so cards the WordPress plugin puts in front push the rest down without rewriting them. */
-  :global(.js .ref-grid:not(.is-expanded, .is-filtered) > .ref:nth-child(n + 12)) {
+  /* nth-child(VISIBLE + 1), and VISIBLE_TABLET + 1 at two columns: the cards after those wait behind "Show all" (JS
+     only). By position rather than a class, so cards the WordPress plugin puts in front push the rest down without
+     rewriting them. build:wp checks both numbers against upx-contract. */
+  :global(.js .ref-grid:not(.is-expanded, .is-filtered) > .ref:nth-child(n + 9)) {
     display: none;
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    :global(.js .ref-grid:not(.is-expanded, .is-filtered) > .ref:nth-child(n + 8)) {
+      display: none;
+    }
   }
   .ref-more {
     display: flex;
@@ -377,17 +393,22 @@ const split =
     const cards = [...grid.querySelectorAll<HTMLElement>('.ref')];
     const empty = document.querySelector<HTMLElement>('[data-filters-empty]')!;
     const more = document.querySelector<HTMLButtonElement>('[data-show-all]');
-    const visible = Number(more?.dataset.visible ?? 11);
     const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
     // References written in WordPress are added in front of the built cards (wp-plugin), so the "Show all" label is
     // recounted from the cards actually in the page.
     const d = status.dataset;
     const plural = (one: string | undefined, other: string | undefined, n: number) => ((n === 1 ? one : other) ?? '').replace('{n}', String(n));
-    if (more) {
-      more.textContent = plural(d.showallOne, d.showallOther, cards.length);
-      more.hidden = cards.length <= visible;
-    }
+    if (more) more.textContent = plural(d.showallOne, d.showallOther, cards.length);
+
+    // Cards the stylesheet keeps behind "Show all" right now (the number depends on the column count).
+    const waiting = () => cards.filter((c) => !c.hidden && getComputedStyle(c).display === 'none');
+    // The button is there while a card waits behind it, or while a country filter can be lifted.
+    const syncMore = () => {
+      if (more) more.hidden = !grid.classList.contains('is-filtered') && waiting().length === 0;
+    };
+    syncMore();
+    matchMedia('(min-width: 640px) and (max-width: 1023px)').addEventListener('change', syncMore);
 
     const apply = (want: string) => {
       if (want && !cards.some((c) => c.dataset.country === want)) want = '';
@@ -400,7 +421,7 @@ const split =
         if (show) shown++;
       });
       empty.hidden = shown > 0;
-      if (more) more.hidden = !want && (grid.classList.contains('is-expanded') || cards.length <= visible);
+      syncMore();
       status.textContent = plural(d.resultsOne, d.resultsOther, shown);
       const url = new URL(location.href);
       if (want) url.searchParams.set('country', want);
@@ -410,10 +431,20 @@ const split =
 
     more?.addEventListener('click', () => {
       const filtered = grid.classList.contains('is-filtered');
+      const firstNew = waiting()[0];
       grid.classList.add('is-expanded');
+      try {
+        sessionStorage.setItem('upx-refs-expanded', '1');
+      } catch {
+        // storage blocked: the list just starts collapsed next time
+      }
       if (filtered) apply('');
-      more.hidden = true;
-      if (!filtered) cards[visible]?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+      else status.textContent = plural(d.resultsOne, d.resultsOther, cards.length);
+      syncMore();
+      // The button is gone: keep the keyboard on the list, at the first card it revealed (or the first card once a
+      // country filter is lifted).
+      if (filtered) cards[0]?.querySelector<HTMLAnchorElement>('a')?.focus();
+      else firstNew?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
     });
     document.addEventListener('refs:country', (e) => {
       apply((e as CustomEvent<{ slug: string }>).detail.slug);

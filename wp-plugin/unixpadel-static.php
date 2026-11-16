@@ -430,6 +430,7 @@ function upx_quote_submit(WP_REST_Request $request) {
 		'country'     => upx_quote_field($params, 'country', 80),
 		'projectType' => upx_quote_field($params, 'projectType', 80),
 		'product'     => upx_quote_field($params, 'product', 150),
+		'productSlug' => sanitize_title(upx_quote_field($params, 'productSlug', 150)),
 		'courts'      => upx_quote_field($params, 'courts', 4),
 		'message'     => upx_quote_field($params, 'message', 5000),
 		'lang'        => upx_quote_field($params, 'lang', 5),
@@ -496,12 +497,18 @@ function upx_quote_submit(WP_REST_Request $request) {
 		'post_title'   => $subject . ($mailed ? '' : ' [email not sent]'),
 		'post_content' => $body,
 	), true);
+	if (!is_wp_error($saved) && $saved) {
+		upx_crm_remember($saved, $f); // structured copy for the sales CRM (includes/crm-pull.php)
+	}
 
 	if (!$mailed && is_wp_error($saved)) {
 		return new WP_REST_Response(array('ok' => false, 'error' => 'not_delivered'), 500);
 	}
 	return new WP_REST_Response(array('ok' => true), 200);
 }
+
+// The sales CRM fetches the saved requests from here (signed /crm/pending and /crm/ack, CRM column, settings).
+require_once __DIR__ . '/includes/crm-pull.php';
 
 /* ---------- Activation ---------- */
 
@@ -516,6 +523,8 @@ function upx_uninstall() {
 	delete_option(UPX_OPT_TOKEN);
 	delete_option(UPX_OPT_QUOTE_TO); // saved quote requests stay (Quote requests → Trash to remove them)
 	delete_option(UPX_OPT_QUOTE_TO_LEGACY);
+	delete_option(UPX_OPT_CRM_KEY);  // CRM status of each request stays on the request
+	delete_option(UPX_OPT_CRM_LAST_PULL);
 	delete_option(UPX_OPT_REFS);     // references stay as posts; the index is rebuilt when the plugin comes back
 	foreach (array(UPX_OPT_GH_REPO, UPX_OPT_GH_TOKEN, UPX_OPT_DEPLOY_SECRET, UPX_OPT_DEPLOY_AUTO, UPX_OPT_DEPLOY_LOG, UPX_OPT_DEPLOY_PREVIOUS, UPX_OPT_GEMINI_KEY, UPX_OPT_GEMINI_MODEL, UPX_OPT_AI_AUTO_TRANSLATE) as $option) {
 		delete_option($option);
@@ -599,6 +608,7 @@ function upx_settings_page() {
 			<p class="description">Every request is also saved under <a href="<?php echo esc_url(admin_url('edit.php?post_type=' . UPX_QUOTE_POST_TYPE)); ?>">Quote requests</a>
 				(<?php echo (int) wp_count_posts(UPX_QUOTE_POST_TYPE)->private; ?> so far), so none is lost if an email does not arrive.
 				If mails land in spam or never arrive, configure an SMTP plugin (e.g. WP Mail SMTP) for this site.</p>
+			<?php upx_crm_settings_section(); ?>
 			<h2>AI & Translation (Google Gemini)</h2>
 			<p>Used to write English reference drafts from short notes and translate references to <strong>Turkish, German, French, Arabic, and Russian</strong> with a single click or automatically on publish.</p>
 			<table class="form-table" role="presentation">

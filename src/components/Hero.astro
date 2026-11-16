@@ -140,6 +140,8 @@ const parts = title.split(/\*([^*]+)\*/);
     position: relative;
     z-index: 2;
     display: grid;
+    /* minmax(0, …): a long unbreakable line inside (breadcrumb, share row) must not widen the column past the screen */
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--sp-5);
     padding-block: var(--sp-6) var(--sp-8);
   }

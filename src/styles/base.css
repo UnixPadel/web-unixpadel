@@ -495,14 +495,18 @@ button {
   color: var(--border-strong);
 }
 
+/* The current page is one line cut with an ellipsis. Its item is a flex row so the label can shrink beside the "/"
+   instead of holding the row (and the page around it) at 48ch on a narrow screen. */
 .breadcrumbs li:last-child {
+  display: flex;
   min-inline-size: 0;
   max-inline-size: 100%;
 }
 
 .breadcrumbs [aria-current='page'] {
-  display: inline-block;
-  max-inline-size: min(48ch, 100%);
+  display: block;
+  min-inline-size: 0;
+  max-inline-size: 48ch;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

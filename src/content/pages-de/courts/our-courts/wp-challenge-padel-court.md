@@ -27,15 +27,13 @@ specs:
   - label: Fundamentfläche
     value: Empfohlene Betonfläche 20.80m (Länge) x 10.80m (Breite).
   - label: Eckverstärkung
-    value: Zusätzliche Stahlrohre 100x50x3mm verstärken die Eckpfosten.
-  - label: Rahmenkonstruktion
-    value: Massives Drei-Pfosten-Ecksystem.
+    value: Stahlträger 100x50x3mm verstärken die Eckpfosten.
   - label: Windlast
-    value: Von der İTÜ zertifizierte Windlastklasse B (0.42 kN/m²).
+    value: 100 km/h.
   - label: Kunstrasensystem
     value: Offiziell FIP-zugelassener Kunstrasen mit Quarzsand-Verfüllung.
   - label: Sicherheitsglas
-    value: 10mm / 12mm CE-zertifiziertes Einscheibensicherheitsglas (ESG), konform mit EN 12150-1.
+    value: 12mm CE-zertifiziertes Einscheibensicherheitsglas (ESG), konform mit EN 12150-1.
   - label: Gitterpaneele
     value: Elektrogeschweißte Stahldraht-Gitterpaneele 50x50x4mm mit Verletzungsschutz.
 specsIntro: Jede Komponente konstruieren wir nach internationalen Standards für Sicherheit, Langlebigkeit und turniertaugliches Spiel.
@@ -67,20 +65,20 @@ media:
     section: 6
 faq:
   - q: Was macht den WP Challenge Padelplatz besonders windbeständig?
-    a: Er verfügt über verstärkte Eckpfosten aus Stahlrohr 100x50x3mm, eine Drei-Pfosten-Rahmenkonstruktion und eine von der İTÜ zertifizierte Windlastklasse B (0.42 kN/m²).
+    a: Er verfügt über Eckpfosten, die mit Stahlträgern 100x50x3mm verstärkt sind, hochbelastbare Fußplatten und eine Windbeständigkeit bis 100 km/h.
   - q: Welche Maße und Fundamentanforderungen hat der WP Challenge Platz?
     a: Die innere Spielfläche misst 20.00m x 10.00m, das empfohlene Betonfundament 21m x 11m.
   - q: Ist der Kunstrasen FIP-zugelassen?
     a: Ja. Alle WP Challenge Padelplätze von Unixpadel sind mit offiziell FIP-zugelassenem Kunstrasen für das Spiel auf Turnierniveau ausgestattet.
-  - q: Wurde der WP Challenge Platz unabhängig statisch geprüft?
-    a: Ja. Die technische Fakultät der Technischen Universität Istanbul (İTÜ) hat unser statisches Gutachten eingehend geprüft und zertifiziert.
+  - q: Welcher Windgeschwindigkeit hält der WP Challenge Platz stand?
+    a: Der WP Challenge Padelplatz ist für Windgeschwindigkeiten bis 100 km/h ausgelegt.
   - q: In welchen Ländern ist Unixpadel tätig und realisiert Platzprojekte?
     a: Unixpadel unterhält Büros und realisiert Platzprojekte in Deutschland, Österreich, den USA, Indien, den Niederlanden und Frankreich; der Hauptsitz befindet sich in Istanbul, Türkei.
 legacyUrls:
   - /wp-challange-padel-court/
 ---
 
-## Außergewöhnliche Stabilität bei extremen Windlasten. Zertifiziert durch die technische Fakultät der İTÜ, mit FIP-zugelassenem Kunstrasen.
+## Außergewöhnliche Stabilität bei extremen Windlasten. Windbeständig bis 100 km/h, mit FIP-zugelassenem Kunstrasen.
 
 [**Angebot anfordern**](/contact-us/)
 
@@ -93,27 +91,27 @@ Wir bauen jeden Platz mit höchster Präzision und setzen robuste Konstruktionse
 
 ### Stabilität und Pfostenverstärkung
 
-Ein zusätzliches Stahlrohr 100 x 50 x 3 mm verstärkt jeden Eckpfosten des WP Challenge Padelplatzes von Unixpadel. Diese Verstärkung erhöht die Gesamtfestigkeit und Stabilität der Platzkonstruktion.
+Ein Stahlträger 100 x 50 x 3 mm verstärkt jeden Eckpfosten des WP Challenge Padelplatzes von Unixpadel. Diese Verstärkung erhöht die Gesamtfestigkeit und Stabilität der Platzkonstruktion.
 
-Unsere massive Drei-Pfosten-Rahmenkonstruktion steigert die Stabilität des Platzes zusätzlich. Hochbelastbare Fußplatten verankern die gesamte Konstruktion sicher – für maximale Stabilität und eine zuverlässige Spielfläche.
+Hochbelastbare Fußplatten verankern die gesamte Konstruktion sicher – für maximale Stabilität und eine zuverlässige Spielfläche.
 
 [**Angebot anfordern**](/contact-us/)
 
 ## Merkmale und professionelle statische Analyse
 
-Wissenschaftliche Institutionen haben unsere Konstruktion eingehend auf ihre Widerstandskraft gegenüber extremen Umwelteinflüssen und hohen Windlasten geprüft.
+Wir konstruieren den Platz so, dass er extremen Umwelteinflüssen und Windgeschwindigkeiten bis 100 km/h standhält.
 
-### Rohrpfosten 100x50x3mm
+### Stahlträger 100x50x3mm
 
-- Zusätzliche Stahlrohre 100x50x3mm verstärken die Eckpfosten.
+- Stahlträger 100x50x3mm verstärken die Eckpfosten.
 - Maximale Widerstandskraft gegen extreme Windlasten und dynamischen Anprall.
 - Starkwandiger Baustahl hält rauen Witterungsbedingungen stand.
 
-### Technisches Gutachten der İTÜ
+### Windbeständig bis 100 km/h
 
-- Die Technische Universität Istanbul (İTÜ) hat das statische Gutachten geprüft.
-- Die Untersuchung bestätigt die Windlastbeständigkeit nach Klasse B (0.42 kN/m²).
-- Die Berechnungen belegen die dynamische Lastverteilung und strenge Sicherheitstoleranzen.
+- Die Konstruktion ist für Windgeschwindigkeiten bis 100 km/h ausgelegt.
+- Verstärkte Eckpfosten und hochbelastbare Fußplatten halten den Platz auch bei starkem Wind stabil.
+- Geeignet für Außenanlagen, die starkem Wind ausgesetzt sind.
 
 ### FIP-zugelassener Kunstrasen und Maße
 
@@ -131,7 +129,7 @@ Wissenschaftliche Institutionen haben unsere Konstruktion eingehend auf ihre Wid
 
 Wir sind stolz auf die Gründlichkeit unseres technischen Ansatzes. Der WP Challenge Padelplatz von Unixpadel wurde umfassend geprüft und bewertet.
 
-Die technische Fakultät der Technischen Universität Istanbul (İTÜ) hat unser umfassendes statisches Gutachten „Unixpadel WP Challenge Padel Court Structure“ geprüft. Die Untersuchung bewertet gezielt die Widerstandskraft des Platzes gegenüber Windlasten und Anprall und bestätigt die Windlastbeständigkeit nach Klasse B (0.42 kN/m²).
+Jeder WP Challenge Platz ist für Windgeschwindigkeiten bis 100 km/h ausgelegt. Verstärkte Eckpfosten und hochbelastbare Fußplatten halten die Konstruktion stabil gegenüber Windlasten und Anprall.
 
 - **Durchgängige Qualitätssicherung:** Erfahrene Fachleute begleiten jeden Schritt von Planung, Fertigung, Transport und Montage.
 - **FIP-Turnierstandard:** Unixpadel-Plätze erfüllen alle offiziellen FIP-Standards und bieten Spielern ein authentisches, turniertaugliches Spielerlebnis.
@@ -142,7 +140,7 @@ Die technische Fakultät der Technischen Universität Istanbul (İTÜ) hat unser
 
 ## Höchste Qualität mit dem UNIXPADEL WP Challenge Padelplatz
 
-Für weitere Informationen oder das ausführliche statische Gutachten der İTÜ kontaktieren Sie noch heute unser Engineering-Team! Wir unterstützen Sie beim Bau eines windbeständigen, turniertauglichen Padelplatzes für Ihre Anlage.
+Für weitere Informationen oder ausführliche technische Daten kontaktieren Sie noch heute unser Engineering-Team! Wir unterstützen Sie beim Bau eines windbeständigen, turniertauglichen Padelplatzes für Ihre Anlage.
 
 [**Angebot anfordern**](/contact-us/)
 

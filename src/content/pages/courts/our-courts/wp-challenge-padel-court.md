@@ -27,15 +27,13 @@ specs:
   - label: Foundation Area
     value: Recommended 21m (Length) x 11m (Width) concrete footprint.
   - label: Corner Reinforcement
-    value: Additional 100x50x3mm steel tubing reinforces corner columns.
-  - label: Frame Construction
-    value: Solid three-pillar corner frame system.
+    value: 100x50x3mm steel beam reinforces the corner columns.
   - label: Wind Load Velocity
-    value: İTÜ certified wind load rating of Class B (0.42 kN/m²).
+    value: 100 km/h.
   - label: Turf System
     value: Official FIP Approved Artificial Turf with silica sand infill.
   - label: Safety Glass
-    value: 10mm / 12mm CE-certified tempered safety glass (EN 12150-1 compliant).
+    value: 12mm CE-certified tempered safety glass (EN 12150-1 compliant).
   - label: Mesh Panels
     value: Electro-welded 50x50x4mm anti-injury steel wire mesh panels.
 specsIntro: We engineer every component to meet international standards for safety, durability, and tournament-grade play.
@@ -67,20 +65,20 @@ media:
     section: 6
 faq:
   - q: What makes the WP Challenge Padel Court exceptionally wind-resistant?
-    a: It features 100x50x3mm reinforced steel tube corner columns, 3-pillar frame construction, and an İTÜ certified wind load rating of Class B (0.42 kN/m²).
+    a: It features 100x50x3mm steel beams reinforcing the corner columns, heavy-duty footplates, and wind resistance up to 100 km/h.
   - q: What are the dimensions and foundation requirements for the WP Challenge Court?
     a: The internal playing area measures 20.00m x 10.00m, while the recommended concrete foundation measures 21m x 11m.
   - q: Is the artificial turf FIP approved?
     a: Yes, all Unixpadel WP Challenge Padel Courts feature official FIP Approved Artificial Turf for tournament-level play.
-  - q: Has the WP Challenge Court undergone independent structural testing?
-    a: Yes, the Technical Department of Istanbul Technical University (İTÜ) thoroughly evaluated and certified our structural analysis report.
+  - q: Which wind speed can the WP Challenge Court withstand?
+    a: The WP Challenge Padel Court is engineered to withstand wind speeds of up to 100 km/h.
   - q: In which countries does Unixpadel operate and deliver court projects?
     a: Unixpadel operates offices and delivers court projects across Germany, Austria, the United States, India, the Netherlands, France, and our headquarters in Istanbul, Turkey.
 legacyUrls:
   - /wp-challange-padel-court/
 ---
 
-## Exceptional structural stability against extreme wind loads. İTÜ Technical Department certification with FIP-approved artificial turf.
+## Exceptional structural stability against extreme wind loads. Wind resistance up to 100 km/h with FIP-approved artificial turf.
 
 [**Get a quote**](/contact-us/)
 
@@ -93,27 +91,27 @@ We build each court with utmost precision, incorporating robust structural eleme
 
 ### Structural Stability & Column Reinforcement
 
-An additional 100 x 50 x 3 mm steel tube reinforces each corner column of the Unixpadel WP Challenge Padel Court. This reinforcement enhances the overall strength and stability of the court’s structure.
+A 100 x 50 x 3 mm steel beam reinforces each corner column of the Unixpadel WP Challenge Padel Court. This reinforcement enhances the overall strength and stability of the court’s structure.
 
-Our solid three-pillar frame construction further strengthens court stability. Heavy-duty footplates anchor the entire structure securely, ensuring maximum stability and a reliable playing surface.
+Heavy-duty footplates anchor the entire structure securely, ensuring maximum stability and a reliable playing surface.
 
 [**Get a quote**](/contact-us/)
 
 ## Key Features & Professional Engineering Analysis
 
-Academic institutions rigorously tested our structure to verify its resistance against severe environmental stress and high wind loads.
+We engineer the structure to withstand severe environmental stress and wind speeds of up to 100 km/h.
 
-### 100x50x3mm Tube Pillars
+### 100x50x3mm Steel Beams
 
-- Additional 100x50x3mm steel tubing reinforces corner columns.
+- 100x50x3mm steel beam reinforces the corner columns.
 - Maximum resistance against extreme wind loads and dynamic impact.
 - Heavy-gauge structural steel withstands harsh weather conditions.
 
-### İTÜ Technical Report
+### 100 km/h Wind Resistance
 
-- Istanbul Technical University (İTÜ) evaluated the structural engineering report.
-- The study confirms wind load velocity resistance at Class B (0.42 kN/m²).
-- Calculations verify dynamic load distribution and strict safety tolerances.
+- Structure engineered to withstand wind speeds of up to 100 km/h.
+- Reinforced corner columns and heavy-duty footplates keep the court stable in strong wind.
+- Suitable for open-air installations exposed to strong wind.
 
 ### FIP Approved Turf & Specs
 
@@ -131,7 +129,7 @@ Academic institutions rigorously tested our structure to verify its resistance a
 
 We take pride in the thoroughness of our engineering approach. The Unixpadel WP Challenge Padel Court has undergone rigorous testing and evaluation.
 
-The Technical Department of Istanbul Technical University (İTÜ) evaluated our comprehensive structural analysis report, ‘Unixpadel WP Challenge Padel Court Structure.’ This study specifically assesses the court’s resistance to wind loads and impact, confirming wind load velocity resistance at Class B (0.42 kN/m²).
+Every WP Challenge court is engineered to withstand wind speeds of up to 100 km/h. The reinforced corner columns and heavy-duty footplates keep the structure stable against wind loads and impact.
 
 - **End-to-End Quality Assurance:** Experienced professionals oversee every aspect of design, production, transport, and installation.
 - **FIP Tournament Standard:** Unixpadel courts meet all official FIP standards to give players an authentic tournament-grade playing experience.
@@ -142,7 +140,7 @@ The Technical Department of Istanbul Technical University (İTÜ) evaluated our 
 
 ## Experience Unmatched Quality with UNIXPADEL WP Challenge Padel Court
 
-For more information or to request the detailed İTÜ structural analysis report, contact our engineering team today! Let us help you build a wind-resistant, tournament-grade padel court for your facility.
+For more information or to request detailed technical specifications, contact our engineering team today! Let us help you build a wind-resistant, tournament-grade padel court for your facility.
 
 [**Get a quote**](/contact-us/)
 

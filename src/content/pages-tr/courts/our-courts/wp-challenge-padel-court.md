@@ -27,15 +27,13 @@ specs:
   - label: Temel Alanı
     value: Önerilen beton zemin ölçüsü 21m (Uzunluk) x 11m (Genişlik).
   - label: Köşe Takviyesi
-    value: Köşe dikmeleri ilave 100x50x3mm çelik boru profil ile takviye edilir.
-  - label: Konstrüksiyon Yapısı
-    value: Sağlam üç dikmeli köşe konstrüksiyon sistemi.
-  - label: Rüzgâr Yükü Sınıfı
-    value: İTÜ onaylı B Sınıfı rüzgâr yükü değeri (0.42 kN/m²).
+    value: Köşe dikmeleri 100x50x3mm çelik kiriş ile takviye edilir.
+  - label: Rüzgâr Yükü Dayanımı
+    value: Saatte 100 km (100 km/h).
   - label: Çim Sistemi
     value: Silis kumu dolgulu, resmî FIP onaylı sentetik çim.
   - label: Güvenlik Camı
-    value: 10mm / 12mm CE sertifikalı temperli güvenlik camı (EN 12150-1 uyumlu).
+    value: 12mm CE sertifikalı temperli güvenlik camı (EN 12150-1 uyumlu).
   - label: Tel Örgü Paneller
     value: Elektro kaynaklı, yaralanma önleyici 50x50x4mm çelik tel örgü paneller.
 specsIntro: Her bileşeni güvenlik, dayanıklılık ve turnuva standardında oyun için uluslararası standartları karşılayacak şekilde tasarlıyoruz.
@@ -67,20 +65,20 @@ media:
     section: 6
 faq:
   - q: WP Challenge Padel Kortu'nu rüzgâra karşı bu kadar dayanıklı kılan nedir?
-    a: Kort; 100x50x3mm çelik boru profil ile takviye edilmiş köşe dikmelerine, 3 dikmeli konstrüksiyon yapısına ve İTÜ onaylı B Sınıfı rüzgâr yükü değerine (0.42 kN/m²) sahiptir.
+    a: Kort; 100x50x3mm çelik kiriş ile takviye edilmiş köşe dikmelerine, ağır hizmet tipi taban plakalarına ve saatte 100 km'ye kadar rüzgâr dayanımına sahiptir.
   - q: WP Challenge Kort'un ölçüleri ve zemin gereksinimleri nelerdir?
     a: İç oyun alanı 20.00m x 10.00m ölçülerindedir; önerilen beton zemin ölçüsü ise 21m x 11m'dir.
   - q: Sentetik çim FIP onaylı mı?
     a: Evet. Tüm Unixpadel WP Challenge Padel Kortlarında turnuva seviyesinde oyun için resmî FIP onaylı sentetik çim kullanılır.
-  - q: WP Challenge Kort bağımsız yapısal testlerden geçti mi?
-    a: Evet. Yapısal analiz raporumuz İstanbul Teknik Üniversitesi (İTÜ) Teknik Birimi tarafından ayrıntılı şekilde değerlendirilmiş ve onaylanmıştır.
+  - q: WP Challenge Kort hangi rüzgâr hızına dayanır?
+    a: WP Challenge Padel Kortu, saatte 100 km'ye kadar rüzgâr hızına dayanacak şekilde tasarlanmıştır.
   - q: Unixpadel hangi ülkelerde faaliyet gösteriyor ve kort projeleri teslim ediyor?
     a: Unixpadel; Almanya, Avusturya, ABD, Hindistan, Hollanda ve Fransa'daki ofisleri ve İstanbul, Türkiye'deki genel merkeziyle bu ülkelerde kort projeleri teslim etmektedir.
 legacyUrls:
   - /wp-challange-padel-court/
 ---
 
-## Aşırı rüzgâr yüklerine karşı olağanüstü yapısal stabilite. İTÜ Teknik Birimi onayı ve FIP onaylı sentetik çim.
+## Aşırı rüzgâr yüklerine karşı olağanüstü yapısal stabilite. Saatte 100 km rüzgâr dayanımı ve FIP onaylı sentetik çim.
 
 [**Teklif alın**](/contact-us/)
 
@@ -93,27 +91,27 @@ Optimum güvenlik ve performans sağlamak için her kortu sağlam yapısal elema
 
 ### Yapısal Stabilite ve Dikme Takviyesi
 
-Unixpadel WP Challenge Padel Kortu'nun her köşe dikmesi, ilave 100 x 50 x 3 mm çelik boru profil ile takviye edilir. Bu takviye, kort konstrüksiyonunun genel mukavemetini ve stabilitesini artırır.
+Unixpadel WP Challenge Padel Kortu'nun her köşe dikmesi, 100 x 50 x 3 mm çelik kiriş ile takviye edilir. Bu takviye, kort konstrüksiyonunun genel mukavemetini ve stabilitesini artırır.
 
-Sağlam üç dikmeli konstrüksiyon yapımız kort stabilitesini daha da güçlendirir. Ağır hizmet tipi taban plakaları tüm yapıyı güvenle sabitleyerek maksimum stabilite ve güvenilir bir oyun yüzeyi sağlar.
+Ağır hizmet tipi taban plakaları tüm yapıyı güvenle sabitleyerek maksimum stabilite ve güvenilir bir oyun yüzeyi sağlar.
 
 [**Teklif alın**](/contact-us/)
 
 ## Temel Özellikler ve Profesyonel Mühendislik Analizi
 
-Konstrüksiyonumuz, zorlu çevresel etkilere ve yüksek rüzgâr yüklerine karşı direncini doğrulamak amacıyla akademik kurumlar tarafından titizlikle test edildi.
+Konstrüksiyonumuzu zorlu çevresel etkilere ve saatte 100 km'ye kadar rüzgâra dayanacak şekilde tasarlıyoruz.
 
-### 100x50x3mm Boru Profil Dikmeler
+### 100x50x3mm Çelik Kirişler
 
-- Köşe dikmeleri ilave 100x50x3mm çelik boru profil ile takviye edilir.
+- Köşe dikmeleri 100x50x3mm çelik kiriş ile takviye edilir.
 - Aşırı rüzgâr yüklerine ve dinamik darbelere karşı maksimum direnç.
 - Kalın cidarlı yapısal çelik, zorlu hava koşullarına dayanır.
 
-### İTÜ Teknik Raporu
+### Saatte 100 km Rüzgâr Dayanımı
 
-- Yapısal mühendislik raporu İstanbul Teknik Üniversitesi (İTÜ) tarafından değerlendirildi.
-- Çalışma, B Sınıfı (0.42 kN/m²) rüzgâr yükü dayanımını doğrular.
-- Hesaplar, dinamik yük dağılımını ve sıkı güvenlik toleranslarını teyit eder.
+- Konstrüksiyon saatte 100 km'ye kadar rüzgâr hızına dayanacak şekilde tasarlanmıştır.
+- Takviyeli köşe dikmeleri ve ağır hizmet tipi taban plakaları kortu kuvvetli rüzgârda sabit tutar.
+- Kuvvetli rüzgâra açık dış mekân kurulumları için uygundur.
 
 ### FIP Onaylı Çim ve Teknik Özellikler
 
@@ -131,7 +129,7 @@ Konstrüksiyonumuz, zorlu çevresel etkilere ve yüksek rüzgâr yüklerine kar�
 
 Mühendislik yaklaşımımızın titizliğiyle gurur duyuyoruz. Unixpadel WP Challenge Padel Kortu, kapsamlı testlerden ve değerlendirmelerden geçmiştir.
 
-İstanbul Teknik Üniversitesi (İTÜ) Teknik Birimi, “Unixpadel WP Challenge Padel Kortu Konstrüksiyonu” başlıklı kapsamlı yapısal analiz raporumuzu değerlendirmiştir. Bu çalışma, kortun rüzgâr yüklerine ve darbelere karşı direncini özel olarak inceleyerek B Sınıfı (0.42 kN/m²) rüzgâr yükü dayanımını doğrulamaktadır.
+Her WP Challenge kort, saatte 100 km'ye kadar rüzgâr hızına dayanacak şekilde tasarlanır. Takviyeli köşe dikmeleri ve ağır hizmet tipi taban plakaları, yapıyı rüzgâr yüklerine ve darbelere karşı sabit tutar.
 
 - **Uçtan Uca Kalite Güvencesi:** Tasarım, üretim, nakliye ve kurulumun her aşaması deneyimli profesyonellerin denetimindedir.
 - **FIP Turnuva Standardı:** Unixpadel kortları, oyunculara gerçek turnuva standardında bir oyun deneyimi sunmak için tüm resmî FIP standartlarını karşılar.
@@ -142,7 +140,7 @@ Mühendislik yaklaşımımızın titizliğiyle gurur duyuyoruz. Unixpadel WP Cha
 
 ## UNIXPADEL WP Challenge Padel Kortu ile Eşsiz Kaliteyi Deneyimleyin
 
-Daha fazla bilgi almak veya ayrıntılı İTÜ yapısal analiz raporunu talep etmek için bugün mühendislik ekibimizle iletişime geçin! Tesisiniz için rüzgâra dayanıklı, turnuva standardında bir padel kortu inşa etmenize yardımcı olalım.
+Daha fazla bilgi almak veya ayrıntılı teknik özellikleri talep etmek için bugün mühendislik ekibimizle iletişime geçin! Tesisiniz için rüzgâra dayanıklı, turnuva standardında bir padel kortu inşa etmenize yardımcı olalım.
 
 [**Teklif alın**](/contact-us/)
 

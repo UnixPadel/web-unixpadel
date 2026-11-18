@@ -236,6 +236,23 @@ const ui: UI = {
   e404Or: 'ou',
   e404Contact: 'contactez-nous',
   e404End: ', nous vous orienterons.',
+  // catalogue flipbook (src/components/CatalogViewer.astro) and its header button
+  catalog: {
+    open: 'Ouvrir le catalogue',
+    soon: 'Bientôt',
+    eyebrow: 'Catalogue produits',
+    viewer: 'Visionneuse du catalogue',
+    prev: 'Page précédente',
+    next: 'Page suivante',
+    pageOf: (from, to, total) => (from === to ? `${from} / ${total}` : `${from}–${to} / ${total}`),
+    zoomIn: 'Zoom avant',
+    zoomOut: 'Zoom arrière',
+    fullscreen: 'Plein écran',
+    exitFullscreen: 'Quitter le plein écran',
+    download: 'Télécharger le PDF',
+    pageAlt: (n, title) => `Page ${n} du catalogue : ${title}`,
+    hint: 'Faites glisser un coin de page ou utilisez les flèches du clavier pour tourner la page.',
+  },
 };
 
 const fr: LocaleData = {

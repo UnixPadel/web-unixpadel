@@ -7,6 +7,7 @@ import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import LangSwitch from './LangSwitch.astro';
 import { langOf, localizePath, t, type Lang } from '../i18n';
+import { CATALOG } from '../data/catalog';
 
 interface MenuItem {
   label: string;
@@ -60,6 +61,8 @@ const quoteHref = localizePath(quoteUrl(quoteFor), lang);
 const quoteName = quoteFor ? (pages.find((p) => p.data.url === quoteFor)?.data.title ?? quoteFor.replace(/\//g, ' ').trim().replace(/-/g, ' ')) : undefined;
 const waHref = whatsappUrl(ui.waQuote(quoteName));
 const homeHref = localizePath('/', lang);
+// Catalogue flipbook: a disabled "soon" pill until CATALOG.enabled, then a link to the viewer.
+const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
 ---
 
 <header class="site-header" data-header>
@@ -149,6 +152,20 @@ const homeHref = localizePath('/', lang);
     </nav>
 
     <div class="site-header__actions">
+      {
+        catalogHref ? (
+          <a class="nav-catalog header-catalog" href={catalogHref} aria-current={catalogHref === here ? 'page' : undefined}>
+            <Icon name="book" />
+            <span class="nav-catalog__label">{ui.catalog.open}</span>
+          </a>
+        ) : (
+          <span class="nav-catalog header-catalog" role="link" aria-disabled="true" title={`${ui.catalog.open} (${ui.catalog.soon})`}>
+            <Icon name="book" />
+            <span class="nav-catalog__label">{ui.catalog.open}</span>
+            <span class="tag nav-catalog__soon">{ui.catalog.soon}</span>
+          </span>
+        )
+      }
       <LangSwitch currentUrl={currentUrl} hrefs={langHrefs} />
       <ThemeToggle />
       <a class="btn btn--icon btn--secondary btn--wa header-wa" href={waHref} target="_blank" rel="noopener" aria-label={ui.chatWhatsapp}>
@@ -245,6 +262,22 @@ const homeHref = localizePath('/', lang);
           </li>
         )
       }
+      <li class="drawer-catalog">
+        {
+          catalogHref ? (
+            <a class="nav-catalog" href={catalogHref} aria-current={catalogHref === here ? 'page' : undefined}>
+              <Icon name="book" />
+              <span class="nav-catalog__label">{ui.catalog.open}</span>
+            </a>
+          ) : (
+            <span class="nav-catalog" role="link" aria-disabled="true" title={`${ui.catalog.open} (${ui.catalog.soon})`}>
+              <Icon name="book" />
+              <span class="nav-catalog__label">{ui.catalog.open}</span>
+              <span class="tag nav-catalog__soon">{ui.catalog.soon}</span>
+            </span>
+          )
+        }
+      </li>
     </ul>
   </nav>
   <div class="nav-drawer__foot">
@@ -476,6 +509,106 @@ const homeHref = localizePath('/', lang);
     }
   }
 
+  /* ---- catalogue button: a quiet pill; disabled with a "soon" tag until the flipbook goes live */
+  .nav-catalog {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-block-size: 44px;
+    padding: var(--sp-1) var(--sp-3);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: var(--fs-300);
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+  .nav-catalog .icon {
+    inline-size: 18px;
+    block-size: 18px;
+    flex: none;
+  }
+  .nav-catalog[aria-disabled='true'] {
+    border-style: dashed;
+    color: var(--text-secondary);
+    cursor: not-allowed;
+    user-select: none;
+  }
+  .nav-catalog__soon {
+    padding-inline: var(--sp-2);
+    background: var(--lime-200);
+    color: var(--navy-900);
+    font-size: 0.6875rem;
+  }
+  .nav-catalog[aria-current='page'] {
+    border-color: var(--lime-500);
+  }
+  .nav-catalog:active:not([aria-disabled='true']) {
+    transform: translateY(1px);
+  }
+  @media (hover: hover) {
+    a.nav-catalog:hover {
+      background: var(--bg-surface);
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+  }
+  /* Header: the 1280px row has ~50px to spare, so the pill is the book icon with the "soon" tag on its corner; the
+     label shows where the language leaves room (measured) and is always the accessible name. The drawer has the full pill. */
+  .header-catalog {
+    display: none;
+    position: relative;
+    justify-content: center;
+    inline-size: 44px;
+    padding: 0;
+  }
+  .header-catalog .nav-catalog__label {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .header-catalog .nav-catalog__soon {
+    position: absolute;
+    inset-block-start: -8px;
+    inset-inline-end: -8px;
+    padding: 2px 6px;
+    font-size: 0.625rem;
+    line-height: 1.2;
+    box-shadow: 0 0 0 2px var(--bg-page);
+  }
+  @media (min-width: 1200px) and (max-width: 1359px) {
+    /* the row is narrower than its 1280px cap here: tighter gaps make room for the icon pill */
+    .site-header__inner {
+      gap: var(--sp-3);
+    }
+  }
+  @media (min-width: 1400px) {
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog {
+      inline-size: auto;
+      padding-inline: var(--sp-3);
+      font-size: var(--fs-200);
+    }
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog .icon {
+      display: none;
+    }
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog .nav-catalog__label {
+      position: static;
+      inline-size: auto;
+      block-size: auto;
+      clip-path: none;
+    }
+  }
+  .drawer-catalog {
+    padding-block: var(--sp-4) var(--sp-2);
+  }
+
   /* ---- actions */
   .site-header__actions {
     display: flex;
@@ -510,7 +643,8 @@ const homeHref = localizePath('/', lang);
       margin-inline-start: 0;
     }
     .header-cta,
-    .header-wa {
+    .header-wa,
+    .header-catalog {
       display: inline-flex;
     }
     .header-wa {
@@ -537,6 +671,7 @@ const homeHref = localizePath('/', lang);
   @media (min-width: 1200px) and (max-width: 1399px) {
     :global(html:is([lang='de'], [lang='fr'], [lang='ru'])) .primary-nav,
     :global(html:is([lang='de'], [lang='fr'], [lang='ru'])) .header-cta,
+    :global(html:is([lang='de'], [lang='fr'], [lang='ru'])) .header-catalog,
     :global(html:is([lang='de'], [lang='fr'], [lang='ru'])) .header-wa {
       display: none;
     }

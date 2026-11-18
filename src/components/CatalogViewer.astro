@@ -1,0 +1,400 @@
+---
+// Product catalogue as a flipbook. Each A4 leaf is one image (two per PDF spread, cut by
+// scripts/build-catalog-pages.py); src/lib/catalog.ts turns them into a book. Without JavaScript the first
+// spread shows and a <noscript> rule lays every page out in reading order.
+import Icon from './Icon.astro';
+import { CATALOG, catalogPagePath } from '../data/catalog';
+import { mediaUrl } from '../lib/media';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+const ui = t(langOf(Astro.url)).catalog;
+// `astro dev` serves catalog-export/ from the upload path (astro.config.mjs), so the viewer works before the upload.
+const local = !!import.meta.env.CATALOG_LOCAL;
+const src = (path: string) => (local ? path : mediaUrl(path)!);
+const pages = CATALOG.pages.map((label, i) => ({
+  n: i + 1,
+  alt: ui.pageAlt(i + 1, label),
+  src: src(catalogPagePath(i + 1)),
+  zoom: src(catalogPagePath(i + 1, true)),
+}));
+const total = pages.length;
+const pdf = CATALOG.pdf ? src(CATALOG.pdf) : null;
+const { width, height } = CATALOG.size;
+---
+
+<section class="cat" data-catalog data-w={width} data-h={height} dir="ltr" aria-label={`${title}: ${ui.viewer}`}>
+  <div class="cat__stage" data-stage>
+    <button class="cat__btn cat__side cat__side--prev" type="button" data-prev disabled aria-label={ui.prev} title={ui.prev}>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-left"></use></svg>
+    </button>
+    <div class="cat__sizer" data-sizer>
+      <div class="cat__mover" data-mover>
+        <div class="cat__book" data-book>
+          {
+            pages.map((p) => (
+              <div class="cat__page" data-page data-density="soft">
+                <img src={p.src} data-zoom={p.zoom} alt={p.alt} width={width} height={height} loading={p.n <= 2 ? 'eager' : 'lazy'} fetchpriority={p.n <= 2 ? 'high' : undefined} decoding="async" draggable="false" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <button class="cat__btn cat__side cat__side--next" type="button" data-next disabled aria-label={ui.next} title={ui.next}>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"></use></svg>
+    </button>
+    <div class="cat__pan" data-pan hidden></div>
+  </div>
+
+  <div class="cat__bar" data-bar>
+    <div class="cat__group">
+      <button class="cat__btn" type="button" data-prev disabled aria-label={ui.prev} title={ui.prev}>
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-left"></use></svg>
+      </button>
+      <output class="cat__count" data-count aria-live="polite">{ui.pageOf(1, Math.min(2, total), total)}</output>
+      <button class="cat__btn" type="button" data-next disabled aria-label={ui.next} title={ui.next}>
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"></use></svg>
+      </button>
+    </div>
+    <span class="cat__rule" aria-hidden="true"></span>
+    <div class="cat__group">
+      <button class="cat__btn" type="button" data-zoom-out disabled aria-label={ui.zoomOut} title={ui.zoomOut}>
+        <Icon name="minus" />
+      </button>
+      <span class="cat__zoom" data-zoom-label aria-hidden="true">100%</span>
+      <button class="cat__btn" type="button" data-zoom-in disabled aria-label={ui.zoomIn} title={ui.zoomIn}>
+        <Icon name="plus" />
+      </button>
+    </div>
+    <span class="cat__rule" aria-hidden="true"></span>
+    <div class="cat__group">
+      <button class="cat__btn" type="button" data-fullscreen disabled aria-pressed="false" aria-label={ui.fullscreen} title={ui.fullscreen} data-label-on={ui.fullscreen} data-label-off={ui.exitFullscreen}>
+        <Icon name="expand" class="cat__fs-on" />
+        <Icon name="shrink" class="cat__fs-off" />
+      </button>
+      {
+        pdf && (
+          <a class="cat__btn cat__btn--text" href={pdf} download>
+            <Icon name="download" />
+            <span>{ui.download}</span>
+          </a>
+        )
+      }
+    </div>
+    <span class="cat__progress" aria-hidden="true"><i data-progress style={`inline-size:${(Math.min(2, total) / total) * 100}%`}></i></span>
+  </div>
+  <p class="cat__hint" dir="auto">{ui.hint}</p>
+  <noscript>
+    <style is:inline>
+      .cat .cat__book {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 24px;
+      }
+      .cat .cat__page {
+        display: block !important;
+      }
+      .cat .cat__bar,
+      .cat .cat__hint,
+      .cat .cat__side {
+        display: none;
+      }
+    </style>
+  </noscript>
+</section>
+
+<script>
+  // The flip library is only worth downloading on this page, once the first spread is on screen.
+  const root = document.querySelector<HTMLElement>('[data-catalog]');
+  if (root) void import('../lib/catalog').then((m) => m.initCatalog(root));
+</script>
+
+<style>
+  /* The catalogue is printed on black: the stage stays dark in both themes so the pages sit on it like on a
+     light table, and nothing around them competes. */
+  .cat {
+    --cat-h: clamp(280px, 100vh - 220px, 1100px); /* mirrors CHROME in src/lib/catalog.ts */
+    --cat-fg: #eef2f8;
+    --cat-muted: #a9b4c8;
+    --cat-line: rgb(255 255 255 / 14%);
+    position: relative;
+    padding: var(--sp-5) var(--gutter) var(--sp-4);
+    background:
+      radial-gradient(90% 70% at 50% 38%, rgb(42 58 94 / 55%) 0%, transparent 70%),
+      linear-gradient(#0b1326, #05080f);
+    color: var(--cat-fg);
+  }
+  .cat:fullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--sp-3) var(--sp-4);
+  }
+
+  .cat__stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    /* room for the page shadow below the book */
+    padding-block: var(--sp-2) var(--sp-5);
+  }
+  .cat__sizer {
+    position: relative;
+    inline-size: min(100%, calc(var(--cat-h) * 1.4144));
+  }
+  .cat__sizer::after {
+    /* contact shadow under the book */
+    content: '';
+    position: absolute;
+    inset-inline: 6%;
+    inset-block-end: -14px;
+    block-size: 26px;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(0 0 0 / 65%), transparent);
+    filter: blur(6px);
+    pointer-events: none;
+  }
+  .cat__mover {
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .cat:not(.is-zoomed) .cat__mover {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  /* Before the script takes over: the first spread, already at its final size (no layout shift). */
+  .cat__book {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cat__page {
+    background: #000;
+    overflow: hidden;
+  }
+  .cat:not(.is-ready) .cat__book .cat__page:nth-child(n + 3) {
+    display: none;
+  }
+  .cat__page img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  @media (max-width: 719px) {
+    .cat__sizer {
+      inline-size: min(100%, calc(var(--cat-h) * 0.7072));
+    }
+    .cat:not(.is-ready) .cat__book {
+      grid-template-columns: 1fr;
+    }
+    .cat:not(.is-ready) .cat__book .cat__page:nth-child(n + 2) {
+      display: none;
+    }
+  }
+
+  /* page-flip: it sizes the book from the sizer; its own minimums are replaced by src/lib/catalog.ts' layout. */
+  .cat.is-ready .cat__book {
+    display: block;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: none !important;
+    touch-action: pan-y;
+  }
+  .cat.is-ready:not(.is-portrait) .cat__book::after {
+    /* the fold: a soft valley where the two leaves meet */
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: calc(50% - 28px);
+    inline-size: 56px;
+    z-index: 40;
+    background: linear-gradient(90deg, transparent, rgb(0 0 0 / 22%) 46%, rgb(0 0 0 / 34%) 50%, rgb(0 0 0 / 22%) 54%, transparent);
+    pointer-events: none;
+  }
+  .cat__pan {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    cursor: grab;
+    touch-action: none;
+  }
+  .cat__pan:global(.is-dragging) {
+    cursor: grabbing;
+  }
+
+  /* ---- controls */
+  .cat__btn {
+    display: inline-grid;
+    grid-auto-flow: column;
+    place-items: center;
+    gap: var(--sp-2);
+    inline-size: 44px;
+    block-size: 44px;
+    padding: 0;
+    border: 1px solid var(--cat-line);
+    border-radius: var(--radius-pill);
+    background: rgb(255 255 255 / 6%);
+    color: var(--cat-fg);
+    font: 700 var(--fs-200) / 1 var(--font-sans);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out),
+      opacity var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+  .cat__btn--text {
+    inline-size: auto;
+    padding-inline: var(--sp-4);
+  }
+  .cat__btn :global(.icon) {
+    inline-size: 20px;
+    block-size: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  @media (hover: hover) {
+    .cat__btn:hover:not(:disabled) {
+      background: rgb(255 255 255 / 16%);
+      border-color: rgb(255 255 255 / 32%);
+      color: var(--cat-fg);
+    }
+  }
+  .cat__btn:focus-visible {
+    outline: 2px solid var(--lime-500);
+    outline-offset: 2px;
+    border-radius: var(--radius-pill);
+  }
+  .cat__btn:active:not(:disabled) {
+    transform: scale(0.94);
+  }
+  .cat__btn:disabled {
+    opacity: 0.32;
+    cursor: default;
+  }
+  .cat__btn[data-fullscreen][aria-pressed='false'] .cat__fs-off,
+  .cat__btn[data-fullscreen][aria-pressed='true'] .cat__fs-on {
+    display: none;
+  }
+
+  .cat__side {
+    display: none;
+    position: absolute;
+    inset-block-start: calc(50% - 36px);
+    z-index: 60;
+    inline-size: 56px;
+    block-size: 56px;
+    background: rgb(11 19 38 / 55%);
+    backdrop-filter: blur(6px);
+  }
+  .cat__side :global(.icon) {
+    inline-size: 26px;
+    block-size: 26px;
+  }
+  .cat__side--prev {
+    inset-inline-start: 0;
+  }
+  .cat__side--next {
+    inset-inline-end: 0;
+  }
+  @media (min-width: 900px) {
+    .cat.is-ready .cat__side {
+      display: inline-grid;
+    }
+    .cat.is-zoomed .cat__side {
+      display: none;
+    }
+  }
+
+  .cat__bar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2) var(--sp-4);
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    margin-inline: auto;
+    padding: var(--sp-2) var(--sp-3);
+    border: 1px solid var(--cat-line);
+    border-radius: var(--radius-pill);
+    background: rgb(255 255 255 / 5%);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+  .cat__group {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+  .cat__rule {
+    inline-size: 1px;
+    block-size: 24px;
+    background: var(--cat-line);
+  }
+  .cat__count {
+    min-inline-size: 8ch;
+    font: 700 var(--fs-500) / 1 var(--font-display);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+  .cat__zoom {
+    min-inline-size: 5ch;
+    color: var(--cat-muted);
+    font-size: var(--fs-200);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+  }
+  /* reading progress as a court baseline along the bottom of the bar */
+  .cat__progress {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    block-size: 2px;
+    background: rgb(255 255 255 / 8%);
+  }
+  .cat__progress i {
+    display: block;
+    block-size: 100%;
+    background: var(--lime-500);
+    transition: inline-size 400ms var(--ease-out);
+  }
+  .cat__hint {
+    margin: var(--sp-3) 0 0;
+    color: var(--cat-muted);
+    font-size: var(--fs-200);
+    text-align: center;
+  }
+  .cat:fullscreen .cat__hint {
+    display: none;
+  }
+  @media (max-width: 479px) {
+    .cat__bar {
+      border-radius: var(--radius-md);
+    }
+    .cat__rule,
+    .cat__zoom {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cat__mover,
+    .cat__progress i,
+    .cat__btn {
+      transition: none;
+    }
+  }
+</style>

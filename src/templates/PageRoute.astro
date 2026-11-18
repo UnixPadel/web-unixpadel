@@ -14,6 +14,7 @@ import ArticlePage from './ArticlePage.astro';
 import ReferencePage from './ReferencePage.astro';
 import ContactPage from './ContactPage.astro';
 import AboutPage from './AboutPage.astro';
+import CatalogPage from './CatalogPage.astro';
 import GenericPage from './GenericPage.astro';
 
 interface Props {
@@ -47,6 +48,7 @@ const Template =
     reference: ReferencePage,
     contact: ContactPage,
     about: AboutPage,
+    catalog: CatalogPage,
   }[type as string] ?? (isProductLike(data) ? ProductPage : GenericPage);
 
 const jsonLd: Record<string, unknown>[] = [];

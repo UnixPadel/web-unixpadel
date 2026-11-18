@@ -143,3 +143,16 @@ new country with a Turkish translation, English only, draft, and an address that
 http://127.0.0.1:9400/references/. Run `npm run build:wp` again (without the variable) before making the ZIP for the
 live site; the script refuses to zip a build with another assets origin.
 
+
+## Product catalogue flipbook (`/catalog/`)
+
+- Viewer: `src/components/CatalogViewer.astro` + `src/lib/catalog.ts` (page turning by `page-flip`), template
+  `src/templates/CatalogPage.astro`, settings and page titles in `src/data/catalog.ts`.
+- Page images are **not** in the repo. `python scripts/build-catalog-pages.py [PDF]` cuts every landscape A3 spread
+  of the print PDF into two A4 leaves (reading size + zoom size) and writes them, plus a reduced PDF, to the
+  git-ignored `catalog-export/`. Upload those files to the WordPress media library and set `mediaBase` (and `pdf` for
+  the download button) in `src/data/catalog.ts`. `astro dev` serves `catalog-export/` from the upload path, so the
+  viewer works locally before the upload.
+- New catalogue edition: change `--prefix` / `prefix` (WordPress renames a re-uploaded file to `-1`), update `pages`.
+- Going live: `enabled: true` in `src/data/catalog.ts` (the header button becomes a link) and remove
+  `pendingReview: true` from `catalog.md` in `src/content/pages` and every `pages-<lang>` (index + sitemap).

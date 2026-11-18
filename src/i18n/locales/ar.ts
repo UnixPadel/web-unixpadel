@@ -236,6 +236,23 @@ const ui: UI = {
   e404Or: 'أو',
   e404Contact: 'تواصل معنا',
   e404End: 'وسنرشدك إلى الصفحة الصحيحة.',
+  // catalogue flipbook (src/components/CatalogViewer.astro) and its header button
+  catalog: {
+    open: 'افتح الكتالوج',
+    soon: 'قريبًا',
+    eyebrow: 'كتالوج المنتجات',
+    viewer: 'عارض الكتالوج',
+    prev: 'الصفحة السابقة',
+    next: 'الصفحة التالية',
+    pageOf: (from, to, total) => (from === to ? `${from} / ${total}` : `${from}–${to} / ${total}`),
+    zoomIn: 'تكبير',
+    zoomOut: 'تصغير',
+    fullscreen: 'ملء الشاشة',
+    exitFullscreen: 'الخروج من ملء الشاشة',
+    download: 'تنزيل PDF',
+    pageAlt: (n, title) => `صفحة الكتالوج ${n}: ${title}`,
+    hint: 'اسحب زاوية الصفحة أو استخدم مفاتيح الأسهم لتقليب الصفحات.',
+  },
 };
 
 const ar: LocaleData = {

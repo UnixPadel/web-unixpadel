@@ -235,6 +235,23 @@ const ui: UI = {
   e404Or: 'или',
   e404Contact: 'свяжитесь с нами',
   e404End: '— мы подскажем.',
+  // catalogue flipbook (src/components/CatalogViewer.astro) and its header button
+  catalog: {
+    open: 'Открыть каталог',
+    soon: 'Скоро',
+    eyebrow: 'Каталог продукции',
+    viewer: 'Просмотр каталога',
+    prev: 'Предыдущая страница',
+    next: 'Следующая страница',
+    pageOf: (from, to, total) => (from === to ? `${from} / ${total}` : `${from}–${to} / ${total}`),
+    zoomIn: 'Увеличить',
+    zoomOut: 'Уменьшить',
+    fullscreen: 'Во весь экран',
+    exitFullscreen: 'Выйти из полноэкранного режима',
+    download: 'Скачать PDF',
+    pageAlt: (n, title) => `Страница каталога ${n}: ${title}`,
+    hint: 'Потяните за угол страницы или используйте клавиши со стрелками, чтобы перелистнуть.',
+  },
 };
 
 const ru: LocaleData = {

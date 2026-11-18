@@ -18,6 +18,26 @@ const ASSETS_PREFIX = process.env.ASSETS_PREFIX || undefined;
 
 const SITE_URL = 'https://www.unixpadel.com';
 
+// Catalogue flipbook: the page images are uploaded to WordPress (src/data/catalog.ts), never committed. While they
+// are only on disk (catalog-export/, written by scripts/build-catalog-pages.py), `astro dev` serves that folder from
+// /wp-content/uploads/… so the viewer can be worked on before the upload. Builds always use the media origin.
+const CATALOG_DIR = path.resolve('./catalog-export');
+const CATALOG_LOCAL = process.argv.includes('dev') && fs.existsSync(CATALOG_DIR);
+/** @returns {import('vite').Plugin} */
+const catalogDevFiles = () => ({
+  name: 'upx-catalog-dev-files',
+  apply: 'serve',
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      const name = /^\/wp-content\/uploads\/\d{4}\/\d{2}\/(unixpadel-catalog-[\w.-]+\.(?:webp|pdf))(?:\?.*)?$/.exec(req.url ?? '')?.[1];
+      const file = name && path.join(CATALOG_DIR, name);
+      if (!file || !fs.existsSync(file)) return next();
+      res.setHeader('Content-Type', name.endsWith('.pdf') ? 'application/pdf' : 'image/webp');
+      fs.createReadStream(file).pipe(res);
+    });
+  },
+});
+
 // Frontmatter the sitemap needs (astro:content isn't available in the config): lastmod and review state per URL.
 const walkMd = (dir) =>
   fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
@@ -140,7 +160,11 @@ export default defineConfig({
     }),
   },
   vite: {
-    define: { 'import.meta.env.PUBLIC_MEDIA_ORIGIN': JSON.stringify(MEDIA_ORIGIN) },
+    define: { 'import.meta.env.PUBLIC_MEDIA_ORIGIN': JSON.stringify(MEDIA_ORIGIN), 'import.meta.env.CATALOG_LOCAL': JSON.stringify(CATALOG_LOCAL) },
+    plugins: CATALOG_LOCAL ? [catalogDevFiles()] : [],
+    // Pre-bundled at dev start: found late (it is only imported on /catalog/), Vite would re-optimise mid-session
+    // and answer the viewer's import with "504 Outdated Optimize Dep", leaving the flipbook dead until a restart.
+    optimizeDeps: { include: ['page-flip/dist/js/page-flip.module.js'] },
     server: {
       proxy: MEDIA_ORIGIN ? undefined : { '/wp-content': { target: 'https://www.unixpadel.com', changeOrigin: true } },
     },

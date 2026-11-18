@@ -277,6 +277,23 @@ const ui: UI = {
   e404Or: 'veya',
   e404Contact: 'bize ulaşın',
   e404End: '— size doğru sayfayı gösterelim.',
+  // catalogue flipbook (src/components/CatalogViewer.astro) and its header button
+  catalog: {
+    open: 'Katalog Aç',
+    soon: 'Yakında',
+    eyebrow: 'Ürün kataloğu',
+    viewer: 'Katalog görüntüleyici',
+    prev: 'Önceki sayfa',
+    next: 'Sonraki sayfa',
+    pageOf: (from, to, total) => (from === to ? `${from} / ${total}` : `${from}–${to} / ${total}`),
+    zoomIn: 'Yakınlaştır',
+    zoomOut: 'Uzaklaştır',
+    fullscreen: 'Tam ekran',
+    exitFullscreen: 'Tam ekrandan çık',
+    download: 'PDF indir',
+    pageAlt: (n, title) => `Katalog sayfa ${n}: ${title}`,
+    hint: 'Sayfayı çevirmek için köşesinden sürükleyin veya ok tuşlarını kullanın.',
+  },
 };
 
 const tr: LocaleData = {

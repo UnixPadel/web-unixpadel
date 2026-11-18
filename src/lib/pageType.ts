@@ -10,6 +10,7 @@ export type PageType =
   | 'reference'
   | 'contact'
   | 'about'
+  | 'catalog'
   | 'generic';
 
 export const HUBS = [
@@ -34,6 +35,7 @@ const BY_URL: Record<string, PageType> = {
   '/': 'home',
   '/contact-us/': 'contact',
   '/about-us/': 'about',
+  '/catalog/': 'catalog',
 };
 
 export function pageTypeOf(d: { url: string; parent: string | null; postType: 'page' | 'post' }): PageType {

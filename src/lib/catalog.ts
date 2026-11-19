@@ -37,6 +37,35 @@ function shuffle(n: number, seed: number): number[] {
 const hex = (n: number) => n.toString(16).padStart(8, '0');
 const fileName = (page: number, tier: Tier) => `${hex(fnv(`${PACK.salt}:a:${page}:${tier}`))}${hex(fnv(`${PACK.salt}:b:${page}:${tier}`))}.webp`;
 
+/**
+ * Small repeated "unixpadel.com" across the leaf, part of the canvas pixels (so it is in every screenshot). The mark
+ * baked into the files is deliberately almost invisible; this one is the visible layer and can be tuned without
+ * rebuilding the page files. Sized from the leaf, so it looks the same at every zoom level.
+ */
+function watermark(ctx: CanvasRenderingContext2D, width: number, height: number): void {
+  const size = Math.max(9, Math.round(width * 0.017));
+  const stepX = width * 0.3;
+  const stepY = width * 0.115;
+  const reach = Math.hypot(width, height);
+  ctx.save();
+  ctx.translate(width / 2, height / 2);
+  ctx.rotate(-Math.PI / 6);
+  ctx.font = `600 ${size}px Arial, Helvetica, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  // a dark edge under a light fill: readable on the black pages and on the bright renders alike
+  ctx.lineWidth = Math.max(1, size / 9);
+  ctx.strokeStyle = 'rgb(0 0 0 / 9%)';
+  ctx.fillStyle = 'rgb(255 255 255 / 11%)';
+  for (let row = 0, y = -reach / 2; y <= reach / 2; y += stepY, row++) {
+    for (let x = -reach / 2 - (row % 2 ? stepX / 2 : 0); x <= reach / 2; x += stepX) {
+      ctx.strokeText('unixpadel.com', x, y);
+      ctx.fillText('unixpadel.com', x, y);
+    }
+  }
+  ctx.restore();
+}
+
 /** Loads a stored (shuffled) file and returns the leaf put back together at its native size. */
 async function assemble(page: number, tier: Tier): Promise<HTMLCanvasElement> {
   const v = PACK.variants[tier];
@@ -69,8 +98,6 @@ async function assemble(page: number, tier: Tier): Promise<HTMLCanvasElement> {
 }
 /** Header + control bar + paddings: what the book cannot use of the viewport height. Mirrors --cat-h in the CSS. */
 const CHROME = 220;
-const FLIP_MS = 850;
-const SLIDE_MS = 480;
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
 export function initCatalog(root: HTMLElement): void {
@@ -106,17 +133,13 @@ export function initCatalog(root: HTMLElement): void {
   let zoom = 0; // index into zooms
   let tx = 0;
   let ty = 0;
-  let bookW = 0; // full 2-page spread width at 100 %
-  let viewW = 0; // visible frame width at 100 % (bookW / 2 in portrait, bookW in landscape)
+  let baseW = 0; // book width at 100 %
 
   const wanted = Number(new URLSearchParams(location.search).get('p'));
   const start = Number.isInteger(wanted) && wanted >= 1 && wanted <= total ? wanted - 1 : 0;
-  /** Active leaf of the current spread in portrait view: 0 = left A4 page, 1 = right A4 page. */
-  let side: 0 | 1 = (start % 2) as 0 | 1;
 
-  // The catalogue is always laid out as a two-page open spread (left + right A4 leaf). On narrow/phone viewports,
-  // .cat__clip frames one A4 page at a time: navigating from left -> right slides steadily across the spread,
-  // and navigating from right -> next left flips the page while panning across the spine.
+  // The library decides portrait/landscape from `minWidth`. An unreachable minimum hands that decision to
+  // `usePortrait`, which layout() sets from the space the stage really has (its inline min sizes are reset in CSS).
   const flip = new PageFlip(book, {
     width: pageW,
     height: pageH,
@@ -125,8 +148,8 @@ export function initCatalog(root: HTMLElement): void {
     maxWidth: 100000,
     minHeight: 100,
     maxHeight: 100000,
-    startPage: start - (start % 2),
-    flippingTime: calm ? 1 : FLIP_MS,
+    startPage: start,
+    flippingTime: calm ? 1 : 850,
     maxShadowOpacity: 0.45,
     showCover: false,
     usePortrait: false,
@@ -135,21 +158,7 @@ export function initCatalog(root: HTMLElement): void {
     swipeDistance: 30,
   });
 
-  /** Positions the 2-page spread inside the 1-page portrait frame (no-op in landscape). */
-  function frameOffset(animate: 'none' | 'slide' | 'flip' = 'none') {
-    if (!portrait) {
-      mover.style.transition = '';
-      mover.style.transform = '';
-      return;
-    }
-    const x = side === 1 ? -viewW : 0;
-    if (animate === 'none' || calm) mover.style.transition = 'none';
-    else if (animate === 'slide') mover.style.transition = `transform ${SLIDE_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`;
-    else mover.style.transition = `transform ${FLIP_MS}ms cubic-bezier(0.37, 0, 0.63, 1)`;
-    mover.style.transform = `translate3d(${x}px, 0, 0)`;
-  }
-
-  /** Two-up when the stage is wide enough for a spread at a readable size, else one A4 leaf framed at a time. */
+  /** Two-up when the stage is wide enough for a spread at a readable size, else one page at a time. */
   let seen = '';
   function layout(force = false) {
     const full = document.fullscreenElement === root;
@@ -158,20 +167,15 @@ export function initCatalog(root: HTMLElement): void {
     if (key === seen && !force) return;
     seen = key;
     const availH = full ? root.clientHeight - bar.offsetHeight - 48 : clamp(window.innerHeight - CHROME, 280, 1100);
-    const sidePad = stage.clientWidth >= 900 ? 72 : 0; // room for the side arrows
-    const availW = stage.clientWidth - sidePad * 2;
+    const side = stage.clientWidth >= 900 ? 72 : 0; // room for the side arrows
+    const availW = stage.clientWidth - side * 2;
     portrait = stage.clientWidth < 720 || availW < availH * ratio * 1.35;
-    if (portrait) {
-      viewW = Math.floor(Math.min(availW, availH * ratio));
-      bookW = viewW * 2;
-    } else {
-      bookW = Math.floor(Math.min(availW, availH * ratio * 2));
-      viewW = bookW;
-    }
+    baseW = Math.floor(Math.min(availW, availH * ratio * (portrait ? 1 : 2)));
     // Zoom stops where one pixel of the zoom file would cover more than one screen pixel: beyond that it could only blur.
-    const sharpest = PACK.variants.zoom.width / ((bookW / 2) * devicePixelRatio);
+    const sharpest = PACK.variants.zoom.width / ((baseW / (portrait ? 1 : 2)) * devicePixelRatio);
     zooms = ZOOM_STEPS.filter((z, i) => i < 2 || z <= sharpest);
     root.classList.toggle('is-portrait', portrait);
+    flip.getSettings().usePortrait = portrait;
     // A resize while zoomed starts over at 100 %: the stage's frozen height belongs to the old size.
     zoom = 0;
     tx = ty = 0;
@@ -181,17 +185,14 @@ export function initCatalog(root: HTMLElement): void {
 
   /** Pages shown right now (0-based, inclusive). */
   function visible(): [number, number] {
+    if (portrait) return [index, index];
     const left = index - (index % 2);
-    if (portrait) {
-      const cur = Math.min(left + side, total - 1);
-      return [cur, cur];
-    }
     return [left, Math.min(left + 1, total - 1)];
   }
 
   /** Draws leaf i at the resolution the screen needs right now: the reading file, or the zoom file once that is too small. */
   async function paint(i: number) {
-    const cssW = (bookW / 2) * zooms[zoom];
+    const cssW = (baseW / (portrait ? 1 : 2)) * zooms[zoom];
     const need = Math.round(cssW * devicePixelRatio);
     const tier: Tier = need > PACK.variants.view.width * 1.1 ? 'zoom' : 'view';
     const v = PACK.variants[tier];
@@ -211,6 +212,7 @@ export function initCatalog(root: HTMLElement): void {
       ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(full, 0, 0, canvas.width, canvas.height);
       full.width = full.height = 0;
+      watermark(ctx, canvas.width, canvas.height);
       drawn[i] = { tier, width };
       pages[i].classList.add('is-drawn');
     } catch {
@@ -221,20 +223,19 @@ export function initCatalog(root: HTMLElement): void {
   }
   /** Keeps the spreads around the open one drawn (a flip shows a hidden leaf at once) and frees the rest. */
   function warm() {
-    const left = index - (index % 2);
-    const spreadEnd = Math.min(left + 1, total - 1);
-    const keep = 4;
+    const [a, b] = visible();
+    const keep = portrait ? 3 : 4;
     for (let i = 0; i < total; i++) {
-      if (i >= left - keep && i <= spreadEnd + keep) continue;
+      if (i >= a - keep && i <= b + keep) continue;
       if (!drawn[i] && !asked[i]) continue;
       canvases[i].width = canvases[i].height = 0;
       drawn[i] = null;
       asked[i] = '';
       pages[i].classList.remove('is-drawn');
     }
-    for (let i = left; i <= spreadEnd; i++) void paint(i);
+    for (let i = a; i <= b; i++) void paint(i);
     // neighbours only at reading size: pages cannot turn while zoomed
-    if (zoom === 0) for (let d = 1; d <= keep; d++) for (const i of [spreadEnd + d, left - d]) if (i >= 0 && i < total) void paint(i);
+    if (zoom === 0) for (let d = 1; d <= keep; d++) for (const i of [b + d, a - d]) if (i >= 0 && i < total) void paint(i);
   }
 
   function sync() {
@@ -255,45 +256,7 @@ export function initCatalog(root: HTMLElement): void {
   }
 
   function go(dir: 1 | -1) {
-    if (zoom > 0 || flip.getState() === 'flipping') return;
-    if (portrait) {
-      const left = flip.getCurrentPageIndex();
-      if (dir > 0) {
-        if (side === 0) {
-          if (left + 1 >= total) return;
-          side = 1;
-          frameOffset('slide');
-          sync();
-        } else {
-          if (left + 2 >= total) return;
-          side = 0;
-          if (calm) {
-            frameOffset('none');
-            flip.turnToNextPage();
-          } else {
-            frameOffset('flip');
-            flip.flipNext();
-          }
-        }
-      } else {
-        if (side === 1) {
-          side = 0;
-          frameOffset('slide');
-          sync();
-        } else {
-          if (left < 2) return;
-          side = 1;
-          if (calm) {
-            frameOffset('none');
-            flip.turnToPrevPage();
-          } else {
-            frameOffset('flip');
-            flip.flipPrev();
-          }
-        }
-      }
-      return;
-    }
+    if (zoom > 0) return;
     if (calm) dir > 0 ? flip.turnToNextPage() : flip.turnToPrevPage();
     else dir > 0 ? flip.flipNext() : flip.flipPrev();
   }
@@ -305,39 +268,24 @@ export function initCatalog(root: HTMLElement): void {
     const maxY = Math.max(0, (sizer.offsetHeight - stage.clientHeight) / 2);
     tx = clamp(tx, -maxX, maxX);
     ty = clamp(ty, -maxY, maxY);
-    mover.style.transition = 'none';
-    mover.style.transform = tx || ty ? `translate3d(${Math.round(tx)}px, ${Math.round(ty)}px, 0)` : '';
+    mover.style.transform = tx || ty ? `translate(${Math.round(tx)}px, ${Math.round(ty)}px)` : '';
   }
   function applyZoom() {
     if (zoom === 0) stage.style.blockSize = '';
     else if (!stage.style.blockSize) stage.style.blockSize = `${stage.getBoundingClientRect().height}px`; // keep the page from jumping
-    const scaledBookW = Math.round(bookW * zooms[zoom]);
-    if (portrait && zoom === 0) {
-      sizer.style.inlineSize = `${viewW}px`;
-      mover.style.inlineSize = `${bookW}px`;
-    } else {
-      sizer.style.inlineSize = `${scaledBookW}px`;
-      mover.style.inlineSize = '';
-    }
+    sizer.style.inlineSize = `${Math.round(baseW * zooms[zoom])}px`;
     flip.update();
     root.classList.toggle('is-zoomed', zoom > 0);
     pan.hidden = zoom === 0;
-    if (zoom === 0) frameOffset('none');
-    else place();
+    place();
   }
   function setZoom(next: number) {
     next = clamp(next, 0, zooms.length - 1);
     if (next === zoom) return;
-    if (portrait && zoom === 0 && next > 0) {
-      // centre the active A4 leaf (left or right) when zooming in from single-page portrait view
-      tx = (side === 0 ? 1 : -1) * ((bookW * zooms[next]) / 4);
-      ty = 0;
-    } else {
-      // keep the point at the centre of the stage where it is
-      const k = zooms[next] / zooms[zoom];
-      tx *= k;
-      ty *= k;
-    }
+    // keep the point at the centre of the stage where it is
+    const k = zooms[next] / zooms[zoom];
+    tx *= k;
+    ty *= k;
     zoom = next;
     if (zoom === 0) tx = ty = 0;
     applyZoom();
@@ -404,20 +352,8 @@ export function initCatalog(root: HTMLElement): void {
       ArrowLeft: () => go(-1),
       PageDown: () => go(1),
       PageUp: () => go(-1),
-      Home: () => {
-        if (zoom !== 0 || flip.getState() === 'flipping') return;
-        side = 0;
-        frameOffset('none');
-        flip.turnToPage(0);
-        sync();
-      },
-      End: () => {
-        if (zoom !== 0 || flip.getState() === 'flipping') return;
-        side = ((total - 1) % 2) as 0 | 1;
-        frameOffset('none');
-        flip.turnToPage(total - 1);
-        sync();
-      },
+      Home: () => zoom === 0 && flip.turnToPage(0),
+      End: () => zoom === 0 && flip.turnToPage(total - 1),
       '+': () => setZoom(zoom + 1),
       '=': () => setZoom(zoom + 1),
       '-': () => setZoom(zoom - 1),
@@ -445,39 +381,19 @@ export function initCatalog(root: HTMLElement): void {
     const shield = document.createElement('div');
     shield.className = 'cat__shield';
     block.append(shield);
-    // In portrait view, navigation alternates between sliding across the spread and flipping to the next spread;
-    // handle horizontal swipes here and keep page-flip's direct tap/drag from flipping the wrong leaf.
-    let swipe: { x: number; y: number } | null = null;
-    shield.addEventListener('mousedown', (e) => {
-      if (portrait && zoom === 0) e.stopPropagation();
-    });
-    shield.addEventListener(
-      'touchstart',
-      (e) => {
-        if (!portrait || zoom > 0 || e.touches.length !== 1) return;
-        e.stopPropagation();
-        swipe = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-      },
-      { passive: true },
-    );
-    shield.addEventListener(
-      'touchend',
-      (e) => {
-        if (!swipe || !portrait || zoom > 0 || !e.changedTouches.length) {
-          swipe = null;
-          return;
+    // In one-page mode the library shows a clone of a leaf while it turns back; a cloned canvas is empty, so copy the pixels.
+    new MutationObserver((records) => {
+      for (const r of records)
+        for (const node of r.addedNodes) {
+          if (!(node instanceof HTMLElement) || !node.matches('[data-page]') || pages.includes(node)) continue;
+          const from = canvases[Number(node.dataset.n) - 1];
+          const to = node.querySelector('canvas');
+          if (!from || !to || !from.width) continue;
+          to.width = from.width;
+          to.height = from.height;
+          to.getContext('2d')!.drawImage(from, 0, 0);
         }
-        e.stopPropagation();
-        const dx = e.changedTouches[0].clientX - swipe.x;
-        const dy = e.changedTouches[0].clientY - swipe.y;
-        swipe = null;
-        if (Math.abs(dx) >= 35 && Math.abs(dx) > Math.abs(dy) * 1.2) go(dx < 0 ? 1 : -1);
-      },
-      { passive: true },
-    );
-    shield.addEventListener('touchcancel', () => {
-      swipe = null;
-    });
+    }).observe(block, { childList: true });
   }
   root.classList.add('is-ready');
   for (const el of root.querySelectorAll<HTMLButtonElement>('[data-bar] button')) el.disabled = false;

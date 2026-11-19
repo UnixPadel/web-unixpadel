@@ -5,6 +5,7 @@
   "steps": [
     { "step": "setSiteOptions", "options": { "upx_static_mode": "live", "blogname": "Unixpadel (local test)" } },
     { "step": "activatePlugin", "pluginPath": "unixpadel-static/unixpadel-static.php" },
-    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/upx-seed/seed.php';" }
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/upx-seed/seed.php';" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/upx-seed/catalog-test.php';" }
   ]
 }

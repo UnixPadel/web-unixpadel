@@ -64,6 +64,8 @@ require_once __DIR__ . '/includes/class-upx-ig-extractor.php';
 require_once __DIR__ . '/includes/refs-ig.php';
 // Updates from GitHub (signed REST call, hourly cron, settings section): loaded on every request.
 require_once __DIR__ . '/includes/github-deploy.php';
+// Page files of the catalogue viewer: fetched from a GitHub release into uploads/upx-catalog (uses the helpers above).
+require_once __DIR__ . '/includes/catalog-pack.php';
 if (is_admin()) {
 	require_once __DIR__ . '/includes/refs-admin.php';
 	require_once __DIR__ . '/includes/refs-import.php';
@@ -520,6 +522,7 @@ register_activation_hook(__FILE__, 'upx_activate');
 
 function upx_uninstall() {
 	delete_option(UPX_OPT_MODE);
+	delete_option(UPX_OPT_CATALOG); // the files in uploads/upx-catalog stay; delete that folder by hand if wanted
 	delete_option(UPX_OPT_TOKEN);
 	delete_option(UPX_OPT_QUOTE_TO); // saved quote requests stay (Quote requests → Trash to remove them)
 	delete_option(UPX_OPT_QUOTE_TO_LEGACY);
@@ -685,6 +688,7 @@ function upx_settings_page() {
 			</form>
 			<?php upx_refs_import_section(); ?>
 		<?php endif; ?>
+		<?php upx_catalog_section(); ?>
 		<?php upx_deploy_section(); ?>
 	</div>
 	<?php

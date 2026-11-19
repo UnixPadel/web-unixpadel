@@ -1,5 +1,8 @@
-// Product catalogue flipbook (/catalog/). The page images are cut from the print PDF by
-// scripts/build-catalog-pages.py and live in the WordPress media library, like all other media.
+// Product catalogue flipbook (/catalog/). The catalogue must not be downloadable: there is no PDF anywhere, and the page
+// files are shuffled tiles that only the viewer puts back (scripts/build-catalog-pages.py writes them and
+// catalog-pack.json; the WordPress plugin fetches them from the GitHub release `catalog-<dir>`, see
+// wp-plugin/includes/catalog-pack.php). Folder, salt and grids live in catalog-pack.json.
+import PACK from './catalog-pack.json';
 
 export const CATALOG = {
   /**
@@ -9,34 +12,42 @@ export const CATALOG = {
    */
   enabled: false,
   url: '/catalog/',
-  /** Upload folder of the page images (WordPress: /wp-content/uploads/<year>/<month>/). */
-  mediaBase: '/wp-content/uploads/2026/11/',
-  /** File name stem: <prefix>-p01.webp (reading size) and <prefix>-p01-zoom.webp. */
-  prefix: 'unixpadel-catalog-2027',
-  /** Path of the reduced PDF once it is uploaded (e.g. mediaBase + 'unixpadel-catalog-2027.pdf'); '' hides the button. */
-  pdf: '',
-  /** Pixel size of the reading and zoom images (A4 leaf). */
-  size: { width: 1000, height: 1414 },
-  zoomSize: { width: 1697, height: 2400 },
-  /** One entry per A4 leaf, in reading order (two per PDF spread). Used for the image alt texts. */
-  pages: [
-    'MobilFOLD X-TEND Court: overview and covering',
-    'MobilFOLD X-TEND: technical specifications',
-    'Retractable Roof Canopy: performance and durability',
-    'Retractable Roof Canopy: technical specifications',
-    'Roof Top Canopy: introduction and membrane options',
-    'Rooftop Canopy: structural specifications',
-    'Sandwich Panel Canopy: introduction',
-    'Sandwich Panel Canopy: technical specifications and performance',
-    'WP Challenge: overview and lighting',
-    'WP Challenge: steel structure',
-    'Double Profile Truss System Canopy: membrane options',
-    'Double Profile Truss System Canopy: technical specifications',
-    'Wheel Canopy System: membrane covering',
-    'Wheel Canopy System: steel structure specifications',
+  /** Number of A4 leaves and their proportions (reading size). */
+  pages: PACK.pages,
+  size: { width: PACK.variants.view.width, height: PACK.variants.view.height },
+  /** One entry per PDF spread (two leaves each), in reading order: the accessible names of the pages. */
+  spreads: [
+    'Standard Court',
+    'Panoramic Court',
+    'Full Panoramic Court',
+    'Single Standard Court',
+    'Single Panoramic Court',
+    'Single Full Panoramic Court',
+    'Standard Plate Floor Court',
+    'Panoramic Plate Floor Court',
+    'Full Panoramic Plate Floor Court',
+    'Single Standard Plate Floor Court',
+    'Single Panoramic Plate Floor Court',
+    'Single Full Panoramic Plate Floor Court',
+    'Standard Flat Floor Court',
+    'Panoramic Flat Floor Court',
+    'Full Panoramic Flat Floor Court',
+    'Single Standard Flat Floor Court',
+    'Single Panoramic Flat Floor Court',
+    'Floating Floor Court',
+    'Portable Court',
+    'Mobil Fold Court',
+    'WP Challenge Court',
+    'Storm Padel Court',
+    'Padel Court with Canopy',
+    'Roof Top Canopy',
+    'Single Profile Truss System Canopy',
+    'Double Profile Truss System Canopy',
+    'Sandwich Panel Canopy',
+    'Retractable Roof Canopy',
+    'Wheel Canopy System',
+    'MobilFOLD X-TEND Court',
+    'Lighting System',
+    'Turf Types',
   ],
 } as const;
-
-const no = (n: number) => String(n).padStart(2, '0');
-/** Site-relative path of a page image (1-based page number). */
-export const catalogPagePath = (n: number, zoom = false) => `${CATALOG.mediaBase}${CATALOG.prefix}-p${no(n)}${zoom ? '-zoom' : ''}.webp`;

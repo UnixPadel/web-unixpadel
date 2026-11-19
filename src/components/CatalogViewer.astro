@@ -1,10 +1,9 @@
 ---
-// Product catalogue as a flipbook. Each A4 leaf is one image (two per PDF spread, cut by
-// scripts/build-catalog-pages.py); src/lib/catalog.ts turns them into a book. Without JavaScript the first
-// spread shows and a <noscript> rule lays every page out in reading order.
+// Product catalogue as a flipbook, built so that the catalogue cannot be downloaded: the markup holds no image and no
+// file address, only one empty <canvas> per A4 leaf. src/lib/catalog.ts loads the shuffled page files
+// (scripts/build-catalog-pages.py), puts them back on the canvases and turns them into a book.
 import Icon from './Icon.astro';
-import { CATALOG, catalogPagePath } from '../data/catalog';
-import { mediaUrl } from '../lib/media';
+import { CATALOG } from '../data/catalog';
 import { langOf, t } from '../i18n';
 
 interface Props {
@@ -12,21 +11,12 @@ interface Props {
 }
 const { title } = Astro.props;
 const ui = t(langOf(Astro.url)).catalog;
-// `astro dev` serves catalog-export/ from the upload path (astro.config.mjs), so the viewer works before the upload.
-const local = !!import.meta.env.CATALOG_LOCAL;
-const src = (path: string) => (local ? path : mediaUrl(path)!);
-const pages = CATALOG.pages.map((label, i) => ({
-  n: i + 1,
-  alt: ui.pageAlt(i + 1, label),
-  src: src(catalogPagePath(i + 1)),
-  zoom: src(catalogPagePath(i + 1, true)),
-}));
-const total = pages.length;
-const pdf = CATALOG.pdf ? src(CATALOG.pdf) : null;
+const total = CATALOG.pages;
+const pages = Array.from({ length: total }, (_, i) => ({ n: i + 1, label: ui.pageAlt(i + 1, CATALOG.spreads[Math.floor(i / 2)] ?? '') }));
 const { width, height } = CATALOG.size;
 ---
 
-<section class="cat" data-catalog data-w={width} data-h={height} dir="ltr" aria-label={`${title}: ${ui.viewer}`}>
+<section class="cat" data-catalog dir="ltr" aria-label={`${title}: ${ui.viewer}`} style={`--cat-ratio:${width} / ${height}`}>
   <div class="cat__stage" data-stage>
     <button class="cat__btn cat__side cat__side--prev" type="button" data-prev disabled aria-label={ui.prev} title={ui.prev}>
       <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-left"></use></svg>
@@ -36,8 +26,8 @@ const { width, height } = CATALOG.size;
         <div class="cat__book" data-book>
           {
             pages.map((p) => (
-              <div class="cat__page" data-page data-density="soft">
-                <img src={p.src} data-zoom={p.zoom} alt={p.alt} width={width} height={height} loading={p.n <= 2 ? 'eager' : 'lazy'} fetchpriority={p.n <= 2 ? 'high' : undefined} decoding="async" draggable="false" />
+              <div class="cat__page" data-page data-n={p.n} data-density="soft">
+                <canvas role="img" aria-label={p.label} width="0" height="0" />
               </div>
             ))
           }
@@ -76,31 +66,17 @@ const { width, height } = CATALOG.size;
         <Icon name="expand" class="cat__fs-on" />
         <Icon name="shrink" class="cat__fs-off" />
       </button>
-      {
-        pdf && (
-          <a class="cat__btn cat__btn--text" href={pdf} download>
-            <Icon name="download" />
-            <span>{ui.download}</span>
-          </a>
-        )
-      }
     </div>
     <span class="cat__progress" aria-hidden="true"><i data-progress style={`inline-size:${(Math.min(2, total) / total) * 100}%`}></i></span>
   </div>
   <p class="cat__hint" dir="auto">{ui.hint}</p>
+  <p class="cat__print">{ui.noPrint}</p>
   <noscript>
+    <p class="cat__nojs">{ui.needsJs}</p>
     <style is:inline>
-      .cat .cat__book {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 24px;
-      }
-      .cat .cat__page {
-        display: block !important;
-      }
+      .cat .cat__stage,
       .cat .cat__bar,
-      .cat .cat__hint,
-      .cat .cat__side {
+      .cat .cat__hint {
         display: none;
       }
     </style>
@@ -139,6 +115,8 @@ const { width, height } = CATALOG.size;
     position: relative;
     display: grid;
     place-items: center;
+    place-content: center;
+    box-sizing: border-box;
     overflow: hidden;
     /* room for the page shadow below the book */
     padding-block: var(--sp-2) var(--sp-5);
@@ -158,12 +136,9 @@ const { width, height } = CATALOG.size;
     filter: blur(6px);
     pointer-events: none;
   }
-  .cat__mover {
-    transform-origin: 50% 50%;
-    will-change: transform;
-  }
-  .cat:not(.is-zoomed) .cat__mover {
-    transition: transform var(--dur-base) var(--ease-out);
+  .cat__sizer {
+    /* zoomed, the book is wider and taller than the stage: it stays centred and the stage clips it */
+    flex: none;
   }
 
   /* Before the script takes over: the first spread, already at its final size (no layout shift). */
@@ -173,19 +148,60 @@ const { width, height } = CATALOG.size;
     grid-template-columns: repeat(2, 1fr);
   }
   .cat__page {
+    /* empty until its canvas is drawn; the ratio holds the place before the script lays the book out */
+    aspect-ratio: var(--cat-ratio);
     background: #000;
     overflow: hidden;
+  }
+  .cat__page:not(.is-drawn) {
+    background: linear-gradient(110deg, #000 35%, #0d1424 50%, #000 65%) 0 0 / 300% 100%;
+    animation: cat-wait 1.6s linear infinite;
+  }
+  @keyframes cat-wait {
+    to {
+      background-position: -150% 0;
+    }
   }
   .cat:not(.is-ready) .cat__book .cat__page:nth-child(n + 3) {
     display: none;
   }
-  .cat__page img {
+  .cat__page canvas {
     display: block;
     inline-size: 100%;
     block-size: 100%;
-    object-fit: cover;
+  }
+  /* Protection (with src/lib/catalog.ts): nothing here can be selected, dragged out, long-pressed or printed. */
+  .cat__stage {
     user-select: none;
-    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .cat :global(.cat__shield) {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+  }
+  .cat__print,
+  .cat__nojs {
+    display: none;
+    margin: 0;
+    padding: var(--sp-6) var(--sp-4);
+    text-align: center;
+    color: var(--cat-fg);
+  }
+  .cat__nojs {
+    display: block;
+  }
+  @media print {
+    .cat__stage,
+    .cat__bar,
+    .cat__hint {
+      display: none !important;
+    }
+    .cat__print {
+      display: block;
+      color: #000;
+    }
   }
   @media (max-width: 719px) {
     .cat__sizer {
@@ -391,10 +407,12 @@ const { width, height } = CATALOG.size;
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cat__mover,
     .cat__progress i,
     .cat__btn {
       transition: none;
+    }
+    .cat__page:not(.is-drawn) {
+      animation: none;
     }
   }
 </style>

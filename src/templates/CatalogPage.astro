@@ -15,7 +15,7 @@ const ui = t(langOf(Astro.url));
 ---
 
 <BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? labelOf(page)} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
-  <Hero eyebrow={ui.catalog.eyebrow} title={labelOf(page)} tagline={data.hero?.tagline} size="compact">
+  <Hero eyebrow={ui.catalog.eyebrow} title={labelOf(page)} tagline={data.hero?.tagline} size="slim">
     <Breadcrumbs slot="crumbs" crumbs={crumbs} />
   </Hero>
   <CatalogViewer title={labelOf(page)} />

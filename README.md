@@ -146,13 +146,25 @@ live site; the script refuses to zip a build with another assets origin.
 
 ## Product catalogue flipbook (`/catalog/`)
 
+The catalogue must not be downloadable. There is no PDF on the site, the pages are drawn on `<canvas>` (no image to
+save, no file address in the HTML), and the page files are shuffled tiles that only the viewer puts back together.
+A faint watermark is baked into every page. A screenshot cannot be prevented; everything short of that is.
+
 - Viewer: `src/components/CatalogViewer.astro` + `src/lib/catalog.ts` (page turning by `page-flip`), template
-  `src/templates/CatalogPage.astro`, settings and page titles in `src/data/catalog.ts`.
-- Page images are **not** in the repo. `python scripts/build-catalog-pages.py [PDF]` cuts every landscape A3 spread
-  of the print PDF into two A4 leaves (reading size + zoom size) and writes them, plus a reduced PDF, to the
-  git-ignored `catalog-export/`. Upload those files to the WordPress media library and set `mediaBase` (and `pdf` for
-  the download button) in `src/data/catalog.ts`. `astro dev` serves `catalog-export/` from the upload path, so the
-  viewer works locally before the upload.
-- New catalogue edition: change `--prefix` / `prefix` (WordPress renames a re-uploaded file to `-1`), update `pages`.
+  `src/templates/CatalogPage.astro`, spread titles in `src/data/catalog.ts`.
+- Page files: `python scripts/build-catalog-pages.py "<catalogue>.pdf"` renders every landscape A3 spread at 300 dpi,
+  cuts it into two A4 leaves, watermarks and shuffles them (reading + zoom size), and writes
+  - `catalog-export/pack/<dir>/` and `catalog-export/catalog-pack-<dir>-N.zip` (git-ignored; `astro dev` serves the
+    folder from the live path),
+  - `src/data/catalog-pack.json` (committed): folder, salt, tile grids, parts with their sha256.
+- Publishing a new edition: run the script, then
+  `gh release create catalog-<dir> catalog-export/catalog-pack-<dir>-*.zip --title "Catalogue files" --notes ""`,
+  update `spreads` in `src/data/catalog.ts` and push. The plugin (`wp-plugin/includes/catalog-pack.php`) sees that
+  the folder named in its `catalog.php` is missing, downloads the parts with the GitHub token from the settings,
+  checks their sha256, unpacks them to `wp-content/uploads/upx-catalog/<dir>/` and deletes the previous edition's
+  folder. Status and a manual "download now" button: Settings → Unixpadel Static → Catalogue files.
+- Never commit or upload the source PDF (`*.pdf` is git-ignored), and never add a download link.
 - Going live: `enabled: true` in `src/data/catalog.ts` (the header button becomes a link) and remove
   `pendingReview: true` from `catalog.md` in `src/content/pages` and every `pages-<lang>` (index + sitemap).
+- Local plugin check: `scripts/playground/catalog-test.php` (run by the Playground blueprint) writes its result to
+  `/wp-content/uploads/upx-catalog-test.txt`.

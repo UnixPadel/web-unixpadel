@@ -21,7 +21,7 @@ const SITE_URL = 'https://www.unixpadel.com';
 // Catalogue flipbook: the page images are uploaded to WordPress (src/data/catalog.ts), never committed. While they
 // are only on disk (catalog-export/, written by scripts/build-catalog-pages.py), `astro dev` serves that folder from
 // /wp-content/uploads/… so the viewer can be worked on before the upload. Builds always use the media origin.
-const CATALOG_DIR = path.resolve('./catalog-export');
+const CATALOG_DIR = path.resolve('./catalog-export/pack');
 const CATALOG_LOCAL = process.argv.includes('dev') && fs.existsSync(CATALOG_DIR);
 /** @returns {import('vite').Plugin} */
 const catalogDevFiles = () => ({
@@ -29,10 +29,10 @@ const catalogDevFiles = () => ({
   apply: 'serve',
   configureServer(server) {
     server.middlewares.use((req, res, next) => {
-      const name = /^\/wp-content\/uploads\/\d{4}\/\d{2}\/(unixpadel-catalog-[\w.-]+\.(?:webp|pdf))(?:\?.*)?$/.exec(req.url ?? '')?.[1];
-      const file = name && path.join(CATALOG_DIR, name);
+      const m = /^\/wp-content\/uploads\/upx-catalog\/([a-f0-9]{16})\/([a-f0-9]{16}\.webp)(?:\?.*)?$/.exec(req.url ?? '');
+      const file = m && path.join(CATALOG_DIR, m[1], m[2]);
       if (!file || !fs.existsSync(file)) return next();
-      res.setHeader('Content-Type', name.endsWith('.pdf') ? 'application/pdf' : 'image/webp');
+      res.setHeader('Content-Type', 'image/webp');
       fs.createReadStream(file).pipe(res);
     });
   },

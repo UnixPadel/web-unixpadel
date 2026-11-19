@@ -1,8 +1,72 @@
 // Catalogue flipbook behaviour (markup: src/components/CatalogViewer.astro). Loaded on demand by that component.
 // Page turning is page-flip (StPageFlip) in HTML mode; this file owns sizing, the controls, zoom and deep links.
+//
+// The catalogue must not be downloadable. No page exists as a readable file: scripts/build-catalog-pages.py stores
+// every leaf as shuffled tiles, and only this module puts them back, on a <canvas> (nothing to "save image as").
+// Keep fnv()/shuffle()/fileName() in step with that script.
 import { PageFlip } from 'page-flip/dist/js/page-flip.module.js';
+import PACK from '../data/catalog-pack.json';
 
-const ZOOMS = [1, 1.75, 2.5];
+const ZOOM_STEPS = [1, 1.75, 2.5, 3.5];
+type Tier = 'view' | 'zoom';
+const BASE = `${import.meta.env.CATALOG_LOCAL ? '' : (import.meta.env.PUBLIC_MEDIA_ORIGIN ?? '')}/wp-content/uploads/upx-catalog/${PACK.dir}/`;
+
+/** FNV-1a, 32 bit (ASCII input). */
+function fnv(text: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193) >>> 0;
+  return h;
+}
+/** Fisher-Yates over 0..n-1 driven by mulberry32(seed): order[slot] = tile stored in that slot. */
+function shuffle(n: number, seed: number): number[] {
+  let a = seed | 0;
+  const rand = () => {
+    a = (a + 0x6d2b79f5) | 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const order = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order;
+}
+const hex = (n: number) => n.toString(16).padStart(8, '0');
+const fileName = (page: number, tier: Tier) => `${hex(fnv(`${PACK.salt}:a:${page}:${tier}`))}${hex(fnv(`${PACK.salt}:b:${page}:${tier}`))}.webp`;
+
+/** Loads a stored (shuffled) file and returns the leaf put back together at its native size. */
+async function assemble(page: number, tier: Tier): Promise<HTMLCanvasElement> {
+  const v = PACK.variants[tier];
+  const img = new Image();
+  // load, not decode(): decode() waits for the tab to render, so in a background tab the pages would never appear
+  await new Promise<void>((done, fail) => {
+    img.onload = () => done();
+    img.onerror = () => fail(new Error('page file not loaded'));
+    img.src = BASE + fileName(page, tier);
+  });
+  // decoded off the main thread where the browser can; the element itself works everywhere
+  const pixels: CanvasImageSource & { close?: () => void } = 'createImageBitmap' in window ? await createImageBitmap(img).catch(() => img) : img;
+  const tw = Math.ceil(v.width / v.cols);
+  const th = Math.ceil(v.height / v.rows);
+  const g = PACK.gutter;
+  const out = document.createElement('canvas');
+  out.width = v.width;
+  out.height = v.height;
+  const ctx = out.getContext('2d')!;
+  const order = shuffle(v.cols * v.rows, fnv(`${PACK.salt}:${page}:${tier}`));
+  order.forEach((tile, slot) => {
+    const sx = (slot % v.cols) * (tw + 2 * g) + g;
+    const sy = Math.floor(slot / v.cols) * (th + 2 * g) + g;
+    ctx.drawImage(pixels, sx, sy, tw, th, (tile % v.cols) * tw, Math.floor(tile / v.cols) * th, tw, th);
+  });
+  pixels.close?.();
+  img.onload = img.onerror = null;
+  img.src = '';
+  return out;
+}
 /** Header + control bar + paddings: what the book cannot use of the viewport height. Mirrors --cat-h in the CSS. */
 const CHROME = 220;
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
@@ -24,18 +88,23 @@ export function initCatalog(root: HTMLElement): void {
   const zoomIn = q<HTMLButtonElement>('[data-zoom-in]');
   const zoomOut = q<HTMLButtonElement>('[data-zoom-out]');
   const pages = [...book.querySelectorAll<HTMLElement>('[data-page]')];
-  const imgs = pages.map((p) => p.querySelector('img')!);
+  const canvases = pages.map((p) => p.querySelector('canvas')!);
+  /** What each canvas holds now, and the request in flight (a newer one wins). */
+  const drawn: ({ tier: Tier; width: number } | null)[] = pages.map(() => null);
+  const asked: string[] = pages.map(() => '');
   const total = pages.length;
-  const pageW = Number(root.dataset.w);
-  const pageH = Number(root.dataset.h);
+  const pageW = PACK.variants.view.width;
+  const pageH = PACK.variants.view.height;
+  let zooms = ZOOM_STEPS.slice(0, 3);
   const ratio = pageW / pageH;
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let portrait = false;
   let index = 0;
-  let zoom = 0; // index into ZOOMS
+  let zoom = 0; // index into zooms
   let tx = 0;
   let ty = 0;
+  let baseW = 0; // book width at 100 %
 
   const wanted = Number(new URLSearchParams(location.search).get('p'));
   const start = Number.isInteger(wanted) && wanted >= 1 && wanted <= total ? wanted - 1 : 0;
@@ -61,17 +130,26 @@ export function initCatalog(root: HTMLElement): void {
   });
 
   /** Two-up when the stage is wide enough for a spread at a readable size, else one page at a time. */
-  function layout() {
+  let seen = '';
+  function layout(force = false) {
     const full = document.fullscreenElement === root;
+    // Only a real change of the space counts: zooming itself must not look like a resize and reset the zoom.
+    const key = `${stage.clientWidth}|${window.innerHeight}|${full}`;
+    if (key === seen && !force) return;
+    seen = key;
     const availH = full ? root.clientHeight - bar.offsetHeight - 48 : clamp(window.innerHeight - CHROME, 280, 1100);
     const side = stage.clientWidth >= 900 ? 72 : 0; // room for the side arrows
     const availW = stage.clientWidth - side * 2;
     portrait = stage.clientWidth < 720 || availW < availH * ratio * 1.35;
-    const w = Math.min(availW, availH * ratio * (portrait ? 1 : 2));
-    sizer.style.inlineSize = `${Math.floor(w)}px`;
+    baseW = Math.floor(Math.min(availW, availH * ratio * (portrait ? 1 : 2)));
+    // Zoom stops where one pixel of the zoom file would cover more than one screen pixel: beyond that it could only blur.
+    const sharpest = PACK.variants.zoom.width / ((baseW / (portrait ? 1 : 2)) * devicePixelRatio);
+    zooms = ZOOM_STEPS.filter((z, i) => i < 2 || z <= sharpest);
     root.classList.toggle('is-portrait', portrait);
     flip.getSettings().usePortrait = portrait;
-    flip.update();
+    // A resize while zoomed starts over at 100 %: the stage's frozen height belongs to the old size.
+    zoom = 0;
+    tx = ty = 0;
     applyZoom();
     sync();
   }
@@ -83,11 +161,51 @@ export function initCatalog(root: HTMLElement): void {
     return [left, Math.min(left + 1, total - 1)];
   }
 
-  /** Hidden leaves are display:none, so lazy images would only start loading mid-flip: warm the neighbours. */
+  /** Draws leaf i at the resolution the screen needs right now: the reading file, or the zoom file once that is too small. */
+  async function paint(i: number) {
+    const cssW = (baseW / (portrait ? 1 : 2)) * zooms[zoom];
+    const need = Math.round(cssW * devicePixelRatio);
+    const tier: Tier = need > PACK.variants.view.width * 1.1 ? 'zoom' : 'view';
+    const v = PACK.variants[tier];
+    const width = tier === 'view' ? v.width : Math.min(v.width, need);
+    const now = drawn[i];
+    if (now && now.tier === tier && Math.abs(now.width - width) < 8) return;
+    const ticket = `${tier}:${width}`;
+    if (asked[i] === ticket) return;
+    asked[i] = ticket;
+    try {
+      const full = await assemble(i + 1, tier);
+      if (asked[i] !== ticket) return; // a newer request (zoom changed, leaf released) took over
+      const canvas = canvases[i];
+      canvas.width = width;
+      canvas.height = Math.round((width * v.height) / v.width);
+      const ctx = canvas.getContext('2d')!;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(full, 0, 0, canvas.width, canvas.height);
+      full.width = full.height = 0;
+      drawn[i] = { tier, width };
+      pages[i].classList.add('is-drawn');
+    } catch {
+      /* offline or the file is missing: the leaf stays blank and the next paint() tries again */
+    } finally {
+      if (asked[i] === ticket) asked[i] = '';
+    }
+  }
+  /** Keeps the spreads around the open one drawn (a flip shows a hidden leaf at once) and frees the rest. */
   function warm() {
     const [a, b] = visible();
-    for (let i = Math.max(0, a - 2); i <= Math.min(total - 1, b + 2); i++) imgs[i].loading = 'eager';
-    if (zoom > 0) for (let i = a; i <= b; i++) if (imgs[i].dataset.zoom && imgs[i].src !== imgs[i].dataset.zoom) imgs[i].src = imgs[i].dataset.zoom!;
+    const keep = portrait ? 3 : 4;
+    for (let i = 0; i < total; i++) {
+      if (i >= a - keep && i <= b + keep) continue;
+      if (!drawn[i] && !asked[i]) continue;
+      canvases[i].width = canvases[i].height = 0;
+      drawn[i] = null;
+      asked[i] = '';
+      pages[i].classList.remove('is-drawn');
+    }
+    for (let i = a; i <= b; i++) void paint(i);
+    // neighbours only at reading size: pages cannot turn while zoomed
+    if (zoom === 0) for (let d = 1; d <= keep; d++) for (const i of [b + d, a - d]) if (i >= 0 && i < total) void paint(i);
   }
 
   function sync() {
@@ -98,8 +216,8 @@ export function initCatalog(root: HTMLElement): void {
     for (const btn of prevBtns) btn.disabled = a === 0 || zoom > 0;
     for (const btn of nextBtns) btn.disabled = b === total - 1 || zoom > 0;
     zoomOut.disabled = zoom === 0;
-    zoomIn.disabled = zoom === ZOOMS.length - 1;
-    zoomLabel.textContent = `${Math.round(ZOOMS[zoom] * 100)}%`;
+    zoomIn.disabled = zoom === zooms.length - 1;
+    zoomLabel.textContent = `${Math.round(zooms[zoom] * 100)}%`;
     warm();
     const url = new URL(location.href);
     if (a === 0) url.searchParams.delete('p');
@@ -113,20 +231,31 @@ export function initCatalog(root: HTMLElement): void {
     else dir > 0 ? flip.flipNext() : flip.flipPrev();
   }
 
-  // ---- zoom: scale the book inside the clipped stage; a layer on top takes the drag so pages don't turn.
-  function applyZoom() {
-    const s = ZOOMS[zoom];
-    const maxX = Math.max(0, (sizer.offsetWidth * s - stage.clientWidth) / 2);
-    const maxY = Math.max(0, (sizer.offsetHeight * s - stage.clientHeight) / 2);
+  // ---- zoom: the book is really laid out larger inside the clipped stage (a CSS scale would only stretch the
+  // pixels already painted, so text went soft); a layer on top takes the drag so pages don't turn.
+  function place() {
+    const maxX = Math.max(0, (sizer.offsetWidth - stage.clientWidth) / 2);
+    const maxY = Math.max(0, (sizer.offsetHeight - stage.clientHeight) / 2);
     tx = clamp(tx, -maxX, maxX);
     ty = clamp(ty, -maxY, maxY);
-    mover.style.transform = s === 1 ? '' : `translate(${tx}px, ${ty}px) scale(${s})`;
+    mover.style.transform = tx || ty ? `translate(${Math.round(tx)}px, ${Math.round(ty)}px)` : '';
+  }
+  function applyZoom() {
+    if (zoom === 0) stage.style.blockSize = '';
+    else if (!stage.style.blockSize) stage.style.blockSize = `${stage.getBoundingClientRect().height}px`; // keep the page from jumping
+    sizer.style.inlineSize = `${Math.round(baseW * zooms[zoom])}px`;
+    flip.update();
     root.classList.toggle('is-zoomed', zoom > 0);
     pan.hidden = zoom === 0;
+    place();
   }
   function setZoom(next: number) {
-    next = clamp(next, 0, ZOOMS.length - 1);
+    next = clamp(next, 0, zooms.length - 1);
     if (next === zoom) return;
+    // keep the point at the centre of the stage where it is
+    const k = zooms[next] / zooms[zoom];
+    tx *= k;
+    ty *= k;
     zoom = next;
     if (zoom === 0) tx = ty = 0;
     applyZoom();
@@ -142,7 +271,7 @@ export function initCatalog(root: HTMLElement): void {
     if (!drag) return;
     tx = drag.tx + e.clientX - drag.x;
     ty = drag.ty + e.clientY - drag.y;
-    applyZoom();
+    place();
   });
   const drop = () => {
     drag = null;
@@ -209,12 +338,36 @@ export function initCatalog(root: HTMLElement): void {
     run();
   });
 
+  // ---- protection: nothing in the viewer can be saved, dragged out, selected or printed (see also the print CSS)
+  for (const type of ['contextmenu', 'dragstart', 'selectstart', 'copy']) root.addEventListener(type, (e) => e.preventDefault());
+
   flip.on('flip', sync);
   flip.on('changeOrientation', sync);
   flip.loadFromHTML(pages);
+  // A transparent sheet over the leaves: a right click (or long press) lands on it, never on a canvas. It sits inside
+  // the element page-flip listens on, so turning pages by dragging still works.
+  const block = book.querySelector<HTMLElement>('.stf__block');
+  if (block) {
+    const shield = document.createElement('div');
+    shield.className = 'cat__shield';
+    block.append(shield);
+    // In one-page mode the library shows a clone of a leaf while it turns back; a cloned canvas is empty, so copy the pixels.
+    new MutationObserver((records) => {
+      for (const r of records)
+        for (const node of r.addedNodes) {
+          if (!(node instanceof HTMLElement) || !node.matches('[data-page]') || pages.includes(node)) continue;
+          const from = canvases[Number(node.dataset.n) - 1];
+          const to = node.querySelector('canvas');
+          if (!from || !to || !from.width) continue;
+          to.width = from.width;
+          to.height = from.height;
+          to.getContext('2d')!.drawImage(from, 0, 0);
+        }
+    }).observe(block, { childList: true });
+  }
   root.classList.add('is-ready');
   for (const el of root.querySelectorAll<HTMLButtonElement>('[data-bar] button')) el.disabled = false;
-  new ResizeObserver(layout).observe(stage);
-  window.addEventListener('resize', layout);
-  layout();
+  new ResizeObserver(() => layout()).observe(stage);
+  window.addEventListener('resize', () => layout());
+  layout(true);
 }

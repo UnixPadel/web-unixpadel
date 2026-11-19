@@ -1,0 +1,40 @@
+{
+  "dir": "c3aafa79a2ecca61",
+  "salt": "137fe1c0dc8b34e8bec8ff74",
+  "pages": 64,
+  "gutter": 8,
+  "variants": {
+    "view": {
+      "width": 1000,
+      "height": 1414,
+      "cols": 6,
+      "rows": 8
+    },
+    "zoom": {
+      "width": 2480,
+      "height": 3508,
+      "cols": 10,
+      "rows": 14
+    }
+  },
+  "parts": [
+    {
+      "name": "catalog-pack-c3aafa79a2ecca61-1.zip",
+      "sha256": "15dd4dcd5a7b036dbc90b0f896d79629b5b3c002229dac1dea7c8d5ad7a891bf",
+      "bytes": 14603186,
+      "files": 63
+    },
+    {
+      "name": "catalog-pack-c3aafa79a2ecca61-2.zip",
+      "sha256": "0cbf02b90a0768a66ecbd15680a5f8cd71eca0adc1af9c6c86a68d874923809b",
+      "bytes": 14641484,
+      "files": 63
+    },
+    {
+      "name": "catalog-pack-c3aafa79a2ecca61-3.zip",
+      "sha256": "e895612edda3d1abcc33440944f871f4eb72dd951c98911f6d51022d2c1975e4",
+      "bytes": 315818,
+      "files": 2
+    }
+  ]
+}

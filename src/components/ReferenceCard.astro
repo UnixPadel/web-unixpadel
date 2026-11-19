@@ -169,7 +169,8 @@ const sizes = featured ? '(min-width: 1024px) 840px, 100vw' : '(min-width: 1024p
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgb(11 19 38 / 88%));
+    /* the scrim reaches the top line of the text block (the date) on tall phone crops, not just the title */
+    background: linear-gradient(180deg, transparent 20%, rgb(11 19 38 / 62%) 45%, rgb(11 19 38 / 92%));
   }
   .ref--featured:not(.ref--flat) .ref__body {
     position: absolute;

@@ -6,6 +6,16 @@
   font-size: var(--fs-400);
 }
 
+/* Running text keeps a 65–75 character line. 65ch alone ran to ~95 characters: DM Sans' "0" is far wider than its
+   average letter (0.68em against 0.45em), so the reading blocks are capped at 33 body ems (~70 characters) while figures
+   and tables keep the column. Body-size based, not em, so the closing callout's larger heading lines up with its text. */
+.prose {
+  --read-measure: calc(33 * var(--fs-400));
+}
+.prose > :is(p, ul, ol, dl, blockquote) {
+  max-inline-size: var(--read-measure);
+}
+
 .prose > * + * {
   margin-block-start: var(--sp-4);
 }
@@ -283,6 +293,10 @@
   border: 0;
 }
 /* The closing "Contact us" block becomes a tinted callout; the quote rail and CTA band carry the buttons */
+.prose--closing > h2:last-of-type,
+.prose--closing > h2:last-of-type ~ * {
+  max-inline-size: var(--read-measure);
+}
 .prose--closing > h2:last-of-type {
   counter-increment: none;
   padding: var(--sp-5) var(--sp-5) var(--sp-2);

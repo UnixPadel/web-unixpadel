@@ -112,6 +112,17 @@ for (const file of walk(DIST)) {
   }
 }
 
+// dark tokens: the OS-preference block and the explicit [data-theme='dark'] block must carry the same values
+{
+  const css = fs.readFileSync(path.join(ROOT, 'src/styles/tokens.css'), 'utf8');
+  const decls = (body) => new Map([...(body ?? '').matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)].map((m) => [m[1], m[2].trim()]));
+  const media = decls(css.match(/:root:not\(\[data-theme='light'\]\)\s*\{([^}]*)\}/)?.[1]);
+  const toggle = decls(css.match(/:root\[data-theme='dark'\]\s*\{([^}]*)\}/)?.[1]);
+  for (const k of new Set([...media.keys(), ...toggle.keys()])) {
+    if (media.get(k) !== toggle.get(k)) fail('src/styles/tokens.css', 'dark-token-drift', `${k}: ${media.get(k) ?? '—'} vs ${toggle.get(k) ?? '—'}`);
+  }
+}
+
 console.log(`checked ${checked} pages`);
 if (failures.length) {
   console.log(`\nFAILURES (${failures.length}):\n  ` + failures.join('\n  '));

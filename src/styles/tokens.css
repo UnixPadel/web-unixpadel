@@ -95,6 +95,8 @@
   --header-h: 72px;
 }
 
+/* The dark set appears twice (OS preference, explicit toggle). Keep both blocks identical:
+   scripts/check-ui.mjs fails the build check when they drift. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     --bg-page: var(--navy-800);
@@ -131,8 +133,6 @@
   --border: var(--navy-500);
   --border-strong: #3d5080;
   --focus-ring: var(--lime-500);
-  --whatsapp-border: #1a8f80;
-  --whatsapp-icon: #2ee092;
   --shadow-menu: none;
   --header-bg: rgb(15 26 51 / 92%);
 }

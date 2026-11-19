@@ -119,12 +119,15 @@ button {
   html {
     scroll-behavior: auto;
   }
+  /* Keyframe motion ends at its final frame. Transitions keep only non-moving properties, so hover, focus and
+     selection still fade in (state stays readable) while nothing slides, scales or wipes. */
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, opacity, fill, stroke !important;
+    transition-duration: var(--dur-fast) !important;
   }
 }
 
@@ -284,9 +287,14 @@ button {
 .hero .btn--wa .icon,
 .cta .btn--wa .icon,
 .site-footer .btn--wa .icon,
-:root:not([data-theme='light']) .btn--wa .icon,
 :root[data-theme='dark'] .btn--wa .icon {
   color: var(--whatsapp-on-inverse);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .btn--wa .icon {
+    color: var(--whatsapp-on-inverse);
+  }
 }
 
 .btn--link {
@@ -296,6 +304,13 @@ button {
   padding-inline: 0;
   min-block-size: 44px;
   font-weight: 600;
+}
+
+/* On navy surfaces the light-theme --link (navy) disappears: use the on-inverse accent instead. */
+.hero .btn--link,
+.section--inverse .btn--link,
+.cta .btn--link {
+  --_fg: var(--accent-on-inverse);
 }
 
 .btn--icon {
@@ -330,6 +345,9 @@ button {
     --_bg: transparent;
     --_border: transparent;
     text-decoration: underline;
+  }
+  :is(.hero, .section--inverse, .cta) .btn--link:hover {
+    color: var(--text-on-inverse);
   }
   @media (prefers-reduced-motion: no-preference) {
     .btn--link:hover .icon {
@@ -547,8 +565,12 @@ button {
   font-family: var(--font-display);
   font-size: var(--fs-400);
   letter-spacing: 0;
-  color: var(--lime-500);
+  /* lime-500 is 2:1 on white; the theme accent is 6:1 light, and dark/inverse surfaces keep the bright lime */
+  color: var(--accent);
   -webkit-text-stroke: 0;
+}
+:is(.hero, .section--inverse, .cta) .eyebrow__num {
+  color: var(--accent-on-inverse);
 }
 
 .eyebrow:has(.eyebrow__num)::before {

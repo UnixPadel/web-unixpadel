@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { mediaUrl } from '../lib/media';
+import { sizedUrl } from '../lib/media';
 import { langOf, t } from '../i18n';
 
 interface Props {
@@ -20,7 +20,7 @@ const mapsSearch = `https://www.google.com/maps/search/?api=1&query=${encodeURIC
 
 <article class="office">
   <div class="office__head">
-    {flag && <img class="office__flag" src={mediaUrl(flag)} alt="" width="40" height="40" loading="lazy" decoding="async" />}
+    {flag && <img class="office__flag" src={sizedUrl(flag, 96)} alt="" width="40" height="40" loading="lazy" decoding="async" />}
     <Heading class="office__name">{name}</Heading>
   </div>
   <address class="office__address">{address}</address>

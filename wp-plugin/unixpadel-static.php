@@ -57,6 +57,7 @@ define('UPX_SHELL_PATH', '#^(?:/(?:tr|de|fr|ar|ru))?/upx-shell(?:/|$)#i');
 
 // References written in WP admin (post type, index, serving, editor screens). Loaded before the hooks below so the
 // post type is registered before upx_maybe_serve runs (both on init, priority 0).
+require_once __DIR__ . '/includes/img-resize.php';
 require_once __DIR__ . '/includes/refs-render.php';
 require_once __DIR__ . '/includes/refs-store.php';
 require_once __DIR__ . '/includes/refs-ai.php';

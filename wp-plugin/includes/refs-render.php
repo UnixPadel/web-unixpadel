@@ -220,6 +220,9 @@ function upx_court_types($ref, $lang, $data) {
 /** src + srcset attribute pair for an image entry. */
 function upx_img_attrs($img) {
 	$attrs = 'src="' . upx_href($img['src']) . '"';
+	if (empty($img['srcset']) && function_exists('upx_img_srcset')) {
+		$img['srcset'] = upx_img_srcset($img['src']);
+	}
 	if (!empty($img['srcset'])) {
 		$attrs .= ' srcset="' . upx_text($img['srcset']) . '"';
 	}

@@ -93,11 +93,11 @@ const n = (i: number) => String(i).padStart(2, '0');
             courts.map((c, i) => (
               <figure class:list={['range__figure', { 'is-active': i === 0 }]} data-range-figure={i}>
                 <div class="range__plate plate-court">
-                  <img src={mediaUrl(c.icon)} alt="" width="800" height="600" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+                  <img src={mediaUrl(c.icon)} srcset={srcsetFor(c.icon, 1600) ?? undefined} sizes="(min-width: 960px) 50vw, 100vw" alt="" width="800" height="600" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
                 </div>
                 {c.meta.photo && (
                   <div class="range__photo photo">
-                    <img src={mediaUrl(c.meta.photo)} alt="" width="1080" height="1080" loading="lazy" decoding="async" />
+                    <img src={mediaUrl(c.meta.photo)} srcset={srcsetFor(c.meta.photo, 960) ?? undefined} sizes="(min-width: 960px) 25vw, 50vw" alt="" width="1080" height="1080" loading="lazy" decoding="async" />
                   </div>
                 )}
                 <figcaption>
@@ -144,7 +144,7 @@ const n = (i: number) => String(i).padStart(2, '0');
                   </div>
                   {s.meta.photo && s.meta.photo !== img && (
                     <a class="sysrow__inset photo" href={L(s.meta.photoHref ?? s.url)} aria-label={s.meta.photoAlt}>
-                      <img src={mediaUrl(s.meta.photo)} alt={s.meta.photoAlt ?? ''} width="1080" height="1080" loading="lazy" decoding="async" />
+                      <img src={mediaUrl(s.meta.photo)} srcset={srcsetFor(s.meta.photo, 640) ?? undefined} sizes="(min-width: 960px) 20vw, 40vw" alt={s.meta.photoAlt ?? ''} width="1080" height="1080" loading="lazy" decoding="async" />
                     </a>
                   )}
                   <span class="sysrow__no" aria-hidden="true">{n(i + 1)}</span>
@@ -327,7 +327,8 @@ const n = (i: number) => String(i).padStart(2, '0');
     font-weight: 700;
     font-size: var(--fs-800);
     line-height: 1;
-    color: var(--border-strong);
+    /* muted until active, but still ≥3:1 for large text in both themes (border-strong was 2.1:1) */
+    color: color-mix(in oklab, var(--text-secondary) 70%, var(--bg-page));
     transition: color var(--dur-fast) var(--ease-out);
   }
   .range__name {

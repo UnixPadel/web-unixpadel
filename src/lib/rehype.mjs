@@ -3,6 +3,7 @@
 import { visit } from 'unist-util-visit';
 import { createRequire } from 'node:module';
 import { SPECS_HEADING_RE } from './specsHeading.mjs';
+import { resizedSrcset } from './resize.mjs';
 
 const require = createRequire(import.meta.url);
 const srcsets = require('../data/media-srcset.json');
@@ -80,6 +81,11 @@ export function rehypeMedia({ origin }) {
           p.height = 675;
         }
         const key = String(p.src ?? '').replace(origin, '');
+        const resized = !p.srcSet && resizedSrcset(key, origin);
+        if (resized) {
+          p.srcSet = resized;
+          p.sizes = '(min-width: 1024px) 65ch, 100vw';
+        }
         const variants = srcsets[key];
         if (variants?.length && !p.srcSet) {
           const parts = variants

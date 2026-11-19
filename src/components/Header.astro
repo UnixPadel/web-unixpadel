@@ -1,7 +1,7 @@
 ---
 import menu from '../data/menu.json';
 import { SITE, quoteUrl, whatsappUrl } from '../data/site';
-import { mediaUrl } from '../lib/media';
+import { mediaUrl, sizedUrl } from '../lib/media';
 import { allPages, cardImage, cardImageAlt } from '../lib/collection';
 import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
@@ -53,7 +53,7 @@ const isActive = (item: MenuItem): boolean =>
 // Thumbnails for the mega-menu (product pages only)
 const thumb = (url: string | null) => {
   const p = pages.find((x) => localizePath(x.data.url, lang) === url);
-  return p ? { src: mediaUrl(cardImage(p)), alt: cardImageAlt(p) } : null;
+  return p ? { src: sizedUrl(cardImage(p), 96), alt: cardImageAlt(p) } : null;
 };
 
 const panelId = (key: string) => `panel-${key.toLowerCase().replace(/\W+/g, '-')}`;
@@ -579,7 +579,7 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
     inset-block-start: -8px;
     inset-inline-end: -8px;
     padding: 2px 6px;
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     line-height: 1.2;
     box-shadow: 0 0 0 2px var(--bg-page);
   }

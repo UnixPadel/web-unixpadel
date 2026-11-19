@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { SITE, quoteUrl, whatsappUrl } from '../data/site';
-import { mediaUrl } from '../lib/media';
+import { mediaUrl, srcsetFor } from '../lib/media';
 import { langOf, localizePath, t } from '../i18n';
 
 interface Props {
@@ -24,7 +24,7 @@ const wa = whatsappUrl(ui.waQuote(productName));
 <aside class="rail" aria-labelledby="rail-title">
   {photo && (
     <div class="rail__photo photo">
-      <img src={mediaUrl(photo)} alt={photoAlt} width="1080" height="1080" loading="lazy" decoding="async" />
+      <img src={mediaUrl(photo)} srcset={srcsetFor(photo, 960) ?? undefined} sizes="(min-width: 960px) 30vw, 100vw" alt={photoAlt} width="1080" height="1080" loading="lazy" decoding="async" />
     </div>
   )}
   <p class="eyebrow">{eyebrow ?? ui.requestQuote}</p>

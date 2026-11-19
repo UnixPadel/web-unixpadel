@@ -22,15 +22,17 @@ const { width, height } = CATALOG.size;
       <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-left"></use></svg>
     </button>
     <div class="cat__sizer" data-sizer>
-      <div class="cat__mover" data-mover>
-        <div class="cat__book" data-book>
-          {
-            pages.map((p) => (
-              <div class="cat__page" data-page data-n={p.n} data-density="soft">
-                <canvas role="img" aria-label={p.label} width="0" height="0" />
-              </div>
-            ))
-          }
+      <div class="cat__clip" data-clip>
+        <div class="cat__mover" data-mover>
+          <div class="cat__book" data-book>
+            {
+              pages.map((p) => (
+                <div class="cat__page" data-page data-n={p.n} data-density="soft">
+                  <canvas role="img" aria-label={p.label} width="0" height="0" />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -140,6 +142,15 @@ const { width, height } = CATALOG.size;
     /* zoomed, the book is wider and taller than the stage: it stays centred and the stage clips it */
     flex: none;
   }
+  .cat__clip {
+    overflow: visible;
+  }
+  .cat.is-portrait:not(.is-zoomed) .cat__clip {
+    overflow: hidden;
+  }
+  .cat.is-portrait .cat__mover {
+    will-change: transform;
+  }
 
   /* Before the script takes over: the first spread, already at its final size (no layout shift). */
   .cat__book {
@@ -223,7 +234,7 @@ const { width, height } = CATALOG.size;
     max-inline-size: none !important;
     touch-action: pan-y;
   }
-  .cat.is-ready:not(.is-portrait) .cat__book::after {
+  .cat.is-ready .cat__book::after {
     /* the fold: a soft valley where the two leaves meet */
     content: '';
     position: absolute;

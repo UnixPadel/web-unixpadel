@@ -36,7 +36,6 @@ declare module 'page-flip/dist/js/page-flip.module.js' {
     getCurrentPageIndex(): number;
     getPageCount(): number;
     getOrientation(): 'portrait' | 'landscape';
-    getState(): 'read' | 'user_fold' | 'fold_corner' | 'flipping';
     getSettings(): Required<FlipSettings>;
     on(event: 'flip' | 'changeOrientation' | 'changeState' | 'init' | 'update', callback: (e: { data: unknown }) => void): PageFlip;
   }

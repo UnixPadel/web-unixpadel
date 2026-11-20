@@ -2,6 +2,7 @@
 // src/data/*; every other language supplies its interface strings plus overrides keyed like the English data.
 import type { UI } from './ui';
 import type { SpecKind } from '../lib/specs';
+import type { AboutCopy } from '../data/about';
 
 export type HomeUi = {
   seoTitle: string;
@@ -47,6 +48,8 @@ export type LocaleData = {
   ui: UI;
   homeUi: HomeUi;
   home: HomeCopy;
+  /** About page copy (src/data/about.ts): same number of answers, proof items and steps as ABOUT. */
+  about: AboutCopy;
   /** by product URL (src/data/products.ts) */
   products: Record<string, { spec?: string; photoAlt?: string }>;
   /** hero eyebrow by product URL (PRODUCT_FAMILY) */

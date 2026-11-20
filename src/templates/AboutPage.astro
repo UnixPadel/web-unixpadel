@@ -1,44 +1,159 @@
 ---
+// About page: hand-authored copy (src/data/about.ts + locales `about`), laid out as a persuasion sequence:
+// buyer's market → social proof → one accountable company → the buyers' own questions → verifiable proof →
+// visible next steps → a signed letter → a low-friction request. The Markdown body is not rendered (SEO front matter only).
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Hero from '../components/Hero.astro';
 import StatBand from '../components/StatBand.astro';
 import CTABand from '../components/CTABand.astro';
-import { quoteUrl } from '../data/site';
-import { sealsFor, siteFor } from '../i18n/data';
-import { langOf, localizePath, LOCALE, t } from '../i18n';
+import Icon from '../components/Icon.astro';
+import CourtLines from '../components/graphics/CourtLines.astro';
 import Seal from '../components/graphics/Seal.astro';
+import { quoteUrl } from '../data/site';
+import { ABOUT_MEDIA } from '../data/about';
+import { aboutFor, sealsFor, siteFor } from '../i18n/data';
+import { langOf, localizePath, t } from '../i18n';
+import { mediaUrl, srcsetFor } from '../lib/media';
 import { cardImage, labelOf } from '../lib/collection';
 import type { TemplateProps } from './_types';
 
-const { page, crumbs, Content, jsonLd } = Astro.props as TemplateProps;
+const { page, crumbs, jsonLd } = Astro.props as TemplateProps;
 const { data } = page;
 const lang = langOf(Astro.url);
 const ui = t(lang);
-
+const A = aboutFor(lang);
+const L = (url: string) => localizePath(url, lang);
+const n = (i: number) => String(i).padStart(2, '0');
 ---
 
 <BaseLayout page={page} url={data.url} seoTitle={data.seo.title ?? labelOf(page)} description={data.seo.description} ogImage={data.seo.ogImage} robots={data.seo.robots} jsonLd={jsonLd}>
   <Hero
-    title={ui.aboutTitle}
-    tagline={ui.aboutTagline}
-    eyebrow={ui.aboutEyebrow}
+    title={A.hero.title}
+    tagline={A.hero.tagline}
+    eyebrow={A.hero.eyebrow}
     video={data.hero?.video}
     poster={data.hero?.poster ?? cardImage(page)}
-    ctas={[{ label: ui.getCustomQuote, href: localizePath(quoteUrl(), lang), variant: 'primary' }, { label: ui.seeReferences, href: localizePath('/references/', lang) }]}
+    ctas={[{ label: ui.getCustomQuote, href: L(quoteUrl()), variant: 'primary' }, { label: ui.seeReferences, href: L('/references/') }]}
   >
     <Breadcrumbs slot="crumbs" crumbs={crumbs} />
     <ul class="about-seals" aria-label={ui.certsAria}>
       {sealsFor(lang).map((s) => <li><Seal {...s} size={60} /></li>)}
     </ul>
   </Hero>
+
   <StatBand stats={siteFor(lang).stats} highlightLast />
-  <div class="container section section--tight">
-    <article class="prose">
-      <Content />
-    </article>
-  </div>
-  <CTABand />
+
+  <!-- 01 Who we are: one company, one point of responsibility -->
+  <section class="section story">
+    <div class="container story__inner">
+      <div class="story__text" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">01</span>{A.story.eyebrow}</p>
+        <h2 set:html={A.story.title} />
+        {A.story.text.map((p, i) => <p class:list={{ story__lead: i === 0 }}>{p}</p>)}
+      </div>
+      <div class="story__media media-frame" data-reveal>
+        <img src={mediaUrl(ABOUT_MEDIA.story)} srcset={srcsetFor(ABOUT_MEDIA.story) ?? undefined} sizes="(min-width: 960px) 45vw, 100vw" alt={A.story.imageAlt} width="1200" height="800" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 The buyers' own questions, answered -->
+  <section class="section section--tint answers">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">02</span>{A.answers.eyebrow}</p>
+        <h2 set:html={A.answers.title} />
+        <p>{A.answers.text}</p>
+      </div>
+      <ol class="answers__list">
+        {
+          A.answers.items.map((item, i) => (
+            <li class="answers__item" data-reveal>
+              <h3>
+                <span class="answers__no" aria-hidden="true">{n(i + 1)}</span>
+                {item.q}
+              </h3>
+              <p>{item.a}</p>
+              {ABOUT_MEDIA.answerLinks[i] && (
+                <a class="btn btn--link" href={L(ABOUT_MEDIA.answerLinks[i])}>
+                  {item.link} <Icon name="arrow-right" />
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 Verifiable proof: engineering, manufacturing, testing, reach -->
+  <section class="section proof">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">03</span>{A.proof.eyebrow}</p>
+        <h2 set:html={A.proof.title} />
+      </div>
+      <div class="proof__grid">
+        {
+          A.proof.items.map((item, i) => (
+            <article class="proof__item" data-reveal>
+              <Icon name={ABOUT_MEDIA.proofIcons[i] ?? 'check-badge'} class="proof__icon" />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <ul class="proof__points">
+                {item.points.map((pt) => (
+                  <li>
+                    <Icon name="check" /> {pt}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 What happens next: small first step, every later step visible -->
+  <section class="section section--tint steps">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">04</span>{A.steps.eyebrow}</p>
+        <h2 set:html={A.steps.title} />
+      </div>
+      <ol class="steps__list">
+        {
+          A.steps.items.map((s, i) => (
+            <li class="steps__item" data-reveal>
+              <span class="steps__no" aria-hidden="true">{n(i + 1)}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- 05 Letter from the CEO -->
+  <section class="section section--inverse letter">
+    <CourtLines variant="bg" />
+    <div class="container letter__inner">
+      <article class="letter__card" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__num">05</span>{A.letter.eyebrow}</p>
+        <h2>{A.letter.title}</h2>
+        {A.letter.text.map((p, i) => <p class:list={{ letter__close: i === A.letter.text.length - 1 }}>{p}</p>)}
+        <footer class="letter__sign">
+          <span>{A.letter.signoff}</span>
+          <strong>{ABOUT_MEDIA.ceo}</strong>
+          <span>{A.letter.role}</span>
+        </footer>
+      </article>
+    </div>
+  </section>
+
+  <CTABand title={A.cta.title} text={A.cta.text} primaryLabel={A.cta.label} />
 </BaseLayout>
 
 <style>
@@ -49,5 +164,260 @@ const ui = t(lang);
     gap: var(--sp-3);
     padding: 0;
     margin-block-start: var(--sp-4);
+  }
+
+  /* ---- 01 story */
+  .story__inner {
+    display: grid;
+    gap: var(--sp-7);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .story__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--sp-9);
+    }
+  }
+  .story__text {
+    display: grid;
+    gap: var(--sp-4);
+    max-inline-size: 38rem;
+  }
+  .story__text > p:not(.eyebrow) {
+    color: var(--text-secondary);
+  }
+  .story__text > .story__lead {
+    color: var(--text-primary);
+    font-size: var(--fs-500);
+  }
+  .story__media {
+    aspect-ratio: 3 / 2;
+    background: var(--navy-900);
+    box-shadow: 12px 12px 0 var(--lime-500);
+  }
+  .story__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  /* ---- 02 answers */
+  .answers__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--sp-5);
+  }
+  @media (min-width: 720px) {
+    .answers__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1100px) {
+    .answers__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .answers__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-5);
+    background: var(--bg-page);
+    border-radius: var(--radius-md);
+    border-block-start: 4px solid var(--lime-500);
+  }
+  .answers__item h3 {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--sp-3);
+    align-items: baseline;
+    font-size: var(--fs-600);
+    line-height: 1.25;
+  }
+  .answers__no {
+    font-family: var(--font-display);
+    font-size: var(--fs-300);
+    color: var(--accent);
+  }
+  .answers__item p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+  .answers__item .btn {
+    margin-block-start: auto;
+    align-self: flex-start;
+  }
+
+  /* ---- 03 proof */
+  .proof__grid {
+    display: grid;
+    gap: var(--sp-7) var(--sp-8);
+  }
+  @media (min-width: 720px) {
+    .proof__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .proof__item {
+    display: grid;
+    align-content: start;
+    gap: var(--sp-3);
+    padding-block-start: var(--sp-4);
+    border-block-start: 2px solid var(--navy-700);
+  }
+  :global([data-theme='dark']) .proof__item {
+    border-color: var(--lime-500);
+  }
+  .proof__item :global(.proof__icon) {
+    inline-size: 32px;
+    block-size: 32px;
+    color: var(--accent);
+  }
+  .proof__item h3 {
+    font-size: var(--fs-700);
+  }
+  .proof__item > p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+  .proof__points {
+    list-style: none;
+    padding: 0;
+    margin: var(--sp-2) 0 0;
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .proof__points li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--sp-2);
+    align-items: start;
+    font-weight: 500;
+  }
+  .proof__points :global(.icon) {
+    inline-size: 20px;
+    block-size: 20px;
+    margin-block-start: 2px;
+    color: var(--accent);
+  }
+
+  /* ---- 04 steps: numbered stations on a court line */
+  .steps__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--sp-6);
+  }
+  @media (min-width: 1024px) {
+    .steps__list {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: var(--sp-5);
+    }
+  }
+  .steps__item {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: var(--sp-2);
+    padding-inline-start: var(--sp-7);
+  }
+  .steps__item::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 18px;
+    inset-block: 44px calc(-1 * var(--sp-6));
+    inline-size: 2px;
+    background: var(--lime-500);
+  }
+  .steps__item:last-child::before {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .steps__item {
+      padding-inline-start: 0;
+      padding-block-start: var(--sp-8);
+    }
+    .steps__item::before {
+      inset-inline: 44px calc(-1 * var(--sp-5));
+      inset-block: 18px auto;
+      inline-size: auto;
+      block-size: 2px;
+    }
+  }
+  .steps__no {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    display: grid;
+    place-items: center;
+    inline-size: 38px;
+    block-size: 38px;
+    border-radius: 50%;
+    background: var(--navy-700);
+    color: var(--lime-500);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-300);
+  }
+  :global([data-theme='dark']) .steps__no {
+    background: var(--lime-500);
+    color: var(--navy-900);
+  }
+  .steps__item h3 {
+    font-size: var(--fs-600);
+  }
+  .steps__item p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  /* ---- 05 letter */
+  .letter {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .letter__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+  }
+  .letter__card {
+    display: grid;
+    gap: var(--sp-4);
+    max-inline-size: 44rem;
+    padding: clamp(var(--sp-5), 4vw, var(--sp-8));
+    border: 2px solid var(--lime-500);
+    border-radius: var(--radius-md) var(--radius-md) 48px 48px;
+    background: rgb(0 0 0 / 35%);
+  }
+  .letter__card h2 {
+    color: var(--text-on-inverse);
+  }
+  .letter__card > p:not(.eyebrow) {
+    margin: 0;
+    color: var(--text-on-inverse-muted);
+    font-size: var(--fs-500);
+  }
+  .letter__card > .letter__close {
+    color: var(--text-on-inverse);
+    font-weight: 700;
+  }
+  .letter__sign {
+    display: grid;
+    gap: 2px;
+    margin-block-start: var(--sp-3);
+    padding-block-start: var(--sp-4);
+    border-block-start: 1px solid rgb(255 255 255 / 20%);
+    color: var(--text-on-inverse-muted);
+  }
+  .letter__sign strong {
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    color: var(--text-on-inverse);
   }
 </style>

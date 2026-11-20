@@ -2,6 +2,7 @@
 import { UI_EN } from '../ui';
 import type { LocaleData } from '../types';
 import { HOME } from '../../data/home';
+import { ABOUT } from '../../data/about';
 import { PRODUCTS, PRODUCT_FAMILY } from '../../data/products';
 import { DELIVERED } from '../../data/showcase';
 import { SEALS } from '../../data/seals';
@@ -45,6 +46,7 @@ const en: LocaleData = {
     why: HOME.why.map((w) => ({ title: w.title, text: w.text })),
     factory: { title: HOME.factory.title, text: HOME.factory.text, services: HOME.factory.services.map((s) => s.label) },
   },
+  about: ABOUT,
   products: PRODUCTS,
   family: PRODUCT_FAMILY,
   delivered: Object.fromEntries(DELIVERED.map((d) => [d.href, { alt: d.alt, label: d.label }])),

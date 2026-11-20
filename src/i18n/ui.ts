@@ -132,9 +132,6 @@ const en = {
   by: 'by',
 
   // templates
-  aboutEyebrow: 'About Unixpadel',
-  aboutTitle: 'Engineering padel courts *since 2015*',
-  aboutTagline: 'Designed in Istanbul, manufactured in our own Adıyaman factory, installed by our teams and partners in 96+ countries. FIP approved, ISO certified, tested by Istanbul Technical University.',
   seeReferences: 'See references',
   guideEyebrow: 'Padel court guide',
   updated: 'Updated',

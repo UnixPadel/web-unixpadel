@@ -165,9 +165,6 @@ const ui: UI = {
   fipStandardDims: 'FIP standart ölçüleri',
   by: 'x',
 
-  aboutEyebrow: 'Unixpadel hakkında',
-  aboutTitle: '*2015’ten bu yana* padel kortu mühendisliği',
-  aboutTagline: 'İstanbul’da tasarlanır, Adıyaman’daki kendi fabrikamızda üretilir, ekiplerimiz ve iş ortaklarımızca 96’dan fazla ülkede kurulur. FIP onaylı, ISO sertifikalı, İstanbul Teknik Üniversitesi tarafından test edilmiştir.',
   seeReferences: 'Referansları inceleyin',
   guideEyebrow: 'Padel kortu rehberi',
   updated: 'Güncelleme:',
@@ -359,6 +356,138 @@ const tr: LocaleData = {
       title: 'Adıyaman fabrikası',
       text: 'Gelişmiş makine parkurumuz günde 12 kort üretir; standart ve özel projeler kaliteden ödün vermeden zamanında sevk edilir. Tasarım, üretim, kurulum, danışmanlık ve onarım süreçlerinin tamamı Unixpadel ekiplerince yürütülür.',
       services: ['Tasarım', 'Üretim', 'Kurulum', 'Danışmanlık', 'Onarım ve aksesuarlar'],
+    },
+  },
+  about: {
+    hero: {
+      eyebrow: 'Unixpadel hakkında',
+      title: 'Hiçbir pazar birbirine benzemez. *Kortlarımız da öyle.*',
+      tagline: '2015’ten bu yana padel kortlarını ve kanopileri İstanbul’da tasarlıyor, Adıyaman’daki kendi fabrikamızda üretiyor ve 96’dan fazla ülkede kuruyoruz; her birini kendi sahasına, iklimine ve mevzuatına göre.',
+    },
+    story: {
+      eyebrow: 'Biz kimiz',
+      title: 'İlk çizimden <mark class="hl">son cıvataya kadar</mark> tek şirket',
+      text: [
+        'Unixpadel, 2015’ten bu yana padel kortu tasarlıyor ve üretiyor. Tasarım ve mühendislik ekiplerimiz İstanbul’da, üretim ise Adıyaman’daki kendi fabrikamızda. Buradan padel kortları, kanopi sistemleri ve komple spor tesisleri sunuyoruz.',
+        'Tasarımı, üretimi ve kurulumu tek çatı altında yaptığımız için muhatabınız tek bir ekip ve tek bir sorumlu olur; sorularınızı birbirine aktaran bir taşeron zinciri değil. Tek bir özel kort da çok kortlu bir kulüp de aynı mühendislikle hayata geçer.',
+      ],
+      imageAlt: 'Unixpadel üretim tesisinin havadan görünümü',
+    },
+    answers: {
+      eyebrow: 'Tedarikçi seçmeden önce',
+      title: 'Kulüplerin, yatırımcıların ve mimarların <mark class="hl">ilk sorduğu sorular</mark>',
+      text: 'Bu sorular doğrudan bize gelen proje taleplerinden alındı. İşte kısa yanıtları.',
+      items: [
+        {
+          q: 'Yapı inşaat ruhsatından geçer mi?',
+          a: 'Her proje, bulunduğu yerin rüzgâr ve kar yüklerine ve orada geçerli mühendislik normlarına göre tasarlanır. Sistemlerimiz İstanbul Teknik Üniversitesi’ndeki yapısal testlerle desteklenir; yetkili kurum istediğinde statik analiz sağlarız.',
+          link: 'Tasarım ve mühendislik',
+        },
+        {
+          q: 'Beton temel gerekir mi?',
+          a: 'Her zaman değil. Flat Floor ve Floating Court sistemleri dökme beton plak yerine sertifikalı çelik bir taban üzerinde durur: daha az zemin işi, daha hızlı kurulum ve ileride taşınabilen bir kort. Akıllı temel alternatifi.',
+          link: 'Flat Floor kort',
+        },
+        {
+          q: 'Dört mevsim oynanabilir mi?',
+          a: 'Evet. Kanopiler, açılır-kapanır çatılar ve kendi kendini taşıyan MobilFOLD X-TEND örtüler kortları yağmurda, karda ve yaz sıcağında da kiralanabilir tutar; kulüp her mevsim gelir elde eder.',
+          link: 'Kanopi sistemleri',
+        },
+        {
+          q: 'Kortu gerçekte kim üretiyor?',
+          a: 'Biz. Çelik, temperli cam, sentetik çim ve boya süreçleri, günde 12 kort üretebilen Adıyaman’daki kendi fabrikamızda yönetilir. Arada bir ticaret firması yoktur.',
+          link: 'Üretim',
+        },
+        {
+          q: 'Benim ülkemde kurulumu kim yapar?',
+          a: 'İstanbul’dan koordine edilen kurulum ekiplerimiz ve iş ortaklarımız; Fransa, Hollanda, Romanya, Azerbaycan, Hindistan ve ABD’deki ofislerimizin desteğiyle.',
+          link: 'Kurulum',
+        },
+        {
+          q: 'Daha önce benzer bir proje yaptınız mı?',
+          a: 'Büyük olasılıkla. Kortlarımız sahil otellerinden şehir çatılarına kadar 1020’yi aşkın şehirde kullanılıyor. Projenize, iklim koşullarınıza ve kort tipinize yakın referansları bizden isteyin.',
+          link: 'Referansları inceleyin',
+        },
+      ],
+    },
+    proof: {
+      eyebrow: 'Nasıl çalışıyoruz',
+      title: '<mark class="hl">Doğrulayabileceğiniz</mark> mühendislik ve kalite',
+      items: [
+        {
+          title: 'İnovasyon ve mühendislik',
+          text: 'Farklı zemin koşullarına, iklimlere ve kurulum gereksinimlerine uyum sağlayan, modüler yapı ve yapısal performans üzerine kurulu kort ve kanopi sistemleri.',
+          points: ['Flat Floor ve Floating Court', 'MobilFOLD X-TEND', 'Açılır-kapanır çatı sistemleri', 'Modüler, taşınabilir yapılar'],
+        },
+        {
+          title: 'Üretim ve kalite',
+          text: 'Tüm kort sistemleri Adıyaman’daki kendi fabrikamızda üretilir; çelik imalatı, kalite kontrol ve projeye özel üretim aynı tesiste yapılır.',
+          points: [
+            'S235 / S355 yapı çeliği',
+            'ISO 1461 sıcak daldırma galvaniz',
+            'EN 12150 temperli güvenlik camı',
+            'FIP uyumlu, KIWA onaylı çim',
+          ],
+        },
+        {
+          title: 'Test ve sertifikasyon',
+          text: 'Uluslararası mühendislik standartları ve bağımsız testler, gönderdiğimiz her kortun güvenliğini, dayanıklılığını ve performansını destekler.',
+          points: [
+            'İstanbul Teknik Üniversitesi rüzgâr ve darbe testleri',
+            'FIP standartlarında üretim',
+            'ISO sertifikalı üretim',
+            'TSE ve TÜV testli bileşenler',
+          ],
+        },
+        {
+          title: 'Küresel varlık',
+          text: 'Türkiye’den uluslararası pazarlara: üretim, teknik ekipler ve iş ortakları tek bir ekip gibi çalışır; tek kortlardan komple padel tesislerine kadar.',
+          points: ['96’dan fazla ülkeye ihracat', '1020’yi aşkın şehirde kurulum', 'Altı ülkede ofis', 'Altı dilde destek'],
+        },
+      ],
+    },
+    steps: {
+      eyebrow: 'Birlikte çalışma süreci',
+      title: 'İlk mesajınızdan <mark class="hl">sonra neler olur</mark>',
+      items: [
+        {
+          title: 'Sahanızı anlatın',
+          text: 'Konum, kullanılabilir alan, kort sayısı ve örtü isteyip istemediğiniz. Başlamak için bir kroki ya da birkaç fotoğraf yeterli.',
+        },
+        {
+          title: 'Yerleşim ve mühendislik',
+          text: 'Doğru kortu ve örtüyü önerir, yerleşim çizimlerini gönderir ve yapıyı bölgenizdeki yüklere göre kontrol ederiz.',
+        },
+        {
+          title: 'Her şey dahil tek teklif',
+          text: 'Kortlar, örtü, nakliye ve kurulum tek teklifte; tedarikçileri toplam maliyet üzerinden karşılaştırabilirsiniz.',
+        },
+        {
+          title: 'Adıyaman’da üretim',
+          text: 'Projeniz kendi fabrikamızda üretilir; sevkiyattan önce her aşamada kalite kontrolden geçer.',
+        },
+        {
+          title: 'Kurulum ve satış sonrası',
+          text: 'Kortları ekiplerimiz ve iş ortaklarımız kurar. Yedek cam, tel panel, çim ve file, kulübünüzün ömrü boyunca temin edilebilir.',
+        },
+      ],
+    },
+    letter: {
+      eyebrow: 'CEO’muzdan bir not',
+      title: 'Büyük resmi anlamak',
+      text: [
+        'Her yıl kendine özgü zorluklar ve fırsatlar getirir. Bazılarını önceden görüp planlayabiliriz; bazılarını ise elimizden gelenin en iyisiyle karşılamamız gerekir. Önemli olan değişimden kaçınmak değil, ona hazır olmaktır.',
+        'Unixpadel’deki ilerlemenin büyük bölümü, ekibimizin dünyanın nasıl bir bütün oluşturduğunu kavrayabilmesinden gelir. Mesele yalnızca müşterilerimiz ve sporumuz değil; ikisini de şekillendiren güçlerdir: küresel ekonomi, ticaret ve siyaset, değişen şehirler ve nüfuslar, çeşitlilik ve sürdürülebilirlik.',
+        'Hiçbir pazar birbirine benzemez. Her birinin kendi iklimi, kendi mevzuatı ve insanları bir kortun etrafında bir araya getirmenin kendine özgü bir yolu vardır. Kortlarımızı 96’dan fazla ülkeye ve binden fazla şehre taşıyan da bu anlayış oldu. Bu kortların her birinin arkasında, kendi pazarını da ürünümüz kadar iyi anlayacağımıza güvenen birinin verdiği bir karar var.',
+        'Kimileri buna büyük resmi görmek diyor. Biz buna geleceğimizi anlamak diyoruz.',
+      ],
+      signoff: 'Saygılarımla,',
+      role: 'CEO, Unixpadel',
+    },
+    cta: {
+      title: 'Satış konuşmasıyla değil, *sahanızla* başlayın',
+      text: 'Konumu, elinizdeki alanı ve planladığınız kort sayısını gönderin. Mühendislerimiz size önerilen yerleşim planı ve her şey dahil bir teklifle dönüş yapar.',
+      label: 'Proje bilgilerinizi gönderin',
     },
   },
   products: {

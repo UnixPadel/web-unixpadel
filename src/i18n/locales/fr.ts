@@ -124,9 +124,6 @@ const ui: UI = {
   fipStandardDims: 'Dimensions standard FIP',
   by: '×',
 
-  aboutEyebrow: 'À propos d’Unixpadel',
-  aboutTitle: 'L’ingénierie du terrain de padel *depuis 2015*',
-  aboutTagline: 'Conçus à Istanbul, fabriqués dans notre propre usine d’Adıyaman, installés par nos équipes et partenaires dans plus de 96 pays. Homologués FIP, certifiés ISO, testés par l’Université technique d’Istanbul.',
   seeReferences: 'Voir les références',
   guideEyebrow: 'Guide du terrain de padel',
   updated: 'Mis à jour le',
@@ -318,6 +315,143 @@ const fr: LocaleData = {
       title: 'L’usine d’Adıyaman',
       text: 'Un parc de machines moderne produit jusqu’à 12 terrains par jour : projets standard et sur mesure sont expédiés dans les délais, sans compromis sur la qualité. Conception, fabrication, installation, conseil et réparation sont assurés par les équipes Unixpadel.',
       services: ['Conception', 'Fabrication', 'Installation', 'Conseil', 'Réparation et accessoires'],
+    },
+  },
+  about: {
+    hero: {
+      eyebrow: 'À propos d’Unixpadel',
+      title: 'Aucun marché ne se ressemble. *Nos terrains non plus.*',
+      tagline: 'Depuis 2015, nous concevons des terrains de padel et des couvertures à Istanbul, les fabriquons dans notre propre usine d’Adıyaman et les installons dans plus de 96 pays, chacun pensé pour son site, son climat et sa réglementation.',
+    },
+    story: {
+      eyebrow: 'Qui sommes-nous',
+      title: 'Une seule entreprise, du premier plan <mark class="hl">au dernier boulon</mark>',
+      text: [
+        'Unixpadel conçoit et fabrique des terrains de padel depuis 2015. La conception et l’ingénierie sont basées à Istanbul ; la production est assurée dans notre propre usine d’Adıyaman, en Turquie. De là, nous livrons des terrains de padel, des systèmes de couverture et des complexes sportifs complets.',
+        'Comme la conception, la fabrication et l’installation sont réunies sous un même toit, vous travaillez avec une seule équipe et un seul responsable, et non avec une chaîne de sous-traitants qui se renvoient vos questions. Un terrain privé et un club de plusieurs terrains bénéficient de la même ingénierie.',
+      ],
+      imageAlt: 'Vue aérienne du site de production Unixpadel',
+    },
+    answers: {
+      eyebrow: 'Avant de choisir un fournisseur',
+      title: 'Ce que clubs, investisseurs et architectes <mark class="hl">nous demandent d’abord</mark>',
+      text: 'Ces questions viennent directement des demandes de projet que nous recevons. Voici les réponses courtes.',
+      items: [
+        {
+          q: 'La structure passera-t-elle le permis de construire ?',
+          a: 'Chaque projet est dimensionné pour les charges de vent et de neige locales et pour les normes d’ingénierie qui s’y appliquent. Nos systèmes s’appuient sur des essais structurels menés par l’Université technique d’Istanbul, et nous fournissons une note de calcul lorsque votre administration la demande.',
+          link: 'Conception et ingénierie',
+        },
+        {
+          q: 'Faut-il une fondation en béton ?',
+          a: 'Pas forcément. Les systèmes Flat Floor et Floating Court reposent sur une base en acier certifiée au lieu d’une dalle coulée : moins de terrassement, une installation plus rapide et un terrain déplaçable plus tard. L’alternative intelligente à la fondation.',
+          link: 'Terrain Flat Floor',
+        },
+        {
+          q: 'Peut-on jouer toute l’année ?',
+          a: 'Oui. Couvertures, toits rétractables et abris autoportants MobilFOLD X-TEND gardent les terrains réservables sous la pluie, la neige et la chaleur de l’été : le club génère des revenus en toute saison.',
+          link: 'Systèmes de couverture',
+        },
+        {
+          q: 'Qui fabrique réellement les terrains ?',
+          a: 'Nous. L’acier, le verre trempé, le gazon et la peinture sont maîtrisés dans notre propre usine d’Adıyaman, qui produit jusqu’à 12 terrains par jour. Aucun négociant entre nous et vous.',
+          link: 'Fabrication',
+        },
+        {
+          q: 'Qui installe dans mon pays ?',
+          a: 'Nos équipes d’installation et nos partenaires, coordonnés depuis Istanbul et soutenus par nos bureaux en France, aux Pays-Bas, en Roumanie, en Azerbaïdjan, en Inde et aux États-Unis.',
+          link: 'Installation',
+        },
+        {
+          q: 'Avez-vous déjà réalisé un projet comparable ?',
+          a: 'Très probablement. Nos terrains sont en service dans plus de 1020 villes, des resorts côtiers aux toits-terrasses urbains. Demandez-nous des références proches de votre projet, de votre climat et de votre type de terrain.',
+          link: 'Voir les références',
+        },
+      ],
+    },
+    proof: {
+      eyebrow: 'Notre méthode',
+      title: 'Une ingénierie et une qualité <mark class="hl">que vous pouvez vérifier</mark>',
+      items: [
+        {
+          title: 'Innovation et ingénierie',
+          text: 'Des systèmes de terrains et de couvertures adaptés aux différents sols, climats et contraintes d’installation, fondés sur la construction modulaire et la performance structurelle.',
+          points: ['Flat Floor et Floating Court', 'MobilFOLD X-TEND', 'Toits rétractables', 'Structures modulaires et déplaçables'],
+        },
+        {
+          title: 'Fabrication et qualité',
+          text: 'Chaque système est fabriqué dans notre propre usine d’Adıyaman, où la construction métallique, le contrôle qualité et la fabrication sur mesure se font sur un seul site.',
+          points: [
+            'Acier de construction S235 / S355',
+            'Galvanisation à chaud ISO 1461',
+            'Verre de sécurité trempé EN 12150',
+            'Gazon conforme FIP, approuvé KIWA',
+          ],
+        },
+        {
+          title: 'Essais et certification',
+          text: 'Des normes d’ingénierie internationales et des essais indépendants garantissent la sécurité, la durabilité et la performance de chaque terrain livré.',
+          points: [
+            'Testés au vent et aux chocs par l’Université technique d’Istanbul',
+            'Construits selon les normes FIP',
+            'Production certifiée ISO',
+            'Composants testés TSE et TÜV',
+          ],
+        },
+        {
+          title: 'Présence internationale',
+          text: 'De la Turquie aux marchés internationaux : production, équipes techniques et partenaires travaillent ensemble, du terrain unique au complexe de padel complet.',
+          points: [
+            'Exportations dans plus de 96 pays',
+            'Installations dans plus de 1020 villes',
+            'Bureaux dans six pays',
+            'Accompagnement en six langues',
+          ],
+        },
+      ],
+    },
+    steps: {
+      eyebrow: 'Travailler avec nous',
+      title: 'Ce qui se passe <mark class="hl">après votre premier message</mark>',
+      items: [
+        {
+          title: 'Présentez-nous votre site',
+          text: 'Emplacement, surface disponible, nombre de terrains et besoin éventuel de couverture. Un croquis ou quelques photos suffisent pour commencer.',
+        },
+        {
+          title: 'Implantation et ingénierie',
+          text: 'Nous recommandons le terrain et la couverture adaptés, envoyons les plans d’implantation et vérifions la structure face à vos charges locales.',
+        },
+        {
+          title: 'Un devis tout compris',
+          text: 'Terrains, couverture, livraison et installation dans une seule offre, pour comparer les fournisseurs sur le coût total.',
+        },
+        {
+          title: 'Fabriqué à Adıyaman',
+          text: 'Votre projet est produit dans notre propre usine, avec un contrôle qualité à chaque étape avant l’expédition.',
+        },
+        {
+          title: 'Installation et après-vente',
+          text: 'Nos équipes et partenaires installent les terrains. Verre de remplacement, panneaux grillagés, gazon et filets restent disponibles pendant toute la vie du club.',
+        },
+      ],
+    },
+    letter: {
+      eyebrow: 'Un mot de notre PDG',
+      title: 'Comprendre la vue d’ensemble',
+      text: [
+        'Chaque année apporte son lot de défis et d’opportunités. Certains se voient venir et se préparent ; d’autres doivent simplement être relevés du mieux possible. L’essentiel n’est pas d’éviter le changement, mais d’y être prêt.',
+        'Chez Unixpadel, une grande partie de nos progrès vient de la capacité de nos équipes à comprendre comment le monde s’articule. Il ne s’agit pas seulement de nos clients et de notre sport, mais aussi des forces qui les façonnent : l’économie mondiale, le commerce et la politique, l’évolution des villes et des populations, la diversité et la durabilité.',
+        'Aucun marché ne se ressemble. Chacun a son climat, sa réglementation et sa propre manière de réunir les gens autour d’un terrain. C’est cette compréhension qui a porté nos terrains dans plus de 96 pays et plus d’un millier de villes. Derrière chacun d’eux, il y a la décision d’une personne qui nous a fait confiance pour comprendre son marché aussi bien que notre propre produit.',
+        'Certains appellent cela voir la vue d’ensemble. Nous appelons cela comprendre notre avenir.',
+      ],
+      signoff: 'Bien cordialement,',
+      role: 'PDG, Unixpadel',
+    },
+    cta: {
+      title: 'Commencez par votre site, *pas par un argumentaire*',
+      text: 'Envoyez-nous l’emplacement, la surface disponible et le nombre de terrains prévus. Nos ingénieurs vous répondent avec une implantation recommandée et un devis tout compris.',
+      label: 'Envoyer les détails du projet',
     },
   },
   products: {

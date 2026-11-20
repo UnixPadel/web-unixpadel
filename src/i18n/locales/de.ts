@@ -123,9 +123,6 @@ const ui: UI = {
   fipStandardDims: 'FIP-Standardmaße',
   by: '×',
 
-  aboutEyebrow: 'Über Unixpadel',
-  aboutTitle: 'Padelplätze aus Ingenieurhand – *seit 2015*',
-  aboutTagline: 'Entwickelt in Istanbul, gefertigt im eigenen Werk in Adıyaman, montiert von unseren Teams und Partnern in über 96 Ländern. FIP-zugelassen, ISO-zertifiziert, geprüft von der Technischen Universität Istanbul.',
   seeReferences: 'Referenzen ansehen',
   guideEyebrow: 'Padelplatz-Leitfaden',
   updated: 'Aktualisiert am',
@@ -317,6 +314,138 @@ const de: LocaleData = {
       title: 'Das Werk in Adıyaman',
       text: 'Ein moderner Maschinenpark fertigt bis zu 12 Plätze pro Tag – Standard- und Sonderprojekte werden termingerecht und ohne Qualitätsabstriche ausgeliefert. Planung, Fertigung, Montage, Beratung und Reparatur liegen in der Hand von Unixpadel-Teams.',
       services: ['Planung', 'Fertigung', 'Montage', 'Beratung', 'Reparatur & Zubehör'],
+    },
+  },
+  about: {
+    hero: {
+      eyebrow: 'Über Unixpadel',
+      title: 'Kein Markt gleicht dem anderen. *Unsere Plätze auch nicht.*',
+      tagline: 'Seit 2015 entwickeln wir Padelplätze und Überdachungen in Istanbul, fertigen sie in unserem eigenen Werk in Adıyaman und installieren sie in über 96 Ländern – jeden einzelnen ausgelegt auf seinen Standort, sein Klima und seine Vorschriften.',
+    },
+    story: {
+      eyebrow: 'Wer wir sind',
+      title: 'Ein Unternehmen, von der ersten Zeichnung <mark class="hl">bis zur letzten Schraube</mark>',
+      text: [
+        'Unixpadel entwickelt und fertigt seit 2015 Padelplätze. Konstruktion und Engineering sitzen in Istanbul, die Produktion läuft in unserem eigenen Werk in Adıyaman, Türkei. Von dort liefern wir Padelplätze, Überdachungssysteme und komplette Sportanlagen.',
+        'Weil Planung, Fertigung und Montage unter einem Dach liegen, haben Sie ein Team und einen Verantwortlichen – keine Kette von Subunternehmern, die Ihre Fragen weiterreichen. Ein einzelner Privatplatz bekommt dieselbe Ingenieurleistung wie eine Anlage mit vielen Plätzen.',
+      ],
+      imageAlt: 'Luftaufnahme der Unixpadel-Produktionsstätte',
+    },
+    answers: {
+      eyebrow: 'Bevor Sie einen Lieferanten wählen',
+      title: 'Was Vereine, Investoren und Architekten <mark class="hl">zuerst fragen</mark>',
+      text: 'Diese Fragen stammen direkt aus den Projektanfragen, die wir erhalten. Hier die kurzen Antworten.',
+      items: [
+        {
+          q: 'Kommt die Konstruktion durch die Baugenehmigung?',
+          a: 'Jedes Projekt wird für die Wind- und Schneelasten vor Ort und die dort geltenden technischen Normen ausgelegt. Unsere Systeme sind durch Konstruktionsprüfungen der Technischen Universität Istanbul abgesichert, und wir liefern eine Statik, wenn Ihre Behörde sie verlangt.',
+          link: 'Planung und Engineering',
+        },
+        {
+          q: 'Brauchen wir ein Betonfundament?',
+          a: 'Nicht unbedingt. Flat-Floor- und Floating-Court-Systeme stehen auf einem zertifizierten Stahlunterbau statt auf einer gegossenen Bodenplatte: weniger Erdarbeiten, schnellere Montage und ein Platz, den Sie später versetzen können. Die smarte Alternative zum Fundament.',
+          link: 'Flat-Floor-Platz',
+        },
+        {
+          q: 'Können wir das ganze Jahr spielen?',
+          a: 'Ja. Überdachungen, öffenbare Dächer und freitragende MobilFOLD-X-TEND-Abdeckungen halten die Plätze bei Regen, Schnee und Sommerhitze buchbar – so verdient der Verein in jeder Saison.',
+          link: 'Überdachungssysteme',
+        },
+        {
+          q: 'Wer stellt die Plätze eigentlich her?',
+          a: 'Wir selbst. Stahl, Sicherheitsglas, Kunstrasen und Lackierung steuern wir in unserem eigenen Werk in Adıyaman, das bis zu 12 Plätze pro Tag fertigt. Kein Handelsunternehmen dazwischen.',
+          link: 'Fertigung',
+        },
+        {
+          q: 'Wer montiert in meinem Land?',
+          a: 'Unsere Montageteams und Partner, koordiniert aus Istanbul und unterstützt von unseren Büros in Frankreich, den Niederlanden, Rumänien, Aserbaidschan, Indien und den USA.',
+          link: 'Montage',
+        },
+        {
+          q: 'Haben Sie so etwas schon einmal gebaut?',
+          a: 'Sehr wahrscheinlich. Auf unseren Plätzen wird in mehr als 1020 Städten gespielt, von Küstenresorts bis zu Dachterrassen in der Stadt. Fragen Sie nach Referenzen, die zu Ihrem Projekt, Ihrem Klima und Ihrem Platztyp passen.',
+          link: 'Referenzen ansehen',
+        },
+      ],
+    },
+    proof: {
+      eyebrow: 'So arbeiten wir',
+      title: 'Ingenieurleistung und Qualität, <mark class="hl">die Sie prüfen können</mark>',
+      items: [
+        {
+          title: 'Innovation und Engineering',
+          text: 'Platz- und Überdachungssysteme, die sich an unterschiedliche Untergründe, Klimazonen und Montagebedingungen anpassen – modular gebaut und statisch leistungsfähig.',
+          points: ['Flat Floor und Floating Court', 'MobilFOLD X-TEND', 'Öffenbare Dachsysteme', 'Modulare, versetzbare Konstruktionen'],
+        },
+        {
+          title: 'Fertigung und Qualität',
+          text: 'Jedes Platzsystem entsteht in unserem eigenen Werk in Adıyaman: Stahlbau, Qualitätskontrolle und projektspezifische Fertigung an einem Standort.',
+          points: [
+            'Baustahl S235 / S355',
+            'Feuerverzinkung nach ISO 1461',
+            'Sicherheitsglas nach EN 12150',
+            'FIP-konformer, KIWA-zugelassener Kunstrasen',
+          ],
+        },
+        {
+          title: 'Prüfung und Zertifizierung',
+          text: 'Internationale Ingenieurnormen und unabhängige Prüfungen sichern Sicherheit, Haltbarkeit und Leistung jedes Platzes, den wir ausliefern.',
+          points: [
+            'Wind- und stoßgeprüft von der Technischen Universität Istanbul',
+            'Gebaut nach FIP-Standards',
+            'ISO-zertifizierte Produktion',
+            'Nach TSE und TÜV geprüfte Komponenten',
+          ],
+        },
+        {
+          title: 'Weltweite Präsenz',
+          text: 'Von der Türkei in internationale Märkte: Produktion, technische Teams und Partner arbeiten zusammen, vom Einzelplatz bis zur kompletten Padelanlage.',
+          points: ['Export in über 96 Länder', 'Installationen in über 1020 Städten', 'Büros in sechs Ländern', 'Betreuung in sechs Sprachen'],
+        },
+      ],
+    },
+    steps: {
+      eyebrow: 'Zusammenarbeit',
+      title: 'Was <mark class="hl">nach Ihrer ersten Nachricht</mark> passiert',
+      items: [
+        {
+          title: 'Beschreiben Sie Ihren Standort',
+          text: 'Ort, verfügbare Fläche, Anzahl der Plätze und ob eine Überdachung gewünscht ist. Eine Skizze oder ein paar Fotos genügen für den Start.',
+        },
+        {
+          title: 'Layout und Engineering',
+          text: 'Wir empfehlen den passenden Platz und die passende Überdachung, senden Layoutzeichnungen und prüfen die Konstruktion auf Ihre örtlichen Lasten.',
+        },
+        {
+          title: 'Ein Komplettangebot',
+          text: 'Plätze, Überdachung, Lieferung und Montage in einem Angebot, damit Sie Lieferanten auf Basis der Gesamtkosten vergleichen können.',
+        },
+        {
+          title: 'Gefertigt in Adıyaman',
+          text: 'Ihr Projekt wird in unserem eigenen Werk produziert, mit Qualitätskontrolle in jeder Phase vor dem Versand.',
+        },
+        {
+          title: 'Montage und Service',
+          text: 'Unsere Teams und Partner montieren die Plätze. Ersatzglas, Gitterpaneele, Kunstrasen und Netze bleiben über die gesamte Lebensdauer der Anlage verfügbar.',
+        },
+      ],
+    },
+    letter: {
+      eyebrow: 'Ein Wort unseres CEO',
+      title: 'Das große Ganze verstehen',
+      text: [
+        'Jedes Jahr bringt seine eigene Mischung aus Herausforderungen und Chancen. Manche sehen wir kommen und können sie planen; anderen müssen wir so gut wie möglich begegnen. Entscheidend ist nicht, Veränderungen zu vermeiden, sondern auf sie vorbereitet zu sein.',
+        'Bei Unixpadel verdanken wir einen Großteil unseres Fortschritts der Fähigkeit unseres Teams zu verstehen, wie die Welt zusammenhängt. Es geht nicht nur um unsere Kunden und unseren Sport, sondern auch um die Kräfte, die beide prägen: Weltwirtschaft, Handel und Politik, sich wandelnde Städte und Bevölkerungen, Vielfalt und Nachhaltigkeit.',
+        'Kein Markt gleicht dem anderen. Jeder hat sein eigenes Klima, seine eigenen Vorschriften und seine eigene Art, Menschen auf einem Platz zusammenzubringen. Dieses Verständnis hat unsere Plätze in über 96 Länder und mehr als tausend Städte gebracht. Hinter jedem dieser Plätze steht die Entscheidung eines Menschen, der uns zugetraut hat, seinen Markt ebenso gut zu verstehen wie unser eigenes Produkt.',
+        'Manche nennen es, das große Ganze zu sehen. Wir nennen es, unsere Zukunft zu verstehen.',
+      ],
+      signoff: 'Mit freundlichen Grüßen',
+      role: 'CEO, Unixpadel',
+    },
+    cta: {
+      title: 'Beginnen Sie mit Ihrem Standort, *nicht mit einem Verkaufsgespräch*',
+      text: 'Senden Sie uns Ort, verfügbare Fläche und geplante Anzahl der Plätze. Unsere Ingenieure antworten mit einem Layoutvorschlag und einem Komplettangebot.',
+      label: 'Projektdaten senden',
     },
   },
   products: {

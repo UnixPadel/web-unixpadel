@@ -30,6 +30,9 @@ export function homeFor(lang: Lang) {
 
 export const homeUiFor = (lang: Lang) => LOCALES[lang].homeUi;
 
+/** About page copy in the visitor's language (links, icons and media: ABOUT_MEDIA). */
+export const aboutFor = (lang: Lang) => LOCALES[lang].about;
+
 export const productMetaFor = (url: string, lang: Lang): ProductMeta => ({ ...PRODUCTS[url], ...LOCALES[lang].products[url] });
 
 export const productFamilyFor = (url: string, lang: Lang): string | undefined => LOCALES[lang].family[url];

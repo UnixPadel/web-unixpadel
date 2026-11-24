@@ -58,18 +58,8 @@ media:
     section: 3
   - order: 3
     type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_2.png
-    alt: تصور بانورامي لملعب بادل متنقل ضمن الحسابات الإنشائية
-    section: 4
-  - order: 4
-    type: image
     src: /wp-content/uploads/2024/09/Portable_Padel_Court_3.jpg
     alt: رسم خطي بتقنية CAD للهيكل الكامل لملعب بادل متنقل
-    section: 6
-  - order: 5
-    type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_4.png
-    alt: تفصيل بتقنية CAD لوصلة الدعامة المثلثة في ملعب بادل متنقل
     section: 6
 ---
 

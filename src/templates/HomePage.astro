@@ -65,7 +65,7 @@ const n = (i: number) => String(i).padStart(2, '0');
 
   <StatBand stats={siteFor(lang).stats} highlightLast />
 
-  <!-- 01 Court range: numbered list; the stage shows the CAD render on a court-line plate + a real photo -->
+  <!-- 01 Court range: numbered list; the stage shows the CAD render + a real photo -->
   <section class="section range">
     <div class="container">
       <div class="section-head" data-reveal>
@@ -92,11 +92,11 @@ const n = (i: number) => String(i).padStart(2, '0');
           {
             courts.map((c, i) => (
               <figure class:list={['range__figure', { 'is-active': i === 0 }]} data-range-figure={i}>
-                <div class="range__plate plate-court">
+                <div class="range__plate">
                   <img src={mediaUrl(c.icon)} srcset={srcsetFor(c.icon, 1600) ?? undefined} sizes="(min-width: 960px) 50vw, 100vw" alt="" width="800" height="600" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
                 </div>
                 {c.meta.photo && (
-                  <div class="range__photo photo">
+                  <div class="range__photo photo" data-wm>
                     <img src={mediaUrl(c.meta.photo)} srcset={srcsetFor(c.meta.photo, 960) ?? undefined} sizes="(min-width: 960px) 25vw, 50vw" alt="" width="1080" height="1080" loading="lazy" decoding="async" />
                   </div>
                 )}
@@ -125,7 +125,7 @@ const n = (i: number) => String(i).padStart(2, '0');
     more={{ label: ui.allReferences, href: L('/references/') }}
   />
 
-  <!-- 03 Innovative systems: render on a plate + real photo + one measured fact from the page's own specs -->
+  <!-- 03 Innovative systems: render + real photo + one measured fact from the page's own specs -->
   <section class="section systems">
     <div class="container">
       <div class="section-head" data-reveal>
@@ -395,9 +395,6 @@ const n = (i: number) => String(i).padStart(2, '0');
   }
   .range__plate {
     aspect-ratio: 4 / 3;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
   }
   .range__plate img {
     inline-size: 100%;
@@ -469,7 +466,7 @@ const n = (i: number) => String(i).padStart(2, '0');
   }
   .sysrow__main {
     aspect-ratio: 4 / 3;
-    background: var(--navy-900);
+    background: var(--black-900);
   }
   .sysrow__main img {
     object-fit: cover;
@@ -592,7 +589,7 @@ const n = (i: number) => String(i).padStart(2, '0');
   }
   .factory__media {
     aspect-ratio: 16 / 9;
-    background: var(--navy-900);
+    background: var(--black-900);
     box-shadow: 12px 12px 0 var(--lime-500);
   }
   .factory__text {

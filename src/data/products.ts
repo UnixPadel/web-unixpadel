@@ -7,6 +7,8 @@ export type ProductMeta = { spec?: string; photo?: string; photoAlt?: string; ph
 const BOSNIA_BLACK = '/wp-content/uploads/2026/09/2-FIP-Approved-Black-Turf-Padel-Courts-Bosnia-HerzegovinaAnother-professional-Unixpadel-pade-1.jpg';
 
 export const PRODUCTS: Record<string, ProductMeta> = {
+  '/panoramic-court-lighting-margay-300/': { spec: '8 × 300 W LED · 470 lx · U₀ 0.74' },
+  '/standard-court-lighting-margay-200/': { spec: '8 × 200 W LED · 322 lx · U₀ 0.73' },
   '/standard-padel-court/': {
     spec: '20 × 10 m · 3-pillar frame · 10 mm glass',
     photo: '/wp-content/uploads/2026/08/greece_ref-3.jpg',

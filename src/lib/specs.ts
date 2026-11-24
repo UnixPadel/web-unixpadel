@@ -46,6 +46,7 @@ export function factOf(spec: Spec): { value: string; unit: string } | null {
   if ((m = v.match(/(\d+(?:[.,]\d+)?)\s*(?:[-–]|to|ile|bis|à|до|إلى)\s*(\d+(?:[.,]\d+)?)\s*km\/h/i))) return { value: `${num(m[1])}–${num(m[2])}`, unit: 'km/h' };
   if ((m = v.match(/(\d+)\s*km\/h/i))) return { value: m[1], unit: 'km/h' };
   if ((m = v.match(/(\d+(?:[.,]\d+)?)\s*(?:kg\/m²|kg|kN\/m²)\b/i))) return { value: num(m[1]), unit: m[0].toLowerCase().includes('kn') ? 'kN/m²' : 'kg' };
+  if ((m = v.match(/(\d+)\s*lx\b/))) return { value: m[1], unit: 'lx' };
   if ((m = v.match(/(\d+)\s*W\b/))) return { value: m[1], unit: 'W' };
   if ((m = v.match(/(\d{1,3}(?:[.,]\d+)?)\s*mm\b/i))) return { value: num(m[1]), unit: 'mm' };
   if ((m = v.match(/(\d{3,5})\s*dtex/i))) return { value: m[1], unit: 'dtex' };

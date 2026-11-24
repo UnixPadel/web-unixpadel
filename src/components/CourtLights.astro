@@ -1,0 +1,191 @@
+---
+// One render of the court by day and with its floodlights on, and a switch that turns the lights on and off.
+// The switch is a native checkbox and the swap is CSS (:has), so it needs no script and keeps its state on reload.
+import Icon from './Icon.astro';
+import type { CourtLights } from '../data/courtLights';
+import { langOf, t } from '../i18n';
+
+interface Props {
+  productName: string;
+  lights: CourtLights;
+}
+const { productName, lights } = Astro.props;
+const ui = t(langOf(Astro.url));
+const uid = Math.random().toString(36).slice(2, 7);
+const srcset = (frames: ImageMetadata[]) => frames.map((f) => `${f.src} ${f.width}w`).join(', ');
+const sizes = '(min-width: 1376px) 1280px, 92vw';
+const largest = (frames: ImageMetadata[]) => frames[frames.length - 1];
+const day = largest(lights.day);
+const lit = largest(lights.lit);
+---
+
+<section class="court-lights section section--tight" aria-labelledby={`cl-${uid}`}>
+  <div class="container">
+    <div class="court-lights__head">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">{ui.courtLightsEyebrow}</p>
+        <h2 id={`cl-${uid}`}>{ui.courtLightsTitle}</h2>
+        <p>{ui.courtLightsIntro}</p>
+      </div>
+
+      <label class="lights-switch" data-reveal>
+        <Icon name="light" class="lights-switch__icon" />
+        <span class="lights-switch__label">{ui.courtLightsSwitch}</span>
+        <input class="lights-switch__input" type="checkbox" role="switch" />
+        <span class="lights-switch__track" aria-hidden="true"></span>
+        <span class="lights-switch__state" aria-hidden="true">
+          <span class="lights-switch__off">{ui.courtLightsOff}</span>
+          <span class="lights-switch__on">{ui.courtLightsOn}</span>
+        </span>
+      </label>
+    </div>
+
+    <figure class="court-lights__stage" style={`aspect-ratio: ${day.width} / ${day.height}`} data-reveal>
+      <img class="court-lights__day" src={day.src} srcset={srcset(lights.day)} sizes={sizes} width={day.width} height={day.height} alt={ui.courtLightsDayAlt(productName)} loading="lazy" decoding="async" />
+      <img class="court-lights__lit" src={lit.src} srcset={srcset(lights.lit)} sizes={sizes} width={lit.width} height={lit.height} alt={ui.courtLightsLitAlt(productName)} loading="lazy" decoding="async" />
+    </figure>
+  </div>
+</section>
+
+<style>
+  .court-lights__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--sp-5);
+    margin-block-end: var(--sp-6);
+  }
+  .court-lights__head .section-head {
+    margin-block-end: 0;
+  }
+
+  /* The day render is a cut-out straight on the page; the lit one is a night frame laid over it, on pure black that
+     fades out before its edges (scripts/build-court-lights.mjs), so on the black page it has no visible box. */
+  .court-lights__stage {
+    display: grid;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+  .court-lights__stage img {
+    grid-area: 1 / 1;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  /* `visibility` keeps the frame that is not showing out of the accessibility tree; it flips once the fade is over. */
+  .court-lights__lit {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 450ms var(--ease-out),
+      visibility 0s 450ms;
+  }
+  .court-lights__day {
+    transition: visibility 0s;
+  }
+  .court-lights:has(.lights-switch__input:checked) .court-lights__lit {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+  .court-lights:has(.lights-switch__input:checked) .court-lights__day {
+    visibility: hidden;
+    transition-delay: 450ms;
+  }
+
+  /* ---- switch */
+  .lights-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-block-size: 48px;
+    padding: var(--sp-2) var(--sp-4);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 999px;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+  .lights-switch__input {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .lights-switch__icon {
+    inline-size: 20px;
+    block-size: 20px;
+    color: var(--text-secondary);
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .lights-switch__track {
+    position: relative;
+    flex: none;
+    inline-size: 44px;
+    block-size: 24px;
+    border-radius: 999px;
+    background: var(--border-strong);
+    transition: background-color var(--dur-base) var(--ease-out);
+  }
+  .lights-switch__track::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 3px;
+    inset-inline-start: 3px;
+    inline-size: 18px;
+    block-size: 18px;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  /* Both words share one cell, so the pill keeps its width when the state changes. */
+  .lights-switch__state {
+    display: inline-grid;
+    font-size: var(--fs-300);
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  .lights-switch__state > span {
+    grid-area: 1 / 1;
+  }
+  .lights-switch__on {
+    visibility: hidden;
+  }
+  .lights-switch__input:checked ~ .lights-switch__track {
+    background: var(--lime-500);
+  }
+  .lights-switch__input:checked ~ .lights-switch__track::after {
+    transform: translateX(20px);
+  }
+  :global([dir='rtl']) .lights-switch__input:checked ~ .lights-switch__track::after {
+    transform: translateX(-20px);
+  }
+  .lights-switch__input:checked ~ .lights-switch__state .lights-switch__on {
+    visibility: visible;
+  }
+  .lights-switch__input:checked ~ .lights-switch__state .lights-switch__off {
+    visibility: hidden;
+  }
+  .lights-switch:has(.lights-switch__input:checked) .lights-switch__icon {
+    color: var(--lime-500);
+  }
+  .lights-switch:has(.lights-switch__input:focus-visible) {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+  @media (hover: hover) {
+    .lights-switch:hover {
+      border-color: var(--text-primary);
+    }
+  }
+</style>

@@ -102,8 +102,8 @@ const { width, height } = CATALOG.size;
     position: relative;
     padding: var(--sp-5) var(--gutter) var(--sp-4);
     background:
-      radial-gradient(90% 70% at 50% 38%, rgb(42 58 94 / 55%) 0%, transparent 70%),
-      linear-gradient(#0b1326, #05080f);
+      radial-gradient(90% 70% at 50% 38%, rgb(44 44 41 / 55%) 0%, transparent 70%),
+      #000;
     color: var(--cat-fg);
   }
   .cat:fullscreen {
@@ -165,7 +165,7 @@ const { width, height } = CATALOG.size;
     overflow: hidden;
   }
   .cat__page:not(.is-drawn) {
-    background: linear-gradient(110deg, #000 35%, #0d1424 50%, #000 65%) 0 0 / 300% 100%;
+    background: linear-gradient(110deg, #000 35%, #1c1c1a 50%, #000 65%) 0 0 / 300% 100%;
     animation: cat-wait 1.6s linear infinite;
   }
   @keyframes cat-wait {
@@ -322,7 +322,7 @@ const { width, height } = CATALOG.size;
     z-index: 60;
     inline-size: 56px;
     block-size: 56px;
-    background: rgb(11 19 38 / 55%);
+    background: rgb(0 0 0 / 55%);
     backdrop-filter: blur(6px);
   }
   .cat__side :global(.icon) {

@@ -25,7 +25,7 @@ const ui: UI = {
   chatWhatsapp: 'WhatsApp üzerinden yazın',
   navAll: (section) => `Tüm ${section.toLocaleLowerCase('tr-TR')}`,
   navAlso: 'Diğer',
-  nav: { Courts: 'Kortlar', Canopy: 'Kanopi', Turfs: 'Çim', Services: 'Hizmetler', 'Padel Guide': 'Rehber', References: 'Referanslar', 'About Us': 'Hakkında' },
+  nav: { Courts: 'Kortlar', Canopy: 'Kanopi', Turfs: 'Çim', Lighting: 'Aydınlatma', Services: 'Hizmetler', 'Padel Guide': 'Rehber', References: 'Referanslar', 'About Us': 'Hakkında' },
   // Menu labels by English menu label (menu.json); anything missing falls back to the Turkish page's navLabel.
   menu: {
     'Padel Courts': 'Padel Kortları',
@@ -236,6 +236,14 @@ const ui: UI = {
   turfColorLabel: 'Renk',
   turfColorAlt: (product, color) => `${product} padel çimi, ${color}`,
   turfColorNames: { 'light-blue': 'Açık Mavi', blue: 'Mavi', green: 'Yeşil', emerald: 'Zümrüt Yeşili', black: 'Siyah', pink: 'Pembe', terracotta: 'Kiremit', purple: 'Mor', gray: 'Gri', red: 'Kırmızı', lime: 'Fıstık Yeşili' },
+  courtLightsEyebrow: 'Aydınlatma',
+  courtLightsTitle: 'Gündüz ve gece görünümü',
+  courtLightsIntro: 'Işıkları açın, kortun hava karardıktan sonra nasıl göründüğünü görün.',
+  courtLightsSwitch: 'Işıklar',
+  courtLightsOn: 'Açık',
+  courtLightsOff: 'Kapalı',
+  courtLightsDayAlt: (product) => `${product}, gündüz görünümü (ışıklar kapalı)`,
+  courtLightsLitAlt: (product) => `${product}, gece görünümü (LED projektörler açık)`,
   faqIntro: (title) => `${title} için kurulum, standartlar ve seçenekler.`,
   installedProjects: 'Kurulu projeler',
   alreadyInPlay: 'Bu kortun kullanıldığı projeler',
@@ -491,6 +499,8 @@ const tr: LocaleData = {
     },
   },
   products: {
+    '/panoramic-court-lighting-margay-300/': { spec: '8 × 300 W LED · 470 lx · U₀ 0,74' },
+    '/standard-court-lighting-margay-200/': { spec: '8 × 200 W LED · 322 lx · U₀ 0,73' },
     '/standard-padel-court/': { spec: '20 × 10 m · 3 dikmeli çerçeve · 10 mm cam', photoAlt: 'Yunanistan Halkida’daki üç Unixpadel Standart Kortun havadan görünümü' },
     '/panoramic-padel-court/': { spec: 'Dikmesiz arka duvarlar · 360° seyirci görüşü', photoAlt: 'Bosna-Hersek’te FIP onaylı siyah sentetik çimli panoramik Unixpadel kortları' },
     '/full-panoramic-padel-court/': { spec: 'Tamamen camlı çevre · turnuva görünümü' },

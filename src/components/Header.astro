@@ -363,7 +363,8 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
     align-items: center;
     gap: var(--sp-1);
     min-block-size: 44px;
-    padding: var(--sp-2) var(--sp-3);
+    /* Eight top-level items share the 1280px row: 8px side padding, not 12. */
+    padding: var(--sp-2);
     border: 0;
     border-radius: var(--radius-md);
     background: transparent;
@@ -496,7 +497,6 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
     block-size: 48px;
     object-fit: cover;
     border-radius: var(--radius-sm);
-    background: var(--media-plate);
     flex: none;
   }
   @media (hover: hover) {
@@ -589,22 +589,12 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
       gap: var(--sp-3);
     }
   }
-  @media (min-width: 1400px) {
-    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog {
-      inline-size: auto;
-      padding-inline: var(--sp-3);
-      font-size: var(--fs-200);
-    }
-    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog .icon {
-      display: none;
-    }
-    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog .nav-catalog__label {
-      position: static;
-      inline-size: auto;
-      block-size: auto;
-      clip-path: none;
+  @media (min-width: 1360px) {
+    .site-header__inner {
+      gap: var(--sp-4);
     }
   }
+  /* The catalogue pill stays an icon at every width: with eight menu items its text label no longer fits the row. */
   .drawer-catalog {
     padding-block: var(--sp-4) var(--sp-2);
   }
@@ -659,12 +649,28 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
       display: none;
     }
   }
-  @media (min-width: 1200px) and (max-width: 1320px) {
-    .nav-link {
-      padding-inline: var(--sp-2);
-    }
+  /* Below 1400px the row is too tight for the WhatsApp icon next to eight menu items (the hero and the page end offer it). */
+  @media (min-width: 1200px) and (max-width: 1399px) {
     .header-wa {
       display: none;
+    }
+  }
+  /* With eight items the row no longer fits below 1320px in English, Turkish and Arabic either: the drawer stays. */
+  @media (min-width: 1200px) and (max-width: 1319px) {
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .primary-nav,
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-cta,
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-catalog,
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .header-wa {
+      display: none;
+    }
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .site-header__actions {
+      margin-inline-start: auto;
+    }
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .nav-toggle {
+      display: inline-grid;
+    }
+    :global(html:is([lang='en'], [lang='tr'], [lang='ar'])) .mobile-bar {
+      display: grid;
     }
   }
   /* German, French and Russian menu labels and CTAs run ~10 % longer: those languages keep the drawer up to 1400px. */
@@ -685,9 +691,13 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
       display: grid;
     }
   }
-  @media (min-width: 1400px) and (max-width: 1479px) {
+  /* Their eight labels leave no room for the WhatsApp icon at any width; French needs slightly tighter links too. */
+  @media (min-width: 1400px) {
     :global(html:is([lang='de'], [lang='fr'], [lang='ru'])) .header-wa {
       display: none;
+    }
+    :global(html[lang='fr']) .nav-link {
+      padding-inline: 6px;
     }
   }
 
@@ -710,7 +720,7 @@ const catalogHref = CATALOG.enabled ? localizePath(CATALOG.url, lang) : null;
     display: flex;
   }
   .nav-drawer::backdrop {
-    background: rgb(11 19 38 / 55%);
+    background: rgb(0 0 0 / 55%);
   }
   @media (prefers-reduced-motion: no-preference) {
     .nav-drawer[open] {

@@ -58,18 +58,8 @@ media:
     section: 3
   - order: 3
     type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_2.png
-    alt: Mobiler Padelplatz – Panorama-Rendering zur statischen Berechnung
-    section: 4
-  - order: 4
-    type: image
     src: /wp-content/uploads/2024/09/Portable_Padel_Court_3.jpg
     alt: Mobiler Padelplatz – CAD-Linienzeichnung der Gesamtkonstruktion
-    section: 6
-  - order: 5
-    type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_4.png
-    alt: Mobiler Padelplatz – CAD-Detail der Dreiecksstützen-Verbindung
     section: 6
 ---
 

@@ -58,18 +58,8 @@ media:
     section: 3
   - order: 3
     type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_2.png
-    alt: Rendu de note de calcul d'un terrain de padel portable, vue panoramique
-    section: 4
-  - order: 4
-    type: image
     src: /wp-content/uploads/2024/09/Portable_Padel_Court_3.jpg
     alt: Dessin filaire CAO de la structure complète d'un terrain de padel portable
-    section: 6
-  - order: 5
-    type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_4.png
-    alt: Détail CAO de la jonction des supports triangulaires d'un terrain de padel portable
     section: 6
 ---
 

@@ -58,18 +58,8 @@ media:
     section: 3
   - order: 3
     type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_2.png
-    alt: Portatif padel kortunun panoramik görünümlü statik hesap görseli
-    section: 4
-  - order: 4
-    type: image
     src: /wp-content/uploads/2024/09/Portable_Padel_Court_3.jpg
     alt: Portatif padel kortunun tüm konstrüksiyonunu gösteren CAD çizgi çizimi
-    section: 6
-  - order: 5
-    type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_4.png
-    alt: Portatif padel kortunun üçgen destek bağlantısına ait CAD detayı
     section: 6
 ---
 

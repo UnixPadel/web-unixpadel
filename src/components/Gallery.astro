@@ -1,6 +1,6 @@
 ---
 // Collage of a page's images with a native <dialog> lightbox (focus trap, Escape, arrow keys).
-// CAD renders / PNGs sit on a white court-line plate; photos fill their tile.
+// CAD renders / PNGs are shown whole, straight on the page; photos fill their tile.
 import Icon from './Icon.astro';
 import { mediaUrl, srcsetFor } from '../lib/media';
 import { langOf, t } from '../i18n';
@@ -68,7 +68,9 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
       </div>
       <dialog class="lightbox" aria-label={ui.viewer(title)}>
         <div class="lightbox__frame">
-          <img class="lightbox__img" alt="" />
+          <div class="lightbox__media" data-wm>
+            <img class="lightbox__img" alt="" />
+          </div>
           <p class="lightbox__caption" aria-live="polite" />
         </div>
         <button class="lightbox__btn lightbox__close" type="button" data-close aria-label={ui.closeViewer}>
@@ -139,7 +141,7 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     border: 0;
     border-radius: var(--radius-md);
     overflow: hidden;
-    background: var(--navy-900);
+    background: var(--black-900);
     cursor: zoom-in;
   }
   .gallery__btn img {
@@ -149,12 +151,7 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     transition: transform 500ms var(--ease-out);
   }
   .gallery__item--render .gallery__btn {
-    background-color: var(--media-plate);
-    background-image:
-      linear-gradient(rgb(20 39 78 / 6%) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(20 39 78 / 6%) 1px, transparent 1px);
-    background-size: 40px 40px;
-    border: 1px solid var(--border);
+    background: none;
   }
   .gallery__item--render .gallery__btn img {
     object-fit: contain;
@@ -169,7 +166,7 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     inline-size: 36px;
     block-size: 36px;
     border-radius: var(--radius-sm);
-    background: var(--navy-700);
+    background: var(--black-900);
     color: var(--lime-500);
     opacity: 0;
     transition: opacity var(--dur-fast) var(--ease-out);
@@ -208,7 +205,7 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     margin: 0;
     padding: 0;
     border: 0;
-    background: rgb(7 13 28 / 96%);
+    background: rgb(0 0 0 / 96%);
     color: var(--white);
   }
   .lightbox[open] {
@@ -216,7 +213,7 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     place-items: center;
   }
   .lightbox::backdrop {
-    background: rgb(7 13 28 / 80%);
+    background: rgb(0 0 0 / 80%);
   }
   .lightbox__frame {
     display: grid;
@@ -225,6 +222,10 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     max-inline-size: min(92vw, 1400px);
     padding: var(--sp-8) var(--sp-4) var(--sp-5);
   }
+  /* The photo's own box, so the logo of src/lib/protect.ts sits on the photo and not on the frame. */
+  .lightbox__media {
+    max-inline-size: 100%;
+  }
   .lightbox__img {
     max-inline-size: 100%;
     max-block-size: calc(100dvh - 160px);
@@ -232,10 +233,6 @@ const itemsJson = shell ? T.G_JSON : JSON.stringify(items.map((it) => ({ src: me
     block-size: auto;
     object-fit: contain;
     border-radius: var(--radius-sm);
-  }
-  .lightbox__img.is-render {
-    background: var(--white);
-    padding: var(--sp-4);
   }
   .lightbox__caption {
     font-size: var(--fs-300);

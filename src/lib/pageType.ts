@@ -19,6 +19,7 @@ export const HUBS = [
   '/canopy/',
   '/innovative-canopy/',
   '/turfs/',
+  '/lighting/',
   '/our-services/',
   '/padel-guide/',
   '/references/',

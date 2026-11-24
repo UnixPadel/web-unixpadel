@@ -56,14 +56,14 @@ if (data.faq?.length) jsonLd.push(faqPage(data.faq));
 if (crumbs.length > 1) jsonLd.push(breadcrumbList(crumbs, Astro.site));
 // Product category from the hub the page sits under, rather than a fixed "Padel court" for canopies and turf too.
 const CATEGORY: Record<Lang, Record<string, string>> = {
-  en: { canopy: 'Padel court canopy', turf: 'Artificial turf for padel courts', padbol: 'Padbol court', pickleball: 'Pickleball court', padel: 'Padel court' },
-  tr: { canopy: 'Padel kortu kanopisi', turf: 'Padel kortu için sentetik çim', padbol: 'Padbol sahası', pickleball: 'Pickleball kortu', padel: 'Padel kortu' },
-  de: { canopy: 'Padelplatz-Überdachung', turf: 'Kunstrasen für Padelplätze', padbol: 'Padbol-Platz', pickleball: 'Pickleball-Platz', padel: 'Padelplatz' },
-  fr: { canopy: 'Couverture de terrain de padel', turf: 'Gazon synthétique pour terrains de padel', padbol: 'Terrain de padbol', pickleball: 'Terrain de pickleball', padel: 'Terrain de padel' },
-  ar: { canopy: 'مظلة ملعب بادل', turf: 'عشب صناعي لملاعب البادل', padbol: 'ملعب Padbol', pickleball: 'ملعب Pickleball', padel: 'ملعب بادل' },
-  ru: { canopy: 'Навес для падел-корта', turf: 'Искусственный газон для падел-кортов', padbol: 'Корт для Padbol', pickleball: 'Корт для Pickleball', padel: 'Падел-корт' },
+  en: { lighting: 'Padel court lighting', canopy: 'Padel court canopy', turf: 'Artificial turf for padel courts', padbol: 'Padbol court', pickleball: 'Pickleball court', padel: 'Padel court' },
+  tr: { lighting: 'Padel kortu aydınlatması', canopy: 'Padel kortu kanopisi', turf: 'Padel kortu için sentetik çim', padbol: 'Padbol sahası', pickleball: 'Pickleball kortu', padel: 'Padel kortu' },
+  de: { lighting: 'Padelplatz-Beleuchtung', canopy: 'Padelplatz-Überdachung', turf: 'Kunstrasen für Padelplätze', padbol: 'Padbol-Platz', pickleball: 'Pickleball-Platz', padel: 'Padelplatz' },
+  fr: { lighting: 'Éclairage de terrain de padel', canopy: 'Couverture de terrain de padel', turf: 'Gazon synthétique pour terrains de padel', padbol: 'Terrain de padbol', pickleball: 'Terrain de pickleball', padel: 'Terrain de padel' },
+  ar: { lighting: 'إضاءة ملاعب البادل', canopy: 'مظلة ملعب بادل', turf: 'عشب صناعي لملاعب البادل', padbol: 'ملعب Padbol', pickleball: 'ملعب Pickleball', padel: 'ملعب بادل' },
+  ru: { lighting: 'Освещение падел-корта', canopy: 'Навес для падел-корта', turf: 'Искусственный газон для падел-кортов', padbol: 'Корт для Padbol', pickleball: 'Корт для Pickleball', padel: 'Падел-корт' },
 };
-const HUB_CATEGORY: Record<string, string> = { '/canopy/': 'canopy', '/innovative-canopy/': 'canopy', '/turfs/': 'turf', '/padbols/': 'padbol' };
+const HUB_CATEGORY: Record<string, string> = { '/canopy/': 'canopy', '/innovative-canopy/': 'canopy', '/turfs/': 'turf', '/lighting/': 'lighting', '/padbols/': 'padbol' };
 const categoryKey = crumbs.map((c) => stripLang(c.url)).map((u) => HUB_CATEGORY[u]).findLast(Boolean) ?? (/pickleball/.test(data.url) ? 'pickleball' : 'padel');
 const category = CATEGORY[lang][categoryKey];
 const ld = { ...data, url: localizePath(data.url, lang) };

@@ -244,7 +244,7 @@ const parts = title.split(/\*([^*]+)\*/);
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: var(--navy-900);
+    background: var(--black-900);
   }
   .hero__still,
   .hero__video {
@@ -266,11 +266,11 @@ const parts = title.split(/\*([^*]+)\*/);
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(90deg, rgb(11 19 38 / 88%) 0%, rgb(11 19 38 / 60%) 50%, rgb(11 19 38 / 15%) 100%);
+    background: linear-gradient(90deg, rgb(0 0 0 / 88%) 0%, rgb(0 0 0 / 60%) 50%, rgb(0 0 0 / 15%) 100%);
   }
   @media (max-width: 719px) {
     .hero--cover.hero--media::before {
-      background: linear-gradient(180deg, rgb(11 19 38 / 35%) 0%, rgb(11 19 38 / 90%) 70%);
+      background: linear-gradient(180deg, rgb(0 0 0 / 35%) 0%, rgb(0 0 0 / 90%) 70%);
     }
   }
 
@@ -282,7 +282,6 @@ const parts = title.split(/\*([^*]+)\*/);
     aspect-ratio: 1 / 1;
     border-radius: var(--radius-md);
     overflow: hidden;
-    background: var(--media-plate);
     box-shadow: 12px 12px 0 var(--lime-500);
   }
   .hero__media-link {

@@ -31,7 +31,7 @@ const mm = picker.heightsKind === 'range' ? `${picker.heightsMm[0]}–${picker.h
         {views.map((view) => {
           const img = turfImage(slug, view, defaultColor);
           return (
-            <div class:list={['turf-picker__view', `turf-picker__view--${view}`]}>
+            <div class:list={['turf-picker__view', `turf-picker__view--${view}`]} data-wm="center">
               <img
                 src={img.src}
                 width={img.width}
@@ -108,7 +108,7 @@ const mm = picker.heightsKind === 'range' ? `${picker.heightsMm[0]}–${picker.h
     display: block;
     inline-size: 100%;
     block-size: auto;
-    filter: drop-shadow(0 12px 16px rgb(7 13 28 / 22%));
+    filter: drop-shadow(0 12px 16px rgb(0 0 0 / 22%));
   }
   .turf-picker__panel {
     min-inline-size: 0;

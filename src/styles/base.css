@@ -11,6 +11,54 @@ html {
   scroll-padding-block: calc(var(--header-h) + var(--sp-4)) var(--sp-9);
 }
 
+/* The theme on <html> also decides the browser's own UI (scrollbars, form controls), whatever the OS prefers. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Photo protection (src/lib/protect.ts): no drag ghost, no long-press "save image", and the logo on every content
+   photo. The script adds .wm to a photo's box and the logo inside it. */
+img,
+video {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+/* :where keeps this at zero specificity: a box that is already positioned stays as its component set it. */
+:where(.wm) {
+  position: relative;
+}
+.wm__box {
+  display: block;
+}
+.wm__mark {
+  position: absolute;
+  inset-block-end: 4%;
+  inset-inline-start: 4%;
+  z-index: 1;
+  inline-size: clamp(44px, 20%, 132px);
+  aspect-ratio: 250 / 80;
+  background: var(--wm-logo) center / contain no-repeat;
+  /* White wordmark (the header's filter), with a shadow so it also reads on light photos. */
+  filter: url(#logo-navy-to-white) drop-shadow(0 1px 2px rgb(0 0 0 / 55%));
+  opacity: 0.75;
+  pointer-events: none;
+}
+/* The picture's file already carries the logo (stamped by the plugin's resize endpoint). */
+.wm--in-file > .wm__mark {
+  display: none;
+}
+/* Pictures shown whole (renders, drawings, cut-outs): in the middle, on the object itself, and fainter. */
+.wm--center > .wm__mark {
+  inset: 50% auto auto 50%;
+  inline-size: clamp(52px, 26%, 160px);
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -429,14 +477,6 @@ button {
   color: var(--accent-on-inverse);
 }
 
-/* Product renders and CAD drawings were made for white backgrounds; keep a white plate in dark mode. */
-.media-plate {
-  background: var(--media-plate);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
 .media-frame {
   position: relative;
   overflow: hidden;
@@ -479,7 +519,7 @@ button {
   inset-block-start: -100px;
   z-index: 200;
   padding: var(--sp-3) var(--sp-4);
-  background: var(--navy-700);
+  background: var(--black-900);
   color: var(--white);
   border-radius: var(--radius-md);
   font-weight: 700;
@@ -602,7 +642,7 @@ button {
 .photo {
   position: relative;
   overflow: hidden;
-  background: var(--navy-900);
+  background: var(--black-900);
 }
 
 .photo > img {
@@ -626,7 +666,7 @@ button {
   pointer-events: none;
 }
 
-/* White plate with a faint court-line pattern for CAD renders */
+/* White plate with a faint court-line pattern (LinkTile). Not for images: those sit straight on the page. */
 .plate-court {
   background-color: var(--media-plate);
   background-image:

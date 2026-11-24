@@ -13,6 +13,7 @@ const SECTION_TITLES: Record<string, string> = {
   '/canopy/': 'Canopies and covers',
   '/innovative-canopy/': 'Innovative canopy systems',
   '/turfs/': 'Artificial turf',
+  '/lighting/': 'Court lighting',
   '/our-services/': 'Services',
   '/padel-guide/': 'Padel guide (articles)',
   '/references/': 'References (delivered projects)',

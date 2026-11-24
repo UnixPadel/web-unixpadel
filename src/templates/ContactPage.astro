@@ -57,7 +57,7 @@ const products = (await allPages(lang))
         <p>{ui.closerText}</p>
       </div>
       <CardGrid columns={3}>
-        {site.offices.map((o) => <OfficeCard name={o.country} address={o.address} flag={o.flag} mapEmbed={o.mapEmbed} contact={'contact' in o ? o.contact : null} href={'href' in o ? o.href : null} />)}
+        {site.offices.map((o) => <OfficeCard name={o.country} address={o.address} flag={o.flag} mapEmbed={o.mapEmbed} contact={'contact' in o ? o.contact : null} />)}
       </CardGrid>
     </div>
   </section>

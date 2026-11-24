@@ -150,7 +150,6 @@ Ratan Tower, 1st Floor, Plot C-6/5, Jagriti Vihar Opp Medical College Garh Road,
 
 3350 Hill Forest Trail NW. Acworth, GA 30101  
 Mike Byrne  
-[http://www.unixpadelusa.com](http://www.unixpadelusa.com/)  
 [info@unixpadel.com](mailto:info@unixpadel.com)
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2851.649680010145!2d26.12778217684162!3d44.378783671076924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1fe0c24d7fd05%3A0xedf2b587af391637!2sStrada%20Mo%C8%99oaia%2045a%2C%20Bucure%C8%99ti%20077160%2C%20Romanya!5e0!3m2!1str!2str!4v1690738897524!5m2!1str!2str"></iframe>

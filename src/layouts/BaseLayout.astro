@@ -52,7 +52,7 @@ const ld = [organization(), ...jsonLd];
 ---
 
 <!doctype html>
-<html lang={lang} dir={LOCALE[lang].dir}>
+<html lang={lang} dir={LOCALE[lang].dir} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -66,8 +66,10 @@ const ld = [organization(), ...jsonLd];
     <link rel="icon" href={mediaUrl(SITE.favicon32)} sizes="32x32" />
     <link rel="icon" href={mediaUrl(SITE.appleTouchIcon)} sizes="192x192" />
     <link rel="apple-touch-icon" href={mediaUrl(SITE.appleTouchIcon)} />
-    <meta name="theme-color" content="#14274E" />
+    <meta name="theme-color" content="#000000" />
     <meta name="color-scheme" content="light dark" />
+    {/* Logo that src/lib/protect.ts puts on every photo (base.css .wm__mark) */}
+    <style is:inline set:html={`:root{--wm-logo:url("${mediaUrl(SITE.logoRetina)}")}`} />
     {MEDIA_ORIGIN && !new URL(MEDIA_ORIGIN).host.endsWith(new URL(SITE.url).host) && <link rel="preconnect" href={MEDIA_ORIGIN} />}
 
     <meta property="og:type" content={isArticle ? 'article' : 'website'} />
@@ -93,12 +95,12 @@ const ld = [organization(), ...jsonLd];
     {lang === 'ar' && <Font cssVariable="--font-arabic" preload={[{ weight: 400, subset: 'arabic' }, { weight: 700, subset: 'arabic' }]} />}
 
     <script is:inline>
-      // Apply the stored theme before first paint (no flash). Falls back to prefers-color-scheme.
+      // The site opens black for everyone (data-theme="dark" on <html>, whatever the OS prefers); a visitor who chose
+      // the light theme with the toggle gets it back here, before first paint (no flash).
       (function () {
         document.documentElement.classList.add('js');
         try {
-          var t = localStorage.getItem('theme');
-          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+          if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
         } catch (e) {}
       })();
     </script>
@@ -125,6 +127,7 @@ const ld = [organization(), ...jsonLd];
 
 <script>
   import '../lib/motion';
+  import '../lib/protect';
 </script>
 
 <style is:global>

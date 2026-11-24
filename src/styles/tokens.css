@@ -1,5 +1,7 @@
 /* Design tokens. Palette → semantic layer; dark mode remaps only the semantic layer.
-   Brand colours come from logo1.svg: navy #14274E, lime #9DC43B, orange #F36F24. */
+   Brand colours come from logo1.svg: navy #14274E, lime #9DC43B, orange #F36F24.
+   Dark backgrounds follow the printed catalogue (UNIX PADEL CATALOG): black, not navy. The base is pure #000:
+   the lit court render (CourtLights) is drawn on #000 and must not show an edge against the page. */
 :root {
   color-scheme: light dark;
 
@@ -11,6 +13,14 @@
   --navy-500: #2a3a5e;
   --navy-100: #e9edf3;
   --navy-50: #f4f6f9;
+  /* Catalogue black: 900 is the page colour; the lighter steps are its surfaces and hairlines. */
+  --black-950: #000000;
+  --black-900: #000000;
+  --black-850: #0a0a09;
+  --black-800: #121211;
+  --black-700: #1c1c1a;
+  --black-600: #2c2c29;
+  --black-500: #464641;
   --lime-100: #f1f7df;
   --lime-200: #dfedb8;
   --lime-500: #9dc43b;
@@ -30,8 +40,8 @@
   --bg-page: var(--white);
   --bg-surface: var(--navy-50);
   --bg-surface-2: var(--navy-100);
-  --bg-inverse: var(--navy-700);
-  --bg-inverse-2: var(--navy-800);
+  --bg-inverse: var(--black-900);
+  --bg-inverse-2: var(--black-800);
   --bg-tint: var(--lime-100); /* alternating light sections */
   --surface-glass: rgb(255 255 255 / 7%);
   --border-glass: rgb(255 255 255 / 18%);
@@ -99,40 +109,40 @@
    scripts/check-ui.mjs fails the build check when they drift. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg-page: var(--navy-800);
-    --bg-tint: #13203b;
-    --bg-surface: #16233f;
-    --bg-surface-2: var(--navy-600);
-    --bg-inverse: var(--navy-900);
-    --bg-inverse-2: #070d1c;
+    --bg-page: var(--black-900);
+    --bg-tint: var(--black-850);
+    --bg-surface: var(--black-800);
+    --bg-surface-2: var(--black-700);
+    --bg-inverse: var(--black-900);
+    --bg-inverse-2: var(--black-950);
     --text-primary: #eef2f8;
     --text-secondary: var(--ink-300);
     --accent: var(--lime-500);
     --link: #d7e6ad;
     --link-hover: #ffb27a;
-    --border: var(--navy-500);
-    --border-strong: #3d5080;
+    --border: var(--black-600);
+    --border-strong: var(--black-500);
     --focus-ring: var(--lime-500);
     --shadow-menu: none;
-    --header-bg: rgb(15 26 51 / 92%);
+    --header-bg: rgb(0 0 0 / 92%);
   }
 }
 
 :root[data-theme='dark'] {
-  --bg-page: var(--navy-800);
-  --bg-tint: #13203b;
-  --bg-surface: #16233f;
-  --bg-surface-2: var(--navy-600);
-  --bg-inverse: var(--navy-900);
-  --bg-inverse-2: #070d1c;
+  --bg-page: var(--black-900);
+  --bg-tint: var(--black-850);
+  --bg-surface: var(--black-800);
+  --bg-surface-2: var(--black-700);
+  --bg-inverse: var(--black-900);
+  --bg-inverse-2: var(--black-950);
   --text-primary: #eef2f8;
   --text-secondary: var(--ink-300);
   --accent: var(--lime-500);
   --link: #d7e6ad;
   --link-hover: #ffb27a;
-  --border: var(--navy-500);
-  --border-strong: #3d5080;
+  --border: var(--black-600);
+  --border-strong: var(--black-500);
   --focus-ring: var(--lime-500);
   --shadow-menu: none;
-  --header-bg: rgb(15 26 51 / 92%);
+  --header-bg: rgb(0 0 0 / 92%);
 }

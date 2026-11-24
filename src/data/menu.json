@@ -204,6 +204,23 @@
     ]
   },
   {
+    "label": "Lighting",
+    "url": "/lighting/",
+    "type": "page",
+    "children": [
+      {
+        "label": "Panoramic · MARGAY-300",
+        "url": "/panoramic-court-lighting-margay-300/",
+        "type": "page"
+      },
+      {
+        "label": "Standard · MARGAY-200",
+        "url": "/standard-court-lighting-margay-200/",
+        "type": "page"
+      }
+    ]
+  },
+  {
     "label": "Services",
     "url": "/our-services/",
     "type": "page",

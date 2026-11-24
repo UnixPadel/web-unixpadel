@@ -72,8 +72,7 @@ export const SITE = {
     {
       country: 'USA',
       address: '3350 Hill Forest Trail NW, Acworth, GA 30101',
-      contact: 'Mike Byrne · unixpadelusa.com',
-      href: 'http://www.unixpadelusa.com/',
+      contact: 'Mike Byrne',
       flag: '/wp-content/uploads/2023/07/186-united-states-v1.png',
       mapEmbed:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.215120333897!2d-84.70699282370923!3d34.03835251846255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f538a7415cabcb%3A0xfb92100ff3532557!2s3350%20Hill%20Forest%20Trail%2C%20Acworth%2C%20GA%2030101%2C%20Amerika%20Birle%C5%9Fik%20Devletleri!5e0!3m2!1str!2str!4v1753794739136!5m2!1str!2str',

@@ -58,18 +58,8 @@ media:
     section: 3
   - order: 3
     type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_2.png
-    alt: Portable Padel Court panoramic view static calculation render
-    section: 4
-  - order: 4
-    type: image
     src: /wp-content/uploads/2024/09/Portable_Padel_Court_3.jpg
     alt: Portable Padel Court full structure CAD line drawing
-    section: 6
-  - order: 5
-    type: image
-    src: /wp-content/uploads/2024/09/Portable_Padel_Court_4.png
-    alt: Portable Padel Court triangular support joint CAD detail
     section: 6
 ---
 

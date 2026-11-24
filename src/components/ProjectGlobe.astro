@@ -53,8 +53,8 @@ const ui = t(langOf(Astro.url));
 
 <style>
   .globe {
-    --globe-ocean: #0c1834;
-    --globe-land: #2b3f69;
+    --globe-ocean: #0d0d0c;
+    --globe-land: #353531;
     --globe-edge: rgb(255 255 255 / 22%);
     --globe-grid: rgb(255 255 255 / 7%);
     --globe-rim: rgb(157 196 59 / 55%);
@@ -67,13 +67,13 @@ const ui = t(langOf(Astro.url));
     color: var(--text-on-inverse);
   }
   :global([data-theme='dark']) .globe {
-    --globe-ocean: #101d3b;
-    --globe-land: #2a3b62;
+    --globe-ocean: #121211;
+    --globe-land: #353531;
   }
   @media (prefers-color-scheme: dark) {
     :global(:root:not([data-theme='light'])) .globe {
-      --globe-ocean: #101d3b;
-      --globe-land: #2a3b62;
+      --globe-ocean: #121211;
+      --globe-land: #353531;
     }
   }
   @media (forced-colors: active) {
@@ -125,7 +125,7 @@ const ui = t(langOf(Astro.url));
     padding: var(--sp-1) var(--sp-3);
     border: 1px solid var(--border-glass);
     border-radius: var(--radius-pill);
-    background: rgb(11 19 38 / 55%);
+    background: rgb(0 0 0 / 55%);
     color: var(--text-on-inverse);
     font-size: var(--fs-200);
     font-weight: 600;
@@ -139,7 +139,7 @@ const ui = t(langOf(Astro.url));
     padding: var(--sp-1) var(--sp-3);
     border: 1px solid var(--lime-500);
     border-radius: var(--radius-sm);
-    background: var(--navy-900);
+    background: var(--black-900);
     color: var(--white);
     font-size: var(--fs-200);
     font-weight: 600;
@@ -160,7 +160,7 @@ const ui = t(langOf(Astro.url));
     border: 1px solid var(--border-glass);
     border-inline-start: 3px solid var(--lime-500);
     border-radius: var(--radius-md);
-    background: rgb(11 19 38 / 94%);
+    background: rgb(0 0 0 / 94%);
     color: var(--text-on-inverse);
     font-size: var(--fs-300);
   }
@@ -292,7 +292,7 @@ const ui = t(langOf(Astro.url));
     padding-inline: var(--sp-3);
   }
   .globe__select option {
-    background: var(--navy-900);
+    background: var(--black-900);
     color: var(--white);
   }
   .globe__btn {

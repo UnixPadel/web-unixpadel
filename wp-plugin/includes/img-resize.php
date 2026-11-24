@@ -7,6 +7,9 @@
  * Copies live in uploads/upx-img/<w>/<path>.<ext> and are made once, on the first request; later requests
  * stream the file with a one-year immutable cache header. Served through PHP on purpose: the host's web server
  * may not hand missing /wp-content files to WordPress, while a query on the home URL always reaches it.
+ *
+ * Copies of photos carry the logo (includes/img-stamp.php); the `s` in their URLs is the stamp version, there only
+ * so browsers and CDNs do not keep serving an earlier copy.
  */
 
 if (!defined('ABSPATH')) {
@@ -39,7 +42,11 @@ function upx_img_copy($rel, $src, $w) {
 	$mime  = $webp ? 'image/webp' : wp_check_filetype($src)['type'];
 	$out   = wp_get_upload_dir()['basedir'] . '/upx-img/' . $w . '/' . preg_replace('#\.[a-z0-9]+$#i', '', $rel) . '.' . $ext;
 
-	if (is_file($out) && filemtime($out) >= filemtime($src)) {
+	// A stamped copy also has to be newer than the stamp itself, so bare copies from before it are made again.
+	$stamp = upx_wm_wanted($rel, $w, $mime);
+	$since = $stamp ? max(filemtime($src), upx_wm_since()) : filemtime($src);
+
+	if (is_file($out) && filemtime($out) >= $since) {
 		return array($out, $mime);
 	}
 	wp_mkdir_p(dirname($out));
@@ -50,7 +57,7 @@ function upx_img_copy($rel, $src, $w) {
 		flock($lock, LOCK_EX);
 	}
 	clearstatcache(true, $out);
-	if (!is_file($out) || filemtime($out) < filemtime($src)) {
+	if (!is_file($out) || filemtime($out) < $since) {
 		wp_raise_memory_limit('image');
 		$editor = wp_get_image_editor($src);
 		if (is_wp_error($editor)) {
@@ -60,11 +67,15 @@ function upx_img_copy($rel, $src, $w) {
 			if (!empty($size['width']) && $size['width'] > $w) {
 				$editor->resize($w, null, false);
 			}
-			$editor->set_quality(78);
+			// The stamp re-encodes the copy at 78, so the pass before it is kept near lossless.
+			$editor->set_quality($stamp ? 92 : 78);
 			$saved = $editor->save($out . '.tmp', $mime);
 			if (is_wp_error($saved) || !is_file($saved['path'])) {
 				$out = null;
 			} else {
+				if ($stamp && !upx_wm_stamp($saved['path'], $mime, 78)) {
+					error_log('unixpadel-static: could not stamp the logo on ' . $rel . ' (' . $w . ' px); served without it.');
+				}
 				rename($saved['path'], $out);
 			}
 		}
@@ -127,7 +138,7 @@ function upx_img_srcset($url) {
 	$origin = defined('UPX_MEDIA_ORIGIN') ? UPX_MEDIA_ORIGIN : home_url();
 	$parts  = array();
 	foreach (UPX_IMG_CONTENT_WIDTHS as $w) {
-		$parts[] = rtrim($origin, '/') . '/?upx_img=' . str_replace('%2F', '/', rawurlencode(rawurldecode($m[1]))) . '&w=' . $w . ' ' . $w . 'w';
+		$parts[] = rtrim($origin, '/') . '/?upx_img=' . str_replace('%2F', '/', rawurlencode(rawurldecode($m[1]))) . '&w=' . $w . '&s=' . UPX_WM_VERSION . ' ' . $w . 'w';
 	}
 	return implode(', ', $parts);
 }

@@ -1,7 +1,8 @@
 ---
 import Icon from './Icon.astro';
 import { SITE } from '../data/site';
-import { langOf, localizePath, t } from '../i18n';
+import { LOCALE, langOf, localizePath, t } from '../i18n';
+import { DIAL_CODES } from '../lib/dialCodes';
 
 interface Props {
   /** Product options: value is the URL slug used in ?product= */
@@ -10,6 +11,12 @@ interface Props {
 const { products } = Astro.props;
 const lang = langOf(Astro.url);
 const ui = t(lang);
+// Country list: value is the ISO code (the sales CRM reads the phone with this country), label in the page language.
+const regionNames = new Intl.DisplayNames([LOCALE[lang].intl], { type: 'region', fallback: 'none' });
+const countries = Object.keys(DIAL_CODES)
+  .map((code) => ({ code, name: regionNames.of(code) ?? '', dial: DIAL_CODES[code] }))
+  .filter((c) => c.name && c.name !== c.code)
+  .sort((a, b) => a.name.localeCompare(b.name, LOCALE[lang].intl));
 // REST route of the unixpadel-static WordPress plugin (wp-plugin/unixpadel-static.php). The ?rest_route= form
 // works with or without pretty permalinks.
 const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
@@ -38,13 +45,16 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
       <p class="field__error" id="q-email-err" hidden><Icon name="close" /> {ui.qEmailErr}</p>
     </div>
     <div class="field">
-      <label for="q-phone">{ui.qPhone}</label>
-      <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+" />
+      <label for="q-country">{ui.qCountry} <span aria-hidden="true">*</span></label>
+      <select id="q-country" name="country" autocomplete="country" required data-country-select>
+        <option value="">{ui.qSelect}</option>
+        {countries.map((c) => <option value={c.code} data-dial={c.dial}>{c.name}</option>)}
+      </select>
+      <p class="field__error" id="q-country-err" hidden><Icon name="close" /> {ui.qCountryErr}</p>
     </div>
     <div class="field">
-      <label for="q-country">{ui.qCountry} <span aria-hidden="true">*</span></label>
-      <input id="q-country" name="country" type="text" autocomplete="country-name" required />
-      <p class="field__error" id="q-country-err" hidden><Icon name="close" /> {ui.qCountryErr}</p>
+      <label for="q-phone">{ui.qPhone}</label>
+      <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+" />
     </div>
     <div class="field">
       <label for="q-type">{ui.qType}</label>
@@ -242,6 +252,19 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
     const pre = new URLSearchParams(location.search).get('product');
     if (pre && [...product.options].some((o) => o.value === pre)) product.value = pre;
 
+    // Picking a country suggests its dialing code in an empty phone box ("+880 "); a number already typed is kept.
+    const country = form.querySelector<HTMLSelectElement>('[data-country-select]')!;
+    const phone = form.elements.namedItem('phone') as HTMLInputElement;
+    let suggested = '';
+    country.addEventListener('change', () => {
+      const dial = country.selectedOptions[0]?.dataset.dial;
+      const current = phone.value.trim();
+      if (current === '' || current === '+' || current === suggested.trim()) {
+        suggested = dial ? `+${dial} ` : '';
+        phone.value = suggested;
+      }
+    });
+
     const fields = ['name', 'email', 'country', 'consent'] as const;
     const validate = (name: string) => {
       const el = form.elements.namedItem(name) as HTMLInputElement;
@@ -257,7 +280,7 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
     // Leaving a field re-checks it once it has a value or already shows an error; empty untouched fields wait for submit.
     fields.forEach((n) => {
       const el = form.elements.namedItem(n) as HTMLInputElement;
-      el.addEventListener(el.type === 'checkbox' ? 'change' : 'blur', () => {
+      el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'blur', () => {
         if (el.type === 'checkbox' || el.value.trim() || el.closest('.is-invalid')) validate(n);
       });
     });
@@ -306,6 +329,7 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
           },
         });
         form.reset();
+        suggested = '';
         clearErrors();
         mailFallback.hidden = true;
       } catch {
@@ -322,19 +346,22 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
       if ((form.elements.namedItem('website') as HTMLInputElement).value) return; // honeypot
       const results = fields.map(validate);
       if (results.includes(false)) {
-        (form.querySelector('.is-invalid input') as HTMLElement | null)?.focus();
+        (form.querySelector('.is-invalid input, .is-invalid select') as HTMLElement | null)?.focus();
         return;
       }
       const v = (n: string) => ((form.elements.namedItem(n) as HTMLInputElement)?.value ?? '').trim();
       const productLabel = product.selectedOptions[0]?.text ?? '';
+      const countryName = country.value ? (country.selectedOptions[0]?.text ?? '') : '';
+      // Only the suggested code, nothing typed after it: no phone.
+      const phoneValue = v('phone') === suggested.trim() ? '' : v('phone');
       const lines = [
         `${msg.from} ${v('name')}${v('company') ? ` (${v('company')})` : ''}`,
-        `${msg.country}: ${v('country')}`,
+        `${msg.country}: ${countryName}`,
         v('projectType') && `${msg.type}: ${v('projectType')}`,
         product.value && `${msg.product}: ${productLabel}`,
         v('courts') && `${msg.count}: ${v('courts')}`,
         `${msg.email}: ${v('email')}`,
-        v('phone') && `${msg.phone}: ${v('phone')}`,
+        phoneValue && `${msg.phone}: ${phoneValue}`,
         v('message') && `${msg.details}: ${v('message')}`,
       ].filter(Boolean);
       if (channel === 'server') {
@@ -342,8 +369,9 @@ const QUOTE_ENDPOINT = '/?rest_route=/unixpadel/v1/quote';
           name: v('name'),
           company: v('company'),
           email: v('email'),
-          phone: v('phone'),
+          phone: phoneValue,
           country: v('country'),
+          countryName,
           projectType: v('projectType'),
           product: product.value ? productLabel : '',
           productSlug: product.value,

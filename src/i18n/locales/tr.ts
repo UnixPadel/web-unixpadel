@@ -112,7 +112,7 @@ const ui: UI = {
   qEmail: 'E-posta',
   qEmailErr: 'Geçerli bir e-posta adresi girin.',
   qPhone: 'Telefon (ülke koduyla)',
-  qCountry: 'Ülke / şehir',
+  qCountry: 'Ülke',
   qCountryErr: 'Kortlar nereye kurulacak?',
   qType: 'Proje türü',
   qSelect: 'Seçin…',

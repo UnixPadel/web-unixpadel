@@ -399,6 +399,24 @@ function upx_register_quote_route() {
 }
 add_action('rest_api_init', 'upx_register_quote_route');
 
+/**
+ * Country codes the quote form offers (src/lib/dialCodes.ts; the same list the sales CRM's phone library knows).
+ * Used to accept only real ISO codes: "UK" becomes "GB", anything else two letters long and unknown is free text.
+ */
+define('UPX_COUNTRY_CODES', 'AC AD AE AF AG AI AL AM AO AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GT GU GW GY HK HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TA TC TD TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG US UY UZ VA VC VE VG VI VN VU WF WS XK YE YT ZA ZM ZW');
+
+/** "bd" / "BD" → "BD", "UK" → "GB"; '' when the text is not a known country code. */
+function upx_country_iso($text) {
+	$code = strtoupper(trim((string) $text));
+	if ($code === 'UK') {
+		return 'GB';
+	}
+	if (!preg_match('/^[A-Z]{2}$/', $code)) {
+		return '';
+	}
+	return in_array($code, explode(' ', UPX_COUNTRY_CODES), true) ? $code : '';
+}
+
 /** One trimmed, sanitized, length-capped field from the request. */
 function upx_quote_field($params, $key, $max) {
 	$value = isset($params[$key]) && is_scalar($params[$key]) ? (string) $params[$key] : '';
@@ -432,6 +450,7 @@ function upx_quote_submit(WP_REST_Request $request) {
 		'email'       => sanitize_email(upx_quote_field($params, 'email', 254)),
 		'phone'       => upx_quote_field($params, 'phone', 40),
 		'country'     => upx_quote_field($params, 'country', 80),
+		'countryName' => upx_quote_field($params, 'countryName', 80),
 		'projectType' => upx_quote_field($params, 'projectType', 80),
 		'product'     => upx_quote_field($params, 'product', 150),
 		'productSlug' => sanitize_title(upx_quote_field($params, 'productSlug', 150)),
@@ -457,12 +476,20 @@ function upx_quote_submit(WP_REST_Request $request) {
 		return new WP_REST_Response(array('ok' => false, 'error' => 'invalid', 'fields' => $invalid), 400);
 	}
 
+	// The form sends the ISO code plus its name in the page language; pages cached before the country list send free
+	// text, which stays as it is (the CRM resolves names in many languages).
+	$iso = upx_country_iso($f['country']);
+	if ($iso !== '') {
+		$f['country'] = $iso;
+	}
+	$country_label = $iso !== '' && $f['countryName'] !== '' ? $f['countryName'] . ' (' . $iso . ')' : $f['country'];
+
 	$rows = array(
 		'Name'           => $f['name'],
 		'Company / club' => $f['company'],
 		'Email'          => $f['email'],
 		'Phone'          => $f['phone'],
-		'Country'        => $f['country'],
+		'Country'        => $country_label,
 		'Project type'   => $f['projectType'],
 		'Court / system' => $f['product'],
 		'Courts'         => $f['courts'],
@@ -479,7 +506,7 @@ function upx_quote_submit(WP_REST_Request $request) {
 		$body .= "\nProject details:\n" . $f['message'] . "\n";
 	}
 
-	$subject = sprintf('Quote request: %s (%s)', $f['name'], $f['country']);
+	$subject = sprintf('Quote request: %s (%s)', $f['name'], $country_label);
 	$reply   = str_replace(array('"', '<', '>', ',', ';'), '', $f['name']);
 	$headers = array(
 		'Content-Type: text/plain; charset=UTF-8',
@@ -490,7 +517,7 @@ function upx_quote_submit(WP_REST_Request $request) {
 		. str_repeat('=', 64) . "\n\n";
 	$mailed = wp_mail(
 		upx_quote_to(),
-		'[Unixpadel Website] New quote request from the website form: ' . $f['name'] . ' (' . $f['country'] . ')',
+		'[Unixpadel Website] New quote request from the website form: ' . $f['name'] . ' (' . $country_label . ')',
 		$intro . $body . "\n--\nSent automatically by the quote request form on unixpadel.com. Also saved in WordPress → Quote requests.\n",
 		$headers
 	);

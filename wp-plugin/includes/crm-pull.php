@@ -241,14 +241,17 @@ function upx_crm_payload(WP_Post $post) {
 			$fields[$key] = $value;
 		}
 	}
-	// The form's country box is free text: an ISO code goes to "country", the text always to "country_input" (the
-	// CRM resolves names in six languages and falls back to the phone's country).
+	// Since 2026-11-26 the form sends an ISO code (country list) and its name; older requests carry free text. A known
+	// ISO code goes to "country" (the CRM reads the phone with it); the readable text always goes to "country_input"
+	// (the CRM resolves free-text names itself).
 	$country = $get('country');
 	if ($country !== '') {
-		if (preg_match('/^[A-Za-z]{2}$/', $country)) {
-			$fields['country'] = strtoupper($country);
+		$iso = upx_country_iso($country);
+		if ($iso !== '') {
+			$fields['country'] = $iso;
 		}
-		$fields['country_input'] = $country;
+		$name = $get('countryName');
+		$fields['country_input'] = $name !== '' ? $name : $country;
 	}
 	if ($legacy) {
 		$fields['import_source'] = 'wp-legacy';
